@@ -1,0 +1,26 @@
+{
+  "name": "grc",
+  "description": "GRC (Governance, Risk, and Compliance) domain knowledge — frameworks, controls, audits, evidence, ConMon, cross-framework mappings, document review, and operational workflows. Cloud-agnostic.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Mario Lunato",
+    "url": "https://github.com/mlunato47"
+  },
+  "repository": "https://github.com/mlunato47/claude-grc-plugin",
+  "license": "MIT",
+  "keywords": [
+    "grc",
+    "compliance",
+    "governance",
+    "risk-management",
+    "nist",
+    "fedramp",
+    "soc2",
+    "iso27001",
+    "pci-dss",
+    "hipaa",
+    "cmmc",
+    "audit",
+    "security"
+  ]
+}

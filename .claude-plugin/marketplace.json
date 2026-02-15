@@ -1,0 +1,39 @@
+{
+  "name": "mlunato47",
+  "owner": {
+    "name": "Mario Lunato"
+  },
+  "metadata": {
+    "description": "GRC (Governance, Risk, and Compliance) plugin for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "grc",
+      "source": "./grc",
+      "description": "GRC domain knowledge — 15 frameworks, 24 commands, cross-framework mapping, document review, and operational workflows. Cloud-agnostic.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Mario Lunato",
+        "url": "https://github.com/mlunato47"
+      },
+      "homepage": "https://github.com/mlunato47/claude-grc-plugin",
+      "repository": "https://github.com/mlunato47/claude-grc-plugin",
+      "license": "MIT",
+      "keywords": [
+        "grc",
+        "compliance",
+        "governance",
+        "risk-management",
+        "nist",
+        "fedramp",
+        "soc2",
+        "iso27001",
+        "pci-dss",
+        "hipaa",
+        "cmmc",
+        "audit",
+        "security"
+      ]
+    }
+  ]
+}

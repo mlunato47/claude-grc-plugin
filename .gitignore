@@ -1,0 +1,12 @@
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Claude Code local settings
+.claude/
+
+# Internal testing files
+TESTING.md
+TEST-RUNNER.md
+TEST-RESULTS.md
