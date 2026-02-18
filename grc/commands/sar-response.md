@@ -1,3 +1,7 @@
+---
+description: "Draft structured responses to SAR findings"
+---
+
 # /grc:sar-response
 
 Help draft structured responses to SAR (Security Assessment Report) findings.

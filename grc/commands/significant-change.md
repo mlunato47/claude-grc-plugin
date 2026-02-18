@@ -1,3 +1,7 @@
+---
+description: "Analyze whether a system change qualifies as significant and determine required actions"
+---
+
 # /grc:significant-change
 
 Analyze whether a system change qualifies as "significant" and determine the required actions.

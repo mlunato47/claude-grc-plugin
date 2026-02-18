@@ -1,3 +1,7 @@
+---
+description: "Validate SSP structure and completeness against FedRAMP template standards"
+---
+
 # /grc:review-ssp
 
 Validate SSP structure and completeness against FedRAMP template standards.

@@ -1,3 +1,7 @@
+---
+description: "Generate a recurring compliance activity calendar by framework"
+---
+
 # /grc:compliance-calendar
 
 Generate a recurring compliance activity calendar by framework.

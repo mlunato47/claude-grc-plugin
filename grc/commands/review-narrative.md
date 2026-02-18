@@ -1,3 +1,7 @@
+---
+description: "Review a control implementation narrative for completeness and quality"
+---
+
 # /grc:review-narrative
 
 Review a control implementation narrative for completeness and quality.

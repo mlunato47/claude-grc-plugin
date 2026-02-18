@@ -1,3 +1,7 @@
+---
+description: "Authorization boundary definition guidance"
+---
+
 # /grc:boundary-guidance
 
 Provide guidance on authorization boundary definition based on system architecture.

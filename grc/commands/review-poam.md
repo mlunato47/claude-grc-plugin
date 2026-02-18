@@ -1,3 +1,7 @@
+---
+description: "Review POA&M entries or structure for completeness"
+---
+
 # /grc:review-poam
 
 Review POA&M entries or structure for completeness against FedRAMP and NIST requirements.

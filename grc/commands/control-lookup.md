@@ -1,3 +1,7 @@
+---
+description: "Look up controls by framework and ID or keyword"
+---
+
 # /grc:control-lookup
 
 Look up controls by framework and ID or keyword.

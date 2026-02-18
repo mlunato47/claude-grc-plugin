@@ -1,3 +1,7 @@
+---
+description: "OSCAL structure, readiness, and conversion guidance"
+---
+
 # /grc:oscal-guide
 
 Provide OSCAL guidance — structure, readiness assessment, and conversion considerations.
