@@ -1,3 +1,7 @@
+---
+description: "Generate an evidence preparation checklist for audits or assessments"
+---
+
 # /grc:evidence-checklist
 
 Generate an evidence preparation checklist for upcoming audits or assessments.

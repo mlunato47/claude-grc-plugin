@@ -1,3 +1,7 @@
+---
+description: "Review a CRM for coverage, clarity, and completeness"
+---
+
 # /grc:review-crm
 
 Review a Customer Responsibility Matrix (CRM) or Customer Implementation Summary (CIS) for coverage, clarity, and completeness.

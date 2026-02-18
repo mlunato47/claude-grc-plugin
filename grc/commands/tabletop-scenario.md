@@ -1,3 +1,7 @@
+---
+description: "Generate IR or CP tabletop exercise scenarios"
+---
+
 # /grc:tabletop-scenario
 
 Generate incident response or contingency plan tabletop exercise scenarios.

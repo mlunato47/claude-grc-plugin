@@ -1,3 +1,7 @@
+---
+description: "Draft SSP control family descriptions"
+---
+
 # /grc:ssp-section
 
 Draft SSP (System Security Plan) control family descriptions.

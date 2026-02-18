@@ -1,3 +1,7 @@
+---
+description: "Continuous monitoring guidance by topic"
+---
+
 # /grc:conmon-guide
 
 Continuous monitoring guidance by topic.
