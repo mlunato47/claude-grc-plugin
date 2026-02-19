@@ -1,0 +1,196 @@
+{
+  "title": "Electronic (OSCAL) Version of NIST SP 800-53 Rev 5.2.0 Controls and SP 800-53A Rev 5.2.0 Assessment Procedures",
+  "last-modified": "2025-08-26T14:33:16.00000-00:00",
+  "version": "5.2.0",
+  "oscal-version": "1.1.3",
+  "revisions": [
+    {
+      "title": "Electronic Version of NIST SP 800-53 Rev 5 Controls and SP 800-53A Rev 5 Assessment Procedures",
+      "last-modified": "2023-10-12T00:00:00.000000-04:00",
+      "version": "5.1.1",
+      "oscal-version": "1.1.1",
+      "links": [
+        {
+          "href": "#5a5ffcb9-2272-484e-8d47-4483a0585dec",
+          "rel": "version-history"
+        }
+      ],
+      "remarks": "This OSCAL version of the SP 800-53 Revision 5.1.1 catalog restores the non-padded prop/@name=\\\"label\\\" for all controls, for backwards compatibility and adds prop/@name=\\\"label\\\" with class=\\\"zero-padded\\\" to support and encourage users' transission to zero-padded control IDs. This SP 800-53 Revision 5.1.1 catalog preserves all content changes of the previous 5.1.1+u3 release: one new control (IA-13), three control enhancements, minor grammatical edits/clarifications that do not impact the implementation or outcome of the controls and introduces “leading 0s” to the control identifiers."
+    },
+    {
+      "title": "Electronic Version of NIST SP 800-53 Rev 5.1.1 Controls and SP 800-53A Rev 5.1.1 Assessment Procedures",
+      "last-modified": "2023-11-14T00:00:00.000000-04:00",
+      "version": "5.1.1+u1",
+      "oscal-version": "1.1.1",
+      "links": [
+        {
+          "href": "#5a5ffcb9-2272-484e-8d47-4483a0585dec",
+          "rel": "version-history"
+        }
+      ],
+      "remarks": "This revision of the SP 800-53 Revision 5 Catalog is the finalized changes to NIST SP 800-53 Revision 5.1.1 on November, 7, 2023."
+    },
+    {
+      "title": "Electronic Version of NIST SP 800-53 Rev 5.1.1 Controls and SP 800-53A Rev 5.1.1 Assessment Procedures",
+      "last-modified": "2023-12-04T13:16:10.000000-04:00",
+      "version": "5.1.1+u2",
+      "oscal-version": "1.1.1",
+      "links": [
+        {
+          "href": "#1f2fcda3-408f-422c-aecd-b1717c3f7843",
+          "rel": "version-history"
+        }
+      ],
+      "remarks": "This revision of the OSCAL representation of the NIST SP 800-53 Revision 5.1.1 published on November, 7, 2023, provides enhancements to data representation per community's suggestions."
+    },
+    {
+      "title": "Electronic Version of NIST SP 800-53 Rev 5.1.1 Controls and SP 800-53A Rev 5.1.1 Assessment Procedures",
+      "last-modified": "2023-12-13T20:16:00.000000-00:00",
+      "version": "5.1.1+u3",
+      "oscal-version": "1.1.1",
+      "links": [
+        {
+          "href": "#9a0dc8cb-d398-4635-a7ec-dcbdef1d2113",
+          "rel": "version-history"
+        }
+      ],
+      "remarks": "This revision of the OSCAL representation of the NIST SP 800-53 Revision 5.1.1 published on November, 7, 2023, provides enhancements to data representation per community's suggestions."
+    },
+    {
+      "title": "Electronic Version of NIST SP 800-53 Rev 5.1.1 Controls and SP 800-53A Rev 5.1.1 Assessment Procedures",
+      "last-modified": "2024-02-04T23:16:00.000000-00:00",
+      "version": "5.1.1+u4",
+      "oscal-version": "1.1.2",
+      "links": [
+        {
+          "href": "#9b0c9c43-2722-4bbb-b132-13d34fb94d45",
+          "rel": "version-history"
+        }
+      ],
+      "remarks": "This revision of the OSCAL representation of the NIST SP 800-53 Revision 5.1.1 published on November, 7, 2023, provides a bug fix in SI-03(09) control lines 77352-77359."
+    },
+    {
+      "title": "Electronic (OSCAL) Version of NIST SP 800-53 Rev 5.1.1 Controls and SP 800-53A Rev 5.1.1 Assessment Procedures",
+      "last-modified": "2024-10-31T21:16:00.000000-00:00",
+      "version": "5.1.1+u5",
+      "oscal-version": "1.1.2",
+      "links": [
+        {
+          "href": "#cb35e1b6-0467-4234-96ba-224045914965",
+          "rel": "version-history"
+        }
+      ],
+      "remarks": "This revision of the OSCAL representation of the NIST SP 800-53 Revision 5.1.1 published on November, 7, 2023, provides bug fixes."
+    }
+  ],
+  "props": [
+    {
+      "name": "keywords",
+      "value": "Assessment, assessment plan, assurance, availability, computer security, confidentiality, control, control assessment, cybersecurity, FISMA, information security, information system, integrity, personally identifiable information, OSCAL, Open Security Controls Assessment Language, Privacy Act, privacy controls, privacy functions, privacy requirements, Risk Management Framework, security controls, security functions, security requirements, system, system security"
+    }
+  ],
+  "links": [
+    {
+      "href": "#c3397cc9-83c6-4459-adb2-836739dc1b94",
+      "rel": "alternate"
+    },
+    {
+      "href": "#f7cf488d-bc64-4a91-a994-810e153ee481",
+      "rel": "canonical"
+    },
+    {
+      "href": "#d68867c0-2f21-4193-bef8-300f32701016",
+      "rel": "cprt"
+    }
+  ],
+  "roles": [
+    {
+      "id": "creator",
+      "title": "OSCAL Version Creator"
+    },
+    {
+      "id": "contact-creator",
+      "title": "Contact"
+    },
+    {
+      "id": "publisher",
+      "title": "SP 800-53 Publisher"
+    },
+    {
+      "id": "contact-publisher",
+      "title": "Contact"
+    }
+  ],
+  "parties": [
+    {
+      "uuid": "41a93829-b76b-43ec-b9e7-250553511549",
+      "type": "organization",
+      "name": "Joint Task Force, Interagency Working Group",
+      "email-addresses": [
+        "sec-cert@nist.gov"
+      ],
+      "addresses": [
+        {
+          "addr-lines": [
+            "National Institute of Standards and Technology",
+            "Attn: Computer Security Division",
+            "Information Technology Laboratory",
+            "100 Bureau Drive (Mail Stop 8930)"
+          ],
+          "city": "Gaithersburg",
+          "state": "MD",
+          "postal-code": "20899-8930"
+        }
+      ]
+    },
+    {
+      "uuid": "98c78f9b-5d50-4b01-b47f-d16801e8d0ab",
+      "type": "organization",
+      "name": "OSCAL Program",
+      "short-name": "NIST",
+      "email-addresses": [
+        "oscal@nist.gov"
+      ],
+      "addresses": [
+        {
+          "addr-lines": [
+            "National Institute of Standards and Technology",
+            "Attn: Computer Security Division",
+            "Information Technology Laboratory",
+            "100 Bureau Drive (Mail Stop 2000)"
+          ],
+          "city": "Gaithersburg",
+          "state": "MD",
+          "postal-code": "20899-2000"
+        }
+      ]
+    }
+  ],
+  "responsible-parties": [
+    {
+      "role-id": "publisher",
+      "party-uuids": [
+        "41a93829-b76b-43ec-b9e7-250553511549"
+      ]
+    },
+    {
+      "role-id": "contact-publisher",
+      "party-uuids": [
+        "41a93829-b76b-43ec-b9e7-250553511549"
+      ]
+    },
+    {
+      "role-id": "creator",
+      "party-uuids": [
+        "98c78f9b-5d50-4b01-b47f-d16801e8d0ab"
+      ]
+    },
+    {
+      "role-id": "contact-creator",
+      "party-uuids": [
+        "98c78f9b-5d50-4b01-b47f-d16801e8d0ab"
+      ]
+    }
+  ],
+  "remarks": "This OSCAL representation of the NIST SP 800-53 Revision 5.2.0 provides updates to the 800-53 v5.1.1 which support “securely and reliably deploy[ing] patches and updates\\\"."
+}

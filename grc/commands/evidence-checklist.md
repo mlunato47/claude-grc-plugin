@@ -35,19 +35,28 @@ When invoked:
 
 1. **This is a pure reference command** — it generates checklists from framework knowledge and does NOT require user content. No redaction reminder is needed.
 
-2. **Read the appropriate reference files**:
+2. **Read the OSCAL family JSON first** for authoritative assessment procedures (use the Read tool — do NOT use Bash, Python, or jq to extract data):
+   - For `nist`: read `skills/grc-knowledge/oscal/nist-800-53-rev5/{family}.json`
+   - For `fedramp`: read `skills/grc-knowledge/oscal/fedramp-moderate-rev5/{family}.json`
+   - Extract assessment methods from `.controls[].parts[] | select(.name == "assessment-method")`:
+     - **EXAMINE** method → use `.parts[] | select(.name == "assessment-objects") | .prose` as the primary source for "Documents to prepare" and "Technical evidence"
+     - **INTERVIEW** method → use `.parts[].prose` as the primary source for "Interview subjects"
+     - **TEST** method → use `.parts[].prose` to identify processes and mechanisms that need demonstrable evidence
+   - **ID normalization**: `AC-2` → `ac-2`, `AC-2(1)` → `ac-2.1`
+
+3. **Read additional reference files**:
    - Framework file from `skills/grc-knowledge/frameworks/`
    - Audit file from `skills/grc-knowledge/audits/` (if audit-type specified)
    - Narrative quality criteria from `skills/grc-knowledge/audits/narrative-quality-criteria.md` (for evidence expectations)
 
-3. **For each control**, generate:
+4. **For each control**, generate:
    - **Documents to prepare**: Policies, plans, procedures, and SSP narratives the auditor will request
    - **Technical evidence**: Screenshots, configuration exports, log samples, scan results
    - **Interview subjects**: Roles the auditor will want to speak with
    - **Common gaps**: Evidence that is frequently missing or insufficient for this control
    - **Preparation tips**: Practical advice for gathering this evidence
 
-4. **If audit-type is specified**, tailor the checklist:
+5. **If audit-type is specified**, tailor the checklist:
    - `3pao`: Focus on FedRAMP SAR evidence requirements, emphasize technical testing artifacts
    - `annual`: Focus on changes since last assessment, ConMon evidence
    - `soc2`: Focus on operating effectiveness evidence over the observation period
@@ -55,9 +64,9 @@ When invoked:
    - `pci`: Focus on scoping documentation and technical validation
    - `internal`: Focus on self-assessment evidence and improvement tracking
 
-5. **If a family is provided** instead of specific controls, expand to all controls in that family at the applicable baseline (default: Moderate for NIST/FedRAMP).
+6. **If a family is provided** instead of specific controls, expand to all controls in that family at the applicable baseline (default: Moderate for NIST/FedRAMP).
 
-6. **If no arguments provided**, ask the user which framework and controls to generate a checklist for.
+7. **If no arguments provided**, ask the user which framework and controls to generate a checklist for.
 
 ## Output Format
 
