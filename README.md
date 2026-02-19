@@ -261,6 +261,34 @@ The plugin includes a typed multi-plane Knowledge Graph with path-constrained re
 | `graph/edges.json` | 295 edges across all four planes |
 | `graph/pathrag.md` | Traversal rules, scoring formula, output format |
 
+## Roadmap
+
+Planned enhancements and next priorities for the plugin:
+
+### Graph Expansion
+
+The current graph covers families and top-level controls. Next steps include adding sub-control nodes, richer NIST-to-framework edges extracted from existing mapping files, and conditional or baseline-specific predicates (e.g., "applies only at FedRAMP High").
+
+### Framework Content Depth
+
+Many framework reference files are concise summaries today. Enriching them with more detailed control descriptions, assessment objectives, and ODP (Organization-Defined Parameter) guidance would improve the quality of control lookups, narrative reviews, and gap analyses.
+
+### OSCAL Integration
+
+The plugin has an `/grc:oscal-guide` command but no actual OSCAL import/export capability. Adding OSCAL JSON/XML parsing would let users feed real System Security Plans, component definitions, and assessment results into the Knowledge Graph — bridging structured compliance data with graph-based reasoning.
+
+### Automated Graph Seeding
+
+`tools/seed_graph.py` can parse the mapping markdown files and expand the graph, but this capability is not fully utilized yet. Running the seeder in `--expand --write` mode and integrating it into a build step could significantly grow edge coverage without manual curation.
+
+### Additional Test Coverage
+
+The current 47-test suite validates graph integrity across all four layers. Next steps include integration tests for the slash commands themselves, edge-case graph traversals (e.g., orphan nodes, circular paths), fuzz testing on command inputs, and performance benchmarks for large graph queries.
+
+### Plugin Packaging and Distribution
+
+Polishing the `marketplace.json` metadata, adding install verification checks, documenting version compatibility, and streamlining the plugin install experience for both marketplace and local directory workflows.
+
 ## Contributing
 
 Contributions welcome. The main areas where help is needed:
