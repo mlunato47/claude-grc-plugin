@@ -1,0 +1,3402 @@
+{
+  "id": "mp",
+  "class": "family",
+  "title": "Media Protection",
+  "controls": [
+    {
+      "id": "mp-1",
+      "class": "SP800-53",
+      "title": "Policy and Procedures",
+      "params": [
+        {
+          "id": "mp-1_prm_1",
+          "label": "organization-defined personnel or roles"
+        },
+        {
+          "id": "mp-01_odp.01",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles to whom the media protection policy is to be disseminated is/are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-01_odp.02",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles to whom the media protection procedures are to be disseminated is/are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-01_odp.03",
+          "select": {
+            "how-many": "one-or-more",
+            "choice": [
+              "organization-level",
+              "mission/business process-level",
+              "system-level"
+            ]
+          }
+        },
+        {
+          "id": "mp-01_odp.04",
+          "label": "official",
+          "guidelines": [
+            {
+              "prose": "an official to manage the media protection policy and procedures is defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-01_odp.05",
+          "label": "frequency",
+          "constraints": [
+            {
+              "description": "at least every 3 years"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "the frequency with which the current media protection policy is reviewed and updated is defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-01_odp.06",
+          "label": "events",
+          "guidelines": [
+            {
+              "prose": "events that would require the current media protection policy to be reviewed and updated are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-01_odp.07",
+          "label": "frequency",
+          "constraints": [
+            {
+              "description": "at least annually"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "the frequency with which the current media protection procedures are reviewed and updated is defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-01_odp.08",
+          "label": "events",
+          "constraints": [
+            {
+              "description": "significant changes"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "events that would require media protection procedures to be reviewed and updated are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "MP-1"
+        },
+        {
+          "name": "label",
+          "value": "MP-01",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "mp-01"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        },
+        {
+          "name": "contributes-to-assurance",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "true"
+        }
+      ],
+      "links": [
+        {
+          "href": "#27847491-5ce1-4f6a-a1e4-9e483782f0ef",
+          "rel": "reference"
+        },
+        {
+          "href": "#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0",
+          "rel": "reference"
+        },
+        {
+          "href": "#08b07465-dbdc-48d6-8a0b-37279602ac16",
+          "rel": "reference"
+        },
+        {
+          "href": "#cec037f3-8aba-4c97-84b4-4082f9e515d2",
+          "rel": "reference"
+        },
+        {
+          "href": "#4c0ec2ee-a0d6-428a-9043-4504bc3ade6f",
+          "rel": "reference"
+        },
+        {
+          "href": "#pm-9",
+          "rel": "related"
+        },
+        {
+          "href": "#ps-8",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "mp-1_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "mp-1_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point.",
+                  "remarks": "This response must address all control sub-statement requirements."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Develop, document, and disseminate to {{ insert: param, mp-1_prm_1 }}:",
+              "parts": [
+                {
+                  "id": "mp-1_smt.a.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "1."
+                    }
+                  ],
+                  "prose": " {{ insert: param, mp-01_odp.03 }} media protection policy that:",
+                  "parts": [
+                    {
+                      "id": "mp-1_smt.a.1.a",
+                      "name": "item",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "(a)"
+                        }
+                      ],
+                      "prose": "Addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and"
+                    },
+                    {
+                      "id": "mp-1_smt.a.1.b",
+                      "name": "item",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "(b)"
+                        }
+                      ],
+                      "prose": "Is consistent with applicable laws, executive orders, directives, regulations, policies, standards, and guidelines; and"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-1_smt.a.2",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "2."
+                    }
+                  ],
+                  "prose": "Procedures to facilitate the implementation of the media protection policy and the associated media protection controls;"
+                }
+              ]
+            },
+            {
+              "id": "mp-1_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Designate an {{ insert: param, mp-01_odp.04 }} to manage the development, documentation, and dissemination of the media protection policy and procedures; and"
+            },
+            {
+              "id": "mp-1_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point.",
+                  "remarks": "This response must address all control sub-statement requirements."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Review and update the current media protection:",
+              "parts": [
+                {
+                  "id": "mp-1_smt.c.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "1."
+                    }
+                  ],
+                  "prose": "Policy {{ insert: param, mp-01_odp.05 }} and following {{ insert: param, mp-01_odp.06 }} ; and"
+                },
+                {
+                  "id": "mp-1_smt.c.2",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "2."
+                    }
+                  ],
+                  "prose": "Procedures {{ insert: param, mp-01_odp.07 }} and following {{ insert: param, mp-01_odp.08 }}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mp-1_gdn",
+          "name": "guidance",
+          "prose": "Media protection policy and procedures address the controls in the MP family that are implemented within systems and organizations. The risk management strategy is an important factor in establishing such policies and procedures. Policies and procedures contribute to security and privacy assurance. Therefore, it is important that security and privacy programs collaborate on the development of media protection policy and procedures. Security and privacy program policies and procedures at the organization level are preferable, in general, and may obviate the need for mission- or system-specific policies and procedures. The policy can be included as part of the general security and privacy policy or be represented by multiple policies that reflect the complex nature of organizations. Procedures can be established for security and privacy programs, for mission or business processes, and for systems, if needed. Procedures describe how the policies or controls are implemented and can be directed at the individual or role that is the object of the procedure. Procedures can be documented in system security and privacy plans or in one or more separate documents. Events that may precipitate an update to media protection policy and procedures include assessment or audit findings, security incidents or breaches, or changes in applicable laws, executive orders, directives, regulations, policies, standards, and guidelines. Simply restating controls does not constitute an organizational policy or procedure."
+        },
+        {
+          "id": "mp-1_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "MP-01",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "mp-1_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "MP-01a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "mp-1_obj.a-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-01a.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "a media protection policy is developed and documented;",
+                  "links": [
+                    {
+                      "href": "#mp-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-1_obj.a-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-01a.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "the media protection policy is disseminated to {{ insert: param, mp-01_odp.01 }};",
+                  "links": [
+                    {
+                      "href": "#mp-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-1_obj.a-3",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-01a.[03]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "media protection procedures to facilitate the implementation of the media protection policy and associated media protection controls are developed and documented;",
+                  "links": [
+                    {
+                      "href": "#mp-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-1_obj.a-4",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-01a.[04]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "the media protection procedures are disseminated to {{ insert: param, mp-01_odp.02 }};",
+                  "links": [
+                    {
+                      "href": "#mp-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-1_obj.a.1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "MP-01a.01",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "parts": [
+                    {
+                      "id": "mp-1_obj.a.1.a",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "response-point",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "You must fill in this response point."
+                        },
+                        {
+                          "name": "method",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "EXAMINE",
+                          "class": "fedramp"
+                        },
+                        {
+                          "name": "label",
+                          "value": "MP-01a.01(a)",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "parts": [
+                        {
+                          "id": "mp-1_obj.a.1.a-1",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "MP-01a.01(a)[01]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, mp-01_odp.03 }} media protection policy addresses purpose;",
+                          "links": [
+                            {
+                              "href": "#mp-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "mp-1_obj.a.1.a-2",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "MP-01a.01(a)[02]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, mp-01_odp.03 }} media protection policy addresses scope;",
+                          "links": [
+                            {
+                              "href": "#mp-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "mp-1_obj.a.1.a-3",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "MP-01a.01(a)[03]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, mp-01_odp.03 }} media protection policy addresses roles;",
+                          "links": [
+                            {
+                              "href": "#mp-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "mp-1_obj.a.1.a-4",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "MP-01a.01(a)[04]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, mp-01_odp.03 }} media protection policy addresses responsibilities;",
+                          "links": [
+                            {
+                              "href": "#mp-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "mp-1_obj.a.1.a-5",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "MP-01a.01(a)[05]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, mp-01_odp.03 }} media protection policy addresses management commitment;",
+                          "links": [
+                            {
+                              "href": "#mp-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "mp-1_obj.a.1.a-6",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "MP-01a.01(a)[06]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, mp-01_odp.03 }} media protection policy addresses coordination among organizational entities;",
+                          "links": [
+                            {
+                              "href": "#mp-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "mp-1_obj.a.1.a-7",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "MP-01a.01(a)[07]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, mp-01_odp.03 }} media protection policy compliance;",
+                          "links": [
+                            {
+                              "href": "#mp-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        }
+                      ],
+                      "links": [
+                        {
+                          "href": "#mp-1_smt.a.1.a",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "mp-1_obj.a.1.b",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "response-point",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "You must fill in this response point."
+                        },
+                        {
+                          "name": "method",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "EXAMINE",
+                          "class": "fedramp"
+                        },
+                        {
+                          "name": "label",
+                          "value": "MP-01a.01(b)",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the media protection policy is consistent with applicable laws, Executive Orders, directives, regulations, policies, standards, and guidelines;",
+                      "links": [
+                        {
+                          "href": "#mp-1_smt.a.1.b",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    }
+                  ],
+                  "links": [
+                    {
+                      "href": "#mp-1_smt.a.1",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#mp-1_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "mp-1_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-01b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the {{ insert: param, mp-01_odp.04 }} is designated to manage the development, documentation, and dissemination of the media protection policy and procedures.",
+              "links": [
+                {
+                  "href": "#mp-1_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "mp-1_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "MP-01c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "mp-1_obj.c.1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-01c.01",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "parts": [
+                    {
+                      "id": "mp-1_obj.c.1-1",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "MP-01c.01[01]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current media protection policy is reviewed and updated {{ insert: param, mp-01_odp.05 }}; ",
+                      "links": [
+                        {
+                          "href": "#mp-1_smt.c.1",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "mp-1_obj.c.1-2",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "MP-01c.01[02]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current media protection policy is reviewed and updated following {{ insert: param, mp-01_odp.06 }};",
+                      "links": [
+                        {
+                          "href": "#mp-1_smt.c.1",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    }
+                  ],
+                  "links": [
+                    {
+                      "href": "#mp-1_smt.c.1",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-1_obj.c.2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-01c.02",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "parts": [
+                    {
+                      "id": "mp-1_obj.c.2-1",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "MP-01c.02[01]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current media protection procedures are reviewed and updated {{ insert: param, mp-01_odp.07 }}; ",
+                      "links": [
+                        {
+                          "href": "#mp-1_smt.c.2",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "mp-1_obj.c.2-2",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "MP-01c.02[02]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current media protection procedures are reviewed and updated following {{ insert: param, mp-01_odp.08 }}.",
+                      "links": [
+                        {
+                          "href": "#mp-1_smt.c.2",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    }
+                  ],
+                  "links": [
+                    {
+                      "href": "#mp-1_smt.c.2",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#mp-1_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#mp-1_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "mp-1_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "MP-01-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Media protection policy and procedures\n\norganizational risk management strategy\n\nsystem security plan\n\nprivacy plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "mp-1_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "MP-01-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with media protection responsibilities\n\norganizational personnel with information security and privacy responsibilities"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mp-2",
+      "class": "SP800-53",
+      "title": "Media Access",
+      "params": [
+        {
+          "id": "mp-2_prm_1",
+          "label": "organization-defined types of digital and/or non-digital media",
+          "constraints": [
+            {
+              "description": "all types of digital and/or non-digital media containing sensitive information"
+            }
+          ]
+        },
+        {
+          "id": "mp-2_prm_2",
+          "label": "organization-defined personnel or roles"
+        },
+        {
+          "id": "mp-02_odp.01",
+          "label": "types of digital media",
+          "guidelines": [
+            {
+              "prose": "types of digital media to which access is restricted are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-02_odp.02",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles authorized to access digital media is/are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-02_odp.03",
+          "label": "types of non-digital media",
+          "guidelines": [
+            {
+              "prose": "types of non-digital media to which access is restricted are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-02_odp.04",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles authorized to access non-digital media is/are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "MP-2"
+        },
+        {
+          "name": "label",
+          "value": "MP-02",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "mp-02"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        }
+      ],
+      "links": [
+        {
+          "href": "#27847491-5ce1-4f6a-a1e4-9e483782f0ef",
+          "rel": "reference"
+        },
+        {
+          "href": "#628d22a1-6a11-4784-bc59-5cd9497b5445",
+          "rel": "reference"
+        },
+        {
+          "href": "#22f2d4f0-4365-4e88-a30d-275c1f5473ea",
+          "rel": "reference"
+        },
+        {
+          "href": "#ac-19",
+          "rel": "related"
+        },
+        {
+          "href": "#au-9",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-2",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-9",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-10",
+          "rel": "related"
+        },
+        {
+          "href": "#ma-5",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-4",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-6",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-2",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-3",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-12",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-13",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-34",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "mp-2_smt",
+          "name": "statement",
+          "props": [
+            {
+              "name": "response-point",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "You must fill in this response point."
+            }
+          ],
+          "prose": "Restrict access to {{ insert: param, mp-2_prm_1 }} to {{ insert: param, mp-2_prm_2 }}."
+        },
+        {
+          "id": "mp-2_gdn",
+          "name": "guidance",
+          "prose": "System media includes digital and non-digital media. Digital media includes flash drives, diskettes, magnetic tapes, external or removable hard disk drives (e.g., solid state, magnetic), compact discs, and digital versatile discs. Non-digital media includes paper and microfilm. Denying access to patient medical records in a community hospital unless the individuals seeking access to such records are authorized healthcare providers is an example of restricting access to non-digital media. Limiting access to the design specifications stored on compact discs in the media library to individuals on the system development team is an example of restricting access to digital media."
+        },
+        {
+          "id": "mp-2_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "MP-02",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "mp-2_obj-1",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-02[01]",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "access to {{ insert: param, mp-02_odp.01 }} is restricted to {{ insert: param, mp-02_odp.02 }};",
+              "links": [
+                {
+                  "href": "#mp-2_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "mp-2_obj-2",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-02[02]",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "access to {{ insert: param, mp-02_odp.03 }} is restricted to {{ insert: param, mp-02_odp.04 }}.",
+              "links": [
+                {
+                  "href": "#mp-2_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#mp-2_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "mp-2_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "MP-02-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "System media protection policy\n\nprocedures addressing media access restrictions\n\naccess control policy and procedures\n\nphysical and environmental protection policy and procedures\n\nmedia storage facilities\n\naccess control records\n\nsystem security plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "mp-2_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "MP-02-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with system media protection responsibilities\n\norganizational personnel with information security responsibilities\n\nsystem/network administrators"
+            }
+          ]
+        },
+        {
+          "id": "mp-2_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "MP-02-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for restricting information media\n\nmechanisms supporting and/or implementing media access restrictions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mp-3",
+      "class": "SP800-53",
+      "title": "Media Marking",
+      "params": [
+        {
+          "id": "mp-03_odp.01",
+          "label": "types of media exempted from marking",
+          "constraints": [
+            {
+              "description": "no removable media types"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "types of system media exempt from marking when remaining in controlled areas are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-03_odp.02",
+          "label": "controlled areas",
+          "constraints": [
+            {
+              "description": "organization-defined security safeguards not applicable"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "controlled areas where media is exempt from marking are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "MP-3"
+        },
+        {
+          "name": "label",
+          "value": "MP-03",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "mp-03"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        }
+      ],
+      "links": [
+        {
+          "href": "#34a5571f-e252-4309-a8a1-2fdb2faefbcd",
+          "rel": "reference"
+        },
+        {
+          "href": "#91f992fb-f668-4c91-a50f-0f05b95ccee3",
+          "rel": "reference"
+        },
+        {
+          "href": "#628d22a1-6a11-4784-bc59-5cd9497b5445",
+          "rel": "reference"
+        },
+        {
+          "href": "#ac-16",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-9",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-5",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-22",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "mp-3_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "mp-3_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Mark system media indicating the distribution limitations, handling caveats, and applicable security markings (if any) of the information; and"
+            },
+            {
+              "id": "mp-3_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Exempt {{ insert: param, mp-03_odp.01 }} from marking if the media remain within {{ insert: param, mp-03_odp.02 }}."
+            },
+            {
+              "id": "mp-3_fr",
+              "name": "item",
+              "title": "MP-3 Additional FedRAMP Requirements and Guidance",
+              "parts": [
+                {
+                  "id": "mp-3_fr_gdn.1",
+                  "name": "guidance",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "(b) Guidance:"
+                    }
+                  ],
+                  "prose": "Second parameter not-applicable"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mp-3_gdn",
+          "name": "guidance",
+          "prose": "Security marking refers to the application or use of human-readable security attributes. Digital media includes diskettes, magnetic tapes, external or removable hard disk drives (e.g., solid state, magnetic), flash drives, compact discs, and digital versatile discs. Non-digital media includes paper and microfilm. Controlled unclassified information is defined by the National Archives and Records Administration along with the appropriate safeguarding and dissemination requirements for such information and is codified in [32 CFR 2002](#91f992fb-f668-4c91-a50f-0f05b95ccee3) . Security markings are generally not required for media that contains information determined by organizations to be in the public domain or to be publicly releasable. Some organizations may require markings for public information indicating that the information is publicly releasable. System media marking reflects applicable laws, executive orders, directives, policies, regulations, standards, and guidelines."
+        },
+        {
+          "id": "mp-3_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "MP-03",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "mp-3_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-03a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "system media is marked to indicate distribution limitations, handling caveats, and applicable security markings (if any) of the information;",
+              "links": [
+                {
+                  "href": "#mp-3_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "mp-3_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-03b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": " {{ insert: param, mp-03_odp.01 }} remain within {{ insert: param, mp-03_odp.02 }}.",
+              "links": [
+                {
+                  "href": "#mp-3_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#mp-3_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "mp-3_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "MP-03-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "System media protection policy\n\nprocedures addressing media marking\n\nphysical and environmental protection policy and procedures\n\nlist of system media marking security attributes\n\ndesignated controlled areas\n\nsystem security plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "mp-3_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "MP-03-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with system media protection and marking responsibilities\n\norganizational personnel with information security responsibilities"
+            }
+          ]
+        },
+        {
+          "id": "mp-3_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "MP-03-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for marking information media\n\nmechanisms supporting and/or implementing media marking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mp-4",
+      "class": "SP800-53",
+      "title": "Media Storage",
+      "params": [
+        {
+          "id": "mp-4_prm_1",
+          "label": "organization-defined types of digital and/or non-digital media",
+          "constraints": [
+            {
+              "description": "all types of digital and non-digital media with sensitive information"
+            }
+          ]
+        },
+        {
+          "id": "mp-4_prm_2",
+          "label": "organization-defined controlled areas",
+          "constraints": [
+            {
+              "description": "see additional FedRAMP requirements and guidance"
+            }
+          ]
+        },
+        {
+          "id": "mp-04_odp.01",
+          "label": "types of digital media",
+          "guidelines": [
+            {
+              "prose": "types of digital media to be physically controlled are defined (if selected);"
+            }
+          ]
+        },
+        {
+          "id": "mp-04_odp.02",
+          "label": "types of non-digital media",
+          "guidelines": [
+            {
+              "prose": "types of non-digital media to be physically controlled are defined (if selected);"
+            }
+          ]
+        },
+        {
+          "id": "mp-04_odp.03",
+          "label": "types of digital media",
+          "guidelines": [
+            {
+              "prose": "types of digital media to be securely stored are defined (if selected);"
+            }
+          ]
+        },
+        {
+          "id": "mp-04_odp.04",
+          "label": "types of non-digital media",
+          "guidelines": [
+            {
+              "prose": "types of non-digital media to be securely stored are defined (if selected);"
+            }
+          ]
+        },
+        {
+          "id": "mp-04_odp.05",
+          "label": "controlled areas",
+          "guidelines": [
+            {
+              "prose": "controlled areas within which to securely store digital media are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-04_odp.06",
+          "label": "controlled areas",
+          "guidelines": [
+            {
+              "prose": "controlled areas within which to securely store non-digital media are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "MP-4"
+        },
+        {
+          "name": "label",
+          "value": "MP-04",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "mp-04"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        }
+      ],
+      "links": [
+        {
+          "href": "#628d22a1-6a11-4784-bc59-5cd9497b5445",
+          "rel": "reference"
+        },
+        {
+          "href": "#20957dbb-6a1e-40a2-b38a-66f67d33ac2e",
+          "rel": "reference"
+        },
+        {
+          "href": "#0d083d8a-5cc6-46f1-8d79-3081d42bcb75",
+          "rel": "reference"
+        },
+        {
+          "href": "#eef62b16-c796-4554-955c-505824135b8a",
+          "rel": "reference"
+        },
+        {
+          "href": "#110e26af-4765-49e1-8740-6750f83fcda1",
+          "rel": "reference"
+        },
+        {
+          "href": "#e7942589-e267-4a5a-a3d9-f39a7aae81f0",
+          "rel": "reference"
+        },
+        {
+          "href": "#8306620b-1920-4d73-8b21-12008528595f",
+          "rel": "reference"
+        },
+        {
+          "href": "#22f2d4f0-4365-4e88-a30d-275c1f5473ea",
+          "rel": "reference"
+        },
+        {
+          "href": "#ac-19",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-2",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-6",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-9",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-10",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-2",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-7",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-3",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-2",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-12",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-13",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-28",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-34",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "mp-4_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "mp-4_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Physically control and securely store {{ insert: param, mp-4_prm_1 }} within {{ insert: param, mp-4_prm_2 }} ; and"
+            },
+            {
+              "id": "mp-4_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Protect system media types defined in MP-4a until the media are destroyed or sanitized using approved equipment, techniques, and procedures."
+            },
+            {
+              "id": "mp-4_fr",
+              "name": "item",
+              "title": "MP-4 Additional FedRAMP Requirements and Guidance",
+              "parts": [
+                {
+                  "id": "mp-4_fr_smt.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "(a) Requirement:"
+                    }
+                  ],
+                  "prose": "The service provider defines controlled areas within facilities where the information and information system reside."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mp-4_gdn",
+          "name": "guidance",
+          "prose": "System media includes digital and non-digital media. Digital media includes flash drives, diskettes, magnetic tapes, external or removable hard disk drives (e.g., solid state, magnetic), compact discs, and digital versatile discs. Non-digital media includes paper and microfilm. Physically controlling stored media includes conducting inventories, ensuring procedures are in place to allow individuals to check out and return media to the library, and maintaining accountability for stored media. Secure storage includes a locked drawer, desk, or cabinet or a controlled media library. The type of media storage is commensurate with the security category or classification of the information on the media. Controlled areas are spaces that provide physical and procedural controls to meet the requirements established for protecting information and systems. Fewer controls may be needed for media that contains information determined to be in the public domain, publicly releasable, or have limited adverse impacts on organizations, operations, or individuals if accessed by other than authorized personnel. In these situations, physical access controls provide adequate protection."
+        },
+        {
+          "id": "mp-4_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "MP-04",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "mp-4_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "MP-04a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "mp-4_obj.a-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "TEST",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-04a.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": " {{ insert: param, mp-04_odp.01 }} are physically controlled;",
+                  "links": [
+                    {
+                      "href": "#mp-4_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-4_obj.a-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "TEST",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-04a.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": " {{ insert: param, mp-04_odp.02 }} are physically controlled;",
+                  "links": [
+                    {
+                      "href": "#mp-4_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-4_obj.a-3",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "TEST",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-04a.[03]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": " {{ insert: param, mp-04_odp.03 }} are securely stored within {{ insert: param, mp-04_odp.05 }};",
+                  "links": [
+                    {
+                      "href": "#mp-4_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-4_obj.a-4",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "TEST",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-04a.[04]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": " {{ insert: param, mp-04_odp.04 }} are securely stored within {{ insert: param, mp-04_odp.06 }};",
+                  "links": [
+                    {
+                      "href": "#mp-4_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#mp-4_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "mp-4_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-04b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "system media types (defined in MP-04_ODP[01], MP-04_ODP[02], MP-04_ODP[03], MP-04_ODP[04]) are protected until the media are destroyed or sanitized using approved equipment, techniques, and procedures.",
+              "links": [
+                {
+                  "href": "#mp-4_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#mp-4_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "mp-4_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "MP-04-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "System media protection policy\n\nprocedures addressing media storage\n\nphysical and environmental protection policy and procedures\n\naccess control policy and procedures\n\nsystem media\n\ndesignated controlled areas\n\nsystem security plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "mp-4_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "MP-04-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with system media protection and storage responsibilities\n\norganizational personnel with information security responsibilities"
+            }
+          ]
+        },
+        {
+          "id": "mp-4_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "MP-04-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for storing information media\n\nmechanisms supporting and/or implementing secure media storage/media protection"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mp-5",
+      "class": "SP800-53",
+      "title": "Media Transport",
+      "params": [
+        {
+          "id": "mp-5_prm_2",
+          "label": "organization-defined controls",
+          "constraints": [
+            {
+              "description": "prior to leaving secure/controlled environment: for digital media, encryption in compliance with Federal requirements and utilizes FIPS validated or NSA approved cryptography (see SC-13.); for non-digital media, secured in locked container"
+            }
+          ]
+        },
+        {
+          "id": "mp-05_odp.01",
+          "label": "types of system media",
+          "constraints": [
+            {
+              "description": "all media with sensitive information"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "types of system media to protect and control during transport outside of controlled areas are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-05_odp.02",
+          "label": "controls",
+          "guidelines": [
+            {
+              "prose": "controls used to protect system media outside of controlled areas are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-05_odp.03",
+          "label": "controls",
+          "guidelines": [
+            {
+              "prose": "controls used to control system media outside of controlled areas are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "MP-5"
+        },
+        {
+          "name": "label",
+          "value": "MP-05",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "mp-05"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        }
+      ],
+      "links": [
+        {
+          "href": "#628d22a1-6a11-4784-bc59-5cd9497b5445",
+          "rel": "reference"
+        },
+        {
+          "href": "#e72fde0b-6fc2-497e-a9db-d8fce5a11b8a",
+          "rel": "reference"
+        },
+        {
+          "href": "#9be5d661-421f-41ad-854e-86f98b811891",
+          "rel": "reference"
+        },
+        {
+          "href": "#ac-7",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-19",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-2",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-9",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-3",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-4",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-16",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-2",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-12",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-13",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-28",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-34",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "mp-5_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "mp-5_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Protect and control {{ insert: param, mp-05_odp.01 }} during transport outside of controlled areas using {{ insert: param, mp-5_prm_2 }};"
+            },
+            {
+              "id": "mp-5_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Maintain accountability for system media during transport outside of controlled areas;"
+            },
+            {
+              "id": "mp-5_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Document activities associated with the transport of system media; and"
+            },
+            {
+              "id": "mp-5_smt.d",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "d."
+                }
+              ],
+              "prose": "Restrict the activities associated with the transport of system media to authorized personnel."
+            },
+            {
+              "id": "mp-5_fr",
+              "name": "item",
+              "title": "MP-5 Additional FedRAMP Requirements and Guidance",
+              "parts": [
+                {
+                  "id": "mp-5_fr_smt.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "(a) Requirement:"
+                    }
+                  ],
+                  "prose": "The service provider defines security measures to protect digital and non-digital media in transport. The security measures are approved and accepted by the JAB/AO."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mp-5_gdn",
+          "name": "guidance",
+          "prose": "System media includes digital and non-digital media. Digital media includes flash drives, diskettes, magnetic tapes, external or removable hard disk drives (e.g., solid state and magnetic), compact discs, and digital versatile discs. Non-digital media includes microfilm and paper. Controlled areas are spaces for which organizations provide physical or procedural controls to meet requirements established for protecting information and systems. Controls to protect media during transport include cryptography and locked containers. Cryptographic mechanisms can provide confidentiality and integrity protections depending on the mechanisms implemented. Activities associated with media transport include releasing media for transport, ensuring that media enters the appropriate transport processes, and the actual transport. Authorized transport and courier personnel may include individuals external to the organization. Maintaining accountability of media during transport includes restricting transport activities to authorized personnel and tracking and/or obtaining records of transport activities as the media moves through the transportation system to prevent and detect loss, destruction, or tampering. Organizations establish documentation requirements for activities associated with the transport of system media in accordance with organizational assessments of risk. Organizations maintain the flexibility to define record-keeping methods for the different types of media transport as part of a system of transport-related records."
+        },
+        {
+          "id": "mp-5_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "MP-05",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "mp-5_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-05a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "mp-5_obj.a-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "MP-05a.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": " {{ insert: param, mp-05_odp.01 }} are protected during transport outside of controlled areas using {{ insert: param, mp-05_odp.02 }};",
+                  "links": [
+                    {
+                      "href": "#mp-5_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-5_obj.a-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "MP-05a.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": " {{ insert: param, mp-05_odp.01 }} are controlled during transport outside of controlled areas using {{ insert: param, mp-05_odp.03 }};",
+                  "links": [
+                    {
+                      "href": "#mp-5_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#mp-5_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "mp-5_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-05b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "accountability for system media is maintained during transport outside of controlled areas;",
+              "links": [
+                {
+                  "href": "#mp-5_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "mp-5_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-05c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "activities associated with the transport of system media are documented;",
+              "links": [
+                {
+                  "href": "#mp-5_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "mp-5_obj.d",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "MP-05d.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "mp-5_obj.d-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-05d.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "personnel authorized to conduct media transport activities is/are identified;",
+                  "links": [
+                    {
+                      "href": "#mp-5_smt.d",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-5_obj.d-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "TEST",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "MP-05d.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "activities associated with the transport of system media are restricted to identified authorized personnel.",
+                  "links": [
+                    {
+                      "href": "#mp-5_smt.d",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#mp-5_smt.d",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#mp-5_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "mp-5_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "MP-05-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "System media protection policy\n\nprocedures addressing media storage\n\nphysical and environmental protection policy and procedures\n\naccess control policy and procedures\n\nauthorized personnel list\n\nsystem media\n\ndesignated controlled areas\n\nsystem security plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "mp-5_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "MP-05-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with system media protection and storage responsibilities\n\norganizational personnel with information security responsibilities\n\nsystem/network administrators"
+            }
+          ]
+        },
+        {
+          "id": "mp-5_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "MP-05-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for storing information media\n\nmechanisms supporting and/or implementing media storage/media protection"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mp-6",
+      "class": "SP800-53",
+      "title": "Media Sanitization",
+      "params": [
+        {
+          "id": "mp-6_prm_1",
+          "label": "organization-defined system media",
+          "constraints": [
+            {
+              "description": "techniques and procedures IAW NIST SP 800-88 Section 4: Reuse and Disposal of Storage Media and Hardware"
+            }
+          ]
+        },
+        {
+          "id": "mp-6_prm_2",
+          "label": "organization-defined sanitization techniques and procedures"
+        },
+        {
+          "id": "mp-06_odp.01",
+          "label": "system media",
+          "guidelines": [
+            {
+              "prose": "system media to be sanitized prior to disposal is defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-06_odp.02",
+          "label": "system media",
+          "guidelines": [
+            {
+              "prose": "system media to be sanitized prior to release from organizational control is defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-06_odp.03",
+          "label": "system media",
+          "guidelines": [
+            {
+              "prose": "system media to be sanitized prior to release for reuse is defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-06_odp.04",
+          "label": "sanitization techniques and procedures",
+          "guidelines": [
+            {
+              "prose": "sanitization techniques and procedures to be used for sanitization prior to disposal are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-06_odp.05",
+          "label": "sanitization techniques and procedures",
+          "guidelines": [
+            {
+              "prose": "sanitization techniques and procedures to be used for sanitization prior to release from organizational control are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-06_odp.06",
+          "label": "sanitization techniques and procedures",
+          "guidelines": [
+            {
+              "prose": "sanitization techniques and procedures to be used for sanitization prior to release for reuse are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "MP-6"
+        },
+        {
+          "name": "label",
+          "value": "MP-06",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "mp-06"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        }
+      ],
+      "links": [
+        {
+          "href": "#91f992fb-f668-4c91-a50f-0f05b95ccee3",
+          "rel": "reference"
+        },
+        {
+          "href": "#27847491-5ce1-4f6a-a1e4-9e483782f0ef",
+          "rel": "reference"
+        },
+        {
+          "href": "#c28ae9a8-1121-42a9-a85e-00cfcc9b9a94",
+          "rel": "reference"
+        },
+        {
+          "href": "#628d22a1-6a11-4784-bc59-5cd9497b5445",
+          "rel": "reference"
+        },
+        {
+          "href": "#e72fde0b-6fc2-497e-a9db-d8fce5a11b8a",
+          "rel": "reference"
+        },
+        {
+          "href": "#9be5d661-421f-41ad-854e-86f98b811891",
+          "rel": "reference"
+        },
+        {
+          "href": "#a5b1d18d-e670-4586-9e6d-4a88b7ba3df6",
+          "rel": "reference"
+        },
+        {
+          "href": "#0f66be67-85e7-4ca6-bd19-39453e9f4394",
+          "rel": "reference"
+        },
+        {
+          "href": "#4c501da5-9d79-4cb6-ba80-97260e1ce327",
+          "rel": "reference"
+        },
+        {
+          "href": "#df9f87e9-71e7-4c74-9ac3-3cabd4e92f21",
+          "rel": "reference"
+        },
+        {
+          "href": "#ac-3",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-7",
+          "rel": "related"
+        },
+        {
+          "href": "#au-11",
+          "rel": "related"
+        },
+        {
+          "href": "#ma-2",
+          "rel": "related"
+        },
+        {
+          "href": "#ma-3",
+          "rel": "related"
+        },
+        {
+          "href": "#ma-4",
+          "rel": "related"
+        },
+        {
+          "href": "#ma-5",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-22",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        },
+        {
+          "href": "#si-18",
+          "rel": "related"
+        },
+        {
+          "href": "#si-19",
+          "rel": "related"
+        },
+        {
+          "href": "#sr-11",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "mp-6_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "mp-6_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Sanitize {{ insert: param, mp-6_prm_1 }} prior to disposal, release out of organizational control, or release for reuse using {{ insert: param, mp-6_prm_2 }} ; and"
+            },
+            {
+              "id": "mp-6_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Employ sanitization mechanisms with the strength and integrity commensurate with the security category or classification of the information."
+            }
+          ]
+        },
+        {
+          "id": "mp-6_gdn",
+          "name": "guidance",
+          "prose": "Media sanitization applies to all digital and non-digital system media subject to disposal or reuse, whether or not the media is considered removable. Examples include digital media in scanners, copiers, printers, notebook computers, workstations, network components, mobile devices, and non-digital media (e.g., paper and microfilm). The sanitization process removes information from system media such that the information cannot be retrieved or reconstructed. Sanitization techniques—including clearing, purging, cryptographic erase, de-identification of personally identifiable information, and destruction—prevent the disclosure of information to unauthorized individuals when such media is reused or released for disposal. Organizations determine the appropriate sanitization methods, recognizing that destruction is sometimes necessary when other methods cannot be applied to media requiring sanitization. Organizations use discretion on the employment of approved sanitization techniques and procedures for media that contains information deemed to be in the public domain or publicly releasable or information deemed to have no adverse impact on organizations or individuals if released for reuse or disposal. Sanitization of non-digital media includes destruction, removing a classified appendix from an otherwise unclassified document, or redacting selected sections or words from a document by obscuring the redacted sections or words in a manner equivalent in effectiveness to removing them from the document. NSA standards and policies control the sanitization process for media that contains classified information. NARA policies control the sanitization process for controlled unclassified information."
+        },
+        {
+          "id": "mp-6_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "MP-06",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "mp-6_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-06a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "mp-6_obj.a-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "MP-06a.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": " {{ insert: param, mp-06_odp.01 }} is sanitized using {{ insert: param, mp-06_odp.04 }} prior to disposal;",
+                  "links": [
+                    {
+                      "href": "#mp-6_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-6_obj.a-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "MP-06a.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": " {{ insert: param, mp-06_odp.02 }} is sanitized using {{ insert: param, mp-06_odp.05 }} prior to release from organizational control;",
+                  "links": [
+                    {
+                      "href": "#mp-6_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "mp-6_obj.a-3",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "MP-06a.[03]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": " {{ insert: param, mp-06_odp.03 }} is sanitized using {{ insert: param, mp-06_odp.06 }} prior to release for reuse;",
+                  "links": [
+                    {
+                      "href": "#mp-6_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#mp-6_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "mp-6_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-06b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "sanitization mechanisms with strength and integrity commensurate with the security category or classification of the information are employed.",
+              "links": [
+                {
+                  "href": "#mp-6_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#mp-6_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "mp-6_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "MP-06-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "System media protection policy\n\nprocedures addressing media sanitization and disposal\n\napplicable federal standards and policies addressing media sanitization policy\n\nmedia sanitization records\n\nsystem audit records\n\nsystem design documentation\n\nrecords retention and disposition policy\n\nrecords retention and disposition procedures\n\nsystem configuration settings and associated documentation\n\nsystem security plan\n\nprivacy plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "mp-6_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "MP-06-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with media sanitization responsibilities\n\norganizational personnel with records retention and disposition responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem/network administrators"
+            }
+          ]
+        },
+        {
+          "id": "mp-6_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "MP-06-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for media sanitization\n\nmechanisms supporting and/or implementing media sanitization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mp-7",
+      "class": "SP800-53",
+      "title": "Media Use",
+      "params": [
+        {
+          "id": "mp-07_odp.01",
+          "label": "types of system media",
+          "guidelines": [
+            {
+              "prose": "types of system media to be restricted or prohibited from use on systems or system components are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-07_odp.02",
+          "select": {
+            "choice": [
+              "restrict",
+              "prohibit"
+            ]
+          }
+        },
+        {
+          "id": "mp-07_odp.03",
+          "label": "systems or system components",
+          "guidelines": [
+            {
+              "prose": "systems or system components on which the use of specific types of system media to be restricted or prohibited are defined;"
+            }
+          ]
+        },
+        {
+          "id": "mp-07_odp.04",
+          "label": "controls",
+          "guidelines": [
+            {
+              "prose": "controls to restrict or prohibit the use of specific types of system media on systems or system components are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "MP-7"
+        },
+        {
+          "name": "label",
+          "value": "MP-07",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "mp-07"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        }
+      ],
+      "links": [
+        {
+          "href": "#628d22a1-6a11-4784-bc59-5cd9497b5445",
+          "rel": "reference"
+        },
+        {
+          "href": "#22f2d4f0-4365-4e88-a30d-275c1f5473ea",
+          "rel": "reference"
+        },
+        {
+          "href": "#ac-19",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-20",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-4",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-12",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-34",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-41",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "mp-7_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "mp-7_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": " {{ insert: param, mp-07_odp.02 }} the use of {{ insert: param, mp-07_odp.01 }} on {{ insert: param, mp-07_odp.03 }} using {{ insert: param, mp-07_odp.04 }} ; and"
+            },
+            {
+              "id": "mp-7_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Prohibit the use of portable storage devices in organizational systems when such devices have no identifiable owner."
+            }
+          ]
+        },
+        {
+          "id": "mp-7_gdn",
+          "name": "guidance",
+          "prose": "System media includes both digital and non-digital media. Digital media includes diskettes, magnetic tapes, flash drives, compact discs, digital versatile discs, and removable hard disk drives. Non-digital media includes paper and microfilm. Media use protections also apply to mobile devices with information storage capabilities. In contrast to [MP-2](#mp-2) , which restricts user access to media, MP-7 restricts the use of certain types of media on systems, for example, restricting or prohibiting the use of flash drives or external hard disk drives. Organizations use technical and nontechnical controls to restrict the use of system media. Organizations may restrict the use of portable storage devices, for example, by using physical cages on workstations to prohibit access to certain external ports or disabling or removing the ability to insert, read, or write to such devices. Organizations may also limit the use of portable storage devices to only approved devices, including devices provided by the organization, devices provided by other approved organizations, and devices that are not personally owned. Finally, organizations may restrict the use of portable storage devices based on the type of device, such as by prohibiting the use of writeable, portable storage devices and implementing this restriction by disabling or removing the capability to write to such devices. Requiring identifiable owners for storage devices reduces the risk of using such devices by allowing organizations to assign responsibility for addressing known vulnerabilities in the devices."
+        },
+        {
+          "id": "mp-7_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "MP-07",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "mp-7_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-07a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the use of {{ insert: param, mp-07_odp.01 }} is {{ insert: param, mp-07_odp.02 }} on {{ insert: param, mp-07_odp.03 }} using {{ insert: param, mp-07_odp.04 }};",
+              "links": [
+                {
+                  "href": "#mp-7_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "mp-7_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "MP-07b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the use of portable storage devices in organizational systems is prohibited when such devices have no identifiable owner.",
+              "links": [
+                {
+                  "href": "#mp-7_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#mp-7_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "mp-7_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "MP-07-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "System media protection policy\n\nsystem use policy\n\nprocedures addressing media usage restrictions\n\nrules of behavior\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\naudit records\n\nsystem security plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "mp-7_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "MP-07-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with system media use responsibilities\n\norganizational personnel with information security responsibilities\n\nsystem/network administrators"
+            }
+          ]
+        },
+        {
+          "id": "mp-7_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "MP-07-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for media use\n\nmechanisms restricting or prohibiting the use of system media on systems or system components"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

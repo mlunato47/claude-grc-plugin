@@ -204,9 +204,43 @@ When a user asks a question that needs deeper detail than this file provides, re
 **Tabletop exercise scenarios** → `audits/tabletop-scenarios.md`
 **Compliance calendar** → `conmon/compliance-calendar.md`
 **OSCAL reference** → `frameworks/oscal-reference.md`
+**OSCAL NIST control data** → `oscal/nist-800-53-rev5/{family-id}.json`
+**OSCAL FedRAMP control data** → `oscal/fedramp-moderate-rev5/{family-id}.json`
 **Rev 4 → Rev 5 transition** → `frameworks/nist-rev4-to-rev5.md`
 **Supply chain risk management** → `frameworks/supply-chain-srm.md`
 **Tooling categories** → `tooling/grc-tooling-categories.md`
+
+## OSCAL Structured Data
+
+Per-family OSCAL JSON files provide **authoritative, machine-readable control data** extracted from official NIST and FedRAMP catalogs. These files contain every control, enhancement, parameter, assessment objective, and guidance narrative — far more complete than the curated markdown summaries.
+
+### When to Use OSCAL Data vs Markdown
+
+| Need | Source |
+|------|--------|
+| Exact control statement text, parameters, assessment objectives | OSCAL JSON (`oscal/nist-800-53-rev5/{family}.json`) |
+| FedRAMP-specific parameter values and Moderate baseline controls | OSCAL JSON (`oscal/fedramp-moderate-rev5/{family}.json`) |
+| Cross-framework mapping, audit guidance, narrative context | Markdown files (`frameworks/`, `mappings/`, `audits/`) |
+
+### OSCAL File Structure
+
+Each family JSON file (e.g., `ac.json`) contains the full OSCAL group object:
+- `.controls[]` — All controls with `.controls[]` nested for enhancements
+- `.controls[].params[]` — Organization-defined parameters (ODPs) with labels, guidelines, constraints (FedRAMP adds constraint values like "at least every 3 years"), and select/choice options
+- `.controls[].parts[]` — Four part types by `.name`:
+  - `"statement"` — The control requirement text (with nested `.parts[]` for sub-items a, b, c, etc.)
+  - `"guidance"` — Implementation guidance narrative
+  - `"assessment-objective"` — Granular testable objectives (nested tree, e.g., AC-01a.[01], AC-01a.[02]). Each leaf has `.prose` describing exactly what must be true and `.links[].rel == "assessment-for"` pointing back to the statement part it tests.
+  - `"assessment-method"` — Three methods per control, identified by `.props[] | select(.name == "method") | .value`:
+    - **EXAMINE**: `.parts[] | select(.name == "assessment-objects") | .prose` lists documents/artifacts to review (policies, plans, SSP sections, config docs, audit logs)
+    - **INTERVIEW**: `.parts[].prose` lists roles to interview (administrators, ISSOs, security personnel)
+    - **TEST**: `.parts[].prose` lists processes and mechanisms to test
+- `.controls[].links[]` — Related control references
+- `.controls[].props[]` — Properties including baseline labels and FedRAMP-specific properties like `implementation-level` and `contributes-to-assurance`
+
+### ID Normalization
+
+OSCAL uses lowercase IDs with dots for enhancements: `AC-2` → `ac-2`, `AC-2(1)` → `ac-2.1`.
 
 ## Response Guidelines
 

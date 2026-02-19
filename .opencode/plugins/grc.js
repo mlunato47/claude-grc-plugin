@@ -36,6 +36,8 @@ Control mappings: ${referenceBasePath}/mappings/<mapping>.md
 ConMon procedures: ${referenceBasePath}/conmon/<topic>.md
 Audit preparation: ${referenceBasePath}/audits/<audit-type>.md
 Tooling categories: ${referenceBasePath}/tooling/grc-tooling-categories.md
+OSCAL NIST 800-53 Rev 5 (per-family): ${referenceBasePath}/oscal/nist-800-53-rev5/<family-id>.json
+OSCAL FedRAMP Moderate Rev 5 (per-family): ${referenceBasePath}/oscal/fedramp-moderate-rev5/<family-id>.json
 
 ## Tool Mapping Notes
 

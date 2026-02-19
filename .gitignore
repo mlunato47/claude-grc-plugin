@@ -10,3 +10,8 @@
 TESTING.md
 TEST-RUNNER.md
 TEST-RESULTS.md
+
+# OSCAL build artifacts (split script + source monolithic JSONs)
+grc/skills/grc-knowledge/oscal/split-oscal.sh
+grc/skills/grc-knowledge/oscal/NIST_SP-800-53_rev5_catalog.json
+grc/skills/grc-knowledge/oscal/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.json

@@ -1,0 +1,98 @@
+{
+  "title": "FedRAMP Rev 5 Moderate Baseline",
+  "published": "2024-09-24T02:24:00Z",
+  "last-modified": "2024-09-23T22:03:55.373684-04:00",
+  "version": "fedramp2.1.0-oscal1.0.4",
+  "oscal-version": "1.0.4",
+  "links": [
+    {
+      "href": "FedRAMP_rev5_MODERATE-baseline_profile.json",
+      "rel": "resolution-source"
+    }
+  ],
+  "roles": [
+    {
+      "id": "prepared-by",
+      "title": "Document creator"
+    },
+    {
+      "id": "fedramp-pmo",
+      "title": "The FedRAMP Program Management Office (PMO)",
+      "short-name": "PMO"
+    },
+    {
+      "id": "fedramp-jab",
+      "title": "The FedRAMP Joint Authorization Board (JAB)",
+      "short-name": "JAB"
+    }
+  ],
+  "parties": [
+    {
+      "uuid": "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d",
+      "type": "organization",
+      "name": "Federal Risk and Authorization Management Program: Program Management Office",
+      "short-name": "FedRAMP PMO",
+      "links": [
+        {
+          "href": "https://fedramp.gov",
+          "rel": "homepage"
+        },
+        {
+          "href": "#a2381e87-3d04-4108-a30b-b4d2f36d001f",
+          "rel": "logo"
+        },
+        {
+          "href": "#985475ee-d4d6-4581-8fdf-d84d3d8caa48",
+          "rel": "reference"
+        }
+      ],
+      "email-addresses": [
+        "info@fedramp.gov"
+      ],
+      "addresses": [
+        {
+          "type": "work",
+          "addr-lines": [
+            "1800 F St. NW"
+          ],
+          "city": "Washington",
+          "state": "DC",
+          "postal-code": "20006",
+          "country": "US"
+        }
+      ]
+    },
+    {
+      "uuid": "ca9ba80e-1342-4bfd-b32a-abac468c24b4",
+      "type": "organization",
+      "name": "Federal Risk and Authorization Management Program: Joint Authorization Board",
+      "short-name": "FedRAMP JAB",
+      "links": [
+        {
+          "href": "#a2381e87-3d04-4108-a30b-b4d2f36d001f",
+          "rel": "logo"
+        }
+      ]
+    }
+  ],
+  "responsible-parties": [
+    {
+      "role-id": "prepared-by",
+      "party-uuids": [
+        "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d"
+      ]
+    },
+    {
+      "role-id": "fedramp-pmo",
+      "party-uuids": [
+        "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d"
+      ]
+    },
+    {
+      "role-id": "fedramp-jab",
+      "party-uuids": [
+        "ca9ba80e-1342-4bfd-b32a-abac468c24b4"
+      ]
+    }
+  ]
+}
