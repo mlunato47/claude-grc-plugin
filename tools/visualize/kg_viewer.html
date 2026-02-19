@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRC Knowledge Graph Viewer</title>
+<script src="https://unpkg.com/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #0f172a; color: #e2e8f0; height: 100vh;
+    display: grid; grid-template-rows: auto 1fr;
+    grid-template-columns: 220px 1fr 300px;
+    overflow: hidden;
+  }
+
+  /* Header */
+  header {
+    grid-column: 1 / -1; padding: 10px 16px;
+    background: #1e293b; border-bottom: 1px solid #334155;
+    display: flex; align-items: center; gap: 16px;
+  }
+  header h1 { font-size: 16px; font-weight: 600; white-space: nowrap; }
+  header .stats { font-size: 12px; color: #94a3b8; white-space: nowrap; }
+  header input[type="text"] {
+    flex: 1; max-width: 320px; padding: 6px 10px;
+    background: #0f172a; border: 1px solid #475569; border-radius: 6px;
+    color: #e2e8f0; font-size: 13px; outline: none;
+  }
+  header input[type="text"]:focus { border-color: #3b82f6; }
+  header .actions { display: flex; gap: 6px; margin-left: auto; }
+  header button {
+    padding: 5px 10px; background: #334155; border: 1px solid #475569;
+    border-radius: 5px; color: #e2e8f0; font-size: 12px; cursor: pointer;
+  }
+  header button:hover { background: #475569; }
+
+  /* Sidebar */
+  aside {
+    background: #1e293b; border-right: 1px solid #334155;
+    padding: 12px; overflow-y: auto; font-size: 13px;
+  }
+  aside h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin: 12px 0 6px; }
+  aside h3:first-child { margin-top: 0; }
+  aside label {
+    display: flex; align-items: center; gap: 6px; padding: 3px 0; cursor: pointer;
+  }
+  aside label input { cursor: pointer; }
+  .color-dot {
+    display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .plane-line {
+    display: inline-block; width: 16px; height: 3px; flex-shrink: 0; border-radius: 1px;
+  }
+  aside .layout-select { margin-top: 8px; }
+  aside select {
+    width: 100%; padding: 5px 6px; background: #0f172a; border: 1px solid #475569;
+    border-radius: 5px; color: #e2e8f0; font-size: 12px;
+  }
+
+  /* Canvas */
+  #cy {
+    background: #0f172a; position: relative;
+  }
+
+  /* Detail panel */
+  #detail {
+    background: #1e293b; border-left: 1px solid #334155;
+    padding: 12px; overflow-y: auto; font-size: 13px;
+  }
+  #detail.empty { display: flex; align-items: center; justify-content: center; color: #64748b; }
+  #detail h2 { font-size: 14px; font-weight: 600; margin-bottom: 8px; word-break: break-all; }
+  #detail .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 10px;
+    font-size: 11px; font-weight: 500; margin-bottom: 10px;
+  }
+  #detail table { width: 100%; border-collapse: collapse; }
+  #detail td { padding: 4px 0; vertical-align: top; }
+  #detail td:first-child { color: #94a3b8; width: 100px; padding-right: 8px; }
+  #detail td:last-child { word-break: break-word; }
+  #detail .section-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+    color: #64748b; margin: 14px 0 6px; border-top: 1px solid #334155; padding-top: 10px;
+  }
+  #detail ul { list-style: none; padding: 0; }
+  #detail ul li {
+    padding: 3px 0; cursor: pointer; color: #93c5fd;
+  }
+  #detail ul li:hover { color: #60a5fa; text-decoration: underline; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>GRC Knowledge Graph</h1>
+    <span class="stats" id="stats">Loading...</span>
+    <input type="text" id="search" placeholder="Search nodes (e.g. AC-2, SOC2, HIPAA)..." />
+    <div class="actions">
+      <button id="btn-fit" title="Fit graph to view">Fit</button>
+      <button id="btn-reset" title="Reset view and clear selection">Reset</button>
+      <button id="btn-png" title="Export as PNG">PNG</button>
+    </div>
+  </header>
+
+  <aside>
+    <h3>Graph Planes</h3>
+    <div id="plane-filters"></div>
+
+    <h3>Node Types</h3>
+    <div id="type-filters"></div>
+
+    <h3>Layout</h3>
+    <div class="layout-select">
+      <select id="layout-select">
+        <option value="cose">Force-Directed (cose)</option>
+        <option value="breadthfirst">Hierarchy (breadthfirst)</option>
+        <option value="concentric">Concentric</option>
+        <option value="circle">Circle</option>
+      </select>
+    </div>
+
+    <h3>Visibility</h3>
+    <label>
+      <input type="checkbox" id="toggle-labels" checked />
+      Show labels
+    </label>
+    <label>
+      <input type="checkbox" id="toggle-orphans" checked />
+      Show orphaned nodes
+    </label>
+  </aside>
+
+  <div id="cy"></div>
+
+  <div id="detail" class="empty">
+    <span>Click a node or edge to inspect</span>
+  </div>
+
+  <script>
+    // -- Config --
+    const NODE_COLORS = {
+      Framework:     '#3b82f6',
+      ControlFamily: '#8b5cf6',
+      Control:       '#10b981',
+      Baseline:      '#f59e0b',
+      ServiceModel:  '#ef4444',
+      EvidenceType:  '#06b6d4',
+      DocumentType:  '#6b7280',
+    };
+    const NODE_SHAPES = {
+      Framework:     'diamond',
+      ControlFamily: 'round-rectangle',
+      Control:       'ellipse',
+      Baseline:      'pentagon',
+      ServiceModel:  'hexagon',
+      EvidenceType:  'rectangle',
+      DocumentType:  'rectangle',
+    };
+    const NODE_SIZES = {
+      Framework: 40, ControlFamily: 28, Control: 18,
+      Baseline: 24, ServiceModel: 28, EvidenceType: 22, DocumentType: 22,
+    };
+    const PLANE_COLORS = {
+      COMPLIANCE:     '#6b7280',
+      MAPPING:        '#3b82f6',
+      RESPONSIBILITY: '#ef4444',
+      EVIDENCE:       '#06b6d4',
+    };
+    const PLANE_STYLES = {
+      COMPLIANCE:     'solid',
+      MAPPING:        'dashed',
+      RESPONSIBILITY: 'solid',
+      EVIDENCE:       'dotted',
+    };
+
+    let cy, graphData;
+
+    // -- Init --
+    async function init() {
+      const res = await fetch('/api/graph');
+      graphData = await res.json();
+
+      const elements = [];
+
+      // Nodes
+      graphData.nodes.forEach(n => {
+        elements.push({
+          group: 'nodes',
+          data: { id: n.id, label: n.label, type: n.type, ...n.props },
+          classes: n.type,
+        });
+      });
+
+      // Edges
+      graphData.edges.forEach((e, i) => {
+        elements.push({
+          group: 'edges',
+          data: {
+            id: `e${i}`, source: e.source, target: e.target,
+            predicate: e.predicate, plane: e.plane,
+            confidence: e.confidence, meta: e.meta,
+          },
+          classes: e.plane,
+        });
+      });
+
+      // Build style array
+      const style = [
+        // Defaults
+        { selector: 'node', style: {
+          'label': 'data(id)', 'font-size': 8, 'color': '#cbd5e1',
+          'text-valign': 'bottom', 'text-margin-y': 4,
+          'min-zoomed-font-size': 6,
+          'text-max-width': 80, 'text-wrap': 'ellipsis',
+        }},
+        { selector: 'edge', style: {
+          'width': 1.5, 'curve-style': 'bezier',
+          'target-arrow-shape': 'triangle', 'arrow-scale': 0.6,
+          'opacity': 0.6,
+        }},
+        { selector: 'node.highlighted', style: {
+          'border-width': 3, 'border-color': '#fbbf24',
+          'z-index': 100,
+        }},
+        { selector: 'node:selected', style: {
+          'border-width': 3, 'border-color': '#f472b6',
+        }},
+        { selector: 'edge:selected', style: {
+          'width': 3, 'opacity': 1, 'z-index': 100,
+        }},
+        { selector: 'node.neighbor', style: {
+          'border-width': 2, 'border-color': '#fbbf24', 'opacity': 1,
+        }},
+        { selector: 'node.dimmed', style: { 'opacity': 0.15 }},
+        { selector: 'edge.dimmed', style: { 'opacity': 0.05 }},
+      ];
+
+      // Node type styles
+      Object.entries(NODE_COLORS).forEach(([type, color]) => {
+        style.push({ selector: `node.${type}`, style: {
+          'background-color': color,
+          'shape': NODE_SHAPES[type] || 'ellipse',
+          'width': NODE_SIZES[type] || 20,
+          'height': NODE_SIZES[type] || 20,
+        }});
+      });
+
+      // Edge plane styles
+      Object.entries(PLANE_COLORS).forEach(([plane, color]) => {
+        style.push({ selector: `edge.${plane}`, style: {
+          'line-color': color,
+          'target-arrow-color': color,
+          'line-style': PLANE_STYLES[plane] || 'solid',
+        }});
+      });
+
+      cy = cytoscape({
+        container: document.getElementById('cy'),
+        elements,
+        style,
+        layout: { name: 'cose', animate: false, nodeRepulsion: () => 12000, idealEdgeLength: () => 80, nodeDimensionsIncludeLabels: true },
+        minZoom: 0.1, maxZoom: 5,
+        wheelSensitivity: 0.3,
+      });
+
+      // Events
+      cy.on('tap', 'node', onNodeTap);
+      cy.on('tap', 'edge', onEdgeTap);
+      cy.on('tap', (evt) => { if (evt.target === cy) clearSelection(); });
+
+      buildFilters();
+      updateStats();
+    }
+
+    // -- Filters --
+    function buildFilters() {
+      const planeDiv = document.getElementById('plane-filters');
+      Object.keys(PLANE_COLORS).forEach(plane => {
+        const label = document.createElement('label');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox'; cb.checked = true; cb.dataset.plane = plane;
+        cb.addEventListener('change', applyFilters);
+        const dot = document.createElement('span');
+        dot.className = 'plane-line';
+        dot.style.background = PLANE_COLORS[plane];
+        if (PLANE_STYLES[plane] === 'dashed') dot.style.background = `repeating-linear-gradient(90deg, ${PLANE_COLORS[plane]} 0 4px, transparent 4px 6px)`;
+        if (PLANE_STYLES[plane] === 'dotted') dot.style.background = `repeating-linear-gradient(90deg, ${PLANE_COLORS[plane]} 0 2px, transparent 2px 5px)`;
+        label.append(cb, dot, ` ${plane.charAt(0)}${plane.slice(1).toLowerCase()}`);
+        planeDiv.appendChild(label);
+      });
+
+      const typeDiv = document.getElementById('type-filters');
+      Object.keys(NODE_COLORS).forEach(type => {
+        const label = document.createElement('label');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox'; cb.checked = true; cb.dataset.nodeType = type;
+        cb.addEventListener('change', applyFilters);
+        const dot = document.createElement('span');
+        dot.className = 'color-dot'; dot.style.background = NODE_COLORS[type];
+        label.append(cb, dot, ` ${type}`);
+        typeDiv.appendChild(label);
+      });
+    }
+
+    function applyFilters() {
+      // Planes
+      const activePlanes = new Set();
+      document.querySelectorAll('[data-plane]').forEach(cb => {
+        if (cb.checked) activePlanes.add(cb.dataset.plane);
+      });
+      cy.edges().forEach(e => {
+        if (activePlanes.has(e.data('plane'))) e.show(); else e.hide();
+      });
+
+      // Node types
+      const activeTypes = new Set();
+      document.querySelectorAll('[data-node-type]').forEach(cb => {
+        if (cb.checked) activeTypes.add(cb.dataset.nodeType);
+      });
+      cy.nodes().forEach(n => {
+        if (activeTypes.has(n.data('type'))) n.show(); else n.hide();
+      });
+
+      // Hide orphans if toggle is off
+      if (!document.getElementById('toggle-orphans').checked) {
+        cy.nodes().forEach(n => {
+          if (n.visible() && n.connectedEdges().filter(e => e.visible()).length === 0) n.hide();
+        });
+      }
+
+      updateStats();
+    }
+
+    // -- Search --
+    document.getElementById('search').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      cy.nodes().removeClass('highlighted');
+      clearDimming();
+      if (q.length < 2) return;
+
+      const matches = cy.nodes().filter(n =>
+        n.data('id').toLowerCase().includes(q) ||
+        n.data('label').toLowerCase().includes(q)
+      );
+      matches.addClass('highlighted');
+
+      if (matches.length > 0 && matches.length <= 20) {
+        // Dim everything else
+        cy.elements().addClass('dimmed');
+        matches.removeClass('dimmed');
+        matches.connectedEdges().removeClass('dimmed');
+        matches.connectedEdges().connectedNodes().removeClass('dimmed');
+      }
+
+      if (matches.length === 1) {
+        cy.animate({ center: { eles: matches }, zoom: 2.5 }, { duration: 300 });
+      } else if (matches.length > 1 && matches.length <= 20) {
+        cy.animate({ fit: { eles: matches, padding: 60 } }, { duration: 300 });
+      }
+    });
+
+    // -- Node tap --
+    function onNodeTap(evt) {
+      const node = evt.target;
+      clearDimming();
+
+      // Highlight neighborhood
+      const neighborhood = node.neighborhood();
+      cy.elements().addClass('dimmed');
+      node.removeClass('dimmed');
+      neighborhood.removeClass('dimmed');
+      neighborhood.nodes().addClass('neighbor');
+
+      // Detail panel
+      const d = document.getElementById('detail');
+      d.className = '';
+      const type = node.data('type');
+      const badgeColor = NODE_COLORS[type] || '#475569';
+
+      let html = `<h2>${node.data('id')}</h2>`;
+      html += `<span class="badge" style="background:${badgeColor}33;color:${badgeColor}">${type}</span>`;
+      html += `<table><tr><td>Label</td><td>${node.data('label')}</td></tr>`;
+
+      // Extra props
+      const skip = new Set(['id', 'label', 'type']);
+      const data = node.data();
+      Object.entries(data).forEach(([k, v]) => {
+        if (skip.has(k) || v === undefined || v === null) return;
+        if (typeof v === 'object') v = JSON.stringify(v);
+        html += `<tr><td>${k}</td><td>${v}</td></tr>`;
+      });
+      html += '</table>';
+
+      // Connected edges grouped by plane
+      const connected = node.connectedEdges().filter(e => e.visible());
+      if (connected.length > 0) {
+        const byPlane = {};
+        connected.forEach(e => {
+          const plane = e.data('plane');
+          if (!byPlane[plane]) byPlane[plane] = [];
+          const other = e.source().id() === node.id() ? e.target() : e.source();
+          byPlane[plane].push({
+            predicate: e.data('predicate'),
+            otherId: other.id(),
+            otherLabel: other.data('label'),
+            direction: e.source().id() === node.id() ? 'out' : 'in',
+            confidence: e.data('confidence'),
+            meta: e.data('meta'),
+          });
+        });
+
+        Object.entries(byPlane).forEach(([plane, edges]) => {
+          html += `<div class="section-label">${plane} (${edges.length})</div><ul>`;
+          edges.forEach(e => {
+            const arrow = e.direction === 'out' ? '&rarr;' : '&larr;';
+            const conf = e.confidence ? ` <span style="color:#64748b">(${(e.confidence*100).toFixed(0)}%)</span>` : '';
+            const cov = e.meta?.coverage ? ` <span style="color:#64748b">[${e.meta.coverage}]</span>` : '';
+            html += `<li data-node-id="${e.otherId}">${arrow} <b>${e.predicate}</b> ${e.otherId}${conf}${cov}</li>`;
+          });
+          html += '</ul>';
+        });
+      }
+
+      d.innerHTML = html;
+
+      // Click handlers for linked nodes
+      d.querySelectorAll('[data-node-id]').forEach(li => {
+        li.addEventListener('click', () => {
+          const target = cy.getElementById(li.dataset.nodeId);
+          if (target.length > 0) {
+            cy.animate({ center: { eles: target }, zoom: 2.5 }, { duration: 300 });
+            target.emit('tap');
+          }
+        });
+      });
+    }
+
+    // -- Edge tap --
+    function onEdgeTap(evt) {
+      const edge = evt.target;
+      const d = document.getElementById('detail');
+      d.className = '';
+      const plane = edge.data('plane');
+      const planeColor = PLANE_COLORS[plane] || '#475569';
+
+      let html = `<h2>${edge.data('source')} &rarr; ${edge.data('target')}</h2>`;
+      html += `<span class="badge" style="background:${planeColor}33;color:${planeColor}">${plane}</span>`;
+      html += `<table>`;
+      html += `<tr><td>Predicate</td><td><b>${edge.data('predicate')}</b></td></tr>`;
+      html += `<tr><td>Confidence</td><td>${(edge.data('confidence')*100).toFixed(0)}%</td></tr>`;
+      const meta = edge.data('meta');
+      if (meta && Object.keys(meta).length > 0) {
+        Object.entries(meta).forEach(([k, v]) => {
+          html += `<tr><td>${k}</td><td>${v}</td></tr>`;
+        });
+      }
+      html += '</table>';
+
+      html += `<div class="section-label">Endpoints</div><ul>`;
+      html += `<li data-node-id="${edge.data('source')}">${edge.data('source')}</li>`;
+      html += `<li data-node-id="${edge.data('target')}">${edge.data('target')}</li>`;
+      html += '</ul>';
+
+      d.innerHTML = html;
+
+      d.querySelectorAll('[data-node-id]').forEach(li => {
+        li.addEventListener('click', () => {
+          const target = cy.getElementById(li.dataset.nodeId);
+          if (target.length > 0) {
+            cy.animate({ center: { eles: target }, zoom: 2.5 }, { duration: 300 });
+            target.emit('tap');
+          }
+        });
+      });
+    }
+
+    // -- Helpers --
+    function clearSelection() {
+      clearDimming();
+      const d = document.getElementById('detail');
+      d.className = 'empty';
+      d.innerHTML = '<span>Click a node or edge to inspect</span>';
+    }
+
+    function clearDimming() {
+      cy.elements().removeClass('dimmed').removeClass('highlighted').removeClass('neighbor');
+    }
+
+    function updateStats() {
+      const vn = cy.nodes().filter(n => n.visible()).length;
+      const ve = cy.edges().filter(e => e.visible()).length;
+      const tn = graphData.nodes.length;
+      const te = graphData.edges.length;
+      document.getElementById('stats').textContent =
+        `${tn} nodes, ${te} edges | Visible: ${vn} nodes, ${ve} edges`;
+    }
+
+    // -- Toolbar --
+    document.getElementById('btn-fit').addEventListener('click', () => cy.fit(null, 40));
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      clearSelection();
+      document.getElementById('search').value = '';
+      document.querySelectorAll('aside input[type="checkbox"]').forEach(cb => cb.checked = true);
+      applyFilters();
+      cy.fit(null, 40);
+    });
+    document.getElementById('btn-png').addEventListener('click', () => {
+      const png = cy.png({ bg: '#0f172a', full: true, scale: 2 });
+      const a = document.createElement('a');
+      a.href = png; a.download = 'grc-knowledge-graph.png'; a.click();
+    });
+
+    // Layout
+    document.getElementById('layout-select').addEventListener('change', (e) => {
+      const name = e.target.value;
+      const opts = { name, animate: true, animationDuration: 500, nodeDimensionsIncludeLabels: true };
+      if (name === 'cose') { opts.animate = false; opts.nodeRepulsion = () => 12000; opts.idealEdgeLength = () => 80; }
+      if (name === 'breadthfirst') { opts.directed = true; opts.spacingFactor = 0.9; }
+      if (name === 'concentric') { opts.concentric = (n) => n.degree(); opts.levelWidth = () => 3; }
+      cy.layout(opts).run();
+    });
+
+    // Toggles
+    document.getElementById('toggle-labels').addEventListener('change', (e) => {
+      cy.style().selector('node').style('label', e.target.checked ? 'data(id)' : '').update();
+    });
+    document.getElementById('toggle-orphans').addEventListener('change', applyFilters);
+
+    // Run
+    init();
+  </script>
+</body>
+</html>
