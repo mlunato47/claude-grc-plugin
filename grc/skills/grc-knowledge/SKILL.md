@@ -163,15 +163,53 @@ A POA&M (Plan of Action & Milestones) tracks security weaknesses and remediation
 
 → Deep dive: `conmon/poam-management.md`
 
+## Knowledge Graph (PathRAG)
+
+The GRC plugin includes a **typed multi-plane Knowledge Graph** with path-constrained retrieval (PathRAG), modeled after the Vector StrategyEngine graph architecture.
+
+### Architecture (Four Layers)
+
+1. **Deterministic Control Plane (ERD)** — Strict entity types (Framework, ControlFamily, Control, Baseline, ServiceModel, EvidenceType) with cardinality constraints and referential integrity.
+2. **Typed Multi-Plane KG** — Four semantic planes, each with its own predicate allowlist:
+   - **PLANE-COMPLIANCE**: Framework → Family → Control hierarchy (template-ordered BFS)
+   - **PLANE-MAPPING**: Cross-framework control equivalences via NIST hub (template-ordered BFS)
+   - **PLANE-RESPONSIBILITY**: IaaS/PaaS/SaaS control responsibility chains (neighborhood BFS)
+   - **PLANE-EVIDENCE**: Evidence and documentation requirements (neighborhood BFS)
+3. **Path-Constrained Retrieval (PathRAG)** — Ordered predicate templates enforce traversal discipline. No flat retrieval.
+4. **Temporal Revision Layer** — Immutable graph snapshots with draft→published lifecycle and evidence gating.
+
+### Graph Commands
+
+- `/grc:graph-traverse <control> [--to <framework>]` — PathRAG traversal with scored paths
+- `/grc:graph-query <question>` — Natural language query routed through graph templates
+
+### PathRAG Templates
+
+| Template | Predicate Chain | Use Case |
+|----------|----------------|----------|
+| `compliance_chain_v1` | CONTAINS → CONTAINS | "What controls are in AC family?" |
+| `cross_framework_mapping_v1` | MAPS_TO → MAPS_TO | "Map CC6.1 to ISO 27001" |
+| `obligation_to_evidence_v1` | CONTAINS → CONTAINS → REQUIRES_EVIDENCE | "What evidence for AU-6?" |
+| `inheritance_chain_v1` | RESPONSIBILITY_OF → INHERITS_FROM | "Who owns PE-3 in SaaS?" |
+
+### Graph Data
+
+- `graph/schema.json` — ERD, predicates, planes, templates, revision layer, scoring
+- `graph/nodes.json` — 284 nodes: 14 frameworks, 92 families, 137 controls, baselines, service models, evidence types
+- `graph/edges.json` — 295 edges across all four planes
+- `graph/pathrag.md` — Traversal rules, scoring formula, output format
+
+→ Deep dive: `graph/pathrag.md`
+
 ## Cross-Framework Mapping Approach
 
 NIST 800-53 serves as the universal mapping hub. To map between any two frameworks:
 1. Map source control → NIST 800-53 control(s)
 2. Map NIST 800-53 control(s) → target control(s)
 
-This approach is industry-standard and reduces N×N mappings to N×2.
+This approach is industry-standard and reduces N×N mappings to N×2. The Knowledge Graph encodes these mappings as `MAPS_TO` edges in PLANE-MAPPING with coverage metadata (Full/Partial/Minimal/Gap).
 
-**Mapping files available**:
+**Mapping files available** (prose reference, complements graph edges):
 - `mappings/cross-framework-matrix.md` — High-level family-to-domain index
 - `mappings/nist-to-soc2.md` — NIST ↔ SOC 2 Trust Services Criteria
 - `mappings/nist-to-iso27001.md` — NIST ↔ ISO 27001:2022 Annex A
@@ -186,6 +224,8 @@ This approach is industry-standard and reduces N×N mappings to N×2.
 
 When a user asks a question that needs deeper detail than this file provides, read the appropriate reference file:
 
+**Knowledge Graph** → `graph/pathrag.md` (PathRAG traversal rules and templates)
+**Graph schema** → `graph/schema.json` (ERD, predicates, planes, revision layer)
 **Framework details** → `frameworks/<framework>.md`
 **Control mappings** → `mappings/<mapping>.md`
 **ConMon procedures** → `conmon/<topic>.md`
