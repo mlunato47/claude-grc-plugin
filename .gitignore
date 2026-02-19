@@ -6,6 +6,10 @@
 # Claude Code local settings
 .claude/
 
+# Python
+__pycache__/
+*.pyc
+
 # Internal testing files
 TESTING.md
 TEST-RUNNER.md
