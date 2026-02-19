@@ -1,6 +1,6 @@
 # GRC Knowledge Plugin for Claude Code
 
-A Claude Code plugin that turns Claude into a senior GRC (Governance, Risk, and Compliance) analyst. 72+ reference files covering 15 frameworks, 24 slash commands, and deep domain knowledge for federal and commercial compliance work.
+A Claude Code plugin that turns Claude into a senior GRC (Governance, Risk, and Compliance) analyst. 76+ reference files covering 15 frameworks, 26 slash commands, a multi-plane Knowledge Graph with PathRAG traversal, and deep domain knowledge for federal and commercial compliance work.
 
 ## What It Does
 
@@ -8,6 +8,7 @@ Load this plugin and Claude gains expertise in:
 
 - **15 compliance frameworks** — NIST 800-53, FedRAMP, FISMA, CMMC, SOC 2, ISO 27001, PCI DSS, HIPAA, CIS Controls, COBIT, CSA CCM, GDPR, SLSA, OSCAL, and NIST Rev 4→5 transition
 - **Cross-framework mapping** — Map any control to any other framework through NIST 800-53 as the hub
+- **Knowledge Graph with PathRAG** — 284-node, 295-edge typed graph across four semantic planes (compliance, mapping, responsibility, evidence) with path-constrained retrieval and scored traversal
 - **Document review** — Feed it SSP narratives, POA&Ms, policies, CRMs and get structural quality feedback with 0-5 maturity scoring
 - **Operational workflows** — Significant change analysis, inheritance modeling, SAR responses, compliance calendars, tabletop exercises
 
@@ -82,6 +83,13 @@ Once loaded, type `/grc:` to see all available commands.
 | `/grc:score-maturity` | Score control implementation maturity 0-5 with next-level guidance |
 | `/grc:evidence-checklist` | Generate audit evidence prep checklists (no user content needed) |
 
+### Knowledge Graph
+
+| Command | Purpose |
+|---------|---------|
+| `/grc:graph-query` | Natural language compliance questions answered via Knowledge Graph traversal |
+| `/grc:graph-traverse` | PathRAG traversal from a control across planes — mapping, evidence, responsibility |
+
 ### Operational Workflows
 
 | Command | Purpose |
@@ -130,6 +138,21 @@ For detailed usage, examples, and tips for every command, see the [Usage Guide](
 /grc:tabletop-scenario ir ransomware saas
 ```
 
+**Query the Knowledge Graph:**
+```
+/grc:graph-query What evidence do I need for AU-6?
+```
+
+**Traverse cross-framework mappings:**
+```
+/grc:graph-traverse CC6.1 --to ISO-27001
+```
+
+**Explore all planes for a control:**
+```
+/grc:graph-traverse AC-2 --plane all
+```
+
 ## Data Sensitivity
 
 GRC artifacts often contain CUI, PII, system architecture, and vulnerability data. This plugin is designed to be useful **without requiring sensitive specifics**:
@@ -139,7 +162,7 @@ GRC artifacts often contain CUI, PII, system architecture, and vulnerability dat
 - **No security posture judgment** — the plugin assesses document quality, never system security
 - **Safe to use with placeholders** — replace real names/IPs/agencies with `[Agency Name]`, `[System Name]`, `10.x.x.x`
 
-Reference-only commands (`evidence-checklist`, `compliance-calendar`, `tabletop-scenario`, `oscal-guide`, `rev5-transition`, `multi-framework`) don't process user content and skip the reminder.
+Reference-only commands (`evidence-checklist`, `compliance-calendar`, `tabletop-scenario`, `oscal-guide`, `rev5-transition`, `multi-framework`, `graph-query`, `graph-traverse`) don't process user content and skip the reminder.
 
 ## Architecture
 
@@ -149,8 +172,10 @@ grc/
 │   └── plugin.json              # Plugin metadata
 ├── agents/
 │   └── grc-researcher.md        # Read-only research agent
-├── commands/                    # 24 slash commands
+├── commands/                    # 26 slash commands
 │   ├── control-lookup.md
+│   ├── graph-query.md
+│   ├── graph-traverse.md
 │   ├── map-controls.md
 │   ├── review-narrative.md
 │   ├── significant-change.md
@@ -161,6 +186,11 @@ grc/
 │       ├── audits/              # 14 reference files
 │       ├── conmon/              # 6 reference files
 │       ├── frameworks/          # 16 reference files
+│       ├── graph/               # Knowledge Graph (PathRAG)
+│       │   ├── schema.json      # ERD, predicates, planes, templates, scoring
+│       │   ├── nodes.json       # 284 nodes (frameworks, families, controls, ...)
+│       │   ├── edges.json       # 295 edges across four semantic planes
+│       │   └── pathrag.md       # Traversal rules, scoring formula, output format
 │       ├── mappings/            # 9 reference files
 │       └── tooling/             # 1 reference file
 ├── GUIDE.md                     # Usage guide
@@ -174,6 +204,7 @@ grc/
 - Reference files in `skills/grc-knowledge/` contain deep domain knowledge that commands read on demand
 - The `grc-researcher` agent provides a read-only research interface for complex cross-reference queries
 - NIST 800-53 serves as the universal mapping hub — any framework maps to any other through NIST
+- The Knowledge Graph in `graph/` provides structured traversal across four semantic planes using PathRAG, with scored paths and evidence gating
 
 ## Frameworks Covered
 
@@ -195,6 +226,40 @@ grc/
 | OSCAL | 1.1.2 | `frameworks/oscal-reference.md` |
 | NIST Rev 4→5 | Transition | `frameworks/nist-rev4-to-rev5.md` |
 | Supply Chain (SR) | Rev 5 | `frameworks/supply-chain-srm.md` |
+
+## Knowledge Graph
+
+The plugin includes a typed multi-plane Knowledge Graph with path-constrained retrieval (PathRAG). Instead of flat keyword search, compliance queries follow relational paths through a structured graph with scored results.
+
+### Four-Layer Architecture
+
+1. **Deterministic Control Plane (ERD)** — 284 nodes with strict entity types (Framework, ControlFamily, Control, Baseline, ServiceModel, EvidenceType) and cardinality constraints.
+2. **Typed Multi-Plane KG** — 295 edges across four semantic planes:
+   - **PLANE-COMPLIANCE** — Framework → Family → Control hierarchy
+   - **PLANE-MAPPING** — Cross-framework equivalences via NIST 800-53 hub
+   - **PLANE-RESPONSIBILITY** — IaaS/PaaS/SaaS control ownership chains
+   - **PLANE-EVIDENCE** — Evidence and documentation requirements
+3. **Path-Constrained Retrieval (PathRAG)** — Ordered predicate templates enforce traversal discipline with scoring: `score = avg(confidence) × geo_mean(edge_weights)`.
+4. **Temporal Revision Layer** — Immutable graph snapshots with draft → published → archived lifecycle and content hash integrity.
+
+### PathRAG Templates
+
+| Template | Use Case |
+|----------|----------|
+| `compliance_chain_v1` | "What controls are in the AC family?" |
+| `cross_framework_mapping_v1` | "Map SOC 2 CC6.1 to ISO 27001" |
+| `obligation_to_evidence_v1` | "What evidence do I need for AU-6?" |
+| `inheritance_chain_v1` | "Who owns PE-3 in a SaaS model?" |
+| `baseline_coverage_v1` | "Is AC-2 in the FedRAMP Low baseline?" |
+
+### Graph Data
+
+| File | Contents |
+|------|----------|
+| `graph/schema.json` | ERD, predicates, planes, templates, scoring config |
+| `graph/nodes.json` | 284 nodes: 14 frameworks, 92 families, 137 controls, baselines, service models, evidence types |
+| `graph/edges.json` | 295 edges across all four planes |
+| `graph/pathrag.md` | Traversal rules, scoring formula, output format |
 
 ## Contributing
 
