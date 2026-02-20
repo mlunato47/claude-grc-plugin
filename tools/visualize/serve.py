@@ -19,6 +19,16 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 GRAPH_DIR = REPO_ROOT / "grc" / "skills" / "grc-knowledge" / "graph"
+
+# Load .env from repo root if ANTHROPIC_API_KEY isn't already set
+if not os.environ.get("ANTHROPIC_API_KEY"):
+    env_path = REPO_ROOT / ".env"
+    if env_path.is_file():
+        for line in env_path.read_text().splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                key, _, val = line.partition("=")
+                os.environ.setdefault(key.strip(), val.strip())
 DIST_DIR = Path(__file__).resolve().parent / "app" / "dist"
 
 MIME_TYPES = {
