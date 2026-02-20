@@ -1,8 +1,9 @@
-import { useCallback, useRef } from 'react'
+import { useCallback } from 'react'
 import type { Core } from 'cytoscape'
 
 interface HeaderProps {
   cyRef: React.RefObject<Core | null>
+  searchRef: React.RefObject<HTMLInputElement | null>
   totalNodes: number
   totalEdges: number
   visibleNodes: number
@@ -13,11 +14,9 @@ interface HeaderProps {
 }
 
 export function Header({
-  cyRef, totalNodes, totalEdges, visibleNodes, visibleEdges,
+  cyRef, searchRef, totalNodes, totalEdges, visibleNodes, visibleEdges,
   chatOpen, onToggleChat, onReset,
 }: HeaderProps) {
-  const searchRef = useRef<HTMLInputElement>(null)
-
   const handleSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const cy = cyRef.current
     if (!cy) return
@@ -51,11 +50,6 @@ export function Header({
     cyRef.current?.fit(undefined, 40)
   }, [cyRef])
 
-  const handleReset = useCallback(() => {
-    if (searchRef.current) searchRef.current.value = ''
-    onReset()
-  }, [onReset])
-
   const handleExport = useCallback(() => {
     const cy = cyRef.current
     if (!cy) return
@@ -78,7 +72,7 @@ export function Header({
       />
       <div className="actions">
         <button onClick={handleFit} title="Fit graph to view">Fit</button>
-        <button onClick={handleReset} title="Reset view and clear selection">Reset</button>
+        <button onClick={onReset} title="Reset view and clear selection">Reset</button>
         <button onClick={handleExport} title="Export as PNG">PNG</button>
         <button
           onClick={onToggleChat}

@@ -9,6 +9,9 @@ export function useChat(getSelectedNodeId: () => string | null) {
   const [isOpen, setIsOpen] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const abortRef = useRef<AbortController | null>(null)
+  // Ref to always have the latest messages without stale closures
+  const messagesRef = useRef<ChatMessage[]>([])
+  messagesRef.current = messages
 
   const toggleOpen = useCallback(() => setIsOpen(prev => !prev), [])
 
@@ -23,7 +26,8 @@ export function useChat(getSelectedNodeId: () => string | null) {
 
     let accumulated = ''
 
-    const allMessages = [...messages, userMsg]
+    // Read from ref to avoid stale closure over messages state
+    const allMessages = [...messagesRef.current, userMsg]
 
     abortRef.current = streamChat(allMessages, getSelectedNodeId(), {
       onDelta(chunk) {
@@ -39,12 +43,16 @@ export function useChat(getSelectedNodeId: () => string | null) {
         setIsStreaming(false)
         setStreamingText('')
         if (accumulated) {
+          // Partial response — keep it
           setMessages(prev => [...prev, { role: 'assistant', content: accumulated }])
+        } else {
+          // No response at all — remove the failed user message
+          setMessages(prev => prev.slice(0, -1))
         }
         setError(err.message)
       },
     })
-  }, [messages, isStreaming, getSelectedNodeId])
+  }, [isStreaming, getSelectedNodeId])
 
   return {
     messages, streamingText, isStreaming, isOpen, error,

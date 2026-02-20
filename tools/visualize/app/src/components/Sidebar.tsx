@@ -1,3 +1,4 @@
+import { useMemo, memo } from 'react'
 import type { GraphPayload } from '../types'
 import {
   NODE_COLORS, PREDICATE_COLORS, PREDICATE_ORDER, LAYOUT_OPTIONS,
@@ -19,18 +20,24 @@ interface SidebarProps {
   onChangeOrphans: (show: boolean) => void
 }
 
-export function Sidebar({
+export const Sidebar = memo(function Sidebar({
   graphData, activePredicates, activeTypes, focusedFramework,
   layout, showLabels, showOrphans,
   onTogglePredicate, onToggleType, onFocusFramework,
   onChangeLayout, onChangeLabels, onChangeOrphans,
 }: SidebarProps) {
-  const frameworks = graphData.nodes
-    .filter(n => n.type === 'Framework')
-    .sort((a, b) => a.label.localeCompare(b.label))
+  const frameworks = useMemo(() =>
+    graphData.nodes
+      .filter(n => n.type === 'Framework')
+      .sort((a, b) => a.label.localeCompare(b.label)),
+    [graphData],
+  )
 
   const predCounts = graphData.stats.edge_predicates
-  const usedPreds = PREDICATE_ORDER.filter(p => predCounts[p])
+  const usedPreds = useMemo(() =>
+    PREDICATE_ORDER.filter(p => predCounts[p]),
+    [predCounts],
+  )
 
   const typeCounts = graphData.stats.node_types
 
@@ -105,4 +112,4 @@ export function Sidebar({
       </label>
     </aside>
   )
-}
+})

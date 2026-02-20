@@ -1,4 +1,4 @@
-import { useRef, useCallback, useEffect } from 'react'
+import { useRef, useCallback, useEffect, useState } from 'react'
 import { useGraphData } from './hooks/useGraphData'
 import { useCytoscape, type SelectedElement } from './hooks/useCytoscape'
 import { useFilters } from './hooks/useFilters'
@@ -8,11 +8,11 @@ import { Sidebar } from './components/Sidebar'
 import { GraphCanvas } from './components/GraphCanvas'
 import { DetailPanel } from './components/DetailPanel'
 import { ChatDrawer } from './components/ChatDrawer'
-import { useState } from 'react'
 import './App.css'
 
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const searchRef = useRef<HTMLInputElement>(null)
   const [selected, setSelected] = useState<SelectedElement>(null)
 
   const { data: graphData, error: loadError } = useGraphData()
@@ -34,20 +34,32 @@ export default function App() {
 
   const chat = useChat(getSelectedNodeId)
 
-  // Keyboard: Escape to clear
+  // Clear selection and all visual artifacts
+  const clearAll = useCallback(() => {
+    setSelected(null)
+    if (searchRef.current) searchRef.current.value = ''
+    const cy = cyRef.current
+    if (cy) {
+      cy.elements().removeClass('dimmed').removeClass('highlighted').removeClass('neighbor')
+    }
+  }, [cyRef])
+
+  // Reset: clear selection + dimming + search, then reset filters
+  const handleReset = useCallback(() => {
+    clearAll()
+    filters.resetFilters()
+  }, [clearAll, filters.resetFilters])
+
+  // Keyboard: Escape to clear selection and search
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setSelected(null)
-        const cy = cyRef.current
-        if (cy) {
-          cy.elements().removeClass('dimmed').removeClass('highlighted').removeClass('neighbor')
-        }
+        clearAll()
       }
     }
     document.addEventListener('keydown', handler)
     return () => document.removeEventListener('keydown', handler)
-  }, [cyRef])
+  }, [clearAll])
 
   if (loadError) {
     return <div style={{ color: '#ef4444', padding: 40, fontSize: 16 }}>Failed to load graph: {loadError}</div>
@@ -61,13 +73,14 @@ export default function App() {
     <>
       <Header
         cyRef={cyRef}
+        searchRef={searchRef}
         totalNodes={graphData.nodes.length}
         totalEdges={graphData.edges.length}
         visibleNodes={filters.visibleNodes}
         visibleEdges={filters.visibleEdges}
         chatOpen={chat.isOpen}
         onToggleChat={chat.toggleOpen}
-        onReset={filters.resetFilters}
+        onReset={handleReset}
       />
       <Sidebar
         graphData={graphData}

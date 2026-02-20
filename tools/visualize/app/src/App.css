@@ -45,11 +45,23 @@ aside label input { cursor: pointer; }
   display: inline-block; width: 10px; height: 10px; border-radius: 50%;
   flex-shrink: 0;
 }
+.plane-line {
+  display: inline-block; width: 16px; height: 3px; flex-shrink: 0; border-radius: 1px;
+}
 .filter-count { color: #64748b; font-size: 11px; margin-left: auto; }
 aside select {
   width: 100%; padding: 5px 6px; background: #0f172a; border: 1px solid #475569;
   border-radius: 5px; color: #e2e8f0; font-size: 12px; margin-top: 4px;
 }
+
+/* Quick explore */
+.quick-btn {
+  display: block; width: 100%; padding: 5px 8px; margin: 3px 0;
+  background: #0f172a; border: 1px solid #475569; border-radius: 5px;
+  color: #e2e8f0; font-size: 12px; cursor: pointer; text-align: left;
+}
+.quick-btn:hover { background: #334155; border-color: #3b82f6; }
+.quick-btn.active { background: #1e3a5f; border-color: #3b82f6; }
 
 /* Canvas */
 #cy { background: #0f172a; position: relative; }
@@ -88,6 +100,15 @@ aside select {
 }
 #detail .confidence-bar .fill {
   height: 100%; border-radius: 2px; background: #10b981;
+}
+
+/* Stats breakdown */
+.stats-breakdown {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px;
+}
+.stats-breakdown .stat-chip {
+  font-size: 10px; padding: 2px 6px; border-radius: 4px;
+  background: #334155; color: #94a3b8;
 }
 
 /* Chat drawer */

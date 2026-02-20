@@ -156,7 +156,7 @@ export function useFilters(cyRef: React.RefObject<Core | null>, graphData: Graph
     setShowLabels(true)
     const cy = cyRef.current
     if (!cy) return
-    cy.elements().removeClass('faded')
+    cy.elements().removeClass('faded').removeClass('dimmed').removeClass('highlighted').removeClass('neighbor')
     cy.style().selector('node').style('label', 'data(id)').update()
     setTimeout(() => cy.fit(undefined, 40), 50)
   }, [cyRef])

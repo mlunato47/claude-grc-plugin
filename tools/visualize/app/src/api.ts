@@ -33,7 +33,11 @@ export function streamChat(
         throw new Error(err.error || `HTTP ${res.status}`)
       }
 
-      const reader = res.body!.getReader()
+      if (!res.body) {
+        throw new Error('Response body is null — streaming not supported')
+      }
+
+      const reader = res.body.getReader()
       const decoder = new TextDecoder()
       let buffer = ''
 
@@ -47,13 +51,32 @@ export function streamChat(
 
         for (const line of lines) {
           if (!line.startsWith('data: ')) continue
-          const data = JSON.parse(line.slice(6))
+          let data: { type: string; text?: string }
+          try {
+            data = JSON.parse(line.slice(6))
+          } catch {
+            continue // skip malformed SSE lines
+          }
 
           if (data.type === 'delta') {
-            callbacks.onDelta(data.text)
+            callbacks.onDelta(data.text!)
+          } else if (data.type === 'done') {
+            // Server signals completion — stream reader will also end
           } else if (data.type === 'error') {
             throw new Error(data.text)
           }
+        }
+      }
+
+      // Process any remaining buffer content
+      if (buffer.trim().startsWith('data: ')) {
+        try {
+          const data = JSON.parse(buffer.trim().slice(6))
+          if (data.type === 'delta') callbacks.onDelta(data.text!)
+          else if (data.type === 'done') { /* ok */ }
+          else if (data.type === 'error') throw new Error(data.text)
+        } catch {
+          // ignore trailing malformed data
         }
       }
 
