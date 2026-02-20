@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { Search, X, Maximize, RotateCcw, Download, MessageSquare } from 'lucide-react'
 import type { Core } from 'cytoscape'
 
 interface HeaderProps {
@@ -46,6 +47,18 @@ export function Header({
     }
   }, [cyRef])
 
+  const handleClearSearch = useCallback(() => {
+    if (searchRef.current) {
+      searchRef.current.value = ''
+      searchRef.current.dispatchEvent(new Event('input', { bubbles: true }))
+    }
+    const cy = cyRef.current
+    if (cy) {
+      cy.nodes().removeClass('highlighted')
+      cy.elements().removeClass('dimmed')
+    }
+  }, [cyRef, searchRef])
+
   const handleFit = useCallback(() => {
     cyRef.current?.fit(undefined, 40)
   }, [cyRef])
@@ -61,25 +74,40 @@ export function Header({
   return (
     <header>
       <h1>GRC Knowledge Graph</h1>
-      <span className="stats">
-        {totalNodes} nodes, {totalEdges} edges | Visible: {visibleNodes}n {visibleEdges}e
+      <span className="stat-pill">
+        <strong>{visibleNodes}</strong>/{totalNodes} nodes
       </span>
-      <input
-        ref={searchRef}
-        type="text"
-        placeholder="Search nodes (e.g. AC-2, GDPR-ART32, N171-3.1)..."
-        onChange={handleSearch}
-      />
-      <div className="actions">
-        <button onClick={handleFit} title="Fit graph to view">Fit</button>
-        <button onClick={onReset} title="Reset view and clear selection">Reset</button>
-        <button onClick={handleExport} title="Export as PNG">PNG</button>
+      <span className="stat-pill">
+        <strong>{visibleEdges}</strong>/{totalEdges} edges
+      </span>
+      <div className="search-wrapper">
+        <Search size={14} className="search-icon" />
+        <input
+          ref={searchRef}
+          type="text"
+          placeholder="Search nodes (e.g. AC-2, GDPR-ART32)..."
+          onChange={handleSearch}
+        />
+        <button className="search-clear" onClick={handleClearSearch} title="Clear search">
+          <X size={14} />
+        </button>
+      </div>
+      <div className="btn-group">
+        <button onClick={handleFit} title="Fit graph to view">
+          <Maximize size={16} />
+        </button>
+        <button onClick={onReset} title="Reset view and filters">
+          <RotateCcw size={16} />
+        </button>
+        <button onClick={handleExport} title="Export as PNG">
+          <Download size={16} />
+        </button>
         <button
           onClick={onToggleChat}
           title="Toggle chat with Claude"
           className={chatOpen ? 'active' : ''}
         >
-          Chat
+          <MessageSquare size={16} />
         </button>
       </div>
     </header>

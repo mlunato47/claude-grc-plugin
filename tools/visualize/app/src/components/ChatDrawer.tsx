@@ -1,4 +1,5 @@
 import { useRef, useEffect, useCallback, useMemo } from 'react'
+import { Bot, User, SendHorizontal, ChevronDown, ChevronUp, MessageCircle } from 'lucide-react'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import type { ChatMessage, GraphPayload } from '../types'
@@ -44,7 +45,6 @@ export function ChatDrawer({
   const messagesRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const nodeIds = useNodeIdSet(graphData)
-
   // Memoize rendered HTML per message to avoid re-rendering all messages on each update
   const renderedMessages = useMemo(() =>
     messages.map(msg =>
@@ -99,65 +99,123 @@ export function ChatDrawer({
 
   const handleBubbleClick = useCallback((e: React.MouseEvent) => {
     const target = e.target as HTMLElement
+
+    // Node link click
     if (target.classList.contains('node-link')) {
       e.preventDefault()
       const nodeId = target.getAttribute('data-node-id')
       if (nodeId) navigateToNode(nodeId)
+      return
+    }
+
+    // Code copy button click
+    if (target.closest('.code-copy-btn')) {
+      const btn = target.closest('.code-copy-btn') as HTMLElement
+      const pre = btn.closest('pre')
+      if (pre) {
+        const code = pre.querySelector('code')
+        const text = code ? code.textContent || '' : pre.textContent || ''
+        navigator.clipboard.writeText(text)
+        btn.classList.add('copied')
+        setTimeout(() => btn.classList.remove('copied'), 1500)
+      }
+      return
     }
   }, [navigateToNode])
+
+  // Inject copy buttons into rendered HTML pre blocks
+  const injectCopyButtons = useCallback((html: string, msgIdx: number): string => {
+    let blockIdx = 0
+    return html.replace(/<pre>/g, () => {
+      const id = `${msgIdx}-${blockIdx++}`
+      return `<pre><button class="code-copy-btn" data-copy-id="${id}" title="Copy code">` +
+        `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">` +
+        `<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>`
+    })
+  }, [])
 
   return (
     <div id="chat-drawer" className={isOpen ? '' : 'collapsed'}>
       <div id="chat-header" onClick={onToggle}>
+        <Bot size={18} className="chat-header-icon" />
         <h3>Chat with Claude</h3>
         <span className="chat-status">
-          {isStreaming ? 'Thinking...' : ''}
+          {isStreaming && (
+            <>
+              <span className="streaming-dot" />
+              Thinking...
+            </>
+          )}
         </span>
         <span className="chat-toggle">
-          {isOpen ? '\u25BC' : '\u25B2'}
+          {isOpen ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
         </span>
       </div>
       <div id="chat-messages" ref={messagesRef}>
+        {messages.length === 0 && !streamingHtml && !error && (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, gap: 8, color: 'var(--text-dim)' }}>
+            <MessageCircle size={28} style={{ opacity: 0.4 }} />
+            <span style={{ fontSize: 13 }}>Ask about the knowledge graph</span>
+          </div>
+        )}
         {messages.map((msg, i) => (
-          <div
-            key={i}
-            className={`chat-msg ${msg.role}`}
-            onClick={msg.role === 'assistant' ? handleBubbleClick : undefined}
-            dangerouslySetInnerHTML={
-              msg.role === 'assistant'
-                ? { __html: renderedMessages[i]! }
-                : undefined
-            }
-          >
-            {msg.role === 'user' ? msg.content : undefined}
+          <div key={i} className={`chat-msg-row ${msg.role}`}>
+            <div className={`chat-avatar ${msg.role === 'user' ? 'user-avatar' : 'assistant-avatar'}`}>
+              {msg.role === 'user' ? <User size={14} /> : <Bot size={14} />}
+            </div>
+            <div
+              className={`chat-msg ${msg.role}`}
+              onClick={msg.role === 'assistant' ? handleBubbleClick : undefined}
+              dangerouslySetInnerHTML={
+                msg.role === 'assistant'
+                  ? { __html: injectCopyButtons(renderedMessages[i]!, i) }
+                  : undefined
+              }
+            >
+              {msg.role === 'user' ? msg.content : undefined}
+            </div>
           </div>
         ))}
         {streamingHtml && (
-          <div
-            className="chat-msg assistant"
-            onClick={handleBubbleClick}
-            dangerouslySetInnerHTML={{ __html: streamingHtml }}
-          />
+          <div className="chat-msg-row assistant">
+            <div className="chat-avatar assistant-avatar">
+              <Bot size={14} />
+            </div>
+            <div
+              className="chat-msg assistant"
+              onClick={handleBubbleClick}
+              dangerouslySetInnerHTML={{ __html: streamingHtml }}
+            />
+          </div>
+        )}
+        {isStreaming && !streamingHtml && (
+          <div className="streaming-dots">
+            <span /><span /><span />
+          </div>
         )}
         {error && (
           <div className="chat-msg error">{error}</div>
         )}
       </div>
       <div id="chat-input-bar">
-        <textarea
-          ref={inputRef}
-          id="chat-input"
-          rows={2}
-          placeholder='Ask about the graph (e.g., "What controls are in FedRAMP Moderate?")'
-          onKeyDown={handleKeyDown}
-          onInput={handleInput}
-        />
+        <div className="chat-input-wrapper">
+          <MessageCircle size={14} className="input-icon" />
+          <textarea
+            ref={inputRef}
+            id="chat-input"
+            rows={2}
+            placeholder='Ask about the graph (e.g., "What controls are in FedRAMP Moderate?")'
+            onKeyDown={handleKeyDown}
+            onInput={handleInput}
+          />
+        </div>
         <button
           id="chat-send"
           onClick={handleSendClick}
           disabled={isStreaming}
+          title="Send message"
         >
-          Send
+          <SendHorizontal size={18} />
         </button>
       </div>
     </div>

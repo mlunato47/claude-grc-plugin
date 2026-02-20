@@ -96,6 +96,7 @@ export default function App() {
         onChangeLayout={filters.changeLayout}
         onChangeLabels={filters.changeLabels}
         onChangeOrphans={filters.setShowOrphans}
+        onResetFilters={handleReset}
       />
       <GraphCanvas containerRef={containerRef} />
       <DetailPanel
