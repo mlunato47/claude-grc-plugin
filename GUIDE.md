@@ -9,7 +9,85 @@ Once installed, the plugin gives Claude deep expertise in 15 compliance framewor
 1. **Slash commands** (`/grc:command-name`) — Structured workflows with specific inputs and formatted outputs
 2. **Conversational GRC knowledge** — Ask any GRC question naturally and Claude responds with specific control IDs, baselines, and framework-native terminology
 
-All 24 slash commands are listed when you type `/grc:` in your session.
+All 27 slash commands are listed when you type `/grc:` in your session.
+
+---
+
+## DoD ATO Acceleration Engine
+
+The `/grc:ato` command is an intelligent reasoning engine for DoD Authorization to Operate. It doesn't ask you questions — it reads whatever context is available, infers your situation, and outputs a specific plan.
+
+### How It Works
+
+Drop any context into the conversation — architecture description, stack mentions, a config file, a system description — and run:
+
+```
+/grc:ato
+```
+
+The engine will:
+1. Scan your context for platform signals (P1, AWS GovCloud, Azure, DISA, K8s, Windows)
+2. Infer your Impact Level (IL2/IL4/IL5/IL6) and DoD branch
+3. Determine what controls your platform already covers (inheritance)
+4. Calculate the critical path to AO signature
+5. Output a day-by-day sprint with specific tools and commands
+
+### Example Usage
+
+**Drop your architecture description and run the engine:**
+```
+We're deploying a containerized Python app on Platform One Cloud One at IL4.
+Army program. No existing ATO. Uses PostgreSQL on RDS and authenticates via Keycloak.
+
+/grc:ato
+```
+
+**Focus modes:**
+```
+/grc:ato --gap      # Just show me what P1 covers vs. what I own
+/grc:ato --path     # Just show me what the AO needs before signing
+/grc:ato --brief    # What do I put in the AO briefing deck?
+/grc:ato --conmon   # What does ConMon look like post-ATO at IL4 for Army?
+```
+
+### Supported Platforms
+
+| Platform | Coverage |
+|----------|----------|
+| Platform One / Cloud One / Big Bang / Iron Bank | Full — process, required conditions, Big Bang component → NIST mapping |
+| AWS GovCloud | Full — CRM usage, IL4/IL5 specifics, tool chain (Security Hub, Config, Inspector, GuardDuty) |
+| Azure Government | Full — MDfC, Azure Policy, CAC/PIV in Entra ID, IL5 dedicated host |
+| DISA MilCloud 2.0 | Full — ACAS, ESS, STIG application, STOREFRONT process |
+| Windows Server / Active Directory | Full — PowerSTIG, DISA GPOs, AD tiering, CAC enforcement |
+| Kubernetes (non-P1) | Full — K8s STIG, etcd encryption, image signing, Falco, Trivy |
+| On-premises DoD enclave | Full — facility inheritance, STIG compliance, ACAS, ESS |
+
+### Supported ILs and Branches
+
+**Impact Levels**: IL2 (non-CUI), IL4 (CUI), IL5 (CUI + NSS), IL6 (SECRET — high-level process only)
+
+**DoD Branches**: Army (ARCYBER), Navy (NAVWAR), Air Force (AFCYBER), Marine Corps (MARFORCYBER), Space Force (SpOC), SOCOM (J62), DISA
+
+### What Makes It Fast
+
+The engine knows:
+- What each platform's ATO already covers (you don't write those control narratives)
+- Which controls AOs read first (write those first)
+- What takes weeks to generate (start on Day 1)
+- What can run in parallel (three-track sprint model)
+- Branch-specific quirks (Navy PPSM, Army eMASS routing, P1 system intake process)
+
+### Assumptions and Corrections
+
+The engine always starts with an assumptions table:
+
+```
+| Dimension | Assumed | Confidence | What would confirm |
+| Platform  | P1/IL4  | High       | Iron Bank image refs seen |
+| Branch    | Air Force | Medium   | P1 is AF-managed |
+```
+
+If an assumption is wrong, say "re-run with [correction]" and the engine will regenerate with the corrected context.
 
 ---
 

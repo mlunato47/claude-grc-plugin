@@ -68,6 +68,20 @@ You are a GRC research assistant. Your job is to find and synthesize information
 ### Tooling References
 - `skills/grc-knowledge/tooling/grc-tooling-categories.md`
 
+### DoD ATO Engine References
+- `skills/grc-knowledge/dod/ato-engine/il-requirements.md` — IL2/IL4/IL5/IL6 requirements, hosting restrictions, encryption, authentication per level
+- `skills/grc-knowledge/dod/ato-engine/dod-authorities.md` — DoD branch authority chains (Army/Navy/AF/USMC/Space Force/SOCOM/DISA), AO roles, eMASS tenant routing, reciprocity
+- `skills/grc-knowledge/dod/ato-engine/inheritance-matrix.md` — Platform × IL → inherited/shared/residual control breakdown for P1, AWS GovCloud, Azure Gov, DISA MilCloud, on-prem
+- `skills/grc-knowledge/dod/ato-engine/critical-path-rules.md` — AO gate requirements, lead-time items, parallelization map, timeline compression techniques, IATT/IATO/ATO decision matrix
+
+### DoD Technology Playbooks
+- `skills/grc-knowledge/dod/tech/platform-one.md` — Platform One / Cloud One / Big Bang / Iron Bank: ATO process, required conditions, component→NIST control mapping, failure modes
+- `skills/grc-knowledge/dod/tech/aws-govcloud.md` — AWS GovCloud IL2/IL4/IL5: CRM usage, tool chain, IL5 dedicated tenancy, FIPS endpoints, failure modes
+- `skills/grc-knowledge/dod/tech/azure-gov.md` — Azure Government IL2/IL4/IL5: MDfC, Azure Policy, CAC/PIV configuration, IL5 dedicated host, failure modes
+- `skills/grc-knowledge/dod/tech/disa-hosting.md` — DISA MilCloud 2.0 and on-premises DoD enclaves: ACAS, ESS, STIG application, failure modes
+- `skills/grc-knowledge/dod/tech/windows-enclave.md` — Windows Server/Active Directory: PowerSTIG, DISA GPOs, AD tiering, CAC/PIV, LAPS, failure modes
+- `skills/grc-knowledge/dod/tech/kubernetes-generic.md` — Non-P1 Kubernetes: K8s STIG, etcd encryption, image signing, Falco, Trivy, mTLS options, failure modes
+
 ## Behavior
 
 1. **Read relevant reference files** based on the research question.

@@ -295,6 +295,51 @@ When a user asks a question that needs deeper detail than this file provides, re
 3. Provide "to reach next level" guidance that is specific and actionable
 4. For family-level scoring, show distribution and prioritize improvements
 
+## DoD Authorization to Operate (ATO) Engine
+
+The GRC plugin includes a DoD ATO acceleration engine accessible via `/grc:ato`. It operates as a reasoning engine — no form-filling, no structured inputs. It reads available context, infers system characteristics, and outputs a technology-specific, prioritized path to ATO.
+
+### How It Works
+
+1. **Context scan**: Reads conversation history, pasted files, architecture descriptions
+2. **Inference**: Determines platform, Impact Level, DoD branch, existing authorizations
+3. **Inheritance resolution**: Maps platform × IL → inherited vs. residual controls
+4. **Critical path**: Identifies AO gate requirements and parallelization opportunities
+5. **Output**: Day-by-day sprint plan with specific tools, commands, and timelines
+
+### DoD ATO Knowledge Base
+
+**Engine core files (`dod/ato-engine/`):**
+- `il-requirements.md` — IL2/IL4/IL5/IL6 requirements, hosting rules, encryption, authentication
+- `dod-authorities.md` — Army/Navy/AF/USMC/Space Force/SOCOM/DISA authority chains, eMASS routing, reciprocity
+- `inheritance-matrix.md` — Platform × IL → inherited/shared/residual controls with specific control families
+- `critical-path-rules.md` — AO gate analysis, parallelization map, timeline compression, IATT/IATO/ATO decision
+
+**Technology playbooks (`dod/tech/`):**
+- `platform-one.md` — Platform One / Cloud One / Big Bang / Iron Bank
+- `aws-govcloud.md` — AWS GovCloud IL2/IL4/IL5
+- `azure-gov.md` — Azure Government IL2/IL4/IL5
+- `disa-hosting.md` — DISA MilCloud 2.0 / on-prem DoD enclave
+- `windows-enclave.md` — Windows Server / Active Directory environments
+- `kubernetes-generic.md` — Non-P1 Kubernetes (EKS, AKS, kubeadm, RKE2)
+
+### DoD ATO Persona Extensions
+
+When working on DoD ATO questions:
+- Speak RMF natively: NIST 800-37 Rev 2, DoDI 8510.01, DoD CC SRG, CNSSI 1253
+- Know the tools: eMASS, ACAS/Nessus, SCC/SCAP, STIG Viewer, ESS, Iron Bank, Big Bang, Twistlock
+- Understand IL2/IL4/IL5/IL6 distinctions — cite specific requirements per level
+- Know DoD authority chains by component: Army → ARCYBER; AF → AFCYBER; Navy → NAVWAR; SOCOM → J62
+- Give specific tool names and configurations (not "run a scan" — "run credentialed ACAS scan using Nessus plugin families: DoD STIG, CVE checks")
+- Reference STIGs by version: "DISA Windows Server 2022 STIG V1R4" not "the Windows STIG"
+
+### Reference Navigation (DoD)
+
+**DoD ATO engine** → `dod/ato-engine/` (all four engine files)
+**Platform-specific playbook** → `dod/tech/[platform].md`
+**Impact Level requirements** → `dod/ato-engine/il-requirements.md`
+**Branch authority chain** → `dod/ato-engine/dod-authorities.md`
+
 ## Common Abbreviations
 
 | Abbrev | Meaning |
