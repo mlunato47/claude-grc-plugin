@@ -11,6 +11,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import os
 import sys
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
@@ -133,6 +134,80 @@ def build_graph_payload() -> bytes:
     return _graph_cache
 
 
+def build_system_prompt() -> str:
+    """Build a system prompt containing the full graph schema and data."""
+    schema = load_json(GRAPH_DIR / "schema.json")
+    nodes_raw = load_json(GRAPH_DIR / "nodes.json")
+    edges_raw = load_json(GRAPH_DIR / "edges.json")
+
+    nodes = flatten_nodes(nodes_raw)
+    edges = flatten_edges(edges_raw)
+
+    # Compact representations to save tokens
+    compact_nodes = [
+        {"id": n["id"], "type": n["type"], "label": n["label"]}
+        for n in nodes
+    ]
+    compact_edges = [
+        {"s": e["source"], "o": e["target"], "p": e["predicate"], "plane": e["plane"]}
+        for e in edges
+    ]
+
+    return f"""You are the GRC Knowledge Graph assistant. You answer questions about governance, risk, and compliance (GRC) frameworks, controls, mappings, baselines, evidence requirements, and responsibility models — all based on the knowledge graph loaded in this viewer.
+
+## Graph Schema
+
+Node types: {json.dumps(list(schema["node_types"].keys()))}
+Predicates: {json.dumps(list(schema["predicates"].keys()))}
+Planes: {json.dumps({k: v["description"] for k, v in schema["planes"].items()})}
+
+## Graph Data ({len(nodes)} nodes, {len(edges)} edges)
+
+Nodes:
+{json.dumps(compact_nodes, separators=(",", ":"))}
+
+Edges:
+{json.dumps(compact_edges, separators=(",", ":"))}
+
+## Instructions
+
+- When referencing node IDs, always use the exact ID from the graph (e.g., NIST-AC-2, SOC2-CC6.1). Users can click these to navigate the graph.
+- Be concise and factual. Ground every answer in the graph data above.
+- If asked about cross-framework mappings, trace through the MAPPING plane edges.
+- If asked about evidence, use the EVIDENCE plane edges.
+- If a question cannot be answered from the graph, say so clearly.
+- Format responses in markdown. Use bullet lists and tables when helpful."""
+
+
+_anthropic_client = None
+
+
+def get_anthropic_client():
+    """Lazy-init the Anthropic client. Returns None if no API key."""
+    global _anthropic_client
+    if _anthropic_client is not None:
+        return _anthropic_client
+    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    if not api_key:
+        return None
+    try:
+        import anthropic
+        _anthropic_client = anthropic.Anthropic(api_key=api_key)
+        return _anthropic_client
+    except ImportError:
+        return None
+
+
+_system_prompt_cache: str | None = None
+
+
+def get_system_prompt() -> str:
+    global _system_prompt_cache
+    if _system_prompt_cache is None:
+        _system_prompt_cache = build_system_prompt()
+    return _system_prompt_cache
+
+
 class Handler(SimpleHTTPRequestHandler):
     def do_GET(self) -> None:
         if self.path == "/api/graph":
@@ -151,6 +226,66 @@ class Handler(SimpleHTTPRequestHandler):
             self.wfile.write(content)
         else:
             self.send_error(404)
+
+    def do_POST(self) -> None:
+        if self.path == "/api/chat":
+            self._handle_chat()
+        else:
+            self.send_error(404)
+
+    def _handle_chat(self) -> None:
+        # Read request body
+        content_length = int(self.headers.get("Content-Length", 0))
+        body = json.loads(self.rfile.read(content_length))
+
+        messages = body.get("messages", [])
+        selected_node = body.get("selectedNode")
+
+        if not messages:
+            self.send_error(400, "No messages provided")
+            return
+
+        client = get_anthropic_client()
+        if client is None:
+            self.send_response(503)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            error_msg = "anthropic package not installed" if os.environ.get("ANTHROPIC_API_KEY") else "ANTHROPIC_API_KEY not set"
+            self.wfile.write(json.dumps({"error": error_msg}).encode())
+            return
+
+        # Build system prompt with optional selected node context
+        system = get_system_prompt()
+        if selected_node:
+            system += f"\n\n## Currently Selected Node\nThe user has selected node **{selected_node}** in the graph viewer. Use this context when relevant."
+
+        # Stream from Claude via SSE
+        self.send_response(200)
+        self.send_header("Content-Type", "text/event-stream")
+        self.send_header("Cache-Control", "no-cache")
+        self.send_header("Connection", "keep-alive")
+        self.end_headers()
+
+        try:
+            with client.messages.stream(
+                model="claude-sonnet-4-20250514",
+                max_tokens=2048,
+                system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
+                messages=messages,
+            ) as stream:
+                for text in stream.text_stream:
+                    # SSE format: data: <json>\n\n
+                    chunk = json.dumps({"type": "delta", "text": text})
+                    self.wfile.write(f"data: {chunk}\n\n".encode())
+                    self.wfile.flush()
+
+            # Send done event
+            self.wfile.write(b"data: {\"type\":\"done\"}\n\n")
+            self.wfile.flush()
+        except Exception as e:
+            error_chunk = json.dumps({"type": "error", "text": str(e)})
+            self.wfile.write(f"data: {error_chunk}\n\n".encode())
+            self.wfile.flush()
 
     def log_message(self, format: str, *args) -> None:
         # Quieter logging
