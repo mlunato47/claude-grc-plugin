@@ -14,13 +14,14 @@ export default function App() {
   const containerRef = useRef<HTMLDivElement>(null)
   const searchRef = useRef<HTMLInputElement>(null)
   const [selected, setSelected] = useState<SelectedElement>(null)
+  const [graphOpen, setGraphOpen] = useState(false)
 
   const { data: graphData, error: loadError } = useGraphData()
 
   const onSelect = useCallback((el: SelectedElement) => setSelected(el), [])
 
   const { cyRef, navigateToNode } = useCytoscape({
-    containerRef, graphData, onSelect,
+    containerRef, graphData: graphOpen ? graphData : null, onSelect,
   })
 
   const filters = useFilters(cyRef, graphData)
@@ -98,7 +99,18 @@ export default function App() {
         onChangeOrphans={filters.setShowOrphans}
         onResetFilters={handleReset}
       />
-      <GraphCanvas containerRef={containerRef} />
+      {graphOpen ? (
+        <GraphCanvas containerRef={containerRef} />
+      ) : (
+        <div id="cy" className="graph-placeholder">
+          <button className="render-graph-btn" onClick={() => setGraphOpen(true)}>
+            Render Graph
+          </button>
+          <span className="graph-placeholder-hint">
+            {graphData.nodes.length} nodes, {graphData.edges.length} edges
+          </span>
+        </div>
+      )}
       <DetailPanel
         cyRef={cyRef}
         selected={selected}
