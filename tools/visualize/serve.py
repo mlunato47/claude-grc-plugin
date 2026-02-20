@@ -123,12 +123,27 @@ def build_graph_payload() -> bytes:
     edges_raw = load_json(GRAPH_DIR / "edges.json")
     schema = load_json(GRAPH_DIR / "schema.json")
 
+    nodes = flatten_nodes(nodes_raw)
+    edges = flatten_edges(edges_raw)
+
+    # Compute stats breakdown
+    type_counts = {}
+    for n in nodes:
+        type_counts[n["type"]] = type_counts.get(n["type"], 0) + 1
+    pred_counts = {}
+    for e in edges:
+        pred_counts[e["predicate"]] = pred_counts.get(e["predicate"], 0) + 1
+
     payload = {
-        "nodes": flatten_nodes(nodes_raw),
-        "edges": flatten_edges(edges_raw),
+        "nodes": nodes,
+        "edges": edges,
         "planes": schema.get("planes", {}),
         "predicates": schema.get("predicates", {}),
         "scoring": schema.get("scoring", {}),
+        "stats": {
+            "node_types": type_counts,
+            "edge_predicates": pred_counts,
+        },
     }
     _graph_cache = json.dumps(payload).encode()
     return _graph_cache
@@ -173,8 +188,11 @@ Edges:
 
 - When referencing node IDs, always use the exact ID from the graph (e.g., NIST-AC-2, SOC2-CC6.1). Users can click these to navigate the graph.
 - Be concise and factual. Ground every answer in the graph data above.
-- If asked about cross-framework mappings, trace through the MAPPING plane edges.
-- If asked about evidence, use the EVIDENCE plane edges.
+- If asked about cross-framework mappings, trace through MAPS_TO edges.
+- If asked about baselines (e.g., "FedRAMP Moderate controls"), use ASSIGNED_TO edges.
+- If asked about evidence requirements, use REQUIRES_EVIDENCE edges.
+- If asked about responsibility/shared responsibility, use RESPONSIBILITY_OF edges.
+- If asked where controls are documented, use DOCUMENTED_IN edges.
 - If a question cannot be answered from the graph, say so clearly.
 - Format responses in markdown. Use bullet lists and tables when helpful."""
 

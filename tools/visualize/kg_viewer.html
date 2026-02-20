@@ -13,7 +13,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: #0f172a; color: #e2e8f0; height: 100vh;
     display: grid; grid-template-rows: auto 1fr auto;
-    grid-template-columns: 220px 1fr 300px;
+    grid-template-columns: 240px 1fr 320px;
     overflow: hidden;
   }
 
@@ -21,7 +21,7 @@
   header {
     grid-column: 1 / -1; padding: 10px 16px;
     background: #1e293b; border-bottom: 1px solid #334155;
-    display: flex; align-items: center; gap: 16px;
+    display: flex; align-items: center; gap: 12px;
   }
   header h1 { font-size: 16px; font-weight: 600; white-space: nowrap; }
   header .stats { font-size: 12px; color: #94a3b8; white-space: nowrap; }
@@ -37,6 +37,7 @@
     border-radius: 5px; color: #e2e8f0; font-size: 12px; cursor: pointer;
   }
   header button:hover { background: #475569; }
+  header button.active { background: #3b82f6; border-color: #3b82f6; }
 
   /* Sidebar */
   aside {
@@ -56,16 +57,23 @@
   .plane-line {
     display: inline-block; width: 16px; height: 3px; flex-shrink: 0; border-radius: 1px;
   }
-  aside .layout-select { margin-top: 8px; }
+  .filter-count { color: #64748b; font-size: 11px; margin-left: auto; }
   aside select {
     width: 100%; padding: 5px 6px; background: #0f172a; border: 1px solid #475569;
-    border-radius: 5px; color: #e2e8f0; font-size: 12px;
+    border-radius: 5px; color: #e2e8f0; font-size: 12px; margin-top: 4px;
   }
 
-  /* Canvas */
-  #cy {
-    background: #0f172a; position: relative;
+  /* Quick explore */
+  .quick-btn {
+    display: block; width: 100%; padding: 5px 8px; margin: 3px 0;
+    background: #0f172a; border: 1px solid #475569; border-radius: 5px;
+    color: #e2e8f0; font-size: 12px; cursor: pointer; text-align: left;
   }
+  .quick-btn:hover { background: #334155; border-color: #3b82f6; }
+  .quick-btn.active { background: #1e3a5f; border-color: #3b82f6; }
+
+  /* Canvas */
+  #cy { background: #0f172a; position: relative; }
 
   /* Detail panel */
   #detail {
@@ -80,17 +88,37 @@
   }
   #detail table { width: 100%; border-collapse: collapse; }
   #detail td { padding: 4px 0; vertical-align: top; }
-  #detail td:first-child { color: #94a3b8; width: 100px; padding-right: 8px; }
+  #detail td:first-child { color: #94a3b8; width: 110px; padding-right: 8px; }
   #detail td:last-child { word-break: break-word; }
   #detail .section-label {
     font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
     color: #64748b; margin: 14px 0 6px; border-top: 1px solid #334155; padding-top: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  #detail .section-label .pred-dot {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
   }
   #detail ul { list-style: none; padding: 0; }
   #detail ul li {
     padding: 3px 0; cursor: pointer; color: #93c5fd;
   }
   #detail ul li:hover { color: #60a5fa; text-decoration: underline; }
+  #detail .confidence-bar {
+    display: inline-block; width: 40px; height: 4px; background: #334155;
+    border-radius: 2px; margin-left: 4px; vertical-align: middle;
+  }
+  #detail .confidence-bar .fill {
+    height: 100%; border-radius: 2px; background: #10b981;
+  }
+
+  /* Stats bar */
+  .stats-breakdown {
+    display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px;
+  }
+  .stats-breakdown .stat-chip {
+    font-size: 10px; padding: 2px 6px; border-radius: 4px;
+    background: #334155; color: #94a3b8;
+  }
 
   /* Chat drawer */
   #chat-drawer {
@@ -155,14 +183,13 @@
   }
   #chat-send:hover { background: #2563eb; }
   #chat-send:disabled { background: #475569; cursor: not-allowed; }
-  header button.active { background: #3b82f6; border-color: #3b82f6; }
 </style>
 </head>
 <body>
   <header>
     <h1>GRC Knowledge Graph</h1>
     <span class="stats" id="stats">Loading...</span>
-    <input type="text" id="search" placeholder="Search nodes (e.g. AC-2, SOC2, HIPAA)..." />
+    <input type="text" id="search" placeholder="Search nodes (e.g. AC-2, GDPR-ART32, N171-3.1)..." />
     <div class="actions">
       <button id="btn-fit" title="Fit graph to view">Fit</button>
       <button id="btn-reset" title="Reset view and clear selection">Reset</button>
@@ -172,21 +199,24 @@
   </header>
 
   <aside>
-    <h3>Graph Planes</h3>
-    <div id="plane-filters"></div>
+    <h3>Focus Framework</h3>
+    <select id="framework-select">
+      <option value="">All Frameworks</option>
+    </select>
+
+    <h3>Edge Predicates</h3>
+    <div id="predicate-filters"></div>
 
     <h3>Node Types</h3>
     <div id="type-filters"></div>
 
     <h3>Layout</h3>
-    <div class="layout-select">
-      <select id="layout-select">
-        <option value="cose">Force-Directed (cose)</option>
-        <option value="breadthfirst">Hierarchy (breadthfirst)</option>
-        <option value="concentric">Concentric</option>
-        <option value="circle">Circle</option>
-      </select>
-    </div>
+    <select id="layout-select">
+      <option value="cose">Force-Directed (cose)</option>
+      <option value="breadthfirst">Hierarchy (breadthfirst)</option>
+      <option value="concentric">Concentric</option>
+      <option value="circle">Circle</option>
+    </select>
 
     <h3>Visibility</h3>
     <label>
@@ -194,7 +224,7 @@
       Show labels
     </label>
     <label>
-      <input type="checkbox" id="toggle-orphans" checked />
+      <input type="checkbox" id="toggle-orphans" />
       Show orphaned nodes
     </label>
   </aside>
@@ -213,13 +243,13 @@
     </div>
     <div id="chat-messages"></div>
     <div id="chat-input-bar">
-      <textarea id="chat-input" rows="1" placeholder="Ask about the graph (e.g., &quot;What frameworks are loaded?&quot;)"></textarea>
+      <textarea id="chat-input" rows="1" placeholder="Ask about the graph (e.g., &quot;What controls are in FedRAMP Moderate?&quot;)"></textarea>
       <button id="chat-send">Send</button>
     </div>
   </div>
 
   <script>
-    // -- Config --
+    // ── Config ──────────────────────────────────────────────────────────
     const NODE_COLORS = {
       Framework:     '#3b82f6',
       ControlFamily: '#8b5cf6',
@@ -239,25 +269,41 @@
       DocumentType:  'rectangle',
     };
     const NODE_SIZES = {
-      Framework: 40, ControlFamily: 28, Control: 18,
-      Baseline: 24, ServiceModel: 28, EvidenceType: 22, DocumentType: 22,
+      Framework: 40, ControlFamily: 28, Control: 16,
+      Baseline: 26, ServiceModel: 28, EvidenceType: 22, DocumentType: 22,
     };
-    const PLANE_COLORS = {
-      COMPLIANCE:     '#6b7280',
-      MAPPING:        '#3b82f6',
-      RESPONSIBILITY: '#ef4444',
-      EVIDENCE:       '#06b6d4',
+
+    // Per-predicate styling
+    const PREDICATE_COLORS = {
+      CONTAINS:          '#6b7280',
+      ASSIGNED_TO:       '#f59e0b',
+      MAPS_TO:           '#3b82f6',
+      REQUIRES_EVIDENCE: '#06b6d4',
+      RESPONSIBILITY_OF: '#ef4444',
+      DOCUMENTED_IN:     '#a78bfa',
+      INHERITS_FROM:     '#f97316',
+      PART_OF:           '#6b7280',
+      SUPERSEDES:        '#64748b',
     };
-    const PLANE_STYLES = {
-      COMPLIANCE:     'solid',
-      MAPPING:        'dashed',
-      RESPONSIBILITY: 'solid',
-      EVIDENCE:       'dotted',
+    const PREDICATE_STYLES = {
+      CONTAINS:          'solid',
+      ASSIGNED_TO:       'solid',
+      MAPS_TO:           'dashed',
+      REQUIRES_EVIDENCE: 'dotted',
+      RESPONSIBILITY_OF: 'solid',
+      DOCUMENTED_IN:     'dotted',
+      INHERITS_FROM:     'solid',
+      PART_OF:           'solid',
+      SUPERSEDES:        'dashed',
     };
+
+    // Which predicates are on by default (hierarchy + cross-framework)
+    const DEFAULT_ON_PREDICATES = new Set(['CONTAINS', 'MAPS_TO']);
 
     let cy, graphData;
+    let focusedFramework = '';
 
-    // -- Init --
+    // ── Init ────────────────────────────────────────────────────────────
     async function init() {
       const res = await fetch('/api/graph');
       graphData = await res.json();
@@ -273,7 +319,7 @@
         });
       });
 
-      // Edges
+      // Edges — add predicate as a class
       graphData.edges.forEach((e, i) => {
         elements.push({
           group: 'edges',
@@ -282,27 +328,27 @@
             predicate: e.predicate, plane: e.plane,
             confidence: e.confidence, meta: e.meta,
           },
-          classes: e.plane,
+          classes: `${e.plane} pred-${e.predicate}`,
         });
       });
 
-      // Build style array
+      // Build stylesheet
       const style = [
-        // Defaults
+        // Default node
         { selector: 'node', style: {
-          'label': 'data(id)', 'font-size': 8, 'color': '#cbd5e1',
-          'text-valign': 'bottom', 'text-margin-y': 4,
-          'min-zoomed-font-size': 6,
+          'label': 'data(id)', 'font-size': 7, 'color': '#cbd5e1',
+          'text-valign': 'bottom', 'text-margin-y': 3,
+          'min-zoomed-font-size': 5,
           'text-max-width': 80, 'text-wrap': 'ellipsis',
         }},
+        // Default edge
         { selector: 'edge', style: {
-          'width': 1.5, 'curve-style': 'bezier',
-          'target-arrow-shape': 'triangle', 'arrow-scale': 0.6,
-          'opacity': 0.6,
+          'width': 1, 'curve-style': 'bezier',
+          'target-arrow-shape': 'triangle', 'arrow-scale': 0.5,
+          'opacity': 0.5,
         }},
         { selector: 'node.highlighted', style: {
-          'border-width': 3, 'border-color': '#fbbf24',
-          'z-index': 100,
+          'border-width': 3, 'border-color': '#fbbf24', 'z-index': 100,
         }},
         { selector: 'node:selected', style: {
           'border-width': 3, 'border-color': '#f472b6',
@@ -313,8 +359,10 @@
         { selector: 'node.neighbor', style: {
           'border-width': 2, 'border-color': '#fbbf24', 'opacity': 1,
         }},
-        { selector: 'node.dimmed', style: { 'opacity': 0.15 }},
-        { selector: 'edge.dimmed', style: { 'opacity': 0.05 }},
+        { selector: 'node.dimmed', style: { 'opacity': 0.12 }},
+        { selector: 'edge.dimmed', style: { 'opacity': 0.03 }},
+        { selector: 'node.faded', style: { 'opacity': 0.08 }},
+        { selector: 'edge.faded', style: { 'opacity': 0.02 }},
       ];
 
       // Node type styles
@@ -327,12 +375,12 @@
         }});
       });
 
-      // Edge plane styles
-      Object.entries(PLANE_COLORS).forEach(([plane, color]) => {
-        style.push({ selector: `edge.${plane}`, style: {
+      // Per-predicate edge styles
+      Object.entries(PREDICATE_COLORS).forEach(([pred, color]) => {
+        style.push({ selector: `edge.pred-${pred}`, style: {
           'line-color': color,
           'target-arrow-color': color,
-          'line-style': PLANE_STYLES[plane] || 'solid',
+          'line-style': PREDICATE_STYLES[pred] || 'solid',
         }});
       });
 
@@ -340,9 +388,19 @@
         container: document.getElementById('cy'),
         elements,
         style,
-        layout: { name: 'cose', animate: false, nodeRepulsion: () => 12000, idealEdgeLength: () => 80, nodeDimensionsIncludeLabels: true },
-        minZoom: 0.1, maxZoom: 5,
-        wheelSensitivity: 0.3,
+        layout: {
+          name: 'cose', animate: false,
+          nodeRepulsion: () => 20000,
+          idealEdgeLength: () => 100,
+          nodeOverlap: 20,
+          nodeDimensionsIncludeLabels: true,
+          gravity: 0.3,
+          numIter: 500,
+        },
+        minZoom: 0.05, maxZoom: 6,
+        wheelSensitivity: 0.25,
+        pixelRatio: 1,
+        textureOnViewport: true,
       });
 
       // Events
@@ -351,47 +409,89 @@
       cy.on('tap', (evt) => { if (evt.target === cy) clearSelection(); });
 
       buildFilters();
+      applyFilters();
       updateStats();
     }
 
-    // -- Filters --
+    // ── Filters ─────────────────────────────────────────────────────────
     function buildFilters() {
-      const planeDiv = document.getElementById('plane-filters');
-      Object.keys(PLANE_COLORS).forEach(plane => {
-        const label = document.createElement('label');
-        const cb = document.createElement('input');
-        cb.type = 'checkbox'; cb.checked = true; cb.dataset.plane = plane;
-        cb.addEventListener('change', applyFilters);
-        const dot = document.createElement('span');
-        dot.className = 'plane-line';
-        dot.style.background = PLANE_COLORS[plane];
-        if (PLANE_STYLES[plane] === 'dashed') dot.style.background = `repeating-linear-gradient(90deg, ${PLANE_COLORS[plane]} 0 4px, transparent 4px 6px)`;
-        if (PLANE_STYLES[plane] === 'dotted') dot.style.background = `repeating-linear-gradient(90deg, ${PLANE_COLORS[plane]} 0 2px, transparent 2px 5px)`;
-        label.append(cb, dot, ` ${plane.charAt(0)}${plane.slice(1).toLowerCase()}`);
-        planeDiv.appendChild(label);
+      // Framework selector
+      const fwSelect = document.getElementById('framework-select');
+      const frameworks = graphData.nodes
+        .filter(n => n.type === 'Framework')
+        .sort((a, b) => a.label.localeCompare(b.label));
+      frameworks.forEach(fw => {
+        const opt = document.createElement('option');
+        opt.value = fw.id; opt.textContent = fw.label;
+        fwSelect.appendChild(opt);
       });
 
+      // Predicate filters with counts
+      const predDiv = document.getElementById('predicate-filters');
+      const predCounts = {};
+      graphData.edges.forEach(e => {
+        predCounts[e.predicate] = (predCounts[e.predicate] || 0) + 1;
+      });
+
+      // Order: most important first
+      const predOrder = ['CONTAINS', 'MAPS_TO', 'ASSIGNED_TO', 'REQUIRES_EVIDENCE',
+                         'RESPONSIBILITY_OF', 'DOCUMENTED_IN', 'INHERITS_FROM', 'PART_OF', 'SUPERSEDES'];
+      const usedPreds = predOrder.filter(p => predCounts[p]);
+
+      usedPreds.forEach(pred => {
+        const label = document.createElement('label');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.checked = DEFAULT_ON_PREDICATES.has(pred);
+        cb.dataset.predicate = pred;
+        cb.addEventListener('change', applyFilters);
+
+        const dot = document.createElement('span');
+        dot.className = 'color-dot';
+        dot.style.background = PREDICATE_COLORS[pred] || '#475569';
+
+        const count = document.createElement('span');
+        count.className = 'filter-count';
+        count.textContent = predCounts[pred] || 0;
+
+        label.append(cb, dot, ` ${pred} `, count);
+        predDiv.appendChild(label);
+      });
+
+      // Node type filters with counts
       const typeDiv = document.getElementById('type-filters');
+      const typeCounts = {};
+      graphData.nodes.forEach(n => {
+        typeCounts[n.type] = (typeCounts[n.type] || 0) + 1;
+      });
+
       Object.keys(NODE_COLORS).forEach(type => {
         const label = document.createElement('label');
         const cb = document.createElement('input');
         cb.type = 'checkbox'; cb.checked = true; cb.dataset.nodeType = type;
         cb.addEventListener('change', applyFilters);
+
         const dot = document.createElement('span');
         dot.className = 'color-dot'; dot.style.background = NODE_COLORS[type];
-        label.append(cb, dot, ` ${type}`);
+
+        const count = document.createElement('span');
+        count.className = 'filter-count';
+        count.textContent = typeCounts[type] || 0;
+
+        label.append(cb, dot, ` ${type} `, count);
         typeDiv.appendChild(label);
       });
     }
 
     function applyFilters() {
-      // Planes
-      const activePlanes = new Set();
-      document.querySelectorAll('[data-plane]').forEach(cb => {
-        if (cb.checked) activePlanes.add(cb.dataset.plane);
+      // Active predicates
+      const activePredicates = new Set();
+      document.querySelectorAll('[data-predicate]').forEach(cb => {
+        if (cb.checked) activePredicates.add(cb.dataset.predicate);
       });
+
       cy.edges().forEach(e => {
-        if (activePlanes.has(e.data('plane'))) e.show(); else e.hide();
+        if (activePredicates.has(e.data('predicate'))) e.show(); else e.hide();
       });
 
       // Node types
@@ -403,6 +503,11 @@
         if (activeTypes.has(n.data('type'))) n.show(); else n.hide();
       });
 
+      // Framework focus
+      if (focusedFramework) {
+        applyFrameworkFocus(focusedFramework);
+      }
+
       // Hide orphans if toggle is off
       if (!document.getElementById('toggle-orphans').checked) {
         cy.nodes().forEach(n => {
@@ -413,7 +518,55 @@
       updateStats();
     }
 
-    // -- Search --
+    function applyFrameworkFocus(frameworkId) {
+      if (!frameworkId) {
+        cy.elements().removeClass('faded');
+        return;
+      }
+
+      // Find all nodes connected to this framework via CONTAINS (hierarchy)
+      const fwNode = cy.getElementById(frameworkId);
+      if (fwNode.length === 0) return;
+
+      // BFS through CONTAINS to find all descendants
+      const inScope = cy.collection();
+      inScope.merge(fwNode);
+
+      let frontier = fwNode;
+      for (let depth = 0; depth < 4; depth++) {
+        const nextEdges = frontier.connectedEdges().filter(e =>
+          e.data('predicate') === 'CONTAINS' && e.source().id() !== e.target().id()
+        );
+        const nextNodes = nextEdges.connectedNodes().difference(inScope);
+        if (nextNodes.length === 0) break;
+        inScope.merge(nextEdges);
+        inScope.merge(nextNodes);
+        frontier = nextNodes;
+      }
+
+      // Also include nodes connected via visible edges from in-scope controls
+      const controls = inScope.nodes().filter(n => n.data('type') === 'Control');
+      const crossEdges = controls.connectedEdges().filter(e => e.visible());
+      const crossNodes = crossEdges.connectedNodes();
+      inScope.merge(crossEdges);
+      inScope.merge(crossNodes);
+
+      // Fade everything not in scope
+      cy.elements().addClass('faded');
+      inScope.removeClass('faded');
+    }
+
+    // Framework selector
+    document.getElementById('framework-select').addEventListener('change', (e) => {
+      focusedFramework = e.target.value;
+      cy.elements().removeClass('faded');
+      if (focusedFramework) {
+        applyFrameworkFocus(focusedFramework);
+      }
+      updateStats();
+    });
+
+    // ── Search ──────────────────────────────────────────────────────────
     document.getElementById('search').addEventListener('input', (e) => {
       const q = e.target.value.toLowerCase().trim();
       cy.nodes().removeClass('highlighted');
@@ -426,22 +579,21 @@
       );
       matches.addClass('highlighted');
 
-      if (matches.length > 0 && matches.length <= 20) {
-        // Dim everything else
+      if (matches.length > 0 && matches.length <= 30) {
         cy.elements().addClass('dimmed');
         matches.removeClass('dimmed');
-        matches.connectedEdges().removeClass('dimmed');
-        matches.connectedEdges().connectedNodes().removeClass('dimmed');
+        matches.connectedEdges().filter(e => e.visible()).removeClass('dimmed');
+        matches.connectedEdges().filter(e => e.visible()).connectedNodes().removeClass('dimmed');
       }
 
       if (matches.length === 1) {
         cy.animate({ center: { eles: matches }, zoom: 2.5 }, { duration: 300 });
-      } else if (matches.length > 1 && matches.length <= 20) {
+      } else if (matches.length > 1 && matches.length <= 30) {
         cy.animate({ fit: { eles: matches, padding: 60 } }, { duration: 300 });
       }
     });
 
-    // -- Node tap --
+    // ── Node tap ────────────────────────────────────────────────────────
     function onNodeTap(evt) {
       const node = evt.target;
       clearDimming();
@@ -473,16 +625,16 @@
       });
       html += '</table>';
 
-      // Connected edges grouped by plane
+      // Connected edges grouped by predicate
       const connected = node.connectedEdges().filter(e => e.visible());
       if (connected.length > 0) {
-        const byPlane = {};
+        const byPredicate = {};
         connected.forEach(e => {
-          const plane = e.data('plane');
-          if (!byPlane[plane]) byPlane[plane] = [];
+          const pred = e.data('predicate');
+          if (!byPredicate[pred]) byPredicate[pred] = [];
           const other = e.source().id() === node.id() ? e.target() : e.source();
-          byPlane[plane].push({
-            predicate: e.data('predicate'),
+          byPredicate[pred].push({
+            predicate: pred,
             otherId: other.id(),
             otherLabel: other.data('label'),
             direction: e.source().id() === node.id() ? 'out' : 'in',
@@ -491,13 +643,28 @@
           });
         });
 
-        Object.entries(byPlane).forEach(([plane, edges]) => {
-          html += `<div class="section-label">${plane} (${edges.length})</div><ul>`;
+        // Order predicates for readability
+        const predOrder = ['CONTAINS', 'ASSIGNED_TO', 'MAPS_TO', 'REQUIRES_EVIDENCE',
+                           'RESPONSIBILITY_OF', 'DOCUMENTED_IN', 'INHERITS_FROM', 'PART_OF'];
+        const sortedPreds = Object.keys(byPredicate).sort((a, b) => {
+          const ai = predOrder.indexOf(a), bi = predOrder.indexOf(b);
+          return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+        });
+
+        sortedPreds.forEach(pred => {
+          const edges = byPredicate[pred];
+          const predColor = PREDICATE_COLORS[pred] || '#475569';
+          html += `<div class="section-label"><span class="pred-dot" style="background:${predColor}"></span>${pred} (${edges.length})</div><ul>`;
           edges.forEach(e => {
             const arrow = e.direction === 'out' ? '&rarr;' : '&larr;';
-            const conf = e.confidence ? ` <span style="color:#64748b">(${(e.confidence*100).toFixed(0)}%)</span>` : '';
-            const cov = e.meta?.coverage ? ` <span style="color:#64748b">[${e.meta.coverage}]</span>` : '';
-            html += `<li data-node-id="${e.otherId}">${arrow} <b>${e.predicate}</b> ${e.otherId}${conf}${cov}</li>`;
+            let confHtml = '';
+            if (e.confidence) {
+              const pct = (e.confidence * 100).toFixed(0);
+              confHtml = ` <span class="confidence-bar"><span class="fill" style="width:${pct}%"></span></span>`;
+            }
+            const cov = e.meta?.coverage ? ` <span style="color:#64748b;font-size:11px">[${e.meta.coverage}]</span>` : '';
+            const resp = e.meta?.responsibility_type ? ` <span style="color:#64748b;font-size:11px">[${e.meta.responsibility_type}]</span>` : '';
+            html += `<li data-node-id="${e.otherId}">${arrow} ${e.otherId}${confHtml}${cov}${resp}</li>`;
           });
           html += '</ul>';
         });
@@ -517,18 +684,18 @@
       });
     }
 
-    // -- Edge tap --
+    // ── Edge tap ────────────────────────────────────────────────────────
     function onEdgeTap(evt) {
       const edge = evt.target;
       const d = document.getElementById('detail');
       d.className = '';
-      const plane = edge.data('plane');
-      const planeColor = PLANE_COLORS[plane] || '#475569';
+      const pred = edge.data('predicate');
+      const predColor = PREDICATE_COLORS[pred] || '#475569';
 
       let html = `<h2>${edge.data('source')} &rarr; ${edge.data('target')}</h2>`;
-      html += `<span class="badge" style="background:${planeColor}33;color:${planeColor}">${plane}</span>`;
+      html += `<span class="badge" style="background:${predColor}33;color:${predColor}">${pred}</span>`;
       html += `<table>`;
-      html += `<tr><td>Predicate</td><td><b>${edge.data('predicate')}</b></td></tr>`;
+      html += `<tr><td>Plane</td><td>${edge.data('plane')}</td></tr>`;
       html += `<tr><td>Confidence</td><td>${(edge.data('confidence')*100).toFixed(0)}%</td></tr>`;
       const meta = edge.data('meta');
       if (meta && Object.keys(meta).length > 0) {
@@ -556,7 +723,7 @@
       });
     }
 
-    // -- Helpers --
+    // ── Helpers ─────────────────────────────────────────────────────────
     function clearSelection() {
       clearDimming();
       const d = document.getElementById('detail');
@@ -569,20 +736,29 @@
     }
 
     function updateStats() {
-      const vn = cy.nodes().filter(n => n.visible()).length;
-      const ve = cy.edges().filter(e => e.visible()).length;
+      const vn = cy.nodes().filter(n => n.visible() && !n.hasClass('faded')).length;
+      const ve = cy.edges().filter(e => e.visible() && !e.hasClass('faded')).length;
       const tn = graphData.nodes.length;
       const te = graphData.edges.length;
       document.getElementById('stats').textContent =
-        `${tn} nodes, ${te} edges | Visible: ${vn} nodes, ${ve} edges`;
+        `${tn} nodes, ${te} edges | Visible: ${vn}n ${ve}e`;
     }
 
-    // -- Toolbar --
+    // ── Toolbar ─────────────────────────────────────────────────────────
     document.getElementById('btn-fit').addEventListener('click', () => cy.fit(null, 40));
     document.getElementById('btn-reset').addEventListener('click', () => {
       clearSelection();
+      cy.elements().removeClass('faded');
+      focusedFramework = '';
+      document.getElementById('framework-select').value = '';
       document.getElementById('search').value = '';
-      document.querySelectorAll('aside input[type="checkbox"]').forEach(cb => cb.checked = true);
+      document.querySelectorAll('[data-predicate]').forEach(cb => {
+        cb.checked = DEFAULT_ON_PREDICATES.has(cb.dataset.predicate);
+      });
+      document.querySelectorAll('[data-node-type]').forEach(cb => cb.checked = true);
+      document.getElementById('toggle-orphans').checked = false;
+      document.getElementById('toggle-labels').checked = true;
+      cy.style().selector('node').style('label', 'data(id)').update();
       applyFilters();
       cy.fit(null, 40);
     });
@@ -596,9 +772,12 @@
     document.getElementById('layout-select').addEventListener('change', (e) => {
       const name = e.target.value;
       const opts = { name, animate: true, animationDuration: 500, nodeDimensionsIncludeLabels: true };
-      if (name === 'cose') { opts.animate = false; opts.nodeRepulsion = () => 12000; opts.idealEdgeLength = () => 80; }
-      if (name === 'breadthfirst') { opts.directed = true; opts.spacingFactor = 0.9; }
-      if (name === 'concentric') { opts.concentric = (n) => n.degree(); opts.levelWidth = () => 3; }
+      if (name === 'cose') {
+        opts.animate = false; opts.nodeRepulsion = () => 20000;
+        opts.idealEdgeLength = () => 100; opts.gravity = 0.3; opts.numIter = 500;
+      }
+      if (name === 'breadthfirst') { opts.directed = true; opts.spacingFactor = 0.8; }
+      if (name === 'concentric') { opts.concentric = (n) => n.degree(); opts.levelWidth = () => 4; }
       cy.layout(opts).run();
     });
 
@@ -608,7 +787,16 @@
     });
     document.getElementById('toggle-orphans').addEventListener('change', applyFilters);
 
-    // -- Chat module --
+    // Keyboard: Escape to clear
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        clearSelection();
+        document.getElementById('search').value = '';
+        cy.nodes().removeClass('highlighted');
+      }
+    });
+
+    // ── Chat module ─────────────────────────────────────────────────────
     const chatDrawer = document.getElementById('chat-drawer');
     const chatMessages = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
@@ -617,18 +805,15 @@
     const chatToggleIcon = document.getElementById('chat-toggle-icon');
     const btnChat = document.getElementById('btn-chat');
 
-    let chatHistory = []; // {role, content} for API
+    let chatHistory = [];
     let chatOpen = false;
     let chatStreaming = false;
-    let selectedNodeId = null;
 
-    // Track selected node
     function getSelectedNodeId() {
       const sel = cy?.elements('node:selected');
       return (sel && sel.length > 0) ? sel[0].id() : null;
     }
 
-    // Toggle drawer
     function toggleChat() {
       chatOpen = !chatOpen;
       chatDrawer.classList.toggle('collapsed', !chatOpen);
@@ -640,13 +825,11 @@
     btnChat.addEventListener('click', toggleChat);
     document.getElementById('chat-header').addEventListener('click', toggleChat);
 
-    // Auto-resize textarea
     chatInput.addEventListener('input', () => {
       chatInput.style.height = 'auto';
       chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
     });
 
-    // Send on Enter (Shift+Enter for newline)
     chatInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
@@ -659,7 +842,6 @@
       const text = chatInput.value.trim();
       if (!text || chatStreaming) return;
 
-      // Append user message
       chatHistory.push({ role: 'user', content: text });
       appendChatBubble('user', text);
       chatInput.value = '';
@@ -669,7 +851,6 @@
       chatSend.disabled = true;
       chatStatus.textContent = 'Thinking...';
 
-      // Create assistant bubble for streaming
       const assistantBubble = appendChatBubble('assistant', '');
       let fullResponse = '';
 
@@ -688,7 +869,6 @@
           throw new Error(err.error || `HTTP ${res.status}`);
         }
 
-        // Read SSE stream
         const reader = res.body.getReader();
         const decoder = new TextDecoder();
         let buffer = '';
@@ -699,7 +879,7 @@
 
           buffer += decoder.decode(value, { stream: true });
           const lines = buffer.split('\n');
-          buffer = lines.pop(); // keep incomplete line in buffer
+          buffer = lines.pop();
 
           for (const line of lines) {
             if (!line.startsWith('data: ')) continue;
@@ -714,14 +894,10 @@
           }
         }
 
-        // Save assistant response to history
         chatHistory.push({ role: 'assistant', content: fullResponse });
       } catch (err) {
-        if (!fullResponse) {
-          assistantBubble.remove();
-        }
+        if (!fullResponse) assistantBubble.remove();
         appendChatBubble('error', err.message);
-        // Remove the user message from history if we got no response
         if (!fullResponse) chatHistory.pop();
       } finally {
         chatStreaming = false;
@@ -733,22 +909,16 @@
     function appendChatBubble(role, text) {
       const div = document.createElement('div');
       div.className = `chat-msg ${role}`;
-      if (role === 'user') {
-        div.textContent = text;
-      } else if (role === 'error') {
-        div.textContent = text;
-      }
+      if (role === 'user' || role === 'error') div.textContent = text;
       chatMessages.appendChild(div);
       chatMessages.scrollTop = chatMessages.scrollHeight;
       return div;
     }
 
     function renderAssistantBubble(el, markdown) {
-      // Render markdown to HTML
       let html = marked.parse(markdown);
-      // Make node IDs clickable — match patterns like NIST-AC-2, SOC2-CC6.1, FEDRAMP-MODERATE, etc.
+      // Make node IDs clickable
       html = html.replace(/\b([A-Z][A-Z0-9]*(?:-[A-Za-z0-9.]+)+)\b/g, (match) => {
-        // Only link if the ID exists in the graph
         if (graphData && graphData.nodes.some(n => n.id === match)) {
           return `<a class="node-link" data-node-id="${match}">${match}</a>`;
         }
@@ -756,7 +926,6 @@
       });
       el.innerHTML = html;
 
-      // Bind node link clicks
       el.querySelectorAll('.node-link').forEach(a => {
         a.addEventListener('click', (e) => {
           e.preventDefault();
@@ -772,7 +941,7 @@
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    // Run
+    // ── Run ─────────────────────────────────────────────────────────────
     init();
   </script>
 </body>
