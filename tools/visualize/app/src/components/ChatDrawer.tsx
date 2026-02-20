@@ -1,5 +1,5 @@
-import { useRef, useEffect, useCallback, useMemo } from 'react'
-import { Bot, User, SendHorizontal, ChevronDown, ChevronUp, MessageCircle } from 'lucide-react'
+import { useRef, useEffect, useCallback, useMemo, useState } from 'react'
+import { Bot, User, SendHorizontal, ChevronDown, ChevronUp, MessageCircle, GripHorizontal } from 'lucide-react'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import type { ChatMessage, GraphPayload } from '../types'
@@ -44,7 +44,32 @@ export function ChatDrawer({
 }: ChatDrawerProps) {
   const messagesRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
+  const drawerRef = useRef<HTMLDivElement>(null)
   const nodeIds = useNodeIdSet(graphData)
+  const [drawerHeight, setDrawerHeight] = useState<number | null>(null)
+
+  // Drag-to-resize
+  const handleResizeStart = useCallback((e: React.PointerEvent) => {
+    e.preventDefault()
+    const startY = e.clientY
+    const startHeight = drawerRef.current?.offsetHeight ?? 300
+
+    const onMove = (ev: PointerEvent) => {
+      const delta = startY - ev.clientY
+      const vh = window.innerHeight
+      const newHeight = Math.max(120, Math.min(vh - 60, startHeight + delta))
+      setDrawerHeight(newHeight)
+    }
+
+    const onUp = () => {
+      document.removeEventListener('pointermove', onMove)
+      document.removeEventListener('pointerup', onUp)
+    }
+
+    document.addEventListener('pointermove', onMove)
+    document.addEventListener('pointerup', onUp)
+  }, [])
+
   // Memoize rendered HTML per message to avoid re-rendering all messages on each update
   const renderedMessages = useMemo(() =>
     messages.map(msg =>
@@ -135,7 +160,15 @@ export function ChatDrawer({
   }, [])
 
   return (
-    <div id="chat-drawer" className={isOpen ? '' : 'collapsed'}>
+    <div
+      id="chat-drawer"
+      ref={drawerRef}
+      className={isOpen ? '' : 'collapsed'}
+      style={isOpen && drawerHeight ? { maxHeight: drawerHeight, height: drawerHeight } : undefined}
+    >
+      <div className="resize-handle" onPointerDown={handleResizeStart}>
+        <GripHorizontal size={16} />
+      </div>
       <div id="chat-header" onClick={onToggle}>
         <Bot size={18} className="chat-header-icon" />
         <h3>Chat with Claude</h3>

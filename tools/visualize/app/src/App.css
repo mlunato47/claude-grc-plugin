@@ -366,6 +366,18 @@ aside, #cy, #detail { min-height: 0; }
   max-height: 0; overflow: hidden; border-top: none;
 }
 
+/* Resize handle */
+.resize-handle {
+  display: flex; align-items: center; justify-content: center;
+  height: 10px; cursor: ns-resize; color: var(--text-dim);
+  flex-shrink: 0; user-select: none; touch-action: none;
+  transition: color var(--transition), background var(--transition);
+}
+.resize-handle:hover {
+  color: var(--text-muted); background: rgba(255,255,255,0.04);
+}
+#chat-drawer.collapsed .resize-handle { display: none; }
+
 /* Chat header */
 #chat-header {
   display: flex; align-items: center; gap: 10px;
