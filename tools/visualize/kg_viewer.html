@@ -142,30 +142,74 @@
   #chat-header .chat-toggle { font-size: 18px; color: #94a3b8; }
   #chat-header .chat-status { font-size: 11px; color: #64748b; }
   #chat-messages {
-    flex: 1; overflow-y: auto; padding: 12px 16px;
-    display: flex; flex-direction: column; gap: 10px;
+    flex: 1; overflow-y: auto; padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 12px;
     min-height: 0;
   }
-  .chat-msg { max-width: 85%; padding: 8px 12px; border-radius: 8px; font-size: 13px; line-height: 1.5; }
-  .chat-msg.user { align-self: flex-end; background: #3b82f6; color: #fff; }
+  .chat-msg {
+    max-width: 85%; padding: 10px 14px; border-radius: 10px;
+    font-size: 13px; line-height: 1.6; overflow-wrap: break-word; word-break: break-word;
+  }
+  .chat-msg.user {
+    align-self: flex-end; background: #3b82f6; color: #fff;
+    border-bottom-right-radius: 3px; white-space: pre-wrap;
+  }
   .chat-msg.assistant {
     align-self: flex-start; background: #334155; color: #e2e8f0;
+    border-bottom-left-radius: 3px; max-width: 92%;
   }
-  .chat-msg.assistant p { margin: 0 0 8px; }
-  .chat-msg.assistant p:last-child { margin-bottom: 0; }
-  .chat-msg.assistant ul, .chat-msg.assistant ol { margin: 4px 0; padding-left: 20px; }
-  .chat-msg.assistant code { background: #1e293b; padding: 1px 4px; border-radius: 3px; font-size: 12px; }
-  .chat-msg.assistant pre { background: #0f172a; padding: 8px; border-radius: 4px; overflow-x: auto; margin: 6px 0; }
-  .chat-msg.assistant pre code { background: none; padding: 0; }
-  .chat-msg.assistant table { border-collapse: collapse; margin: 6px 0; font-size: 12px; }
-  .chat-msg.assistant th, .chat-msg.assistant td { border: 1px solid #475569; padding: 4px 8px; text-align: left; }
-  .chat-msg.assistant th { background: #1e293b; }
+  .chat-msg.assistant > *:first-child { margin-top: 0; }
+  .chat-msg.assistant > *:last-child { margin-bottom: 0; }
+  .chat-msg.assistant p { margin: 0 0 10px; }
+  .chat-msg.assistant h1, .chat-msg.assistant h2, .chat-msg.assistant h3,
+  .chat-msg.assistant h4, .chat-msg.assistant h5, .chat-msg.assistant h6 {
+    margin: 14px 0 6px; font-weight: 600; color: #f1f5f9; line-height: 1.3;
+  }
+  .chat-msg.assistant h1 { font-size: 17px; }
+  .chat-msg.assistant h2 { font-size: 15px; }
+  .chat-msg.assistant h3 { font-size: 14px; }
+  .chat-msg.assistant h4, .chat-msg.assistant h5, .chat-msg.assistant h6 { font-size: 13px; }
+  .chat-msg.assistant ul, .chat-msg.assistant ol {
+    margin: 6px 0 10px; padding-left: 22px;
+  }
+  .chat-msg.assistant ul { list-style-type: disc; }
+  .chat-msg.assistant ol { list-style-type: decimal; }
+  .chat-msg.assistant ul ul { list-style-type: circle; margin: 2px 0; }
+  .chat-msg.assistant li { margin: 3px 0; }
+  .chat-msg.assistant strong { font-weight: 600; color: #f1f5f9; }
+  .chat-msg.assistant em { font-style: italic; color: #cbd5e1; }
+  .chat-msg.assistant code {
+    background: #1e293b; padding: 2px 5px; border-radius: 3px;
+    font-size: 12px; font-family: 'Consolas', 'Monaco', monospace;
+  }
+  .chat-msg.assistant pre {
+    background: #0f172a; padding: 10px 12px; border-radius: 6px;
+    overflow-x: auto; margin: 8px 0; border: 1px solid #475569;
+  }
+  .chat-msg.assistant pre code { background: none; padding: 0; font-size: 12px; }
+  .chat-msg.assistant blockquote {
+    border-left: 3px solid #3b82f6; padding: 4px 12px; margin: 8px 0;
+    color: #94a3b8; background: #1e293b; border-radius: 0 4px 4px 0;
+  }
+  .chat-msg.assistant hr {
+    border: none; border-top: 1px solid #475569; margin: 12px 0;
+  }
+  .chat-msg.assistant table {
+    border-collapse: collapse; margin: 8px 0; font-size: 12px; width: 100%;
+  }
+  .chat-msg.assistant th, .chat-msg.assistant td {
+    border: 1px solid #475569; padding: 5px 10px; text-align: left;
+  }
+  .chat-msg.assistant th { background: #1e293b; font-weight: 600; color: #f1f5f9; }
   .chat-msg.assistant a.node-link {
     color: #93c5fd; cursor: pointer; text-decoration: underline;
     text-decoration-style: dotted;
   }
-  .chat-msg.assistant a.node-link:hover { color: #60a5fa; }
-  .chat-msg.error { align-self: center; background: #7f1d1d; color: #fca5a5; font-size: 12px; }
+  .chat-msg.assistant a.node-link:hover { color: #60a5fa; text-decoration-style: solid; }
+  .chat-msg.error {
+    align-self: center; background: #7f1d1d; color: #fca5a5;
+    font-size: 12px; border-radius: 6px;
+  }
   #chat-input-bar {
     display: flex; gap: 8px; padding: 8px 16px;
     border-top: 1px solid #334155; flex-shrink: 0;
