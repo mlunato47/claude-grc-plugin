@@ -1,6 +1,6 @@
 # GRC Knowledge Plugin for Claude Code
 
-A Claude Code plugin that turns Claude into a senior GRC (Governance, Risk, and Compliance) analyst. 76+ reference files covering 15 frameworks, 26 slash commands, a multi-plane Knowledge Graph with PathRAG traversal, and deep domain knowledge for federal and commercial compliance work.
+A Claude Code plugin that turns Claude into a senior GRC (Governance, Risk, and Compliance) analyst with a built-in DoD ATO acceleration engine. 87+ reference files covering 15 frameworks, 27 slash commands, a multi-plane Knowledge Graph with PathRAG traversal, and deep domain knowledge for federal, DoD, and commercial compliance work.
 
 ## What It Does
 
@@ -89,6 +89,18 @@ Once loaded, type `/grc:` to see all available commands.
 |---------|---------|
 | `/grc:graph-query` | Natural language compliance questions answered via Knowledge Graph traversal |
 | `/grc:graph-traverse` | PathRAG traversal from a control across planes — mapping, evidence, responsibility |
+
+### DoD ATO Engine
+
+| Command | Purpose |
+|---------|---------|
+| `/grc:ato` | ATO acceleration engine — reads context, infers platform/IL/branch, outputs technology-specific sprint plan |
+| `/grc:ato --gap` | Inheritance gap analysis only — what platform covers vs. what you own |
+| `/grc:ato --path` | Critical path only — AO gate requirements and parallelization map |
+| `/grc:ato --brief` | AO briefing structure for your branch and IL |
+| `/grc:ato --conmon` | ConMon plan for post-ATO at your IL and branch |
+
+Supports all DoD components (Army, Navy, Air Force, Marines, Space Force, SOCOM, DISA) and IL2 through IL6 across Platform One, AWS GovCloud, Azure Government, DISA MilCloud, Windows enclaves, and generic Kubernetes.
 
 ### Operational Workflows
 
