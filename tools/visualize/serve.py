@@ -14,6 +14,7 @@ import json
 import os
 import sys
 from http.server import HTTPServer, SimpleHTTPRequestHandler
+from socketserver import ThreadingMixIn
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -340,9 +341,13 @@ class Handler(SimpleHTTPRequestHandler):
         pass
 
 
+class ThreadingHTTPServer(ThreadingMixIn, HTTPServer):
+    daemon_threads = True
+
+
 def main() -> None:
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
-    server = HTTPServer(("", port), Handler)
+    server = ThreadingHTTPServer(("", port), Handler)
     print(f"GRC Knowledge Graph Viewer")
     print(f"  http://localhost:{port}")
     print(f"  {len(flatten_nodes(load_json(GRAPH_DIR / 'nodes.json')))} nodes, "

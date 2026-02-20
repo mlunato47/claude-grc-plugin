@@ -57,13 +57,17 @@ function deriveTitle(messages: ChatMessage[]): string {
 }
 
 export function useChat(getSelectedNodeId: () => string | null) {
-  const [conversations, setConversations] = useState<Conversation[]>(loadConversations)
+  const initConvs = loadConversations
+  const [conversations, setConversations] = useState<Conversation[]>(initConvs)
   const [activeId, setActiveId] = useState<string | null>(() => {
     const saved = loadActiveId()
-    const convs = loadConversations()
+    const convs = conversations   // use already-loaded state
     if (saved && convs.some(c => c.id === saved)) return saved
     return convs.length > 0 ? convs[0].id : null
   })
+
+  const activeIdRef = useRef(activeId)
+  activeIdRef.current = activeId
 
   const activeConv = conversations.find(c => c.id === activeId) ?? null
   const messages = activeConv?.messages ?? []
@@ -87,13 +91,14 @@ export function useChat(getSelectedNodeId: () => string | null) {
 
   const toggleOpen = useCallback(() => setIsOpen(prev => !prev), [])
 
-  const updateActiveMessages = useCallback((updater: (prev: ChatMessage[]) => ChatMessage[]) => {
+  // Use a stable helper that reads activeIdRef — no stale closure over activeId
+  const updateConversationMessages = useCallback((convId: string, updater: (prev: ChatMessage[]) => ChatMessage[]) => {
     setConversations(prev => prev.map(c => {
-      if (c.id !== activeId) return c
+      if (c.id !== convId) return c
       const newMsgs = updater(c.messages)
       return { ...c, messages: newMsgs, title: deriveTitle(newMsgs), updatedAt: Date.now() }
     }))
-  }, [activeId])
+  }, [])
 
   const send = useCallback((text: string) => {
     if (!text.trim() || isStreaming) return
@@ -101,20 +106,24 @@ export function useChat(getSelectedNodeId: () => string | null) {
     const userMsg: ChatMessage = { role: 'user', content: text.trim() }
 
     // If no active conversation, create one
-    let currentId = activeId
-    if (!currentId) {
+    let targetId = activeIdRef.current
+    if (!targetId) {
       const newConv: Conversation = {
         id: generateId(),
         title: text.trim().slice(0, 50),
         messages: [],
         updatedAt: Date.now(),
       }
-      currentId = newConv.id
+      targetId = newConv.id
       setConversations(prev => [newConv, ...prev])
-      setActiveId(currentId)
+      setActiveId(targetId)
+      activeIdRef.current = targetId
     }
 
-    updateActiveMessages(prev => [...prev, userMsg])
+    // Capture targetId for all callbacks — immune to future activeId changes
+    const sendTargetId = targetId
+
+    updateConversationMessages(sendTargetId, prev => [...prev, userMsg])
     setError(null)
     setIsStreaming(true)
     setStreamingText('')
@@ -128,7 +137,7 @@ export function useChat(getSelectedNodeId: () => string | null) {
         setStreamingText(accumulated)
       },
       onDone() {
-        updateActiveMessages(prev => [...prev, { role: 'assistant', content: accumulated }])
+        updateConversationMessages(sendTargetId, prev => [...prev, { role: 'assistant', content: accumulated }])
         setStreamingText('')
         setIsStreaming(false)
       },
@@ -136,14 +145,14 @@ export function useChat(getSelectedNodeId: () => string | null) {
         setIsStreaming(false)
         setStreamingText('')
         if (accumulated) {
-          updateActiveMessages(prev => [...prev, { role: 'assistant', content: accumulated }])
+          updateConversationMessages(sendTargetId, prev => [...prev, { role: 'assistant', content: accumulated }])
         } else {
-          updateActiveMessages(prev => prev.slice(0, -1))
+          updateConversationMessages(sendTargetId, prev => prev.slice(0, -1))
         }
         setError(err.message)
       },
     })
-  }, [isStreaming, getSelectedNodeId, activeId, updateActiveMessages])
+  }, [isStreaming, getSelectedNodeId, updateConversationMessages])
 
   const newChat = useCallback(() => {
     if (isStreaming && abortRef.current) abortRef.current.abort()
@@ -171,20 +180,21 @@ export function useChat(getSelectedNodeId: () => string | null) {
   const deleteChat = useCallback((id: string) => {
     setConversations(prev => {
       const next = prev.filter(c => c.id !== id)
-      if (id === activeId) {
+      if (id === activeIdRef.current) {
         setActiveId(next.length > 0 ? next[0].id : null)
       }
       return next
     })
-  }, [activeId])
+  }, [])
 
   const clear = useCallback(() => {
     if (isStreaming && abortRef.current) abortRef.current.abort()
-    updateActiveMessages(() => [])
+    const id = activeIdRef.current
+    if (id) updateConversationMessages(id, () => [])
     setStreamingText('')
     setIsStreaming(false)
     setError(null)
-  }, [isStreaming, updateActiveMessages])
+  }, [isStreaming, updateConversationMessages])
 
   return {
     messages, streamingText, isStreaming, isOpen, error,
