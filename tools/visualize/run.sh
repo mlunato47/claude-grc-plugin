@@ -25,13 +25,15 @@ cleanup() {
 }
 trap cleanup EXIT
 
-# Find python
+# Find a working python with anthropic installed
 PYTHON=""
-for cmd in python3 py python; do
-  if command -v "$cmd" &>/dev/null; then PYTHON="$cmd"; break; fi
+for cmd in py python python3; do
+  if command -v "$cmd" &>/dev/null && "$cmd" -c "import anthropic" &>/dev/null; then
+    PYTHON="$cmd"; break
+  fi
 done
 if [ -z "$PYTHON" ]; then
-  echo "ERROR: No python found on PATH"; exit 1
+  echo "ERROR: No python with 'anthropic' package found. Run: pip install anthropic"; exit 1
 fi
 
 # Start backend
