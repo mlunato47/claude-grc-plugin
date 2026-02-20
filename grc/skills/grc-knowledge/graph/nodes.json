@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "revision_id": "grc-kg-rev-001",
-    "node_count": 937,
-    "description": "GRC Knowledge Graph nodes — frameworks, families, controls, baselines, service models, evidence types, document types"
+    "revision_id": "grc-kg-rev-002",
+    "node_count": 1114,
+    "description": "GRC Knowledge Graph nodes \u00e2\u20ac\u201d frameworks, families, controls, baselines, service models, evidence types, document types"
   },
   "frameworks": [
     {
@@ -857,10 +857,154 @@
         "label": "3.9 Personnel Security",
         "framework_id": "CMMC"
       }
+    ],
+    "gdpr": [
+      {
+        "id": "GDPR-CH2",
+        "type": "ControlFamily",
+        "label": "Chapter 2 \u2014 Principles",
+        "framework_id": "GDPR",
+        "focus": "Lawfulness, purpose limitation, data minimisation, accuracy, storage limitation, integrity, accountability"
+      },
+      {
+        "id": "GDPR-CH3",
+        "type": "ControlFamily",
+        "label": "Chapter 3 \u2014 Data Subject Rights",
+        "framework_id": "GDPR",
+        "focus": "Transparency, access, rectification, erasure, portability, objection"
+      },
+      {
+        "id": "GDPR-CH4",
+        "type": "ControlFamily",
+        "label": "Chapter 4 \u2014 Controller and Processor",
+        "framework_id": "GDPR",
+        "focus": "Obligations, DPbD, records, security, breach notification, DPIA, DPO"
+      },
+      {
+        "id": "GDPR-CH5",
+        "type": "ControlFamily",
+        "label": "Chapter 5 \u2014 Transfers to Third Countries",
+        "framework_id": "GDPR",
+        "focus": "Adequacy, safeguards, BCRs, derogations"
+      },
+      {
+        "id": "GDPR-CH6",
+        "type": "ControlFamily",
+        "label": "Chapter 6 \u2014 Supervisory Authorities",
+        "framework_id": "GDPR",
+        "focus": "Independence, competence, tasks, powers"
+      },
+      {
+        "id": "GDPR-CH7",
+        "type": "ControlFamily",
+        "label": "Chapter 7 \u2014 Cooperation and Consistency",
+        "framework_id": "GDPR",
+        "focus": "Lead authority, mutual assistance, consistency mechanism"
+      }
+    ],
+    "nist171": [
+      {
+        "id": "N171-31",
+        "type": "ControlFamily",
+        "label": "3.1 Access Control",
+        "framework_id": "NIST-800-171",
+        "focus": "Limit access, enforce flow, separation, least privilege, remote access, wireless, mobile, external, PII"
+      },
+      {
+        "id": "N171-32",
+        "type": "ControlFamily",
+        "label": "3.2 Awareness and Training",
+        "framework_id": "NIST-800-171",
+        "focus": "Security awareness, role-based training"
+      },
+      {
+        "id": "N171-33",
+        "type": "ControlFamily",
+        "label": "3.3 Audit and Accountability",
+        "framework_id": "NIST-800-171",
+        "focus": "Create/retain/review audit records"
+      },
+      {
+        "id": "N171-34",
+        "type": "ControlFamily",
+        "label": "3.4 Configuration Management",
+        "framework_id": "NIST-800-171",
+        "focus": "Baselines, change control, least functionality, software restrictions"
+      },
+      {
+        "id": "N171-35",
+        "type": "ControlFamily",
+        "label": "3.5 Identification and Authentication",
+        "framework_id": "NIST-800-171",
+        "focus": "Identify/authenticate users, multi-factor, replay-resistant"
+      },
+      {
+        "id": "N171-36",
+        "type": "ControlFamily",
+        "label": "3.6 Incident Response",
+        "framework_id": "NIST-800-171",
+        "focus": "Establish capability, detect/report/respond"
+      },
+      {
+        "id": "N171-37",
+        "type": "ControlFamily",
+        "label": "3.7 Maintenance",
+        "framework_id": "NIST-800-171",
+        "focus": "Perform/control maintenance, media, personnel"
+      },
+      {
+        "id": "N171-38",
+        "type": "ControlFamily",
+        "label": "3.8 Media Protection",
+        "framework_id": "NIST-800-171",
+        "focus": "Protect, limit access, sanitize, transport, mark"
+      },
+      {
+        "id": "N171-39",
+        "type": "ControlFamily",
+        "label": "3.9 Personnel Security",
+        "framework_id": "NIST-800-171",
+        "focus": "Screen individuals, protect CUI during personnel actions"
+      },
+      {
+        "id": "N171-310",
+        "type": "ControlFamily",
+        "label": "3.10 Physical Protection",
+        "framework_id": "NIST-800-171",
+        "focus": "Limit access, protect/monitor facility, escort visitors"
+      },
+      {
+        "id": "N171-311",
+        "type": "ControlFamily",
+        "label": "3.11 Risk Assessment",
+        "framework_id": "NIST-800-171",
+        "focus": "Assess risk, scan vulnerabilities, remediate"
+      },
+      {
+        "id": "N171-312",
+        "type": "ControlFamily",
+        "label": "3.12 Security Assessment",
+        "framework_id": "NIST-800-171",
+        "focus": "Assess controls, POA&M, monitor continuously"
+      },
+      {
+        "id": "N171-313",
+        "type": "ControlFamily",
+        "label": "3.13 System and Communications Protection",
+        "framework_id": "NIST-800-171",
+        "focus": "Monitor/control communications, protect boundaries, crypto"
+      },
+      {
+        "id": "N171-314",
+        "type": "ControlFamily",
+        "label": "3.14 System and Information Integrity",
+        "framework_id": "NIST-800-171",
+        "focus": "Identify/report flaws, protect from malicious code, monitor"
+      }
     ]
   },
   "controls": {
-    "_comment": "Key controls per family — focused on those appearing in cross-framework mappings",
+    "_comment": "Key controls per family \u00e2\u20ac\u201d focused on those appearing in cross-framework mappings",
     "nist_controls": [
       {
         "id": "NIST-AC-1",
@@ -6268,6 +6412,1088 @@
         "family_id": "CSA-UEM",
         "framework_id": "CSA-CCM"
       }
+    ],
+    "gdpr": [
+      {
+        "id": "GDPR-ART5",
+        "type": "Control",
+        "label": "Art 5 Principles relating to processing of personal data",
+        "family_id": "GDPR-CH2",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART6",
+        "type": "Control",
+        "label": "Art 6 Lawfulness of processing",
+        "family_id": "GDPR-CH2",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART7",
+        "type": "Control",
+        "label": "Art 7 Conditions for consent",
+        "family_id": "GDPR-CH2",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART8",
+        "type": "Control",
+        "label": "Art 8 Conditions for child consent",
+        "family_id": "GDPR-CH2",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART9",
+        "type": "Control",
+        "label": "Art 9 Processing of special categories",
+        "family_id": "GDPR-CH2",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART10",
+        "type": "Control",
+        "label": "Art 10 Processing of criminal conviction data",
+        "family_id": "GDPR-CH2",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART11",
+        "type": "Control",
+        "label": "Art 11 Processing not requiring identification",
+        "family_id": "GDPR-CH2",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART12",
+        "type": "Control",
+        "label": "Art 12 Transparent information and communication",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART13",
+        "type": "Control",
+        "label": "Art 13 Information to be provided (direct collection)",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART14",
+        "type": "Control",
+        "label": "Art 14 Information to be provided (indirect collection)",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART15",
+        "type": "Control",
+        "label": "Art 15 Right of access",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART16",
+        "type": "Control",
+        "label": "Art 16 Right to rectification",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART17",
+        "type": "Control",
+        "label": "Art 17 Right to erasure (right to be forgotten)",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART18",
+        "type": "Control",
+        "label": "Art 18 Right to restriction of processing",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART19",
+        "type": "Control",
+        "label": "Art 19 Notification obligation regarding rectification/erasure",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART20",
+        "type": "Control",
+        "label": "Art 20 Right to data portability",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART21",
+        "type": "Control",
+        "label": "Art 21 Right to object",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART22",
+        "type": "Control",
+        "label": "Art 22 Automated individual decision-making, including profiling",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART23",
+        "type": "Control",
+        "label": "Art 23 Restrictions",
+        "family_id": "GDPR-CH3",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART24",
+        "type": "Control",
+        "label": "Art 24 Responsibility of the controller",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART25",
+        "type": "Control",
+        "label": "Art 25 Data protection by design and by default",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART26",
+        "type": "Control",
+        "label": "Art 26 Joint controllers",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART27",
+        "type": "Control",
+        "label": "Art 27 Representatives of non-EU controllers/processors",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART28",
+        "type": "Control",
+        "label": "Art 28 Processor",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART29",
+        "type": "Control",
+        "label": "Art 29 Processing under authority of controller/processor",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART30",
+        "type": "Control",
+        "label": "Art 30 Records of processing activities",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART31",
+        "type": "Control",
+        "label": "Art 31 Cooperation with supervisory authority",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART32",
+        "type": "Control",
+        "label": "Art 32 Security of processing",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART33",
+        "type": "Control",
+        "label": "Art 33 Notification of breach to supervisory authority",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART34",
+        "type": "Control",
+        "label": "Art 34 Communication of breach to data subject",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART35",
+        "type": "Control",
+        "label": "Art 35 Data protection impact assessment",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART36",
+        "type": "Control",
+        "label": "Art 36 Prior consultation",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART37",
+        "type": "Control",
+        "label": "Art 37 Designation of the data protection officer",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART38",
+        "type": "Control",
+        "label": "Art 38 Position of the data protection officer",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART39",
+        "type": "Control",
+        "label": "Art 39 Tasks of the data protection officer",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART40",
+        "type": "Control",
+        "label": "Art 40 Codes of conduct",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART41",
+        "type": "Control",
+        "label": "Art 41 Monitoring of approved codes of conduct",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART42",
+        "type": "Control",
+        "label": "Art 42 Certification",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART43",
+        "type": "Control",
+        "label": "Art 43 Certification bodies",
+        "family_id": "GDPR-CH4",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART44",
+        "type": "Control",
+        "label": "Art 44 General principle for transfers",
+        "family_id": "GDPR-CH5",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART45",
+        "type": "Control",
+        "label": "Art 45 Transfers on basis of adequacy decision",
+        "family_id": "GDPR-CH5",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART46",
+        "type": "Control",
+        "label": "Art 46 Transfers subject to appropriate safeguards",
+        "family_id": "GDPR-CH5",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART47",
+        "type": "Control",
+        "label": "Art 47 Binding corporate rules",
+        "family_id": "GDPR-CH5",
+        "framework_id": "GDPR"
+      },
+      {
+        "id": "GDPR-ART49",
+        "type": "Control",
+        "label": "Art 49 Derogations for specific situations",
+        "family_id": "GDPR-CH5",
+        "framework_id": "GDPR"
+      }
+    ],
+    "nist171": [
+      {
+        "id": "N171-3.1.1",
+        "type": "Control",
+        "label": "Limit system access to authorized users",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.2",
+        "type": "Control",
+        "label": "Limit system access to authorized transactions and functions",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.3",
+        "type": "Control",
+        "label": "Control CUI flow in accordance with approved authorizations",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.4",
+        "type": "Control",
+        "label": "Separate duties of individuals to reduce risk",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.5",
+        "type": "Control",
+        "label": "Employ principle of least privilege",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.6",
+        "type": "Control",
+        "label": "Use non-privileged accounts for non-security functions",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.7",
+        "type": "Control",
+        "label": "Prevent non-privileged users from executing privileged functions",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.8",
+        "type": "Control",
+        "label": "Limit unsuccessful logon attempts",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.9",
+        "type": "Control",
+        "label": "Provide privacy and security notices consistent with CUI rules",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.10",
+        "type": "Control",
+        "label": "Use session lock with pattern-hiding displays",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.11",
+        "type": "Control",
+        "label": "Terminate user sessions after defined conditions",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.12",
+        "type": "Control",
+        "label": "Monitor and control remote access sessions",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.13",
+        "type": "Control",
+        "label": "Employ cryptographic mechanisms for remote access",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.14",
+        "type": "Control",
+        "label": "Route remote access via managed access control points",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.15",
+        "type": "Control",
+        "label": "Authorize remote execution of privileged commands",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.16",
+        "type": "Control",
+        "label": "Authorize wireless access prior to allowing connections",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.17",
+        "type": "Control",
+        "label": "Protect wireless access using authentication and encryption",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.18",
+        "type": "Control",
+        "label": "Control connection of mobile devices",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.19",
+        "type": "Control",
+        "label": "Encrypt CUI on mobile devices",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.20",
+        "type": "Control",
+        "label": "Verify and control external system connections",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.21",
+        "type": "Control",
+        "label": "Limit use of portable storage devices on external systems",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.1.22",
+        "type": "Control",
+        "label": "Control CUI posted or processed on publicly accessible systems",
+        "family_id": "N171-31",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.2.1",
+        "type": "Control",
+        "label": "Ensure personnel are aware of security risks",
+        "family_id": "N171-32",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.2.2",
+        "type": "Control",
+        "label": "Ensure personnel are trained to carry out responsibilities",
+        "family_id": "N171-32",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.2.3",
+        "type": "Control",
+        "label": "Provide security awareness training on recognizing social engineering",
+        "family_id": "N171-32",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.3.1",
+        "type": "Control",
+        "label": "Create and retain audit records",
+        "family_id": "N171-33",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.3.2",
+        "type": "Control",
+        "label": "Ensure actions can be traced to individual users",
+        "family_id": "N171-33",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.3.3",
+        "type": "Control",
+        "label": "Review and update audited events",
+        "family_id": "N171-33",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.3.4",
+        "type": "Control",
+        "label": "Alert on audit logging process failure",
+        "family_id": "N171-33",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.3.5",
+        "type": "Control",
+        "label": "Correlate audit record review, analysis, and reporting",
+        "family_id": "N171-33",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.3.6",
+        "type": "Control",
+        "label": "Provide audit record reduction and report generation",
+        "family_id": "N171-33",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.3.7",
+        "type": "Control",
+        "label": "Provide capability to compare and synchronize clocks",
+        "family_id": "N171-33",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.3.8",
+        "type": "Control",
+        "label": "Protect audit information and tools from unauthorized access",
+        "family_id": "N171-33",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.3.9",
+        "type": "Control",
+        "label": "Limit management of audit logging to authorized individuals",
+        "family_id": "N171-33",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.4.1",
+        "type": "Control",
+        "label": "Establish and maintain baseline configurations",
+        "family_id": "N171-34",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.4.2",
+        "type": "Control",
+        "label": "Establish and enforce security configuration settings",
+        "family_id": "N171-34",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.4.3",
+        "type": "Control",
+        "label": "Track, review, approve/disapprove, and log changes",
+        "family_id": "N171-34",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.4.4",
+        "type": "Control",
+        "label": "Analyze security impact of changes prior to implementation",
+        "family_id": "N171-34",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.4.5",
+        "type": "Control",
+        "label": "Define, document, approve, and enforce access restrictions",
+        "family_id": "N171-34",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.4.6",
+        "type": "Control",
+        "label": "Employ principle of least functionality",
+        "family_id": "N171-34",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.4.7",
+        "type": "Control",
+        "label": "Restrict, disable, or prevent nonessential programs",
+        "family_id": "N171-34",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.4.8",
+        "type": "Control",
+        "label": "Apply deny-by-exception (blacklisting) policy for software",
+        "family_id": "N171-34",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.4.9",
+        "type": "Control",
+        "label": "Control and monitor user-installed software",
+        "family_id": "N171-34",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.1",
+        "type": "Control",
+        "label": "Identify system users, processes, or devices",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.2",
+        "type": "Control",
+        "label": "Authenticate users, processes, or devices as prerequisite to access",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.3",
+        "type": "Control",
+        "label": "Use multifactor authentication for local and network access",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.4",
+        "type": "Control",
+        "label": "Employ replay-resistant authentication mechanisms",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.5",
+        "type": "Control",
+        "label": "Prevent reuse of identifiers for a defined period",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.6",
+        "type": "Control",
+        "label": "Disable identifiers after a defined period of inactivity",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.7",
+        "type": "Control",
+        "label": "Enforce minimum password complexity",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.8",
+        "type": "Control",
+        "label": "Prohibit password reuse for a specified number of generations",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.9",
+        "type": "Control",
+        "label": "Allow temporary password use for system logons with immediate change",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.10",
+        "type": "Control",
+        "label": "Store and transmit only cryptographically-protected passwords",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.5.11",
+        "type": "Control",
+        "label": "Obscure feedback of authentication information",
+        "family_id": "N171-35",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.6.1",
+        "type": "Control",
+        "label": "Establish operational incident-handling capability",
+        "family_id": "N171-36",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.6.2",
+        "type": "Control",
+        "label": "Track, document, and report incidents",
+        "family_id": "N171-36",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.6.3",
+        "type": "Control",
+        "label": "Test organizational incident response capability",
+        "family_id": "N171-36",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.7.1",
+        "type": "Control",
+        "label": "Perform maintenance on organizational systems",
+        "family_id": "N171-37",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.7.2",
+        "type": "Control",
+        "label": "Provide controls on tools, techniques, and personnel for maintenance",
+        "family_id": "N171-37",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.7.3",
+        "type": "Control",
+        "label": "Ensure equipment removed for maintenance is sanitized",
+        "family_id": "N171-37",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.7.4",
+        "type": "Control",
+        "label": "Check media containing diagnostic programs for malicious code",
+        "family_id": "N171-37",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.7.5",
+        "type": "Control",
+        "label": "Require multifactor authentication for remote maintenance",
+        "family_id": "N171-37",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.7.6",
+        "type": "Control",
+        "label": "Supervise maintenance activities of personnel without required access",
+        "family_id": "N171-37",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.8.1",
+        "type": "Control",
+        "label": "Protect system media containing CUI (paper and digital)",
+        "family_id": "N171-38",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.8.2",
+        "type": "Control",
+        "label": "Limit access to CUI on system media to authorized users",
+        "family_id": "N171-38",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.8.3",
+        "type": "Control",
+        "label": "Sanitize or destroy system media before disposal or reuse",
+        "family_id": "N171-38",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.8.4",
+        "type": "Control",
+        "label": "Mark media with CUI distribution and handling caveats",
+        "family_id": "N171-38",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.8.5",
+        "type": "Control",
+        "label": "Control access to media containing CUI; maintain accountability",
+        "family_id": "N171-38",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.8.6",
+        "type": "Control",
+        "label": "Implement cryptographic mechanisms to protect CUI on portable media",
+        "family_id": "N171-38",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.8.7",
+        "type": "Control",
+        "label": "Control use of removable media on system components",
+        "family_id": "N171-38",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.8.8",
+        "type": "Control",
+        "label": "Prohibit use of portable storage when owner/origin is unknown",
+        "family_id": "N171-38",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.8.9",
+        "type": "Control",
+        "label": "Protect confidentiality of backup CUI at storage locations",
+        "family_id": "N171-38",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.9.1",
+        "type": "Control",
+        "label": "Screen individuals prior to authorizing access to CUI systems",
+        "family_id": "N171-39",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.9.2",
+        "type": "Control",
+        "label": "Ensure CUI is protected during and after personnel actions",
+        "family_id": "N171-39",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.10.1",
+        "type": "Control",
+        "label": "Limit physical access to organizational systems",
+        "family_id": "N171-310",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.10.2",
+        "type": "Control",
+        "label": "Protect and monitor the physical facility",
+        "family_id": "N171-310",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.10.3",
+        "type": "Control",
+        "label": "Escort visitors and monitor visitor activity",
+        "family_id": "N171-310",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.10.4",
+        "type": "Control",
+        "label": "Maintain audit logs of physical access",
+        "family_id": "N171-310",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.10.5",
+        "type": "Control",
+        "label": "Control and manage physical access devices",
+        "family_id": "N171-310",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.10.6",
+        "type": "Control",
+        "label": "Enforce safeguarding measures for CUI at alternate work sites",
+        "family_id": "N171-310",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.11.1",
+        "type": "Control",
+        "label": "Periodically assess risk to operations and assets",
+        "family_id": "N171-311",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.11.2",
+        "type": "Control",
+        "label": "Scan for vulnerabilities periodically and when new vulnerabilities identified",
+        "family_id": "N171-311",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.11.3",
+        "type": "Control",
+        "label": "Remediate vulnerabilities in accordance with risk assessments",
+        "family_id": "N171-311",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.12.1",
+        "type": "Control",
+        "label": "Periodically assess security controls",
+        "family_id": "N171-312",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.12.2",
+        "type": "Control",
+        "label": "Develop and implement plans of action to correct deficiencies",
+        "family_id": "N171-312",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.12.3",
+        "type": "Control",
+        "label": "Monitor security controls on an ongoing basis",
+        "family_id": "N171-312",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.12.4",
+        "type": "Control",
+        "label": "Develop, document, and periodically update system security plans",
+        "family_id": "N171-312",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.1",
+        "type": "Control",
+        "label": "Monitor, control, and protect communications at boundaries",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.2",
+        "type": "Control",
+        "label": "Employ architectural designs that promote effective security",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.3",
+        "type": "Control",
+        "label": "Separate user functionality from system management functionality",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.4",
+        "type": "Control",
+        "label": "Prevent unauthorized and unintended information transfer",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.5",
+        "type": "Control",
+        "label": "Implement subnetworks for publicly accessible system components",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.6",
+        "type": "Control",
+        "label": "Deny network communications traffic by default",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.7",
+        "type": "Control",
+        "label": "Prevent remote devices from establishing non-remote connections",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.8",
+        "type": "Control",
+        "label": "Implement cryptographic mechanisms to prevent unauthorized disclosure",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.9",
+        "type": "Control",
+        "label": "Terminate network connections at end of sessions",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.10",
+        "type": "Control",
+        "label": "Establish and manage cryptographic keys",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.11",
+        "type": "Control",
+        "label": "Employ FIPS-validated cryptography",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.12",
+        "type": "Control",
+        "label": "Prohibit remote activation of collaborative computing devices",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.13",
+        "type": "Control",
+        "label": "Control and monitor use of mobile code",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.14",
+        "type": "Control",
+        "label": "Control and monitor use of VoIP technologies",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.15",
+        "type": "Control",
+        "label": "Protect authenticity of communications sessions",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.13.16",
+        "type": "Control",
+        "label": "Protect confidentiality of CUI at rest",
+        "family_id": "N171-313",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.14.1",
+        "type": "Control",
+        "label": "Identify, report, and correct system flaws in a timely manner",
+        "family_id": "N171-314",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.14.2",
+        "type": "Control",
+        "label": "Provide protection from malicious code",
+        "family_id": "N171-314",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.14.3",
+        "type": "Control",
+        "label": "Monitor system security alerts and advisories and take action",
+        "family_id": "N171-314",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.14.4",
+        "type": "Control",
+        "label": "Update malicious code protection mechanisms when new releases available",
+        "family_id": "N171-314",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.14.5",
+        "type": "Control",
+        "label": "Perform periodic and real-time scans; scan files from external sources",
+        "family_id": "N171-314",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.14.6",
+        "type": "Control",
+        "label": "Monitor organizational systems including inbound/outbound traffic",
+        "family_id": "N171-314",
+        "framework_id": "NIST-800-171"
+      },
+      {
+        "id": "N171-3.14.7",
+        "type": "Control",
+        "label": "Identify unauthorized use of organizational systems",
+        "family_id": "N171-314",
+        "framework_id": "NIST-800-171"
+      }
     ]
   },
   "baselines": [
@@ -6349,6 +7575,27 @@
       "framework_id": "CMMC",
       "level_ordinal": 3,
       "practice_count": 134
+    },
+    {
+      "id": "NIST-LOW",
+      "type": "Baseline",
+      "label": "NIST 800-53 Low Baseline",
+      "framework_id": "NIST-800-53",
+      "level_ordinal": 1
+    },
+    {
+      "id": "NIST-MODERATE",
+      "type": "Baseline",
+      "label": "NIST 800-53 Moderate Baseline",
+      "framework_id": "NIST-800-53",
+      "level_ordinal": 2
+    },
+    {
+      "id": "NIST-HIGH",
+      "type": "Baseline",
+      "label": "NIST 800-53 High Baseline",
+      "framework_id": "NIST-800-53",
+      "level_ordinal": 3
     }
   ],
   "service_models": [

@@ -1,68 +1,102 @@
 {
   "schema_version": "1.0.0",
-  "description": "GRC Knowledge Graph — Deterministic Control Plane (ERD) + Typed Multi-Plane Knowledge Graph + Path-Constrained Retrieval (PathRAG) + Temporal Revision Layer. Modeled after Vector StrategyEngine graph architecture.",
-
+  "description": "GRC Knowledge Graph \u00e2\u20ac\u201d Deterministic Control Plane (ERD) + Typed Multi-Plane Knowledge Graph + Path-Constrained Retrieval (PathRAG) + Temporal Revision Layer. Modeled after Vector StrategyEngine graph architecture.",
   "_architecture": {
-    "layer_1_erd": "Deterministic Control Plane — strict entity types with cardinality constraints and referential integrity. Every node has a typed ID, every edge validates subject/object type pairs.",
-    "layer_2_kg": "Typed Multi-Plane Knowledge Graph — four semantic planes (Compliance, Mapping, Responsibility, Evidence), each with its own predicate allowlist and traversal strategy.",
-    "layer_3_pathrag": "Path-Constrained Retrieval — ordered predicate templates that enforce traversal discipline. Template BFS for authority/mapping planes; neighborhood BFS for responsibility/evidence planes.",
-    "layer_4_revision": "Temporal Revision Layer — immutable graph snapshots with draft→published lifecycle. Each revision captures a content_hash and manifest for integrity verification."
+    "layer_1_erd": "Deterministic Control Plane \u00e2\u20ac\u201d strict entity types with cardinality constraints and referential integrity. Every node has a typed ID, every edge validates subject/object type pairs.",
+    "layer_2_kg": "Typed Multi-Plane Knowledge Graph \u00e2\u20ac\u201d four semantic planes (Compliance, Mapping, Responsibility, Evidence), each with its own predicate allowlist and traversal strategy.",
+    "layer_3_pathrag": "Path-Constrained Retrieval \u00e2\u20ac\u201d ordered predicate templates that enforce traversal discipline. Template BFS for authority/mapping planes; neighborhood BFS for responsibility/evidence planes.",
+    "layer_4_revision": "Temporal Revision Layer \u00e2\u20ac\u201d immutable graph snapshots with draft\u00e2\u2020\u2019published lifecycle. Each revision captures a content_hash and manifest for integrity verification."
   },
-
   "node_types": {
     "Framework": {
       "description": "A compliance/regulatory framework (e.g., NIST 800-53, SOC 2, ISO 27001)",
       "id_pattern": "{FRAMEWORK-ID}",
-      "required_properties": ["label", "authority", "version", "framework_type"],
+      "required_properties": [
+        "label",
+        "authority",
+        "version",
+        "framework_type"
+      ],
       "cardinality": "Each Framework has 1..* ControlFamily children"
     },
     "ControlFamily": {
       "description": "A grouping of related controls within a framework (e.g., AC - Access Control, CC6 - Logical Access)",
       "id_pattern": "{FRAMEWORK}-{FAMILY-ID}",
-      "required_properties": ["label", "framework_id"],
+      "required_properties": [
+        "label",
+        "framework_id"
+      ],
       "cardinality": "Each ControlFamily belongs to exactly 1 Framework and has 1..* Control children"
     },
     "Control": {
       "description": "An individual security/privacy control, requirement, criterion, or safeguard",
       "id_pattern": "{FRAMEWORK}-{CONTROL-ID}",
-      "required_properties": ["label", "framework_id", "family_id"],
+      "required_properties": [
+        "label",
+        "framework_id",
+        "family_id"
+      ],
       "cardinality": "Each Control belongs to exactly 1 ControlFamily. May map to 0..* Controls in other frameworks."
     },
     "Baseline": {
       "description": "A security baseline level (e.g., FedRAMP-Low, FedRAMP-Moderate, CIS-IG1, CMMC-L2)",
       "id_pattern": "{FRAMEWORK}-{LEVEL}",
-      "required_properties": ["label", "framework_id", "level_ordinal"],
-      "cardinality": "Each Baseline is assigned 1..* Controls. Baselines are cumulative (Low ⊂ Moderate ⊂ High)."
+      "required_properties": [
+        "label",
+        "framework_id",
+        "level_ordinal"
+      ],
+      "cardinality": "Each Baseline is assigned 1..* Controls. Baselines are cumulative (Low \u00e2\u0160\u201a Moderate \u00e2\u0160\u201a High)."
     },
     "ServiceModel": {
       "description": "A cloud service model layer defining responsibility boundaries",
       "id_pattern": "{MODEL}",
-      "required_properties": ["label", "stack_position"],
-      "cardinality": "Ordered stack: IaaS(1) → PaaS(2) → SaaS(3). Higher layers inherit from lower."
+      "required_properties": [
+        "label",
+        "stack_position"
+      ],
+      "cardinality": "Ordered stack: IaaS(1) \u00e2\u2020\u2019 PaaS(2) \u00e2\u2020\u2019 SaaS(3). Higher layers inherit from lower."
     },
     "EvidenceType": {
       "description": "A class of audit evidence artifact expected by assessors",
       "id_pattern": "EVIDENCE-{TYPE}",
-      "required_properties": ["label", "category"],
+      "required_properties": [
+        "label",
+        "category"
+      ],
       "cardinality": "Each EvidenceType may be required by 0..* Controls"
     },
     "DocumentType": {
       "description": "An authorization/compliance document type (SSP, POA&M, SAR, CRM, etc.)",
       "id_pattern": "DOC-{TYPE}",
-      "required_properties": ["label"],
+      "required_properties": [
+        "label"
+      ],
       "cardinality": "Each DocumentType may document 0..* Controls"
     }
   },
-
   "predicates": {
     "CONTAINS": {
-      "description": "Hierarchical containment: Framework → Family → Control → Sub-control",
+      "description": "Hierarchical containment: Framework \u00e2\u2020\u2019 Family \u00e2\u2020\u2019 Control \u00e2\u2020\u2019 Sub-control",
       "normative": false,
       "weight": 1.0,
       "valid_pairs": [
-        {"subject": "Framework", "object": "ControlFamily", "cardinality": "1:N"},
-        {"subject": "ControlFamily", "object": "Control", "cardinality": "1:N"},
-        {"subject": "Control", "object": "Control", "cardinality": "1:N", "note": "Parent control to enhancement/sub-control"}
+        {
+          "subject": "Framework",
+          "object": "ControlFamily",
+          "cardinality": "1:N"
+        },
+        {
+          "subject": "ControlFamily",
+          "object": "Control",
+          "cardinality": "1:N"
+        },
+        {
+          "subject": "Control",
+          "object": "Control",
+          "cardinality": "1:N",
+          "note": "Parent control to enhancement/sub-control"
+        }
       ]
     },
     "MAPS_TO": {
@@ -70,17 +104,32 @@
       "normative": true,
       "weight": 1.3,
       "valid_pairs": [
-        {"subject": "Control", "object": "Control", "cardinality": "N:M"},
-        {"subject": "ControlFamily", "object": "ControlFamily", "cardinality": "N:M"}
+        {
+          "subject": "Control",
+          "object": "Control",
+          "cardinality": "N:M"
+        },
+        {
+          "subject": "ControlFamily",
+          "object": "ControlFamily",
+          "cardinality": "N:M"
+        }
       ],
-      "meta_fields": ["coverage_level", "notes"]
+      "meta_fields": [
+        "coverage_level",
+        "notes"
+      ]
     },
     "ASSIGNED_TO": {
       "description": "Control is included in a baseline level",
       "normative": false,
       "weight": 1.0,
       "valid_pairs": [
-        {"subject": "Control", "object": "Baseline", "cardinality": "N:M"}
+        {
+          "subject": "Control",
+          "object": "Baseline",
+          "cardinality": "N:M"
+        }
       ]
     },
     "RESPONSIBILITY_OF": {
@@ -88,16 +137,26 @@
       "normative": true,
       "weight": 1.2,
       "valid_pairs": [
-        {"subject": "Control", "object": "ServiceModel", "cardinality": "N:M"}
+        {
+          "subject": "Control",
+          "object": "ServiceModel",
+          "cardinality": "N:M"
+        }
       ],
-      "meta_fields": ["responsibility_type"]
+      "meta_fields": [
+        "responsibility_type"
+      ]
     },
     "INHERITS_FROM": {
       "description": "Higher service model layer inherits control responsibility from lower layer",
       "normative": false,
       "weight": 1.1,
       "valid_pairs": [
-        {"subject": "ServiceModel", "object": "ServiceModel", "cardinality": "1:1"}
+        {
+          "subject": "ServiceModel",
+          "object": "ServiceModel",
+          "cardinality": "1:1"
+        }
       ]
     },
     "REQUIRES_EVIDENCE": {
@@ -105,7 +164,11 @@
       "normative": true,
       "weight": 1.2,
       "valid_pairs": [
-        {"subject": "Control", "object": "EvidenceType", "cardinality": "N:M"}
+        {
+          "subject": "Control",
+          "object": "EvidenceType",
+          "cardinality": "N:M"
+        }
       ]
     },
     "DOCUMENTED_IN": {
@@ -113,16 +176,28 @@
       "normative": false,
       "weight": 0.9,
       "valid_pairs": [
-        {"subject": "Control", "object": "DocumentType", "cardinality": "N:M"}
+        {
+          "subject": "Control",
+          "object": "DocumentType",
+          "cardinality": "N:M"
+        }
       ]
     },
     "PART_OF": {
-      "description": "Inverse of CONTAINS — child references parent",
+      "description": "Inverse of CONTAINS \u00e2\u20ac\u201d child references parent",
       "normative": false,
       "weight": 0.9,
       "valid_pairs": [
-        {"subject": "ControlFamily", "object": "Framework", "cardinality": "N:1"},
-        {"subject": "Control", "object": "ControlFamily", "cardinality": "N:1"}
+        {
+          "subject": "ControlFamily",
+          "object": "Framework",
+          "cardinality": "N:1"
+        },
+        {
+          "subject": "Control",
+          "object": "ControlFamily",
+          "cardinality": "N:1"
+        }
       ]
     },
     "SUPERSEDES": {
@@ -130,16 +205,27 @@
       "normative": false,
       "weight": 0.7,
       "valid_pairs": [
-        {"subject": "Control", "object": "Control", "cardinality": "1:1"},
-        {"subject": "Framework", "object": "Framework", "cardinality": "1:1"}
+        {
+          "subject": "Control",
+          "object": "Control",
+          "cardinality": "1:1"
+        },
+        {
+          "subject": "Framework",
+          "object": "Framework",
+          "cardinality": "1:1"
+        }
       ]
     }
   },
-
   "planes": {
     "PLANE-COMPLIANCE": {
       "description": "Deterministic framework hierarchy. Template-ordered BFS traversal.",
-      "predicates_allowed": ["CONTAINS", "PART_OF", "ASSIGNED_TO"],
+      "predicates_allowed": [
+        "CONTAINS",
+        "PART_OF",
+        "ASSIGNED_TO"
+      ],
       "traversal_strategy": "template_ordered",
       "invariants": [
         "Every Control has exactly one PART_OF edge to a ControlFamily",
@@ -149,7 +235,9 @@
     },
     "PLANE-MAPPING": {
       "description": "Cross-framework control equivalences. Hub-and-spoke through NIST 800-53. Template-ordered BFS.",
-      "predicates_allowed": ["MAPS_TO"],
+      "predicates_allowed": [
+        "MAPS_TO"
+      ],
       "traversal_strategy": "template_ordered",
       "invariants": [
         "All cross-framework mappings transit through at least one NIST 800-53 control",
@@ -159,30 +247,38 @@
     },
     "PLANE-RESPONSIBILITY": {
       "description": "Control responsibility across IaaS/PaaS/SaaS layers. Neighborhood BFS.",
-      "predicates_allowed": ["RESPONSIBILITY_OF", "INHERITS_FROM"],
+      "predicates_allowed": [
+        "RESPONSIBILITY_OF",
+        "INHERITS_FROM"
+      ],
       "traversal_strategy": "neighborhood_bfs",
       "invariants": [
         "ServiceModel stack is ordered: IaaS(1) < PaaS(2) < SaaS(3)",
         "INHERITS_FROM flows upward: SaaS inherits PaaS inherits IaaS",
-        "responsibility_type ∈ {provider, customer, shared, hybrid}"
+        "responsibility_type \u00e2\u02c6\u02c6 {provider, customer, shared, hybrid}"
       ]
     },
     "PLANE-EVIDENCE": {
       "description": "Evidence and documentation requirements. Neighborhood BFS.",
-      "predicates_allowed": ["REQUIRES_EVIDENCE", "DOCUMENTED_IN"],
+      "predicates_allowed": [
+        "REQUIRES_EVIDENCE",
+        "DOCUMENTED_IN"
+      ],
       "traversal_strategy": "neighborhood_bfs",
       "invariants": [
         "Every normative control should have at least one REQUIRES_EVIDENCE edge",
-        "EvidenceType.category ∈ {policy, procedure, technical, log, report, attestation}"
+        "EvidenceType.category \u00e2\u02c6\u02c6 {policy, procedure, technical, log, report, attestation}"
       ]
     }
   },
-
   "templates": {
     "compliance_chain_v1": {
       "description": "Traverse the compliance hierarchy from framework to specific control",
       "plane": "PLANE-COMPLIANCE",
-      "predicates_ordered": ["CONTAINS", "CONTAINS"],
+      "predicates_ordered": [
+        "CONTAINS",
+        "CONTAINS"
+      ],
       "seed_type": "Framework",
       "terminal_type": "Control",
       "example": "NIST-800-53 --[CONTAINS]--> NIST-AC --[CONTAINS]--> NIST-AC-2"
@@ -190,16 +286,23 @@
     "cross_framework_mapping_v1": {
       "description": "Map a source control through NIST hub to target framework. The core PathRAG template for GRC cross-walks.",
       "plane": "PLANE-MAPPING",
-      "predicates_ordered": ["MAPS_TO", "MAPS_TO"],
+      "predicates_ordered": [
+        "MAPS_TO",
+        "MAPS_TO"
+      ],
       "seed_type": "Control",
       "terminal_type": "Control",
       "example": "SOC2-CC6.1 --[MAPS_TO]--> NIST-AC-2 --[MAPS_TO]--> ISO-A.5.18",
-      "notes": "Hub routing: source→NIST→target. Bidirectional — can also start from NIST and fan out."
+      "notes": "Hub routing: source\u00e2\u2020\u2019NIST\u00e2\u2020\u2019target. Bidirectional \u00e2\u20ac\u201d can also start from NIST and fan out."
     },
     "obligation_to_evidence_v1": {
       "description": "Trace from framework through hierarchy to required evidence artifacts",
       "plane": "PLANE-COMPLIANCE + PLANE-EVIDENCE",
-      "predicates_ordered": ["CONTAINS", "CONTAINS", "REQUIRES_EVIDENCE"],
+      "predicates_ordered": [
+        "CONTAINS",
+        "CONTAINS",
+        "REQUIRES_EVIDENCE"
+      ],
       "seed_type": "Framework",
       "terminal_type": "EvidenceType",
       "example": "NIST-800-53 --[CONTAINS]--> NIST-AC --[CONTAINS]--> NIST-AC-2 --[REQUIRES_EVIDENCE]--> EVIDENCE-ACCESS-REVIEW-LOG"
@@ -207,7 +310,10 @@
     "inheritance_chain_v1": {
       "description": "Trace control responsibility through cloud service model layers",
       "plane": "PLANE-RESPONSIBILITY",
-      "predicates_ordered": ["RESPONSIBILITY_OF", "INHERITS_FROM"],
+      "predicates_ordered": [
+        "RESPONSIBILITY_OF",
+        "INHERITS_FROM"
+      ],
       "seed_type": "Control",
       "terminal_type": "ServiceModel",
       "example": "NIST-PE-3 --[RESPONSIBILITY_OF]--> IAAS --[INHERITS_FROM]--> PAAS"
@@ -215,16 +321,21 @@
     "baseline_coverage_v1": {
       "description": "Enumerate all controls assigned to a specific baseline level",
       "plane": "PLANE-COMPLIANCE",
-      "predicates_ordered": ["ASSIGNED_TO"],
+      "predicates_ordered": [
+        "ASSIGNED_TO"
+      ],
       "seed_type": "Control",
       "terminal_type": "Baseline",
       "example": "NIST-AC-2 --[ASSIGNED_TO]--> FEDRAMP-MODERATE"
     }
   },
-
   "revision_layer": {
-    "description": "Temporal revision management — immutable graph snapshots with lifecycle gating. Modeled after Vector's graph_revision system.",
-    "lifecycle": ["draft", "published", "archived"],
+    "description": "Temporal revision management \u00e2\u20ac\u201d immutable graph snapshots with lifecycle gating. Modeled after Vector's graph_revision system.",
+    "lifecycle": [
+      "draft",
+      "published",
+      "archived"
+    ],
     "fields": {
       "revision_id": "Unique identifier for this graph snapshot",
       "plane_id": "Which plane this revision belongs to",
@@ -240,16 +351,15 @@
       "archive_gate": "A newer published revision must exist before archival"
     },
     "current_revision": {
-      "revision_id": "grc-kg-rev-001",
+      "revision_id": "grc-kg-rev-002",
       "status": "published",
-      "created_at": "2025-01-01T00:00:00Z",
-      "summary": "Initial seed — 15 frameworks, 20 NIST families, core control mappings, evidence types"
+      "created_at": "2026-02-20T00:00:00Z",
+      "summary": "Upgrade \u2014 GDPR + NIST 800-171 controls, full baseline/evidence/responsibility/documentation planes, ~3000 new edges"
     }
   },
-
   "scoring": {
-    "description": "Path scoring follows Vector's PathRAG pattern: score = avg(confidence) × geo_mean(edge_weights). Normative edges require evidence backing.",
-    "formula": "score = (Σ confidence_i / N) × (Π weight_i)^(1/N)",
+    "description": "Path scoring follows Vector's PathRAG pattern: score = avg(confidence) \u00c3\u2014 geo_mean(edge_weights). Normative edges require evidence backing.",
+    "formula": "score = (\u00ce\u00a3 confidence_i / N) \u00c3\u2014 (\u00ce\u00a0 weight_i)^(1/N)",
     "edge_weights": {
       "MAPS_TO": 1.3,
       "RESPONSIBILITY_OF": 1.2,
@@ -261,7 +371,11 @@
       "DOCUMENTED_IN": 0.9,
       "SUPERSEDES": 0.7
     },
-    "normative_predicates": ["MAPS_TO", "RESPONSIBILITY_OF", "REQUIRES_EVIDENCE"],
+    "normative_predicates": [
+      "MAPS_TO",
+      "RESPONSIBILITY_OF",
+      "REQUIRES_EVIDENCE"
+    ],
     "min_path_score": 0.3,
     "jaccard_dedup_threshold": 0.8,
     "max_depth": 6,

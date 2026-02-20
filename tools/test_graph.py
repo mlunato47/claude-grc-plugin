@@ -145,7 +145,7 @@ def test_l1_erd() -> None:
     check("CONTAINS edges have valid type pairs", len(bad_contains) == 0,
           f"Invalid: {bad_contains[:3]}")
 
-    # ControlFamily → Framework referential integrity
+    # ControlFamily -> Framework referential integrity
     families_with_bad_fw = []
     for section in nodes.get("control_families", {}).values():
         if isinstance(section, list):
@@ -155,7 +155,7 @@ def test_l1_erd() -> None:
     check("All families reference valid frameworks", len(families_with_bad_fw) == 0,
           f"Bad refs: {families_with_bad_fw[:3]}")
 
-    # Controls → ControlFamily referential integrity
+    # Controls -> ControlFamily referential integrity
     controls_with_bad_family = []
     for section in nodes.get("controls", {}).values():
         if isinstance(section, list):
@@ -233,11 +233,28 @@ def test_l2_multiplane() -> None:
 
     # Minimum graph size checks
     check("At least 10 frameworks", len(nodes.get("frameworks", [])) >= 10)
-    check("At least 50 controls", sum(
+    total_controls = sum(
         len(v) for k, v in nodes.get("controls", {}).items() if isinstance(v, list)
-    ) >= 50)
+    )
+    check("At least 50 controls", total_controls >= 50,
+          f"Found {total_controls}")
     check("At least 50 MAPS_TO edges", len(maps_to_edges) >= 50,
           f"Found {len(maps_to_edges)}")
+
+    # Expanded plane coverage checks
+    assigned_to_edges = [e for e in all_edges if e["p"] == "ASSIGNED_TO"]
+    requires_evidence_edges = [e for e in all_edges if e["p"] == "REQUIRES_EVIDENCE"]
+    responsibility_of_edges = [e for e in all_edges if e["p"] == "RESPONSIBILITY_OF"]
+    documented_in_edges = [e for e in all_edges if e["p"] == "DOCUMENTED_IN"]
+
+    check("At least 500 ASSIGNED_TO edges", len(assigned_to_edges) >= 500,
+          f"Found {len(assigned_to_edges)}")
+    check("At least 100 REQUIRES_EVIDENCE edges", len(requires_evidence_edges) >= 100,
+          f"Found {len(requires_evidence_edges)}")
+    check("At least 100 RESPONSIBILITY_OF edges", len(responsibility_of_edges) >= 100,
+          f"Found {len(responsibility_of_edges)}")
+    check("At least 100 DOCUMENTED_IN edges", len(documented_in_edges) >= 100,
+          f"Found {len(documented_in_edges)}")
 
 
 def test_l3_pathrag() -> None:
@@ -267,13 +284,13 @@ def test_l3_pathrag() -> None:
           f"Missing: {missing_weights}")
 
     # Cross-framework mapping template is bidirectional-testable
-    # Can we trace SOC2-CC6.1 → NIST-AC-2 → ISO-A.5.18?
+    # Can we trace SOC2-CC6.1 -> NIST-AC-2 -> ISO-A.5.18?
     node_map = collect_node_ids(nodes)
     maps_to = [e for e in all_edges if e["p"] == "MAPS_TO"]
 
-    # Find SOC2-CC6.1 → NIST paths
+    # Find SOC2-CC6.1 -> NIST paths
     soc2_to_nist = [e for e in maps_to if e["o"] == "SOC2-CC6.1" or e["s"] == "SOC2-CC6.1"]
-    # Since MAPS_TO goes NIST→SOC2, the reverse traversal finds NIST-AC-2→SOC2-CC6.1
+    # Since MAPS_TO goes NIST->SOC2, the reverse traversal finds NIST-AC-2->SOC2-CC6.1
     nist_sources_for_cc61 = [e["s"] for e in maps_to if e["o"] == "SOC2-CC6.1"]
     check("SOC2-CC6.1 is reachable from NIST via MAPS_TO",
           len(nist_sources_for_cc61) > 0,
@@ -283,7 +300,7 @@ def test_l3_pathrag() -> None:
     if nist_sources_for_cc61:
         nist_ctrl = nist_sources_for_cc61[0]
         nist_to_iso = [e for e in maps_to if e["s"] == nist_ctrl and e["o"].startswith("ISO-")]
-        check(f"Can map {nist_ctrl} → ISO-27001 via MAPS_TO",
+        check(f"Can map {nist_ctrl} -> ISO-27001 via MAPS_TO",
               len(nist_to_iso) > 0,
               f"Found {len(nist_to_iso)} ISO targets")
 
