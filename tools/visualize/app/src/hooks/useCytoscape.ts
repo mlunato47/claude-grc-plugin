@@ -22,9 +22,10 @@ interface UseCytoscapeArgs {
   containerRef: React.RefObject<HTMLDivElement | null>
   graphData: GraphPayload | null
   onSelect: (el: SelectedElement) => void
+  onReady?: () => void
 }
 
-export function useCytoscape({ containerRef, graphData, onSelect }: UseCytoscapeArgs) {
+export function useCytoscape({ containerRef, graphData, onSelect, onReady }: UseCytoscapeArgs) {
   const cyRef = useRef<Core | null>(null)
 
   // Create cytoscape instance when data arrives
@@ -144,13 +145,14 @@ export function useCytoscape({ containerRef, graphData, onSelect }: UseCytoscape
     })
 
     cyRef.current = cy
+    onReady?.()
 
     return () => {
       cy.destroy()
       cyRef.current = null
     }
-    // onSelect is stable via useCallback in App
-  }, [graphData, containerRef, onSelect])
+    // onSelect and onReady are stable via useCallback in App
+  }, [graphData, containerRef, onSelect, onReady])
 
   const navigateToNode = useCallback((nodeId: string) => {
     const cy = cyRef.current

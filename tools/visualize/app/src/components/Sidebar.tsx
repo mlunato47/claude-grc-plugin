@@ -15,15 +15,18 @@ interface SidebarProps {
   showOrphans: boolean
   onTogglePredicate: (pred: string) => void
   onToggleType: (type: string) => void
+  onSetAllPredicates: (enabled: boolean) => void
+  onSetAllTypes: (enabled: boolean) => void
   onFocusFramework: (fw: string) => void
   onChangeLayout: (layout: string) => void
   onChangeLabels: (show: boolean) => void
   onChangeOrphans: (show: boolean) => void
   onResetFilters: () => void
+  graphReady: boolean
 }
 
-function CollapsibleSection({ title, defaultOpen = true, children }: {
-  title: string; defaultOpen?: boolean; children: React.ReactNode
+function CollapsibleSection({ title, defaultOpen = true, actions, children }: {
+  title: string; defaultOpen?: boolean; actions?: React.ReactNode; children: React.ReactNode
 }) {
   const [open, setOpen] = useState(defaultOpen)
   const toggle = useCallback(() => setOpen(v => !v), [])
@@ -35,6 +38,11 @@ function CollapsibleSection({ title, defaultOpen = true, children }: {
           {open ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
         </span>
         <h3>{title}</h3>
+        {actions && (
+          <span className="section-actions" onClick={e => e.stopPropagation()}>
+            {actions}
+          </span>
+        )}
       </div>
       <div
         className={`sidebar-section-content${open ? '' : ' collapsed'}`}
@@ -49,8 +57,9 @@ function CollapsibleSection({ title, defaultOpen = true, children }: {
 export const Sidebar = memo(function Sidebar({
   graphData, activePredicates, activeTypes, focusedFramework,
   layout, showLabels, showOrphans,
-  onTogglePredicate, onToggleType, onFocusFramework,
-  onChangeLayout, onChangeLabels, onChangeOrphans, onResetFilters,
+  onTogglePredicate, onToggleType, onSetAllPredicates, onSetAllTypes,
+  onFocusFramework, onChangeLayout, onChangeLabels, onChangeOrphans,
+  onResetFilters, graphReady,
 }: SidebarProps) {
   const frameworks = useMemo(() =>
     graphData.nodes
@@ -67,10 +76,17 @@ export const Sidebar = memo(function Sidebar({
 
   const typeCounts = graphData.stats.node_types
 
+  const allPredsOn = usedPreds.every(p => activePredicates.has(p))
+  const allTypesOn = Object.keys(NODE_COLORS).every(t => activeTypes.has(t))
+
   return (
-    <aside>
+    <aside className={graphReady ? '' : 'disabled-overlay'}>
       <CollapsibleSection title="Focus Framework">
-        <select value={focusedFramework} onChange={e => onFocusFramework(e.target.value)}>
+        <select
+          value={focusedFramework}
+          onChange={e => onFocusFramework(e.target.value)}
+          disabled={!graphReady}
+        >
           <option value="">All Frameworks</option>
           {frameworks.map(fw => (
             <option key={fw.id} value={fw.id}>{fw.label}</option>
@@ -78,14 +94,26 @@ export const Sidebar = memo(function Sidebar({
         </select>
       </CollapsibleSection>
 
-      <CollapsibleSection title="Edge Predicates">
+      <CollapsibleSection
+        title="Edge Predicates"
+        actions={
+          <button
+            className="toggle-all-btn"
+            onClick={() => onSetAllPredicates(!allPredsOn)}
+            disabled={!graphReady}
+          >
+            {allPredsOn ? 'None' : 'All'}
+          </button>
+        }
+      >
         <div>
           {usedPreds.map(pred => (
-            <label key={pred}>
+            <label key={pred} className={graphReady ? '' : 'disabled'}>
               <input
                 type="checkbox"
                 checked={activePredicates.has(pred)}
                 onChange={() => onTogglePredicate(pred)}
+                disabled={!graphReady}
               />
               <span
                 className="color-dot"
@@ -98,14 +126,26 @@ export const Sidebar = memo(function Sidebar({
         </div>
       </CollapsibleSection>
 
-      <CollapsibleSection title="Node Types">
+      <CollapsibleSection
+        title="Node Types"
+        actions={
+          <button
+            className="toggle-all-btn"
+            onClick={() => onSetAllTypes(!allTypesOn)}
+            disabled={!graphReady}
+          >
+            {allTypesOn ? 'None' : 'All'}
+          </button>
+        }
+      >
         <div>
           {Object.keys(NODE_COLORS).map(type => (
-            <label key={type}>
+            <label key={type} className={graphReady ? '' : 'disabled'}>
               <input
                 type="checkbox"
                 checked={activeTypes.has(type)}
                 onChange={() => onToggleType(type)}
+                disabled={!graphReady}
               />
               <span className="color-dot" style={{ background: NODE_COLORS[type] }} />
               {` ${type} `}
@@ -116,7 +156,11 @@ export const Sidebar = memo(function Sidebar({
       </CollapsibleSection>
 
       <CollapsibleSection title="Layout">
-        <select value={layout} onChange={e => onChangeLayout(e.target.value)}>
+        <select
+          value={layout}
+          onChange={e => onChangeLayout(e.target.value)}
+          disabled={!graphReady}
+        >
           {LAYOUT_OPTIONS.map(opt => (
             <option key={opt.value} value={opt.value}>{opt.label}</option>
           ))}
@@ -124,25 +168,31 @@ export const Sidebar = memo(function Sidebar({
       </CollapsibleSection>
 
       <CollapsibleSection title="Visibility">
-        <label>
+        <label className={graphReady ? '' : 'disabled'}>
           <input
             type="checkbox"
             checked={showLabels}
             onChange={e => onChangeLabels(e.target.checked)}
+            disabled={!graphReady}
           />
           Show labels
         </label>
-        <label>
+        <label className={graphReady ? '' : 'disabled'}>
           <input
             type="checkbox"
             checked={showOrphans}
             onChange={e => onChangeOrphans(e.target.checked)}
+            disabled={!graphReady}
           />
           Show orphaned nodes
         </label>
       </CollapsibleSection>
 
-      <button className="reset-filters-btn" onClick={onResetFilters}>
+      <button
+        className="reset-filters-btn"
+        onClick={onResetFilters}
+        disabled={!graphReady}
+      >
         <RotateCcw size={13} />
         Reset Filters
       </button>

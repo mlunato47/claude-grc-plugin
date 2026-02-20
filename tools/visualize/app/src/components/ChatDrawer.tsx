@@ -1,8 +1,9 @@
 import { useRef, useEffect, useCallback, useMemo, useState } from 'react'
-import { Bot, User, SendHorizontal, ChevronDown, ChevronUp, MessageCircle, GripHorizontal } from 'lucide-react'
+import { Bot, User, SendHorizontal, ChevronDown, ChevronUp, MessageCircle, GripHorizontal, Plus, Trash2, History } from 'lucide-react'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import type { ChatMessage, GraphPayload } from '../types'
+import type { Conversation } from '../hooks/useChat'
 
 interface ChatDrawerProps {
   messages: ChatMessage[]
@@ -11,9 +12,15 @@ interface ChatDrawerProps {
   isOpen: boolean
   error: string | null
   graphData: GraphPayload | null
+  conversations: Conversation[]
+  activeId: string | null
   onSend: (text: string) => void
   onToggle: () => void
+  onNewChat: () => void
+  onSwitchChat: (id: string) => void
+  onDeleteChat: (id: string) => void
   navigateToNode: (nodeId: string) => void
+  graphReady?: boolean
 }
 
 // Build a Set of node IDs for O(1) lookup instead of linear scan
@@ -40,13 +47,16 @@ function renderMarkdown(text: string, nodeIds: Set<string>): string {
 
 export function ChatDrawer({
   messages, streamingText, isStreaming, isOpen, error,
-  graphData, onSend, onToggle, navigateToNode,
+  graphData, conversations, activeId,
+  onSend, onToggle, onNewChat, onSwitchChat, onDeleteChat, navigateToNode,
+  graphReady,
 }: ChatDrawerProps) {
   const messagesRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const drawerRef = useRef<HTMLDivElement>(null)
   const nodeIds = useNodeIdSet(graphData)
   const [drawerHeight, setDrawerHeight] = useState<number | null>(null)
+  const [showHistory, setShowHistory] = useState(false)
 
   // Drag-to-resize
   const handleResizeStart = useCallback((e: React.PointerEvent) => {
@@ -128,6 +138,13 @@ export function ChatDrawer({
     // Node link click
     if (target.classList.contains('node-link')) {
       e.preventDefault()
+      if (!graphReady) {
+        // Brief visual feedback that graph needs to be rendered
+        target.classList.add('node-link-disabled')
+        target.title = 'Render the graph first'
+        setTimeout(() => { target.classList.remove('node-link-disabled'); target.title = '' }, 1500)
+        return
+      }
       const nodeId = target.getAttribute('data-node-id')
       if (nodeId) navigateToNode(nodeId)
       return
@@ -169,21 +186,72 @@ export function ChatDrawer({
       <div className="resize-handle" onPointerDown={handleResizeStart}>
         <GripHorizontal size={16} />
       </div>
-      <div id="chat-header" onClick={onToggle}>
-        <Bot size={18} className="chat-header-icon" />
-        <h3>Chat with Claude</h3>
-        <span className="chat-status">
-          {isStreaming && (
-            <>
-              <span className="streaming-dot" />
-              Thinking...
-            </>
-          )}
-        </span>
-        <span className="chat-toggle">
-          {isOpen ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
-        </span>
+      <div id="chat-header">
+        <div className="chat-header-left" onClick={onToggle}>
+          <Bot size={18} className="chat-header-icon" />
+          <h3>Chat with Claude</h3>
+          <span className="chat-status">
+            {isStreaming && (
+              <>
+                <span className="streaming-dot" />
+                Thinking...
+              </>
+            )}
+          </span>
+        </div>
+        <div className="chat-header-actions">
+          <button
+            className="chat-header-btn"
+            onClick={(e) => { e.stopPropagation(); onNewChat() }}
+            title="New chat"
+          >
+            <Plus size={15} />
+          </button>
+          <button
+            className={`chat-header-btn ${showHistory ? 'active' : ''}`}
+            onClick={(e) => { e.stopPropagation(); setShowHistory(prev => !prev) }}
+            title="Chat history"
+          >
+            <History size={15} />
+            {conversations.length > 1 && (
+              <span className="history-count">{conversations.length}</span>
+            )}
+          </button>
+          <span className="chat-toggle" onClick={onToggle}>
+            {isOpen ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
+          </span>
+        </div>
       </div>
+      {showHistory && isOpen && (
+        <div className="chat-history-panel">
+          {conversations.length === 0 && (
+            <div className="chat-history-empty">No conversations yet</div>
+          )}
+          {conversations.map(conv => (
+            <div
+              key={conv.id}
+              className={`chat-history-item ${conv.id === activeId ? 'active' : ''}`}
+              onClick={() => { onSwitchChat(conv.id); setShowHistory(false) }}
+            >
+              <div className="chat-history-item-content">
+                <span className="chat-history-title">{conv.title}</span>
+                <span className="chat-history-meta">
+                  {conv.messages.length} msg{conv.messages.length !== 1 ? 's' : ''}
+                </span>
+              </div>
+              {conversations.length > 1 && (
+                <button
+                  className="chat-history-delete"
+                  onClick={(e) => { e.stopPropagation(); onDeleteChat(conv.id) }}
+                  title="Delete conversation"
+                >
+                  <Trash2 size={13} />
+                </button>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
       <div id="chat-messages" ref={messagesRef}>
         {messages.length === 0 && !streamingHtml && !error && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', flex: 1, gap: 8, color: 'var(--text-dim)' }}>

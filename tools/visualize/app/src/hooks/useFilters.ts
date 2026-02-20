@@ -122,6 +122,25 @@ export function useFilters(cyRef: React.RefObject<Core | null>, graphData: Graph
     })
   }, [])
 
+  const setAllPredicates = useCallback((enabled: boolean) => {
+    if (enabled) {
+      const all = Object.keys(
+        graphData?.stats.edge_predicates ?? {},
+      )
+      setActivePredicates(new Set(all))
+    } else {
+      setActivePredicates(new Set())
+    }
+  }, [graphData])
+
+  const setAllTypes = useCallback((enabled: boolean) => {
+    if (enabled) {
+      setActiveTypes(new Set(Object.keys(NODE_COLORS)))
+    } else {
+      setActiveTypes(new Set())
+    }
+  }, [])
+
   const changeLayout = useCallback((name: string) => {
     setLayout(name)
     const cy = cyRef.current
@@ -164,8 +183,8 @@ export function useFilters(cyRef: React.RefObject<Core | null>, graphData: Graph
   return {
     activePredicates, activeTypes, focusedFramework, layout,
     showLabels, showOrphans, visibleNodes, visibleEdges,
-    togglePredicate, toggleType, setFocusedFramework,
-    changeLayout, changeLabels, setShowOrphans,
+    togglePredicate, toggleType, setAllPredicates, setAllTypes,
+    setFocusedFramework, changeLayout, changeLabels, setShowOrphans,
     resetFilters, applyFilters,
   }
 }

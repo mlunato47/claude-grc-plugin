@@ -12,11 +12,12 @@ interface HeaderProps {
   chatOpen: boolean
   onToggleChat: () => void
   onReset: () => void
+  graphReady: boolean
 }
 
 export function Header({
   cyRef, searchRef, totalNodes, totalEdges, visibleNodes, visibleEdges,
-  chatOpen, onToggleChat, onReset,
+  chatOpen, onToggleChat, onReset, graphReady,
 }: HeaderProps) {
   const handleSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const cy = cyRef.current
@@ -75,36 +76,44 @@ export function Header({
     <header>
       <h1>GRC Knowledge Graph</h1>
       <span className="stat-pill">
-        <strong>{visibleNodes}</strong>/{totalNodes} nodes
+        <strong>{graphReady ? visibleNodes : totalNodes}</strong>
+        {graphReady ? `/${totalNodes}` : ''} nodes
       </span>
       <span className="stat-pill">
-        <strong>{visibleEdges}</strong>/{totalEdges} edges
+        <strong>{graphReady ? visibleEdges : totalEdges}</strong>
+        {graphReady ? `/${totalEdges}` : ''} edges
       </span>
       <div className="search-wrapper">
         <Search size={14} className="search-icon" />
         <input
           ref={searchRef}
           type="text"
-          placeholder="Search nodes (e.g. AC-2, GDPR-ART32)..."
+          placeholder={graphReady ? 'Search nodes (Ctrl+K)...' : 'Render graph to search...'}
           onChange={handleSearch}
+          disabled={!graphReady}
         />
-        <button className="search-clear" onClick={handleClearSearch} title="Clear search">
+        <button
+          className="search-clear"
+          onClick={handleClearSearch}
+          title="Clear search"
+          disabled={!graphReady}
+        >
           <X size={14} />
         </button>
       </div>
       <div className="btn-group">
-        <button onClick={handleFit} title="Fit graph to view">
+        <button onClick={handleFit} title="Fit graph to view" disabled={!graphReady}>
           <Maximize size={16} />
         </button>
-        <button onClick={onReset} title="Reset view and filters">
+        <button onClick={onReset} title="Reset view and filters" disabled={!graphReady}>
           <RotateCcw size={16} />
         </button>
-        <button onClick={handleExport} title="Export as PNG">
+        <button onClick={handleExport} title="Export as PNG" disabled={!graphReady}>
           <Download size={16} />
         </button>
         <button
           onClick={onToggleChat}
-          title="Toggle chat with Claude"
+          title="Toggle chat (Ctrl+/)"
           className={chatOpen ? 'active' : ''}
         >
           <MessageSquare size={16} />

@@ -7,6 +7,7 @@ interface DetailPanelProps {
   cyRef: React.RefObject<Core | null>
   selected: SelectedElement
   navigateToNode: (nodeId: string) => void
+  graphReady: boolean
 }
 
 function confidenceClass(pct: number): string {
@@ -15,14 +16,14 @@ function confidenceClass(pct: number): string {
   return 'confidence-high'
 }
 
-export function DetailPanel({ cyRef, selected, navigateToNode }: DetailPanelProps) {
+export function DetailPanel({ cyRef, selected, navigateToNode, graphReady }: DetailPanelProps) {
   const cy = cyRef.current
 
   if (!selected || !cy) {
     return (
       <div id="detail" className="empty">
         <MousePointer size={32} className="empty-icon" />
-        <span>Click a node or edge to inspect</span>
+        <span>{graphReady ? 'Click a node or edge to inspect' : 'Render the graph to inspect nodes'}</span>
       </div>
     )
   }

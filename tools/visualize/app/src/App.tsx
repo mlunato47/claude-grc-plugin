@@ -15,13 +15,16 @@ export default function App() {
   const searchRef = useRef<HTMLInputElement>(null)
   const [selected, setSelected] = useState<SelectedElement>(null)
   const [graphOpen, setGraphOpen] = useState(false)
+  const [graphReady, setGraphReady] = useState(false)
 
   const { data: graphData, error: loadError } = useGraphData()
 
   const onSelect = useCallback((el: SelectedElement) => setSelected(el), [])
+  const onGraphReady = useCallback(() => setGraphReady(true), [])
 
   const { cyRef, navigateToNode } = useCytoscape({
     containerRef, graphData: graphOpen ? graphData : null, onSelect,
+    onReady: onGraphReady,
   })
 
   const filters = useFilters(cyRef, graphData)
@@ -51,16 +54,30 @@ export default function App() {
     filters.resetFilters()
   }, [clearAll, filters.resetFilters])
 
-  // Keyboard: Escape to clear selection and search
+  // Keyboard shortcuts
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
+      // Escape — clear selection and search
       if (e.key === 'Escape') {
         clearAll()
+        return
+      }
+      // Ctrl+K / Cmd+K — focus search
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault()
+        searchRef.current?.focus()
+        return
+      }
+      // Ctrl+/ — toggle chat
+      if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+        e.preventDefault()
+        chat.toggleOpen()
+        return
       }
     }
     document.addEventListener('keydown', handler)
     return () => document.removeEventListener('keydown', handler)
-  }, [clearAll])
+  }, [clearAll, chat.toggleOpen])
 
   if (loadError) {
     return <div style={{ color: '#ef4444', padding: 40, fontSize: 16 }}>Failed to load graph: {loadError}</div>
@@ -82,6 +99,7 @@ export default function App() {
         chatOpen={chat.isOpen}
         onToggleChat={chat.toggleOpen}
         onReset={handleReset}
+        graphReady={graphReady}
       />
       <Sidebar
         graphData={graphData}
@@ -93,14 +111,25 @@ export default function App() {
         showOrphans={filters.showOrphans}
         onTogglePredicate={filters.togglePredicate}
         onToggleType={filters.toggleType}
+        onSetAllPredicates={filters.setAllPredicates}
+        onSetAllTypes={filters.setAllTypes}
         onFocusFramework={filters.setFocusedFramework}
         onChangeLayout={filters.changeLayout}
         onChangeLabels={filters.changeLabels}
         onChangeOrphans={filters.setShowOrphans}
         onResetFilters={handleReset}
+        graphReady={graphReady}
       />
       {graphOpen ? (
-        <GraphCanvas containerRef={containerRef} />
+        <div className="graph-area">
+          <GraphCanvas containerRef={containerRef} />
+          {!graphReady && (
+            <div className="graph-loading-overlay">
+              <div className="graph-loading-spinner" />
+              <span>Rendering graph...</span>
+            </div>
+          )}
+        </div>
       ) : (
         <div id="cy" className="graph-placeholder">
           <button className="render-graph-btn" onClick={() => setGraphOpen(true)}>
@@ -115,6 +144,7 @@ export default function App() {
         cyRef={cyRef}
         selected={selected}
         navigateToNode={navigateToNode}
+        graphReady={graphReady}
       />
       <ChatDrawer
         messages={chat.messages}
@@ -123,9 +153,15 @@ export default function App() {
         isOpen={chat.isOpen}
         error={chat.error}
         graphData={graphData}
+        conversations={chat.conversations}
+        activeId={chat.activeId}
         onSend={chat.send}
         onToggle={chat.toggleOpen}
+        onNewChat={chat.newChat}
+        onSwitchChat={chat.switchChat}
+        onDeleteChat={chat.deleteChat}
         navigateToNode={navigateToNode}
+        graphReady={graphReady}
       />
     </>
   )
