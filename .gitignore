@@ -10,6 +10,12 @@
 __pycache__/
 *.pyc
 
+# Node.js
+node_modules/
+
+# Vite build output
+tools/visualize/app/dist/
+
 # Internal testing files
 TESTING.md
 TEST-RUNNER.md

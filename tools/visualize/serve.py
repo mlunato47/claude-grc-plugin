@@ -18,7 +18,19 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 GRAPH_DIR = REPO_ROOT / "grc" / "skills" / "grc-knowledge" / "graph"
-HTML_PATH = Path(__file__).resolve().parent / "kg_viewer.html"
+DIST_DIR = Path(__file__).resolve().parent / "app" / "dist"
+
+MIME_TYPES = {
+    ".html": "text/html; charset=utf-8",
+    ".js": "application/javascript",
+    ".css": "text/css",
+    ".json": "application/json",
+    ".png": "image/png",
+    ".svg": "image/svg+xml",
+    ".ico": "image/x-icon",
+    ".woff": "font/woff",
+    ".woff2": "font/woff2",
+}
 
 
 def load_json(path: Path) -> dict:
@@ -235,15 +247,33 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_header("Content-Length", str(len(data)))
             self.end_headers()
             self.wfile.write(data)
-        elif self.path in ("/", "/index.html"):
-            content = HTML_PATH.read_bytes()
-            self.send_response(200)
-            self.send_header("Content-Type", "text/html; charset=utf-8")
-            self.send_header("Content-Length", str(len(content)))
-            self.end_headers()
-            self.wfile.write(content)
         else:
-            self.send_error(404)
+            self._serve_static()
+
+    def _serve_static(self) -> None:
+        """Serve files from dist/, with SPA fallback to index.html."""
+        # Strip query string
+        path = self.path.split("?")[0]
+        if path == "/":
+            path = "/index.html"
+
+        file_path = DIST_DIR / path.lstrip("/")
+
+        # If file doesn't exist, SPA fallback
+        if not file_path.is_file():
+            file_path = DIST_DIR / "index.html"
+
+        if not file_path.is_file():
+            self.send_error(404, f"dist/ not found — run 'npm run build' in tools/visualize/app/")
+            return
+
+        content = file_path.read_bytes()
+        content_type = MIME_TYPES.get(file_path.suffix, "application/octet-stream")
+        self.send_response(200)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Content-Length", str(len(content)))
+        self.end_headers()
+        self.wfile.write(content)
 
     def do_POST(self) -> None:
         if self.path == "/api/chat":
