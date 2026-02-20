@@ -1,3 +1,7 @@
+---
+description: "Audit preparation checklists and guidance by audit type"
+---
+
 # /grc:audit-prep
 
 Audit preparation checklists and guidance by audit type.

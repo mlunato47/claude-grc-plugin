@@ -1,6 +1,8 @@
-# GRC Knowledge Plugin for Claude Code
+# GRC Knowledge Plugin
 
-A Claude Code plugin that turns Claude into a senior GRC (Governance, Risk, and Compliance) analyst with a built-in DoD ATO acceleration engine. 87+ reference files covering 15 frameworks, 27 slash commands, a multi-plane Knowledge Graph with PathRAG traversal, and deep domain knowledge for federal, DoD, and commercial compliance work.
+A plugin that turns your AI coding agent into a senior GRC (Governance, Risk, and Compliance) analyst. 72+ reference files covering 15 frameworks, 24 slash commands, and deep domain knowledge for federal and commercial compliance work.
+
+**Works with**: Claude Code, OpenCode
 
 ## What It Does
 
@@ -56,7 +58,32 @@ claude --plugin-dir ./grc-plugin/grc --plugin-dir ./other-plugin
 
 Once loaded, type `/grc:` to see all available commands.
 
+### OpenCode
+
+You can ask OpenCode to self-install by telling it:
+
+> Fetch and follow the instructions at https://raw.githubusercontent.com/mlunato47/claude-grc-plugin/main/.opencode/INSTALL.md
+
+Or install manually:
+
+```bash
+# Clone
+git clone https://github.com/mlunato47/claude-grc-plugin.git ~/.config/opencode/grc
+
+# Symlink plugin, skills, and commands
+mkdir -p ~/.config/opencode/plugins ~/.config/opencode/skills ~/.config/opencode/commands
+ln -s ~/.config/opencode/grc/.opencode/plugins/grc.js ~/.config/opencode/plugins/grc.js
+ln -s ~/.config/opencode/grc/grc/skills/grc-knowledge ~/.config/opencode/skills/grc-knowledge
+for cmd in ~/.config/opencode/grc/grc/commands/*.md; do
+  ln -s "$cmd" ~/.config/opencode/commands/$(basename "$cmd")
+done
+```
+
+Restart OpenCode. Commands are available as `/grc-control-lookup`, `/grc-map-controls`, etc.
+
 ## Commands
+
+> **Note**: In Claude Code, commands use `/grc:command-name`. In OpenCode, commands use `/grc-command-name`.
 
 ### Framework & Controls
 
@@ -179,34 +206,32 @@ Reference-only commands (`evidence-checklist`, `compliance-calendar`, `tabletop-
 ## Architecture
 
 ```
-grc/
 ├── .claude-plugin/
-│   └── plugin.json              # Plugin metadata
-├── agents/
-│   └── grc-researcher.md        # Read-only research agent
-├── commands/                    # 26 slash commands
-│   ├── control-lookup.md
-│   ├── graph-query.md
-│   ├── graph-traverse.md
-│   ├── map-controls.md
-│   ├── review-narrative.md
-│   ├── significant-change.md
-│   └── ...
-├── skills/
-│   └── grc-knowledge/
-│       ├── SKILL.md             # Core skill definition (loaded into context)
-│       ├── audits/              # 14 reference files
-│       ├── conmon/              # 6 reference files
-│       ├── frameworks/          # 16 reference files
-│       ├── graph/               # Knowledge Graph (PathRAG)
-│       │   ├── schema.json      # ERD, predicates, planes, templates, scoring
-│       │   ├── nodes.json       # 284 nodes (frameworks, families, controls, ...)
-│       │   ├── edges.json       # 295 edges across four semantic planes
-│       │   └── pathrag.md       # Traversal rules, scoring formula, output format
-│       ├── mappings/            # 9 reference files
-│       └── tooling/             # 1 reference file
+│   └── marketplace.json         # Claude Code marketplace catalog
+├── .opencode/
+│   ├── INSTALL.md               # OpenCode self-install instructions
+│   └── plugins/
+│       └── grc.js               # OpenCode plugin (injects skill context)
+├── grc/                         # Claude Code plugin
+│   ├── .claude-plugin/
+│   │   └── plugin.json          # Plugin metadata
+│   ├── agents/
+│   │   └── grc-researcher.md    # Read-only research agent
+│   ├── commands/                # 24 slash commands
+│   │   ├── control-lookup.md
+│   │   ├── map-controls.md
+│   │   └── ...
+│   └── skills/
+│       └── grc-knowledge/
+│           ├── SKILL.md         # Core skill definition (loaded into context)
+│           ├── audits/          # 14 reference files
+│           ├── conmon/          # 6 reference files
+│           ├── frameworks/      # 16 reference files
+│           ├── mappings/        # 9 reference files
+│           └── tooling/         # 1 reference file
 ├── GUIDE.md                     # Usage guide
-└── LICENSE                      # MIT
+├── LICENSE                      # MIT
+└── README.md
 ```
 
 **How it works:**

@@ -1,3 +1,7 @@
+---
+description: "Review a policy document for structure, coverage, and language quality"
+---
+
 # /grc:review-policy
 
 Review a policy document against framework requirements for structure, coverage, and language quality.

@@ -1,3 +1,7 @@
+---
+description: "Score control implementation maturity 0-5 with next-level guidance"
+---
+
 # /grc:score-maturity
 
 Score control implementation maturity on a 0–5 scale with actionable guidance to reach the next level.

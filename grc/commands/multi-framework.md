@@ -1,3 +1,7 @@
+---
+description: "Analyze overlap and gaps across multiple compliance frameworks"
+---
+
 # /grc:multi-framework
 
 Analyze overlap and gaps across multiple compliance frameworks to identify shared coverage and incremental work.

@@ -1,3 +1,7 @@
+---
+description: "OSCAL structure, readiness, and conversion guidance"
+---
+
 # /grc:oscal-guide
 
 Provide OSCAL guidance — structure, readiness assessment, and conversion considerations.
@@ -40,6 +44,7 @@ When invoked:
 2. **Read the appropriate reference files**:
    - `skills/grc-knowledge/frameworks/oscal-reference.md` for OSCAL structure and concepts
    - `skills/grc-knowledge/audits/document-section-requirements.md` for SSP section requirements (for readiness topic)
+   - `skills/grc-knowledge/oscal/nist-800-53-rev5/{family}.json` and `skills/grc-knowledge/oscal/fedramp-moderate-rev5/{family}.json` for live OSCAL data examples — when showing structure examples, read a real family file (e.g., `at.json` for a small example) instead of fabricating sample JSON
 
 3. **For each topic**:
 

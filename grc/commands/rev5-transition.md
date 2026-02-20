@@ -1,3 +1,7 @@
+---
+description: "NIST 800-53 Rev 4 to Rev 5 transition guidance"
+---
+
 # /grc:rev5-transition
 
 Provide NIST 800-53 Rev 4 to Rev 5 transition guidance — control mapping, gap analysis, and migration steps.

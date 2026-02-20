@@ -1,0 +1,5370 @@
+{
+  "id": "au",
+  "class": "family",
+  "title": "Audit and Accountability",
+  "controls": [
+    {
+      "id": "au-1",
+      "class": "SP800-53",
+      "title": "Policy and Procedures",
+      "params": [
+        {
+          "id": "au-1_prm_1",
+          "label": "organization-defined personnel or roles"
+        },
+        {
+          "id": "au-01_odp.01",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles to whom the audit and accountability policy is to be disseminated is/are defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-01_odp.02",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles to whom the audit and accountability procedures are to be disseminated is/are defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-01_odp.03",
+          "select": {
+            "how-many": "one-or-more",
+            "choice": [
+              "organization-level",
+              "mission/business process-level",
+              "system-level"
+            ]
+          }
+        },
+        {
+          "id": "au-01_odp.04",
+          "label": "official",
+          "guidelines": [
+            {
+              "prose": "an official to manage the audit and accountability policy and procedures is defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-01_odp.05",
+          "label": "frequency",
+          "constraints": [
+            {
+              "description": "at least every 3 years"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "the frequency at which the current audit and accountability policy is reviewed and updated is defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-01_odp.06",
+          "label": "events",
+          "guidelines": [
+            {
+              "prose": "events that would require the current audit and accountability policy to be reviewed and updated are defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-01_odp.07",
+          "label": "frequency",
+          "constraints": [
+            {
+              "description": "at least annually"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "the frequency at which the current audit and accountability procedures are reviewed and updated is defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-01_odp.08",
+          "label": "events",
+          "constraints": [
+            {
+              "description": "significant changes"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "events that would require audit and accountability procedures to be reviewed and updated are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "AU-1"
+        },
+        {
+          "name": "label",
+          "value": "AU-01",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-01"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        },
+        {
+          "name": "contributes-to-assurance",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "true"
+        }
+      ],
+      "links": [
+        {
+          "href": "#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0",
+          "rel": "reference"
+        },
+        {
+          "href": "#08b07465-dbdc-48d6-8a0b-37279602ac16",
+          "rel": "reference"
+        },
+        {
+          "href": "#cec037f3-8aba-4c97-84b4-4082f9e515d2",
+          "rel": "reference"
+        },
+        {
+          "href": "#4c0ec2ee-a0d6-428a-9043-4504bc3ade6f",
+          "rel": "reference"
+        },
+        {
+          "href": "#pm-9",
+          "rel": "related"
+        },
+        {
+          "href": "#ps-8",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-1_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "au-1_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point.",
+                  "remarks": "This response must address all control sub-statement requirements."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Develop, document, and disseminate to {{ insert: param, au-1_prm_1 }}:",
+              "parts": [
+                {
+                  "id": "au-1_smt.a.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "1."
+                    }
+                  ],
+                  "prose": " {{ insert: param, au-01_odp.03 }} audit and accountability policy that:",
+                  "parts": [
+                    {
+                      "id": "au-1_smt.a.1.a",
+                      "name": "item",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "(a)"
+                        }
+                      ],
+                      "prose": "Addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and"
+                    },
+                    {
+                      "id": "au-1_smt.a.1.b",
+                      "name": "item",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "(b)"
+                        }
+                      ],
+                      "prose": "Is consistent with applicable laws, executive orders, directives, regulations, policies, standards, and guidelines; and"
+                    }
+                  ]
+                },
+                {
+                  "id": "au-1_smt.a.2",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "2."
+                    }
+                  ],
+                  "prose": "Procedures to facilitate the implementation of the audit and accountability policy and the associated audit and accountability controls;"
+                }
+              ]
+            },
+            {
+              "id": "au-1_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Designate an {{ insert: param, au-01_odp.04 }} to manage the development, documentation, and dissemination of the audit and accountability policy and procedures; and"
+            },
+            {
+              "id": "au-1_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point.",
+                  "remarks": "This response must address all control sub-statement requirements."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Review and update the current audit and accountability:",
+              "parts": [
+                {
+                  "id": "au-1_smt.c.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "1."
+                    }
+                  ],
+                  "prose": "Policy {{ insert: param, au-01_odp.05 }} and following {{ insert: param, au-01_odp.06 }} ; and"
+                },
+                {
+                  "id": "au-1_smt.c.2",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "2."
+                    }
+                  ],
+                  "prose": "Procedures {{ insert: param, au-01_odp.07 }} and following {{ insert: param, au-01_odp.08 }}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "au-1_gdn",
+          "name": "guidance",
+          "prose": "Audit and accountability policy and procedures address the controls in the AU family that are implemented within systems and organizations. The risk management strategy is an important factor in establishing such policies and procedures. Policies and procedures contribute to security and privacy assurance. Therefore, it is important that security and privacy programs collaborate on the development of audit and accountability policy and procedures. Security and privacy program policies and procedures at the organization level are preferable, in general, and may obviate the need for mission- or system-specific policies and procedures. The policy can be included as part of the general security and privacy policy or be represented by multiple policies that reflect the complex nature of organizations. Procedures can be established for security and privacy programs, for mission or business processes, and for systems, if needed. Procedures describe how the policies or controls are implemented and can be directed at the individual or role that is the object of the procedure. Procedures can be documented in system security and privacy plans or in one or more separate documents. Events that may precipitate an update to audit and accountability policy and procedures include assessment or audit findings, security incidents or breaches, or changes in applicable laws, executive orders, directives, regulations, policies, standards, and guidelines. Simply restating controls does not constitute an organizational policy or procedure."
+        },
+        {
+          "id": "au-1_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "AU-01",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-1_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "AU-01a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "au-1_obj.a-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "AU-01a.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "an audit and accountability policy is developed and documented;",
+                  "links": [
+                    {
+                      "href": "#au-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "au-1_obj.a-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "AU-01a.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "the audit and accountability policy is disseminated to {{ insert: param, au-01_odp.01 }};",
+                  "links": [
+                    {
+                      "href": "#au-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "au-1_obj.a-3",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "AU-01a.[03]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "audit and accountability procedures to facilitate the implementation of the audit and accountability policy and associated audit and accountability controls are developed and documented;",
+                  "links": [
+                    {
+                      "href": "#au-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "au-1_obj.a-4",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "AU-01a.[04]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "the audit and accountability procedures are disseminated to {{ insert: param, au-01_odp.02 }};",
+                  "links": [
+                    {
+                      "href": "#au-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "au-1_obj.a.1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "AU-01a.01",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "parts": [
+                    {
+                      "id": "au-1_obj.a.1.a",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "response-point",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "You must fill in this response point."
+                        },
+                        {
+                          "name": "method",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "EXAMINE",
+                          "class": "fedramp"
+                        },
+                        {
+                          "name": "label",
+                          "value": "AU-01a.01(a)",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "parts": [
+                        {
+                          "id": "au-1_obj.a.1.a-1",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "AU-01a.01(a)[01]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, au-01_odp.03 }} of the audit and accountability policy addresses purpose;",
+                          "links": [
+                            {
+                              "href": "#au-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "au-1_obj.a.1.a-2",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "AU-01a.01(a)[02]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, au-01_odp.03 }} of the audit and accountability policy addresses scope;",
+                          "links": [
+                            {
+                              "href": "#au-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "au-1_obj.a.1.a-3",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "AU-01a.01(a)[03]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, au-01_odp.03 }} of the audit and accountability policy addresses roles;",
+                          "links": [
+                            {
+                              "href": "#au-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "au-1_obj.a.1.a-4",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "AU-01a.01(a)[04]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, au-01_odp.03 }} of the audit and accountability policy addresses responsibilities;",
+                          "links": [
+                            {
+                              "href": "#au-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "au-1_obj.a.1.a-5",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "AU-01a.01(a)[05]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, au-01_odp.03 }} of the audit and accountability policy addresses management commitment;",
+                          "links": [
+                            {
+                              "href": "#au-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "au-1_obj.a.1.a-6",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "AU-01a.01(a)[06]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, au-01_odp.03 }} of the audit and accountability policy addresses coordination among organizational entities;",
+                          "links": [
+                            {
+                              "href": "#au-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "au-1_obj.a.1.a-7",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "AU-01a.01(a)[07]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, au-01_odp.03 }} of the audit and accountability policy addresses compliance;",
+                          "links": [
+                            {
+                              "href": "#au-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        }
+                      ],
+                      "links": [
+                        {
+                          "href": "#au-1_smt.a.1.a",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "au-1_obj.a.1.b",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "response-point",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "You must fill in this response point."
+                        },
+                        {
+                          "name": "method",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "EXAMINE",
+                          "class": "fedramp"
+                        },
+                        {
+                          "name": "label",
+                          "value": "AU-01a.01(b)",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the {{ insert: param, au-01_odp.03 }} of the audit and accountability policy is consistent with applicable laws, executive orders, directives, regulations, policies, standards, and guidelines;",
+                      "links": [
+                        {
+                          "href": "#au-1_smt.a.1.b",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    }
+                  ],
+                  "links": [
+                    {
+                      "href": "#au-1_smt.a.1",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#au-1_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-1_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-01b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the {{ insert: param, au-01_odp.04 }} is designated to manage the development, documentation, and dissemination of the audit and accountability policy and procedures;",
+              "links": [
+                {
+                  "href": "#au-1_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-1_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "AU-01c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "au-1_obj.c.1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "AU-01c.01",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "parts": [
+                    {
+                      "id": "au-1_obj.c.1-1",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "AU-01c.01[01]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current audit and accountability policy is reviewed and updated {{ insert: param, au-01_odp.05 }};",
+                      "links": [
+                        {
+                          "href": "#au-1_smt.c.1",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "au-1_obj.c.1-2",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "AU-01c.01[02]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current audit and accountability policy is reviewed and updated following {{ insert: param, au-01_odp.06 }};",
+                      "links": [
+                        {
+                          "href": "#au-1_smt.c.1",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    }
+                  ],
+                  "links": [
+                    {
+                      "href": "#au-1_smt.c.1",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "au-1_obj.c.2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "AU-01c.02",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "parts": [
+                    {
+                      "id": "au-1_obj.c.2-1",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "AU-01c.02[01]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current audit and accountability procedures are reviewed and updated {{ insert: param, au-01_odp.07 }};",
+                      "links": [
+                        {
+                          "href": "#au-1_smt.c.2",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "au-1_obj.c.2-2",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "AU-01c.02[02]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current audit and accountability procedures are reviewed and updated following {{ insert: param, au-01_odp.08 }}.",
+                      "links": [
+                        {
+                          "href": "#au-1_smt.c.2",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    }
+                  ],
+                  "links": [
+                    {
+                      "href": "#au-1_smt.c.2",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#au-1_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-1_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-1_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-01-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy and procedures\n\nsystem security plan\n\nprivacy plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-1_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-01-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with audit and accountability responsibilities\n\norganizational personnel with information security and privacy responsibilities"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-2",
+      "class": "SP800-53",
+      "title": "Event Logging",
+      "params": [
+        {
+          "id": "au-2_prm_2",
+          "label": "organization-defined event types (subset of the event types defined in [AU-2a.](#au-2_smt.a)) along with the frequency of (or situation requiring) logging for each identified event type",
+          "constraints": [
+            {
+              "description": "organization-defined subset of the auditable events defined in AU-2a to be audited continually for each identified event."
+            }
+          ]
+        },
+        {
+          "id": "au-02_odp.01",
+          "label": "event types",
+          "constraints": [
+            {
+              "description": "successful and unsuccessful account logon events, account management events, object access, policy change, privilege functions, process tracking, and system events. For Web applications: all administrator activity, authentication checks, authorization checks, data deletions, data access, data changes, and permission changes"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "the event types that the system is capable of logging in support of the audit function are defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-02_odp.02",
+          "label": "event types (subset of AU-02_ODP[01])",
+          "guidelines": [
+            {
+              "prose": "the event types (subset of AU-02_ODP[01]) for logging within the system are defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-02_odp.03",
+          "label": "frequency or situation",
+          "guidelines": [
+            {
+              "prose": "the frequency or situation requiring logging for each specified event type is defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-02_odp.04",
+          "label": "frequency",
+          "constraints": [
+            {
+              "description": "annually and whenever there is a change in the threat environment"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "the frequency of event types selected for logging are reviewed and updated;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "CORE",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "true"
+        },
+        {
+          "name": "label",
+          "value": "AU-2"
+        },
+        {
+          "name": "label",
+          "value": "AU-02",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-02"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        }
+      ],
+      "links": [
+        {
+          "href": "#27847491-5ce1-4f6a-a1e4-9e483782f0ef",
+          "rel": "reference"
+        },
+        {
+          "href": "#5eee45d8-3313-4fdc-8d54-1742092bbdd6",
+          "rel": "reference"
+        },
+        {
+          "href": "#ac-2",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-3",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-6",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-7",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-8",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-16",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-17",
+          "rel": "related"
+        },
+        {
+          "href": "#au-3",
+          "rel": "related"
+        },
+        {
+          "href": "#au-4",
+          "rel": "related"
+        },
+        {
+          "href": "#au-5",
+          "rel": "related"
+        },
+        {
+          "href": "#au-6",
+          "rel": "related"
+        },
+        {
+          "href": "#au-7",
+          "rel": "related"
+        },
+        {
+          "href": "#au-11",
+          "rel": "related"
+        },
+        {
+          "href": "#au-12",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-3",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-5",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-6",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-13",
+          "rel": "related"
+        },
+        {
+          "href": "#ia-3",
+          "rel": "related"
+        },
+        {
+          "href": "#ma-4",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-4",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-3",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-21",
+          "rel": "related"
+        },
+        {
+          "href": "#pt-2",
+          "rel": "related"
+        },
+        {
+          "href": "#pt-7",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-8",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-8",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-7",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-18",
+          "rel": "related"
+        },
+        {
+          "href": "#si-3",
+          "rel": "related"
+        },
+        {
+          "href": "#si-4",
+          "rel": "related"
+        },
+        {
+          "href": "#si-7",
+          "rel": "related"
+        },
+        {
+          "href": "#si-10",
+          "rel": "related"
+        },
+        {
+          "href": "#si-11",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-2_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "au-2_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Identify the types of events that the system is capable of logging in support of the audit function: {{ insert: param, au-02_odp.01 }};"
+            },
+            {
+              "id": "au-2_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Coordinate the event logging function with other organizational entities requiring audit-related information to guide and inform the selection criteria for events to be logged;"
+            },
+            {
+              "id": "au-2_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Specify the following event types for logging within the system: {{ insert: param, au-2_prm_2 }};"
+            },
+            {
+              "id": "au-2_smt.d",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "d."
+                }
+              ],
+              "prose": "Provide a rationale for why the event types selected for logging are deemed to be adequate to support after-the-fact investigations of incidents; and"
+            },
+            {
+              "id": "au-2_smt.e",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "e."
+                }
+              ],
+              "prose": "Review and update the event types selected for logging {{ insert: param, au-02_odp.04 }}."
+            },
+            {
+              "id": "au-2_fr",
+              "name": "item",
+              "title": "AU-2 Additional FedRAMP Requirements and Guidance",
+              "parts": [
+                {
+                  "id": "au-2_fr_smt.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Requirement:"
+                    }
+                  ],
+                  "prose": "Coordination between service provider and consumer shall be documented and accepted by the JAB/AO."
+                },
+                {
+                  "id": "au-2_fr_gdn.1",
+                  "name": "guidance",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "(e) Guidance:"
+                    }
+                  ],
+                  "prose": "Annually or whenever changes in the threat environment are communicated to the service provider by the JAB/AO."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "au-2_gdn",
+          "name": "guidance",
+          "prose": "An event is an observable occurrence in a system. The types of events that require logging are those events that are significant and relevant to the security of systems and the privacy of individuals. Event logging also supports specific monitoring and auditing needs. Event types include password changes, failed logons or failed accesses related to systems, security or privacy attribute changes, administrative privilege usage, PIV credential usage, data action changes, query parameters, or external credential usage. In determining the set of event types that require logging, organizations consider the monitoring and auditing appropriate for each of the controls to be implemented. For completeness, event logging includes all protocols that are operational and supported by the system.\n\nTo balance monitoring and auditing requirements with other system needs, event logging requires identifying the subset of event types that are logged at a given point in time. For example, organizations may determine that systems need the capability to log every file access successful and unsuccessful, but not activate that capability except for specific circumstances due to the potential burden on system performance. The types of events that organizations desire to be logged may change. Reviewing and updating the set of logged events is necessary to help ensure that the events remain relevant and continue to support the needs of the organization. Organizations consider how the types of logging events can reveal information about individuals that may give rise to privacy risk and how best to mitigate such risks. For example, there is the potential to reveal personally identifiable information in the audit trail, especially if the logging event is based on patterns or time of usage.\n\nEvent logging requirements, including the need to log specific event types, may be referenced in other controls and control enhancements. These include [AC-2(4)](#ac-2.4), [AC-3(10)](#ac-3.10), [AC-6(9)](#ac-6.9), [AC-17(1)](#ac-17.1), [CM-3f](#cm-3_smt.f), [CM-5(1)](#cm-5.1), [IA-3(3)(b)](#ia-3.3_smt.b), [MA-4(1)](#ma-4.1), [MP-4(2)](#mp-4.2), [PE-3](#pe-3), [PM-21](#pm-21), [PT-7](#pt-7), [RA-8](#ra-8), [SC-7(9)](#sc-7.9), [SC-7(15)](#sc-7.15), [SI-3(8)](#si-3.8), [SI-4(22)](#si-4.22), [SI-7(8)](#si-7.8) , and [SI-10(1)](#si-10.1) . Organizations include event types that are required by applicable laws, executive orders, directives, policies, regulations, standards, and guidelines. Audit records can be generated at various levels, including at the packet level as information traverses the network. Selecting the appropriate level of event logging is an important part of a monitoring and auditing capability and can identify the root causes of problems. When defining event types, organizations consider the logging necessary to cover related event types, such as the steps in distributed, transaction-based processes and the actions that occur in service-oriented architectures."
+        },
+        {
+          "id": "au-2_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "AU-02",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-2_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-02a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": " {{ insert: param, au-02_odp.01 }} that the system is capable of logging are identified in support of the audit logging function;",
+              "links": [
+                {
+                  "href": "#au-2_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-2_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-02b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the event logging function is coordinated with other organizational entities requiring audit-related information to guide and inform the selection criteria for events to be logged;",
+              "links": [
+                {
+                  "href": "#au-2_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-2_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "AU-02c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "au-2_obj.c-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "AU-02c.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": " {{ insert: param, au-02_odp.02 }} are specified for logging within the system;",
+                  "links": [
+                    {
+                      "href": "#au-2_smt.c",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "au-2_obj.c-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "TEST",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "AU-02c.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "the specified event types are logged within the system {{ insert: param, au-02_odp.03 }};",
+                  "links": [
+                    {
+                      "href": "#au-2_smt.c",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#au-2_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-2_obj.d",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-02d.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "a rationale is provided for why the event types selected for logging are deemed to be adequate to support after-the-fact investigations of incidents;",
+              "links": [
+                {
+                  "href": "#au-2_smt.d",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-2_obj.e",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-02e.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the event types selected for logging are reviewed and updated {{ insert: param, au-02_odp.04 }}.",
+              "links": [
+                {
+                  "href": "#au-2_smt.e",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-2_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-2_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-02-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy\n\nprocedures addressing auditable events\n\nsystem security plan\n\nprivacy plan\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\nsystem audit records\n\nsystem auditable events\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-2_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-02-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with audit and accountability responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem/network administrators"
+            }
+          ]
+        },
+        {
+          "id": "au-2_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "AU-02-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Mechanisms implementing system auditing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-3",
+      "class": "SP800-53",
+      "title": "Content of Audit Records",
+      "props": [
+        {
+          "name": "CORE",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "true"
+        },
+        {
+          "name": "label",
+          "value": "AU-3"
+        },
+        {
+          "name": "label",
+          "value": "AU-03",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-03"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "system"
+        }
+      ],
+      "links": [
+        {
+          "href": "#27847491-5ce1-4f6a-a1e4-9e483782f0ef",
+          "rel": "reference"
+        },
+        {
+          "href": "#98d415ca-7281-4064-9931-0c366637e324",
+          "rel": "reference"
+        },
+        {
+          "href": "#au-2",
+          "rel": "related"
+        },
+        {
+          "href": "#au-8",
+          "rel": "related"
+        },
+        {
+          "href": "#au-12",
+          "rel": "related"
+        },
+        {
+          "href": "#au-14",
+          "rel": "related"
+        },
+        {
+          "href": "#ma-4",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-9",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-8",
+          "rel": "related"
+        },
+        {
+          "href": "#si-7",
+          "rel": "related"
+        },
+        {
+          "href": "#si-11",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-3_smt",
+          "name": "statement",
+          "prose": "Ensure that audit records contain information that establishes the following:",
+          "parts": [
+            {
+              "id": "au-3_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "What type of event occurred;"
+            },
+            {
+              "id": "au-3_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "When the event occurred;"
+            },
+            {
+              "id": "au-3_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Where the event occurred;"
+            },
+            {
+              "id": "au-3_smt.d",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "d."
+                }
+              ],
+              "prose": "Source of the event;"
+            },
+            {
+              "id": "au-3_smt.e",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "e."
+                }
+              ],
+              "prose": "Outcome of the event; and"
+            },
+            {
+              "id": "au-3_smt.f",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "f."
+                }
+              ],
+              "prose": "Identity of any individuals, subjects, or objects/entities associated with the event."
+            }
+          ]
+        },
+        {
+          "id": "au-3_gdn",
+          "name": "guidance",
+          "prose": "Audit record content that may be necessary to support the auditing function includes event descriptions (item a), time stamps (item b), source and destination addresses (item c), user or process identifiers (items d and f), success or fail indications (item e), and filenames involved (items a, c, e, and f) . Event outcomes include indicators of event success or failure and event-specific results, such as the system security and privacy posture after the event occurred. Organizations consider how audit records can reveal information about individuals that may give rise to privacy risks and how best to mitigate such risks. For example, there is the potential to reveal personally identifiable information in the audit trail, especially if the trail records inputs or is based on patterns or time of usage."
+        },
+        {
+          "id": "au-3_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "response-point",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "You must fill in this response point."
+            },
+            {
+              "name": "method",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "INTERVIEW",
+              "class": "fedramp"
+            },
+            {
+              "name": "method",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "TEST",
+              "class": "fedramp"
+            },
+            {
+              "name": "label",
+              "value": "AU-03",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-3_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "AU-03a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit records contain information that establishes what type of event occurred;",
+              "links": [
+                {
+                  "href": "#au-3_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-3_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "AU-03b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit records contain information that establishes when the event occurred;",
+              "links": [
+                {
+                  "href": "#au-3_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-3_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "AU-03c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit records contain information that establishes where the event occurred;",
+              "links": [
+                {
+                  "href": "#au-3_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-3_obj.d",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "AU-03d.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit records contain information that establishes the source of the event;",
+              "links": [
+                {
+                  "href": "#au-3_smt.d",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-3_obj.e",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "AU-03e.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit records contain information that establishes the outcome of the event;",
+              "links": [
+                {
+                  "href": "#au-3_smt.e",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-3_obj.f",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "AU-03f.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit records contain information that establishes the identity of any individuals, subjects, or objects/entities associated with the event.",
+              "links": [
+                {
+                  "href": "#au-3_smt.f",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-3_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-3_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-03-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy\n\nsystem security plan\n\nprivacy plan\n\nprocedures addressing content of audit records\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\nlist of organization-defined auditable events\n\nsystem audit records\n\nsystem incident reports\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-3_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-03-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with audit and accountability responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem/network administrators"
+            }
+          ]
+        },
+        {
+          "id": "au-3_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "AU-03-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Mechanisms implementing system auditing of auditable events"
+            }
+          ]
+        }
+      ],
+      "controls": [
+        {
+          "id": "au-3.1",
+          "class": "SP800-53-enhancement",
+          "title": "Additional Audit Information",
+          "params": [
+            {
+              "id": "au-03.01_odp",
+              "label": "additional information",
+              "constraints": [
+                {
+                  "description": "session, connection, transaction, or activity duration; for client-server transactions, the number of bytes received and bytes sent; additional informational messages to diagnose or identify the event; characteristics that describe or identify the object or resource being acted upon; individual identities of group account users; full-text of privileged commands"
+                }
+              ],
+              "guidelines": [
+                {
+                  "prose": "additional information to be included in audit records is defined;"
+                }
+              ]
+            }
+          ],
+          "props": [
+            {
+              "name": "CORE",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "true"
+            },
+            {
+              "name": "label",
+              "value": "AU-3(1)"
+            },
+            {
+              "name": "label",
+              "value": "AU-03(01)",
+              "class": "sp800-53a"
+            },
+            {
+              "name": "sort-id",
+              "value": "au-03.01"
+            },
+            {
+              "name": "implementation-level",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "system"
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-3",
+              "rel": "required"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-3.1_smt",
+              "name": "statement",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                }
+              ],
+              "prose": "Generate audit records containing the following additional information: {{ insert: param, au-03.01_odp }}.",
+              "parts": [
+                {
+                  "id": "au-3.1_fr",
+                  "name": "item",
+                  "title": "AU-3 (1) Additional FedRAMP Requirements and Guidance",
+                  "parts": [
+                    {
+                      "id": "au-3.1_fr_gdn.1",
+                      "name": "guidance",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "Guidance:"
+                        }
+                      ],
+                      "prose": "For client-server transactions, the number of bytes sent and received gives bidirectional transfer information that can be helpful during an investigation or inquiry."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "au-3.1_gdn",
+              "name": "guidance",
+              "prose": "The ability to add information generated in audit records is dependent on system functionality to configure the audit record content. Organizations may consider additional information in audit records including, but not limited to, access control or flow control rules invoked and individual identities of group account users. Organizations may also consider limiting additional audit record information to only information that is explicitly needed for audit requirements. This facilitates the use of audit trails and audit logs by not including information in audit records that could potentially be misleading, make it more difficult to locate information of interest, or increase the risk to individuals' privacy."
+            },
+            {
+              "id": "au-3.1_obj",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-03(01)",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "generated audit records contain the following {{ insert: param, au-03.01_odp }}.",
+              "links": [
+                {
+                  "href": "#au-3.1_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-3.1_asm-examine",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "EXAMINE"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-03(01)-Examine",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Audit and accountability policy\n\nprocedures addressing content of audit records\n\nsystem security plan\n\nprivacy plan\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\nlist of organization-defined auditable events\n\nsystem audit records\n\nother relevant documents or records"
+                }
+              ]
+            },
+            {
+              "id": "au-3.1_asm-interview",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "INTERVIEW"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-03(01)-Interview",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational personnel with audit and accountability responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem/network administrators\n\nsystem developers"
+                }
+              ]
+            },
+            {
+              "id": "au-3.1_asm-test",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "TEST"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-03(01)-Test",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "system audit capability"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-4",
+      "class": "SP800-53",
+      "title": "Audit Log Storage Capacity",
+      "params": [
+        {
+          "id": "au-04_odp",
+          "label": "audit log retention requirements",
+          "guidelines": [
+            {
+              "prose": "audit log retention requirements are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "CORE",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "true"
+        },
+        {
+          "name": "label",
+          "value": "AU-4"
+        },
+        {
+          "name": "label",
+          "value": "AU-04",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-04"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "system"
+        }
+      ],
+      "links": [
+        {
+          "href": "#au-2",
+          "rel": "related"
+        },
+        {
+          "href": "#au-5",
+          "rel": "related"
+        },
+        {
+          "href": "#au-6",
+          "rel": "related"
+        },
+        {
+          "href": "#au-7",
+          "rel": "related"
+        },
+        {
+          "href": "#au-9",
+          "rel": "related"
+        },
+        {
+          "href": "#au-11",
+          "rel": "related"
+        },
+        {
+          "href": "#au-12",
+          "rel": "related"
+        },
+        {
+          "href": "#au-14",
+          "rel": "related"
+        },
+        {
+          "href": "#si-4",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-4_smt",
+          "name": "statement",
+          "props": [
+            {
+              "name": "response-point",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "You must fill in this response point."
+            }
+          ],
+          "prose": "Allocate audit log storage capacity to accommodate {{ insert: param, au-04_odp }}."
+        },
+        {
+          "id": "au-4_gdn",
+          "name": "guidance",
+          "prose": "Organizations consider the types of audit logging to be performed and the audit log processing requirements when allocating audit log storage capacity. Allocating sufficient audit log storage capacity reduces the likelihood of such capacity being exceeded and resulting in the potential loss or reduction of audit logging capability."
+        },
+        {
+          "id": "au-4_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "response-point",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "You must fill in this response point."
+            },
+            {
+              "name": "method",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "INTERVIEW",
+              "class": "fedramp"
+            },
+            {
+              "name": "method",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "TEST",
+              "class": "fedramp"
+            },
+            {
+              "name": "label",
+              "value": "AU-04",
+              "class": "sp800-53a"
+            }
+          ],
+          "prose": "audit log storage capacity is allocated to accommodate {{ insert: param, au-04_odp }}.",
+          "links": [
+            {
+              "href": "#au-4_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-4_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-04-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy\n\nprocedures addressing audit storage capacity\n\nsystem security plan\n\nprivacy plan\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\naudit record storage requirements\n\naudit record storage capability for system components\n\nsystem audit records\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-4_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-04-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with audit and accountability responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem/network administrators\n\nsystem developers"
+            }
+          ]
+        },
+        {
+          "id": "au-4_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "AU-04-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit record storage capacity and related configuration settings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-5",
+      "class": "SP800-53",
+      "title": "Response to Audit Logging Process Failures",
+      "params": [
+        {
+          "id": "au-05_odp.01",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles receiving audit logging process failure alerts are defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-05_odp.02",
+          "label": "time period",
+          "guidelines": [
+            {
+              "prose": "time period for personnel or roles receiving audit logging process failure alerts is defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-05_odp.03",
+          "label": "additional actions",
+          "constraints": [
+            {
+              "description": "overwrite oldest record"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "additional actions to be taken in the event of an audit logging process failure are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "CORE",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "true"
+        },
+        {
+          "name": "label",
+          "value": "AU-5"
+        },
+        {
+          "name": "label",
+          "value": "AU-05",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-05"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "system"
+        }
+      ],
+      "links": [
+        {
+          "href": "#au-2",
+          "rel": "related"
+        },
+        {
+          "href": "#au-4",
+          "rel": "related"
+        },
+        {
+          "href": "#au-7",
+          "rel": "related"
+        },
+        {
+          "href": "#au-9",
+          "rel": "related"
+        },
+        {
+          "href": "#au-11",
+          "rel": "related"
+        },
+        {
+          "href": "#au-12",
+          "rel": "related"
+        },
+        {
+          "href": "#au-14",
+          "rel": "related"
+        },
+        {
+          "href": "#si-4",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-5_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "au-5_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Alert {{ insert: param, au-05_odp.01 }} within {{ insert: param, au-05_odp.02 }} in the event of an audit logging process failure; and"
+            },
+            {
+              "id": "au-5_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Take the following additional actions: {{ insert: param, au-05_odp.03 }}."
+            }
+          ]
+        },
+        {
+          "id": "au-5_gdn",
+          "name": "guidance",
+          "prose": "Audit logging process failures include software and hardware errors, failures in audit log capturing mechanisms, and reaching or exceeding audit log storage capacity. Organization-defined actions include overwriting oldest audit records, shutting down the system, and stopping the generation of audit records. Organizations may choose to define additional actions for audit logging process failures based on the type of failure, the location of the failure, the severity of the failure, or a combination of such factors. When the audit logging process failure is related to storage, the response is carried out for the audit log storage repository (i.e., the distinct system component where the audit logs are stored), the system on which the audit logs reside, the total audit log storage capacity of the organization (i.e., all audit log storage repositories combined), or all three. Organizations may decide to take no additional actions after alerting designated roles or personnel."
+        },
+        {
+          "id": "au-5_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "AU-05",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-5_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-05a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": " {{ insert: param, au-05_odp.01 }} are alerted in the event of an audit logging process failure within {{ insert: param, au-05_odp.02 }};",
+              "links": [
+                {
+                  "href": "#au-5_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-5_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-05b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": " {{ insert: param, au-05_odp.03 }} are taken in the event of an audit logging process failure.",
+              "links": [
+                {
+                  "href": "#au-5_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-5_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-5_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-05-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy\n\nprocedures addressing response to audit processing failures\n\nsystem design documentation\n\nsystem security plan\n\nprivacy plan\n\nsystem configuration settings and associated documentation\n\nlist of personnel to be notified in case of an audit processing failure\n\nsystem audit records\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-5_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-05-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with audit and accountability responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem/network administrators\n\nsystem developers"
+            }
+          ]
+        },
+        {
+          "id": "au-5_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "AU-05-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Mechanisms implementing system response to audit processing failures"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-6",
+      "class": "SP800-53",
+      "title": "Audit Record Review, Analysis, and Reporting",
+      "params": [
+        {
+          "id": "au-06_odp.01",
+          "label": "frequency",
+          "constraints": [
+            {
+              "description": "at least weekly"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "frequency at which system audit records are reviewed and analyzed is defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-06_odp.02",
+          "label": "inappropriate or unusual activity",
+          "guidelines": [
+            {
+              "prose": "inappropriate or unusual activity is defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-06_odp.03",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles to receive findings from reviews and analyses of system records is/are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "CORE",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "true"
+        },
+        {
+          "name": "label",
+          "value": "AU-6"
+        },
+        {
+          "name": "label",
+          "value": "AU-06",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-06"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        },
+        {
+          "name": "contributes-to-assurance",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "true"
+        }
+      ],
+      "links": [
+        {
+          "href": "#cfdb1858-c473-46b3-89f9-a700308d0be2",
+          "rel": "reference"
+        },
+        {
+          "href": "#10cf2fad-a216-41f9-bb1a-531b7e3119e3",
+          "rel": "reference"
+        },
+        {
+          "href": "#ac-2",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-3",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-5",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-6",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-7",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-17",
+          "rel": "related"
+        },
+        {
+          "href": "#au-7",
+          "rel": "related"
+        },
+        {
+          "href": "#au-16",
+          "rel": "related"
+        },
+        {
+          "href": "#ca-2",
+          "rel": "related"
+        },
+        {
+          "href": "#ca-7",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-2",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-5",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-6",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-10",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-11",
+          "rel": "related"
+        },
+        {
+          "href": "#ia-2",
+          "rel": "related"
+        },
+        {
+          "href": "#ia-3",
+          "rel": "related"
+        },
+        {
+          "href": "#ia-5",
+          "rel": "related"
+        },
+        {
+          "href": "#ia-8",
+          "rel": "related"
+        },
+        {
+          "href": "#ir-5",
+          "rel": "related"
+        },
+        {
+          "href": "#ma-4",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-4",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-3",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-6",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-5",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-8",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-7",
+          "rel": "related"
+        },
+        {
+          "href": "#si-3",
+          "rel": "related"
+        },
+        {
+          "href": "#si-4",
+          "rel": "related"
+        },
+        {
+          "href": "#si-7",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-6_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "au-6_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Review and analyze system audit records {{ insert: param, au-06_odp.01 }} for indications of {{ insert: param, au-06_odp.02 }} and the potential impact of the inappropriate or unusual activity;"
+            },
+            {
+              "id": "au-6_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Report findings to {{ insert: param, au-06_odp.03 }} ; and"
+            },
+            {
+              "id": "au-6_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Adjust the level of audit record review, analysis, and reporting within the system when there is a change in risk based on law enforcement information, intelligence information, or other credible sources of information."
+            },
+            {
+              "id": "au-6_fr",
+              "name": "item",
+              "title": "AU-6 Additional FedRAMP Requirements and Guidance",
+              "parts": [
+                {
+                  "id": "au-6_fr_smt.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Requirement:"
+                    }
+                  ],
+                  "prose": "Coordination between service provider and consumer shall be documented and accepted by the JAB/AO. In multi-tenant environments, capability and means for providing review, analysis, and reporting to consumer for data pertaining to consumer shall be documented."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "au-6_gdn",
+          "name": "guidance",
+          "prose": "Audit record review, analysis, and reporting covers information security- and privacy-related logging performed by organizations, including logging that results from the monitoring of account usage, remote access, wireless connectivity, mobile device connection, configuration settings, system component inventory, use of maintenance tools and non-local maintenance, physical access, temperature and humidity, equipment delivery and removal, communications at system interfaces, and use of mobile code or Voice over Internet Protocol (VoIP). Findings can be reported to organizational entities that include the incident response team, help desk, and security or privacy offices. If organizations are prohibited from reviewing and analyzing audit records or unable to conduct such activities, the review or analysis may be carried out by other organizations granted such authority. The frequency, scope, and/or depth of the audit record review, analysis, and reporting may be adjusted to meet organizational needs based on new information received."
+        },
+        {
+          "id": "au-6_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "AU-06",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-6_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "system audit records are reviewed and analyzed {{ insert: param, au-06_odp.01 }} for indications of {{ insert: param, au-06_odp.02 }} and the potential impact of the inappropriate or unusual activity;",
+              "links": [
+                {
+                  "href": "#au-6_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-6_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "findings are reported to {{ insert: param, au-06_odp.03 }};",
+              "links": [
+                {
+                  "href": "#au-6_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-6_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the level of audit record review, analysis, and reporting within the system is adjusted when there is a change in risk based on law enforcement information, intelligence information, or other credible sources of information.",
+              "links": [
+                {
+                  "href": "#au-6_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-6_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-6_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-06-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy\n\nsystem security plan\n\nprivacy plan\n\nprocedures addressing audit review, analysis, and reporting\n\nreports of audit findings\n\nrecords of actions taken in response to reviews/analyses of audit records\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-6_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-06-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with audit review, analysis, and reporting responsibilities\n\norganizational personnel with information security and privacy responsibilities"
+            }
+          ]
+        }
+      ],
+      "controls": [
+        {
+          "id": "au-6.1",
+          "class": "SP800-53-enhancement",
+          "title": "Automated Process Integration",
+          "params": [
+            {
+              "id": "au-06.01_odp",
+              "label": "automated mechanisms",
+              "guidelines": [
+                {
+                  "prose": "automated mechanisms used for integrating audit record review, analysis, and reporting processes are defined;"
+                }
+              ]
+            }
+          ],
+          "props": [
+            {
+              "name": "CORE",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "true"
+            },
+            {
+              "name": "label",
+              "value": "AU-6(1)"
+            },
+            {
+              "name": "label",
+              "value": "AU-06(01)",
+              "class": "sp800-53a"
+            },
+            {
+              "name": "sort-id",
+              "value": "au-06.01"
+            },
+            {
+              "name": "implementation-level",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "organization"
+            },
+            {
+              "name": "contributes-to-assurance",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "true"
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-6",
+              "rel": "required"
+            },
+            {
+              "href": "#pm-7",
+              "rel": "related"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-6.1_smt",
+              "name": "statement",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                }
+              ],
+              "prose": "Integrate audit record review, analysis, and reporting processes using {{ insert: param, au-06.01_odp }}."
+            },
+            {
+              "id": "au-6.1_gdn",
+              "name": "guidance",
+              "prose": "Organizational processes that benefit from integrated audit record review, analysis, and reporting include incident response, continuous monitoring, contingency planning, investigation and response to suspicious activities, and Inspector General audits."
+            },
+            {
+              "id": "au-6.1_obj",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06(01)",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit record review, analysis, and reporting processes are integrated using {{ insert: param, au-06.01_odp }}.",
+              "links": [
+                {
+                  "href": "#au-6.1_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-6.1_asm-examine",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "EXAMINE"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06(01)-Examine",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Audit and accountability policy\n\nsystem security plan\n\nprivacy plan\n\nprocedures addressing audit review, analysis, and reporting\n\nprocedures addressing investigation and response to suspicious activities\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\nsystem audit records\n\nother relevant documents or records"
+                }
+              ]
+            },
+            {
+              "id": "au-6.1_asm-interview",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "INTERVIEW"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06(01)-Interview",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational personnel with audit review, analysis, and reporting responsibilities\n\norganizational personnel with information security and privacy responsibilities"
+                }
+              ]
+            },
+            {
+              "id": "au-6.1_asm-test",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "TEST"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06(01)-Test",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Automated mechanisms integrating audit review, analysis, and reporting processes"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "au-6.3",
+          "class": "SP800-53-enhancement",
+          "title": "Correlate Audit Record Repositories",
+          "props": [
+            {
+              "name": "CORE",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "true"
+            },
+            {
+              "name": "label",
+              "value": "AU-6(3)"
+            },
+            {
+              "name": "label",
+              "value": "AU-06(03)",
+              "class": "sp800-53a"
+            },
+            {
+              "name": "sort-id",
+              "value": "au-06.03"
+            },
+            {
+              "name": "implementation-level",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "organization"
+            },
+            {
+              "name": "contributes-to-assurance",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "true"
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-6",
+              "rel": "required"
+            },
+            {
+              "href": "#au-12",
+              "rel": "related"
+            },
+            {
+              "href": "#ir-4",
+              "rel": "related"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-6.3_smt",
+              "name": "statement",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                }
+              ],
+              "prose": "Analyze and correlate audit records across different repositories to gain organization-wide situational awareness."
+            },
+            {
+              "id": "au-6.3_gdn",
+              "name": "guidance",
+              "prose": "Organization-wide situational awareness includes awareness across all three levels of risk management (i.e., organizational level, mission/business process level, and information system level) and supports cross-organization awareness."
+            },
+            {
+              "id": "au-6.3_obj",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06(03)",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit records across different repositories are analyzed and correlated to gain organization-wide situational awareness.",
+              "links": [
+                {
+                  "href": "#au-6.3_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-6.3_asm-examine",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "EXAMINE"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06(03)-Examine",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Audit and accountability policy\n\nsystem security plan\n\nprivacy plan\n\nprocedures addressing audit review, analysis, and reporting\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\nsystem audit records across different repositories\n\nother relevant documents or records"
+                }
+              ]
+            },
+            {
+              "id": "au-6.3_asm-interview",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "INTERVIEW"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06(03)-Interview",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational personnel with audit review, analysis, and reporting responsibilities\n\norganizational personnel with information security and privacy responsibilities"
+                }
+              ]
+            },
+            {
+              "id": "au-6.3_asm-test",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "TEST"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-06(03)-Test",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Mechanisms supporting the analysis and correlation of audit records"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-7",
+      "class": "SP800-53",
+      "title": "Audit Record Reduction and Report Generation",
+      "props": [
+        {
+          "name": "label",
+          "value": "AU-7"
+        },
+        {
+          "name": "label",
+          "value": "AU-07",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-07"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "system"
+        },
+        {
+          "name": "contributes-to-assurance",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "true"
+        }
+      ],
+      "links": [
+        {
+          "href": "#ac-2",
+          "rel": "related"
+        },
+        {
+          "href": "#au-2",
+          "rel": "related"
+        },
+        {
+          "href": "#au-3",
+          "rel": "related"
+        },
+        {
+          "href": "#au-4",
+          "rel": "related"
+        },
+        {
+          "href": "#au-5",
+          "rel": "related"
+        },
+        {
+          "href": "#au-6",
+          "rel": "related"
+        },
+        {
+          "href": "#au-12",
+          "rel": "related"
+        },
+        {
+          "href": "#au-16",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-5",
+          "rel": "related"
+        },
+        {
+          "href": "#ia-5",
+          "rel": "related"
+        },
+        {
+          "href": "#ir-4",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-12",
+          "rel": "related"
+        },
+        {
+          "href": "#si-4",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-7_smt",
+          "name": "statement",
+          "prose": "Provide and implement an audit record reduction and report generation capability that:",
+          "parts": [
+            {
+              "id": "au-7_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Supports on-demand audit record review, analysis, and reporting requirements and after-the-fact investigations of incidents; and"
+            },
+            {
+              "id": "au-7_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Does not alter the original content or time ordering of audit records."
+            }
+          ]
+        },
+        {
+          "id": "au-7_gdn",
+          "name": "guidance",
+          "prose": "Audit record reduction is a process that manipulates collected audit log information and organizes it into a summary format that is more meaningful to analysts. Audit record reduction and report generation capabilities do not always emanate from the same system or from the same organizational entities that conduct audit logging activities. The audit record reduction capability includes modern data mining techniques with advanced data filters to identify anomalous behavior in audit records. The report generation capability provided by the system can generate customizable reports. Time ordering of audit records can be an issue if the granularity of the timestamp in the record is insufficient."
+        },
+        {
+          "id": "au-7_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "AU-07",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-7_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-07a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "au-7_obj.a-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "AU-07a.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "an audit record reduction and report generation capability is provided that supports on-demand audit record review, analysis, and reporting requirements and after-the-fact investigations of incidents;",
+                  "links": [
+                    {
+                      "href": "#au-7_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "au-7_obj.a-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "AU-07a.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "an audit record reduction and report generation capability is implemented that supports on-demand audit record review, analysis, and reporting requirements and after-the-fact investigations of incidents;",
+                  "links": [
+                    {
+                      "href": "#au-7_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#au-7_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-7_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-07b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "au-7_obj.b-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "AU-07b.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "an audit record reduction and report generation capability is provided that does not alter the original content or time ordering of audit records;",
+                  "links": [
+                    {
+                      "href": "#au-7_smt.b",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "au-7_obj.b-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "AU-07b.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "an audit record reduction and report generation capability is implemented that does not alter the original content or time ordering of audit records.",
+                  "links": [
+                    {
+                      "href": "#au-7_smt.b",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#au-7_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-7_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-7_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-07-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy\n\nsystem security plan\n\nprivacy plan\n\nprocedures addressing audit reduction and report generation\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\naudit reduction, review, analysis, and reporting tools\n\nsystem audit records\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-7_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-07-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with audit reduction and report generation responsibilities\n\norganizational personnel with information security and privacy responsibilities"
+            }
+          ]
+        },
+        {
+          "id": "au-7_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "AU-07-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit reduction and report generation capability"
+            }
+          ]
+        }
+      ],
+      "controls": [
+        {
+          "id": "au-7.1",
+          "class": "SP800-53-enhancement",
+          "title": "Automatic Processing",
+          "params": [
+            {
+              "id": "au-07.01_odp",
+              "label": "fields within audit records",
+              "guidelines": [
+                {
+                  "prose": "fields within audit records that can be processed, sorted, or searched are defined;"
+                }
+              ]
+            }
+          ],
+          "props": [
+            {
+              "name": "label",
+              "value": "AU-7(1)"
+            },
+            {
+              "name": "label",
+              "value": "AU-07(01)",
+              "class": "sp800-53a"
+            },
+            {
+              "name": "sort-id",
+              "value": "au-07.01"
+            },
+            {
+              "name": "implementation-level",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "system"
+            },
+            {
+              "name": "contributes-to-assurance",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "true"
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-7",
+              "rel": "required"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-7.1_smt",
+              "name": "statement",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                }
+              ],
+              "prose": "Provide and implement the capability to process, sort, and search audit records for events of interest based on the following content: {{ insert: param, au-07.01_odp }}."
+            },
+            {
+              "id": "au-7.1_gdn",
+              "name": "guidance",
+              "prose": "Events of interest can be identified by the content of audit records, including system resources involved, information objects accessed, identities of individuals, event types, event locations, event dates and times, Internet Protocol addresses involved, or event success or failure. Organizations may define event criteria to any degree of granularity required, such as locations selectable by a general networking location or by specific system component."
+            },
+            {
+              "id": "au-7.1_obj",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-07(01)",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "au-7.1_obj-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "AU-07(01)[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "the capability to process, sort, and search audit records for events of interest based on {{ insert: param, au-07.01_odp }} are provided;",
+                  "links": [
+                    {
+                      "href": "#au-7.1_smt",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "au-7.1_obj-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "AU-07(01)[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "the capability to process, sort, and search audit records for events of interest based on {{ insert: param, au-07.01_odp }} are implemented.",
+                  "links": [
+                    {
+                      "href": "#au-7.1_smt",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#au-7.1_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-7.1_asm-examine",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "EXAMINE"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-07(01)-Examine",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Audit and accountability policy\n\nsystem security plan\n\nprivacy plan\n\nprocedures addressing audit reduction and report generation\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\naudit reduction, review, analysis, and reporting tools\n\naudit record criteria (fields) establishing events of interest\n\nsystem audit records\n\nother relevant documents or records"
+                }
+              ]
+            },
+            {
+              "id": "au-7.1_asm-interview",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "INTERVIEW"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-07(01)-Interview",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational personnel with audit reduction and report generation responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem developers"
+                }
+              ]
+            },
+            {
+              "id": "au-7.1_asm-test",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "TEST"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-07(01)-Test",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Audit reduction and report generation capability"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-8",
+      "class": "SP800-53",
+      "title": "Time Stamps",
+      "params": [
+        {
+          "id": "au-08_odp",
+          "label": "granularity of time measurement",
+          "constraints": [
+            {
+              "description": "one second granularity of time measurement"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "granularity of time measurement for audit record timestamps is defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "CORE",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "true"
+        },
+        {
+          "name": "label",
+          "value": "AU-8"
+        },
+        {
+          "name": "label",
+          "value": "AU-08",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-08"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "system"
+        }
+      ],
+      "links": [
+        {
+          "href": "#au-3",
+          "rel": "related"
+        },
+        {
+          "href": "#au-12",
+          "rel": "related"
+        },
+        {
+          "href": "#au-14",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-45",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-8_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "au-8_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Use internal system clocks to generate time stamps for audit records; and"
+            },
+            {
+              "id": "au-8_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Record time stamps for audit records that meet {{ insert: param, au-08_odp }} and that use Coordinated Universal Time, have a fixed local time offset from Coordinated Universal Time, or that include the local time offset as part of the time stamp."
+            }
+          ]
+        },
+        {
+          "id": "au-8_gdn",
+          "name": "guidance",
+          "prose": "Time stamps generated by the system include date and time. Time is commonly expressed in Coordinated Universal Time (UTC), a modern continuation of Greenwich Mean Time (GMT), or local time with an offset from UTC. Granularity of time measurements refers to the degree of synchronization between system clocks and reference clocks (e.g., clocks synchronizing within hundreds of milliseconds or tens of milliseconds). Organizations may define different time granularities for different system components. Time service can be critical to other security capabilities such as access control and identification and authentication, depending on the nature of the mechanisms used to support those capabilities."
+        },
+        {
+          "id": "au-8_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "AU-08",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-8_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-08a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "internal system clocks are used to generate timestamps for audit records;",
+              "links": [
+                {
+                  "href": "#au-8_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-8_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-08b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "timestamps are recorded for audit records that meet {{ insert: param, au-08_odp }} and that use Coordinated Universal Time, have a fixed local time offset from Coordinated Universal Time, or include the local time offset as part of the timestamp.",
+              "links": [
+                {
+                  "href": "#au-8_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-8_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-8_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-08-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy\n\nsystem security plan\n\nprivacy plan\n\nprocedures addressing timestamp generation\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\nsystem audit records\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-8_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-08-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with information security and privacy responsibilities\n\nsystem/network administrators\n\nsystem developers"
+            }
+          ]
+        },
+        {
+          "id": "au-8_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "AU-08-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Mechanisms implementing timestamp generation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-9",
+      "class": "SP800-53",
+      "title": "Protection of Audit Information",
+      "params": [
+        {
+          "id": "au-09_odp",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles to be alerted upon detection of unauthorized access, modification, or deletion of audit information is/are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "AU-9"
+        },
+        {
+          "name": "label",
+          "value": "AU-09",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-09"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "system"
+        }
+      ],
+      "links": [
+        {
+          "href": "#678e3d6c-150b-4393-aec5-6e3481eb1e00",
+          "rel": "reference"
+        },
+        {
+          "href": "#eea3c092-42ed-4382-a6f4-1adadef01b9d",
+          "rel": "reference"
+        },
+        {
+          "href": "#a295ca19-8c75-4b4c-8800-98024732e181",
+          "rel": "reference"
+        },
+        {
+          "href": "#ac-3",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-6",
+          "rel": "related"
+        },
+        {
+          "href": "#au-6",
+          "rel": "related"
+        },
+        {
+          "href": "#au-11",
+          "rel": "related"
+        },
+        {
+          "href": "#au-14",
+          "rel": "related"
+        },
+        {
+          "href": "#au-15",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-2",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-4",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-2",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-3",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-6",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-8",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-8",
+          "rel": "related"
+        },
+        {
+          "href": "#si-4",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-9_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "au-9_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Protect audit information and audit logging tools from unauthorized access, modification, and deletion; and"
+            },
+            {
+              "id": "au-9_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Alert {{ insert: param, au-09_odp }} upon detection of unauthorized access, modification, or deletion of audit information."
+            }
+          ]
+        },
+        {
+          "id": "au-9_gdn",
+          "name": "guidance",
+          "prose": "Audit information includes all information needed to successfully audit system activity, such as audit records, audit log settings, audit reports, and personally identifiable information. Audit logging tools are those programs and devices used to conduct system audit and logging activities. Protection of audit information focuses on technical protection and limits the ability to access and execute audit logging tools to authorized individuals. Physical protection of audit information is addressed by both media protection controls and physical and environmental protection controls."
+        },
+        {
+          "id": "au-9_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "AU-09",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-9_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-09a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit information and audit logging tools are protected from unauthorized access, modification, and deletion;",
+              "links": [
+                {
+                  "href": "#au-9_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-9_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-09b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": " {{ insert: param, au-09_odp }} are alerted upon detection of unauthorized access, modification, or deletion of audit information.",
+              "links": [
+                {
+                  "href": "#au-9_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-9_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-9_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-09-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy\n\nsystem security plan\n\nprivacy plan\n\naccess control policy and procedures\n\nprocedures addressing protection of audit information\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\nsystem audit records\n\naudit tools\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-9_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-09-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with audit and accountability responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem/network administrators\n\nsystem developers"
+            }
+          ]
+        },
+        {
+          "id": "au-9_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "AU-09-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Mechanisms implementing audit information protection"
+            }
+          ]
+        }
+      ],
+      "controls": [
+        {
+          "id": "au-9.4",
+          "class": "SP800-53-enhancement",
+          "title": "Access by Subset of Privileged Users",
+          "params": [
+            {
+              "id": "au-09.04_odp",
+              "label": "subset of privileged users or roles",
+              "guidelines": [
+                {
+                  "prose": "a subset of privileged users or roles authorized to access management of audit logging functionality is defined;"
+                }
+              ]
+            }
+          ],
+          "props": [
+            {
+              "name": "label",
+              "value": "AU-9(4)"
+            },
+            {
+              "name": "label",
+              "value": "AU-09(04)",
+              "class": "sp800-53a"
+            },
+            {
+              "name": "sort-id",
+              "value": "au-09.04"
+            },
+            {
+              "name": "implementation-level",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "organization"
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-9",
+              "rel": "required"
+            },
+            {
+              "href": "#ac-5",
+              "rel": "related"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-9.4_smt",
+              "name": "statement",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                }
+              ],
+              "prose": "Authorize access to management of audit logging functionality to only {{ insert: param, au-09.04_odp }}."
+            },
+            {
+              "id": "au-9.4_gdn",
+              "name": "guidance",
+              "prose": "Individuals or roles with privileged access to a system and who are also the subject of an audit by that system may affect the reliability of the audit information by inhibiting audit activities or modifying audit records. Requiring privileged access to be further defined between audit-related privileges and other privileges limits the number of users or roles with audit-related privileges."
+            },
+            {
+              "id": "au-9.4_obj",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-09(04)",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "access to management of audit logging functionality is authorized only to {{ insert: param, au-09.04_odp }}.",
+              "links": [
+                {
+                  "href": "#au-9.4_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-9.4_asm-examine",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "EXAMINE"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-09(04)-Examine",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Audit and accountability policy\n\nsystem security plan\n\nprivacy plan\n\naccess control policy and procedures\n\nprocedures addressing protection of audit information\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\nsystem-generated list of privileged users with access to management of audit functionality\n\naccess authorizations\n\naccess control list\n\nsystem audit records\n\nother relevant documents or records"
+                }
+              ]
+            },
+            {
+              "id": "au-9.4_asm-interview",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "INTERVIEW"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-09(04)-Interview",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational personnel with audit and accountability responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem/network administrators"
+                }
+              ]
+            },
+            {
+              "id": "au-9.4_asm-test",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "TEST"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-09(04)-Test",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Mechanisms managing access to audit functionality"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-11",
+      "class": "SP800-53",
+      "title": "Audit Record Retention",
+      "params": [
+        {
+          "id": "au-11_odp",
+          "label": "time period",
+          "constraints": [
+            {
+              "description": "a time period in compliance with M-21-31"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "a time period to retain audit records that is consistent with the records retention policy is defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "CORE",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "true"
+        },
+        {
+          "name": "label",
+          "value": "AU-11"
+        },
+        {
+          "name": "label",
+          "value": "AU-11",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-11"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        }
+      ],
+      "links": [
+        {
+          "href": "#27847491-5ce1-4f6a-a1e4-9e483782f0ef",
+          "rel": "reference"
+        },
+        {
+          "href": "#au-2",
+          "rel": "related"
+        },
+        {
+          "href": "#au-4",
+          "rel": "related"
+        },
+        {
+          "href": "#au-5",
+          "rel": "related"
+        },
+        {
+          "href": "#au-6",
+          "rel": "related"
+        },
+        {
+          "href": "#au-9",
+          "rel": "related"
+        },
+        {
+          "href": "#au-14",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-6",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-5",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-11_smt",
+          "name": "statement",
+          "props": [
+            {
+              "name": "response-point",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "You must fill in this response point."
+            }
+          ],
+          "prose": "Retain audit records for {{ insert: param, au-11_odp }} to provide support for after-the-fact investigations of incidents and to meet regulatory and organizational information retention requirements.",
+          "parts": [
+            {
+              "id": "au-11_fr",
+              "name": "item",
+              "title": "AU-11 Additional FedRAMP Requirements and Guidance",
+              "parts": [
+                {
+                  "id": "au-11_fr_smt.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Requirement:"
+                    }
+                  ],
+                  "prose": "The service provider retains audit records on-line for at least ninety days and further preserves audit records off-line for a period that is in accordance with NARA requirements."
+                },
+                {
+                  "id": "au-11_fr_smt.2",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Requirement:"
+                    }
+                  ],
+                  "prose": "The service provider must support Agency requirements to comply with M-21-31 (https://www.whitehouse.gov/wp-content/uploads/2021/08/M-21-31-Improving-the-Federal-Governments-Investigative-and-Remediation-Capabilities-Related-to-Cybersecurity-Incidents.pdf)"
+                },
+                {
+                  "id": "au-11_fr_gdn.1",
+                  "name": "guidance",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Guidance:"
+                    }
+                  ],
+                  "prose": "The service provider is encouraged to align with M-21-31 where possible"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "au-11_gdn",
+          "name": "guidance",
+          "prose": "Organizations retain audit records until it is determined that the records are no longer needed for administrative, legal, audit, or other operational purposes. This includes the retention and availability of audit records relative to Freedom of Information Act (FOIA) requests, subpoenas, and law enforcement actions. Organizations develop standard categories of audit records relative to such types of actions and standard response processes for each type of action. The National Archives and Records Administration (NARA) General Records Schedules provide federal policy on records retention."
+        },
+        {
+          "id": "au-11_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "response-point",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "You must fill in this response point."
+            },
+            {
+              "name": "method",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "INTERVIEW",
+              "class": "fedramp"
+            },
+            {
+              "name": "method",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "TEST",
+              "class": "fedramp"
+            },
+            {
+              "name": "label",
+              "value": "AU-11",
+              "class": "sp800-53a"
+            }
+          ],
+          "prose": "audit records are retained for {{ insert: param, au-11_odp }} to provide support for after-the-fact investigations of incidents and to meet regulatory and organizational information retention requirements.",
+          "links": [
+            {
+              "href": "#au-11_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-11_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-11-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy\n\nsystem security plan\n\nprivacy plan\n\naudit record retention policy and procedures\n\nsecurity plan\n\norganization-defined retention period for audit records\n\naudit record archives\n\naudit logs\n\naudit records\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-11_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-11-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with audit record retention responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem/network administrators"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-12",
+      "class": "SP800-53",
+      "title": "Audit Record Generation",
+      "params": [
+        {
+          "id": "au-12_odp.01",
+          "label": "system components",
+          "constraints": [
+            {
+              "description": "all information system and network components where audit capability is deployed/available"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "system components that provide an audit record generation capability for the events types (defined in AU-02_ODP[02]) are defined;"
+            }
+          ]
+        },
+        {
+          "id": "au-12_odp.02",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles allowed to select the event types that are to be logged by specific components of the system is/are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "CORE",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "true"
+        },
+        {
+          "name": "label",
+          "value": "AU-12"
+        },
+        {
+          "name": "label",
+          "value": "AU-12",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "au-12"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "system"
+        }
+      ],
+      "links": [
+        {
+          "href": "#ac-6",
+          "rel": "related"
+        },
+        {
+          "href": "#ac-17",
+          "rel": "related"
+        },
+        {
+          "href": "#au-2",
+          "rel": "related"
+        },
+        {
+          "href": "#au-3",
+          "rel": "related"
+        },
+        {
+          "href": "#au-4",
+          "rel": "related"
+        },
+        {
+          "href": "#au-5",
+          "rel": "related"
+        },
+        {
+          "href": "#au-6",
+          "rel": "related"
+        },
+        {
+          "href": "#au-7",
+          "rel": "related"
+        },
+        {
+          "href": "#au-14",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-5",
+          "rel": "related"
+        },
+        {
+          "href": "#ma-4",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-4",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-12",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-8",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-18",
+          "rel": "related"
+        },
+        {
+          "href": "#si-3",
+          "rel": "related"
+        },
+        {
+          "href": "#si-4",
+          "rel": "related"
+        },
+        {
+          "href": "#si-7",
+          "rel": "related"
+        },
+        {
+          "href": "#si-10",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "au-12_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "au-12_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Provide audit record generation capability for the event types the system is capable of auditing as defined in [AU-2a](#au-2_smt.a) on {{ insert: param, au-12_odp.01 }};"
+            },
+            {
+              "id": "au-12_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Allow {{ insert: param, au-12_odp.02 }} to select the event types that are to be logged by specific components of the system; and"
+            },
+            {
+              "id": "au-12_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Generate audit records for the event types defined in [AU-2c](#au-2_smt.c) that include the audit record content defined in [AU-3](#au-3)."
+            }
+          ]
+        },
+        {
+          "id": "au-12_gdn",
+          "name": "guidance",
+          "prose": "Audit records can be generated from many different system components. The event types specified in [AU-2d](#au-2_smt.d) are the event types for which audit logs are to be generated and are a subset of all event types for which the system can generate audit records."
+        },
+        {
+          "id": "au-12_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "AU-12",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "au-12_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-12a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit record generation capability for the event types the system is capable of auditing (defined in AU-02_ODP[01]) is provided by {{ insert: param, au-12_odp.01 }};",
+              "links": [
+                {
+                  "href": "#au-12_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-12_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-12b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": " {{ insert: param, au-12_odp.02 }} is/are allowed to select the event types that are to be logged by specific components of the system;",
+              "links": [
+                {
+                  "href": "#au-12_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "au-12_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "AU-12c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "audit records for the event types defined in AU-02_ODP[02] that include the audit record content defined in AU-03 are generated.",
+              "links": [
+                {
+                  "href": "#au-12_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#au-12_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "au-12_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "AU-12-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Audit and accountability policy\n\nprocedures addressing audit record generation\n\nsystem security plan\n\nprivacy plan\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\nlist of auditable events\n\nsystem audit records\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "au-12_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "AU-12-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with audit record generation responsibilities\n\norganizational personnel with information security and privacy responsibilities\n\nsystem/network administrators\n\nsystem developers"
+            }
+          ]
+        },
+        {
+          "id": "au-12_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "AU-12-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Mechanisms implementing audit record generation capability"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

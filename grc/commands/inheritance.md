@@ -1,3 +1,7 @@
+---
+description: "Model control inheritance based on service model and provider stack"
+---
+
 # /grc:inheritance
 
 Model control inheritance based on service model and provider stack.

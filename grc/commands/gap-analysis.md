@@ -1,3 +1,7 @@
+---
+description: "Perform a structured gap analysis against a compliance framework"
+---
+
 # /grc:gap-analysis
 
 Perform a structured gap analysis against a compliance framework.

@@ -1,0 +1,4358 @@
+{
+  "id": "ra",
+  "class": "family",
+  "title": "Risk Assessment",
+  "controls": [
+    {
+      "id": "ra-1",
+      "class": "SP800-53",
+      "title": "Policy and Procedures",
+      "params": [
+        {
+          "id": "ra-1_prm_1",
+          "label": "organization-defined personnel or roles"
+        },
+        {
+          "id": "ra-01_odp.01",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles to whom the risk assessment policy is to be disseminated is/are defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-01_odp.02",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles to whom the risk assessment procedures are to be disseminated is/are defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-01_odp.03",
+          "select": {
+            "how-many": "one-or-more",
+            "choice": [
+              "organization-level",
+              "mission/business process-level",
+              "system-level"
+            ]
+          }
+        },
+        {
+          "id": "ra-01_odp.04",
+          "label": "official",
+          "guidelines": [
+            {
+              "prose": "an official to manage the risk assessment policy and procedures is defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-01_odp.05",
+          "label": "frequency",
+          "constraints": [
+            {
+              "description": "at least every 3 years"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "the frequency at which the current risk assessment policy is reviewed and updated is defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-01_odp.06",
+          "label": "events",
+          "guidelines": [
+            {
+              "prose": "events that would require the current risk assessment policy to be reviewed and updated are defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-01_odp.07",
+          "label": "frequency",
+          "constraints": [
+            {
+              "description": "at least annually"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "the frequency at which the current risk assessment procedures are reviewed and updated is defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-01_odp.08",
+          "label": "events",
+          "constraints": [
+            {
+              "description": "significant changes"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "events that would require risk assessment procedures to be reviewed and updated are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "RA-1"
+        },
+        {
+          "name": "label",
+          "value": "RA-01",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "ra-01"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        },
+        {
+          "name": "contributes-to-assurance",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "true"
+        }
+      ],
+      "links": [
+        {
+          "href": "#27847491-5ce1-4f6a-a1e4-9e483782f0ef",
+          "rel": "reference"
+        },
+        {
+          "href": "#c7ac44e8-10db-4b64-b2b9-9e32ec1efed0",
+          "rel": "reference"
+        },
+        {
+          "href": "#08b07465-dbdc-48d6-8a0b-37279602ac16",
+          "rel": "reference"
+        },
+        {
+          "href": "#cec037f3-8aba-4c97-84b4-4082f9e515d2",
+          "rel": "reference"
+        },
+        {
+          "href": "#4c0ec2ee-a0d6-428a-9043-4504bc3ade6f",
+          "rel": "reference"
+        },
+        {
+          "href": "#pm-9",
+          "rel": "related"
+        },
+        {
+          "href": "#ps-8",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "ra-1_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "ra-1_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point.",
+                  "remarks": "This response must address all control sub-statement requirements."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Develop, document, and disseminate to {{ insert: param, ra-1_prm_1 }}:",
+              "parts": [
+                {
+                  "id": "ra-1_smt.a.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "1."
+                    }
+                  ],
+                  "prose": " {{ insert: param, ra-01_odp.03 }} risk assessment policy that:",
+                  "parts": [
+                    {
+                      "id": "ra-1_smt.a.1.a",
+                      "name": "item",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "(a)"
+                        }
+                      ],
+                      "prose": "Addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and"
+                    },
+                    {
+                      "id": "ra-1_smt.a.1.b",
+                      "name": "item",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "(b)"
+                        }
+                      ],
+                      "prose": "Is consistent with applicable laws, executive orders, directives, regulations, policies, standards, and guidelines; and"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-1_smt.a.2",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "2."
+                    }
+                  ],
+                  "prose": "Procedures to facilitate the implementation of the risk assessment policy and the associated risk assessment controls;"
+                }
+              ]
+            },
+            {
+              "id": "ra-1_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Designate an {{ insert: param, ra-01_odp.04 }} to manage the development, documentation, and dissemination of the risk assessment policy and procedures; and"
+            },
+            {
+              "id": "ra-1_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point.",
+                  "remarks": "This response must address all control sub-statement requirements."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Review and update the current risk assessment:",
+              "parts": [
+                {
+                  "id": "ra-1_smt.c.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "1."
+                    }
+                  ],
+                  "prose": "Policy {{ insert: param, ra-01_odp.05 }} and following {{ insert: param, ra-01_odp.06 }} ; and"
+                },
+                {
+                  "id": "ra-1_smt.c.2",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "2."
+                    }
+                  ],
+                  "prose": "Procedures {{ insert: param, ra-01_odp.07 }} and following {{ insert: param, ra-01_odp.08 }}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ra-1_gdn",
+          "name": "guidance",
+          "prose": "Risk assessment policy and procedures address the controls in the RA family that are implemented within systems and organizations. The risk management strategy is an important factor in establishing such policies and procedures. Policies and procedures contribute to security and privacy assurance. Therefore, it is important that security and privacy programs collaborate on the development of risk assessment policy and procedures. Security and privacy program policies and procedures at the organization level are preferable, in general, and may obviate the need for mission- or system-specific policies and procedures. The policy can be included as part of the general security and privacy policy or be represented by multiple policies reflecting the complex nature of organizations. Procedures can be established for security and privacy programs, for mission or business processes, and for systems, if needed. Procedures describe how the policies or controls are implemented and can be directed at the individual or role that is the object of the procedure. Procedures can be documented in system security and privacy plans or in one or more separate documents. Events that may precipitate an update to risk assessment policy and procedures include assessment or audit findings, security incidents or breaches, or changes in laws, executive orders, directives, regulations, policies, standards, and guidelines. Simply restating controls does not constitute an organizational policy or procedure."
+        },
+        {
+          "id": "ra-1_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "RA-01",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "ra-1_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "RA-01a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "ra-1_obj.a-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-01a.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "a risk assessment policy is developed and documented;",
+                  "links": [
+                    {
+                      "href": "#ra-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-1_obj.a-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-01a.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "the risk assessment policy is disseminated to {{ insert: param, ra-01_odp.01 }};",
+                  "links": [
+                    {
+                      "href": "#ra-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-1_obj.a-3",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-01a.[03]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "risk assessment procedures to facilitate the implementation of the risk assessment policy and associated risk assessment controls are developed and documented;",
+                  "links": [
+                    {
+                      "href": "#ra-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-1_obj.a-4",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-01a.[04]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "the risk assessment procedures are disseminated to {{ insert: param, ra-01_odp.02 }};",
+                  "links": [
+                    {
+                      "href": "#ra-1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-1_obj.a.1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "RA-01a.01",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "parts": [
+                    {
+                      "id": "ra-1_obj.a.1.a",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "response-point",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "You must fill in this response point."
+                        },
+                        {
+                          "name": "method",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "EXAMINE",
+                          "class": "fedramp"
+                        },
+                        {
+                          "name": "label",
+                          "value": "RA-01a.01(a)",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "parts": [
+                        {
+                          "id": "ra-1_obj.a.1.a-1",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "RA-01a.01(a)[01]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, ra-01_odp.03 }} risk assessment policy addresses purpose;",
+                          "links": [
+                            {
+                              "href": "#ra-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ra-1_obj.a.1.a-2",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "RA-01a.01(a)[02]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, ra-01_odp.03 }} risk assessment policy addresses scope;",
+                          "links": [
+                            {
+                              "href": "#ra-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ra-1_obj.a.1.a-3",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "RA-01a.01(a)[03]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, ra-01_odp.03 }} risk assessment policy addresses roles;",
+                          "links": [
+                            {
+                              "href": "#ra-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ra-1_obj.a.1.a-4",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "RA-01a.01(a)[04]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, ra-01_odp.03 }} risk assessment policy addresses responsibilities;",
+                          "links": [
+                            {
+                              "href": "#ra-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ra-1_obj.a.1.a-5",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "RA-01a.01(a)[05]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, ra-01_odp.03 }} risk assessment policy addresses management commitment;",
+                          "links": [
+                            {
+                              "href": "#ra-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ra-1_obj.a.1.a-6",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "RA-01a.01(a)[06]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, ra-01_odp.03 }} risk assessment policy addresses coordination among organizational entities;",
+                          "links": [
+                            {
+                              "href": "#ra-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "ra-1_obj.a.1.a-7",
+                          "name": "assessment-objective",
+                          "props": [
+                            {
+                              "name": "label",
+                              "value": "RA-01a.01(a)[07]",
+                              "class": "sp800-53a"
+                            }
+                          ],
+                          "prose": "the {{ insert: param, ra-01_odp.03 }} risk assessment policy addresses compliance;",
+                          "links": [
+                            {
+                              "href": "#ra-1_smt.a.1.a",
+                              "rel": "assessment-for"
+                            }
+                          ]
+                        }
+                      ],
+                      "links": [
+                        {
+                          "href": "#ra-1_smt.a.1.a",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "ra-1_obj.a.1.b",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "response-point",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "You must fill in this response point."
+                        },
+                        {
+                          "name": "method",
+                          "ns": "https://fedramp.gov/ns/oscal",
+                          "value": "EXAMINE",
+                          "class": "fedramp"
+                        },
+                        {
+                          "name": "label",
+                          "value": "RA-01a.01(b)",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the {{ insert: param, ra-01_odp.03 }} risk assessment policy is consistent with applicable laws, executive orders, directives, regulations, policies, standards, and guidelines;",
+                      "links": [
+                        {
+                          "href": "#ra-1_smt.a.1.b",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    }
+                  ],
+                  "links": [
+                    {
+                      "href": "#ra-1_smt.a.1",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#ra-1_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-1_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-01b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the {{ insert: param, ra-01_odp.04 }} is designated to manage the development, documentation, and dissemination of the risk assessment policy and procedures;",
+              "links": [
+                {
+                  "href": "#ra-1_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-1_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "RA-01c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "ra-1_obj.c.1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-01c.01",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "parts": [
+                    {
+                      "id": "ra-1_obj.c.1-1",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "RA-01c.01[01]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current risk assessment policy is reviewed and updated {{ insert: param, ra-01_odp.05 }};",
+                      "links": [
+                        {
+                          "href": "#ra-1_smt.c.1",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "ra-1_obj.c.1-2",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "RA-01c.01[02]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current risk assessment policy is reviewed and updated following {{ insert: param, ra-01_odp.06 }};",
+                      "links": [
+                        {
+                          "href": "#ra-1_smt.c.1",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    }
+                  ],
+                  "links": [
+                    {
+                      "href": "#ra-1_smt.c.1",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-1_obj.c.2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-01c.02",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "parts": [
+                    {
+                      "id": "ra-1_obj.c.2-1",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "RA-01c.02[01]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current risk assessment procedures are reviewed and updated {{ insert: param, ra-01_odp.07 }};",
+                      "links": [
+                        {
+                          "href": "#ra-1_smt.c.2",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "ra-1_obj.c.2-2",
+                      "name": "assessment-objective",
+                      "props": [
+                        {
+                          "name": "label",
+                          "value": "RA-01c.02[02]",
+                          "class": "sp800-53a"
+                        }
+                      ],
+                      "prose": "the current risk assessment procedures are reviewed and updated following {{ insert: param, ra-01_odp.08 }}.",
+                      "links": [
+                        {
+                          "href": "#ra-1_smt.c.2",
+                          "rel": "assessment-for"
+                        }
+                      ]
+                    }
+                  ],
+                  "links": [
+                    {
+                      "href": "#ra-1_smt.c.2",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#ra-1_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#ra-1_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "ra-1_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "RA-01-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Risk assessment policy and procedures\n\nsystem security plan\n\nprivacy plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "ra-1_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "RA-01-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with risk assessment responsibilities\n\norganizational personnel with security and privacy responsibilities"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ra-2",
+      "class": "SP800-53",
+      "title": "Security Categorization",
+      "props": [
+        {
+          "name": "label",
+          "value": "RA-2"
+        },
+        {
+          "name": "label",
+          "value": "RA-02",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "ra-02"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        }
+      ],
+      "links": [
+        {
+          "href": "#628d22a1-6a11-4784-bc59-5cd9497b5445",
+          "rel": "reference"
+        },
+        {
+          "href": "#599fb53d-5041-444e-a7fe-640d6d30ad05",
+          "rel": "reference"
+        },
+        {
+          "href": "#08b07465-dbdc-48d6-8a0b-37279602ac16",
+          "rel": "reference"
+        },
+        {
+          "href": "#482e4c99-9dc4-41ad-bba8-0f3f0032c1f8",
+          "rel": "reference"
+        },
+        {
+          "href": "#cec037f3-8aba-4c97-84b4-4082f9e515d2",
+          "rel": "reference"
+        },
+        {
+          "href": "#e72fde0b-6fc2-497e-a9db-d8fce5a11b8a",
+          "rel": "reference"
+        },
+        {
+          "href": "#9be5d661-421f-41ad-854e-86f98b811891",
+          "rel": "reference"
+        },
+        {
+          "href": "#e3cc0520-a366-4fc9-abc2-5272db7e3564",
+          "rel": "reference"
+        },
+        {
+          "href": "#4e4fbc93-333d-45e6-a875-de36b878b6b9",
+          "rel": "reference"
+        },
+        {
+          "href": "#c28ae9a8-1121-42a9-a85e-00cfcc9b9a94",
+          "rel": "reference"
+        },
+        {
+          "href": "#cm-8",
+          "rel": "related"
+        },
+        {
+          "href": "#mp-4",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-2",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-10",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-11",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-7",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-3",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-5",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-7",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-8",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-8",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-7",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-38",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "ra-2_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "ra-2_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Categorize the system and information it processes, stores, and transmits;"
+            },
+            {
+              "id": "ra-2_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Document the security categorization results, including supporting rationale, in the security plan for the system; and"
+            },
+            {
+              "id": "ra-2_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Verify that the authorizing official or authorizing official designated representative reviews and approves the security categorization decision."
+            }
+          ]
+        },
+        {
+          "id": "ra-2_gdn",
+          "name": "guidance",
+          "prose": "Security categories describe the potential adverse impacts or negative consequences to organizational operations, organizational assets, and individuals if organizational information and systems are compromised through a loss of confidentiality, integrity, or availability. Security categorization is also a type of asset loss characterization in systems security engineering processes that is carried out throughout the system development life cycle. Organizations can use privacy risk assessments or privacy impact assessments to better understand the potential adverse effects on individuals. [CNSSI 1253](#4e4fbc93-333d-45e6-a875-de36b878b6b9) provides additional guidance on categorization for national security systems.\n\nOrganizations conduct the security categorization process as an organization-wide activity with the direct involvement of chief information officers, senior agency information security officers, senior agency officials for privacy, system owners, mission and business owners, and information owners or stewards. Organizations consider the potential adverse impacts to other organizations and, in accordance with [USA PATRIOT](#13f0c39d-eaf7-417a-baef-69a041878bb5) and Homeland Security Presidential Directives, potential national-level adverse impacts.\n\nSecurity categorization processes facilitate the development of inventories of information assets and, along with [CM-8](#cm-8) , mappings to specific system components where information is processed, stored, or transmitted. The security categorization process is revisited throughout the system development life cycle to ensure that the security categories remain accurate and relevant."
+        },
+        {
+          "id": "ra-2_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "RA-02",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "ra-2_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-02a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the system and the information it processes, stores, and transmits are categorized;",
+              "links": [
+                {
+                  "href": "#ra-2_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-2_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-02b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the security categorization results, including supporting rationale, are documented in the security plan for the system;",
+              "links": [
+                {
+                  "href": "#ra-2_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-2_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-02c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the authorizing official or authorizing official designated representative reviews and approves the security categorization decision.",
+              "links": [
+                {
+                  "href": "#ra-2_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#ra-2_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "ra-2_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "RA-02-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Risk assessment policy\n\nsecurity planning policy and procedures\n\nprocedures addressing security categorization of organizational information and systems\n\nsecurity categorization documentation\n\nsystem security plan\n\nprivacy plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "ra-2_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "RA-02-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with security categorization and risk assessment responsibilities\n\norganizational personnel with security and privacy responsibilities"
+            }
+          ]
+        },
+        {
+          "id": "ra-2_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "RA-02-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for security categorization"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ra-3",
+      "class": "SP800-53",
+      "title": "Risk Assessment",
+      "params": [
+        {
+          "id": "ra-03_odp.01",
+          "constraints": [
+            {
+              "description": "security assessment report"
+            }
+          ],
+          "select": {
+            "choice": [
+              "security and privacy plans",
+              "risk assessment report",
+              " {{ insert: param, ra-03_odp.02 }} "
+            ]
+          }
+        },
+        {
+          "id": "ra-03_odp.02",
+          "label": "document",
+          "guidelines": [
+            {
+              "prose": "a document in which risk assessment results are to be documented (if not documented in the security and privacy plans or risk assessment report) is defined (if selected);"
+            }
+          ]
+        },
+        {
+          "id": "ra-03_odp.03",
+          "label": "frequency",
+          "constraints": [
+            {
+              "description": "at least every three (3) years and when a significant change occurs"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "the frequency to review risk assessment results is defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-03_odp.04",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles to whom risk assessment results are to be disseminated is/are defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-03_odp.05",
+          "label": "frequency",
+          "constraints": [
+            {
+              "description": "at least every three (3) years"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "the frequency to update the risk assessment is defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "RA-3"
+        },
+        {
+          "name": "label",
+          "value": "RA-03",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "ra-03"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        },
+        {
+          "name": "contributes-to-assurance",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "true"
+        }
+      ],
+      "links": [
+        {
+          "href": "#27847491-5ce1-4f6a-a1e4-9e483782f0ef",
+          "rel": "reference"
+        },
+        {
+          "href": "#08b07465-dbdc-48d6-8a0b-37279602ac16",
+          "rel": "reference"
+        },
+        {
+          "href": "#cec037f3-8aba-4c97-84b4-4082f9e515d2",
+          "rel": "reference"
+        },
+        {
+          "href": "#e8e84963-14fc-4c3a-be05-b412a5d37cd2",
+          "rel": "reference"
+        },
+        {
+          "href": "#4c501da5-9d79-4cb6-ba80-97260e1ce327",
+          "rel": "reference"
+        },
+        {
+          "href": "#98d415ca-7281-4064-9931-0c366637e324",
+          "rel": "reference"
+        },
+        {
+          "href": "#38ff38f0-1366-4f50-a4c9-26a39aacee16",
+          "rel": "reference"
+        },
+        {
+          "href": "#ca-3",
+          "rel": "related"
+        },
+        {
+          "href": "#ca-6",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-4",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-13",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-6",
+          "rel": "related"
+        },
+        {
+          "href": "#cp-7",
+          "rel": "related"
+        },
+        {
+          "href": "#ia-8",
+          "rel": "related"
+        },
+        {
+          "href": "#ma-5",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-3",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-8",
+          "rel": "related"
+        },
+        {
+          "href": "#pe-18",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-2",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-10",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-11",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-8",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-9",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-28",
+          "rel": "related"
+        },
+        {
+          "href": "#pt-2",
+          "rel": "related"
+        },
+        {
+          "href": "#pt-7",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-2",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-5",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-7",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-8",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-9",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-38",
+          "rel": "related"
+        },
+        {
+          "href": "#si-12",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "ra-3_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "ra-3_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Conduct a risk assessment, including:",
+              "parts": [
+                {
+                  "id": "ra-3_smt.a.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "1."
+                    }
+                  ],
+                  "prose": "Identifying threats to and vulnerabilities in the system;"
+                },
+                {
+                  "id": "ra-3_smt.a.2",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "2."
+                    }
+                  ],
+                  "prose": "Determining the likelihood and magnitude of harm from unauthorized access, use, disclosure, disruption, modification, or destruction of the system, the information it processes, stores, or transmits, and any related information; and"
+                },
+                {
+                  "id": "ra-3_smt.a.3",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "3."
+                    }
+                  ],
+                  "prose": "Determining the likelihood and impact of adverse effects on individuals arising from the processing of personally identifiable information;"
+                }
+              ]
+            },
+            {
+              "id": "ra-3_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Integrate risk assessment results and risk management decisions from the organization and mission or business process perspectives with system-level risk assessments;"
+            },
+            {
+              "id": "ra-3_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Document risk assessment results in {{ insert: param, ra-03_odp.01 }};"
+            },
+            {
+              "id": "ra-3_smt.d",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "d."
+                }
+              ],
+              "prose": "Review risk assessment results {{ insert: param, ra-03_odp.03 }};"
+            },
+            {
+              "id": "ra-3_smt.e",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "e."
+                }
+              ],
+              "prose": "Disseminate risk assessment results to {{ insert: param, ra-03_odp.04 }} ; and"
+            },
+            {
+              "id": "ra-3_smt.f",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "f."
+                }
+              ],
+              "prose": "Update the risk assessment {{ insert: param, ra-03_odp.05 }} or when there are significant changes to the system, its environment of operation, or other conditions that may impact the security or privacy state of the system."
+            },
+            {
+              "id": "ra-3_fr",
+              "name": "item",
+              "title": "RA-3 Additional FedRAMP Requirements and Guidance",
+              "parts": [
+                {
+                  "id": "ra-3_fr_gdn.1",
+                  "name": "guidance",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Guidance:"
+                    }
+                  ],
+                  "prose": "Significant change is defined in NIST Special Publication 800-37 Revision 2, Appendix F."
+                },
+                {
+                  "id": "ra-3_fr_smt.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "(e) Requirement:"
+                    }
+                  ],
+                  "prose": "Include all Authorizing Officials; for JAB authorizations to include FedRAMP."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ra-3_gdn",
+          "name": "guidance",
+          "prose": "Risk assessments consider threats, vulnerabilities, likelihood, and impact to organizational operations and assets, individuals, other organizations, and the Nation. Risk assessments also consider risk from external parties, including contractors who operate systems on behalf of the organization, individuals who access organizational systems, service providers, and outsourcing entities.\n\nOrganizations can conduct risk assessments at all three levels in the risk management hierarchy (i.e., organization level, mission/business process level, or information system level) and at any stage in the system development life cycle. Risk assessments can also be conducted at various steps in the Risk Management Framework, including preparation, categorization, control selection, control implementation, control assessment, authorization, and control monitoring. Risk assessment is an ongoing activity carried out throughout the system development life cycle.\n\nRisk assessments can also address information related to the system, including system design, the intended use of the system, testing results, and supply chain-related information or artifacts. Risk assessments can play an important role in control selection processes, particularly during the application of tailoring guidance and in the earliest phases of capability determination."
+        },
+        {
+          "id": "ra-3_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "RA-03",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "ra-3_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "RA-03a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "ra-3_obj.a.1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-03a.01",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "a risk assessment is conducted to identify threats to and vulnerabilities in the system;",
+                  "links": [
+                    {
+                      "href": "#ra-3_smt.a.1",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-3_obj.a.2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-03a.02",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "a risk assessment is conducted to determine the likelihood and magnitude of harm from unauthorized access, use, disclosure, disruption, modification, or destruction of the system; the information it processes, stores, or transmits; and any related information;",
+                  "links": [
+                    {
+                      "href": "#ra-3_smt.a.2",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-3_obj.a.3",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-03a.03",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "a risk assessment is conducted to determine the likelihood and impact of adverse effects on individuals arising from the processing of personally identifiable information;",
+                  "links": [
+                    {
+                      "href": "#ra-3_smt.a.3",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#ra-3_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-3_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-03b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "risk assessment results and risk management decisions from the organization and mission or business process perspectives are integrated with system-level risk assessments;",
+              "links": [
+                {
+                  "href": "#ra-3_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-3_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-03c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "risk assessment results are documented in {{ insert: param, ra-03_odp.01 }};",
+              "links": [
+                {
+                  "href": "#ra-3_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-3_obj.d",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-03d.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "risk assessment results are reviewed {{ insert: param, ra-03_odp.03 }};",
+              "links": [
+                {
+                  "href": "#ra-3_smt.d",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-3_obj.e",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-03e.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "risk assessment results are disseminated to {{ insert: param, ra-03_odp.04 }};",
+              "links": [
+                {
+                  "href": "#ra-3_smt.e",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-3_obj.f",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-03f.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the risk assessment is updated {{ insert: param, ra-03_odp.05 }} or when there are significant changes to the system, its environment of operation, or other conditions that may impact the security or privacy state of the system.",
+              "links": [
+                {
+                  "href": "#ra-3_smt.f",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#ra-3_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "ra-3_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "RA-03-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Risk assessment policy\n\nrisk assessment procedures\n\nsecurity and privacy planning policy and procedures\n\nprocedures addressing organizational assessments of risk\n\nrisk assessment\n\nrisk assessment results\n\nrisk assessment reviews\n\nrisk assessment updates\n\nsystem security plan\n\nprivacy plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "ra-3_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "RA-03-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with risk assessment responsibilities\n\norganizational personnel with security and privacy responsibilities"
+            }
+          ]
+        },
+        {
+          "id": "ra-3_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "RA-03-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for risk assessment\n\nmechanisms supporting and/or conducting, documenting, reviewing, disseminating, and updating the risk assessment"
+            }
+          ]
+        }
+      ],
+      "controls": [
+        {
+          "id": "ra-3.1",
+          "class": "SP800-53-enhancement",
+          "title": "Supply Chain Risk Assessment",
+          "params": [
+            {
+              "id": "ra-03.01_odp.01",
+              "label": "systems, system components, and system services",
+              "guidelines": [
+                {
+                  "prose": "systems, system components, and system services to assess supply chain risks are defined;"
+                }
+              ]
+            },
+            {
+              "id": "ra-03.01_odp.02",
+              "label": "frequency",
+              "guidelines": [
+                {
+                  "prose": "the frequency at which to update the supply chain risk assessment is defined;"
+                }
+              ]
+            }
+          ],
+          "props": [
+            {
+              "name": "label",
+              "value": "RA-3(1)"
+            },
+            {
+              "name": "label",
+              "value": "RA-03(01)",
+              "class": "sp800-53a"
+            },
+            {
+              "name": "sort-id",
+              "value": "ra-03.01"
+            },
+            {
+              "name": "implementation-level",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "organization"
+            },
+            {
+              "name": "contributes-to-assurance",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "true"
+            }
+          ],
+          "links": [
+            {
+              "href": "#ra-3",
+              "rel": "required"
+            },
+            {
+              "href": "#ra-2",
+              "rel": "related"
+            },
+            {
+              "href": "#ra-9",
+              "rel": "related"
+            },
+            {
+              "href": "#pm-17",
+              "rel": "related"
+            },
+            {
+              "href": "#pm-30",
+              "rel": "related"
+            },
+            {
+              "href": "#sr-2",
+              "rel": "related"
+            }
+          ],
+          "parts": [
+            {
+              "id": "ra-3.1_smt",
+              "name": "statement",
+              "parts": [
+                {
+                  "id": "ra-3.1_smt.a",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "label",
+                      "value": "(a)"
+                    }
+                  ],
+                  "prose": "Assess supply chain risks associated with {{ insert: param, ra-03.01_odp.01 }} ; and"
+                },
+                {
+                  "id": "ra-3.1_smt.b",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "label",
+                      "value": "(b)"
+                    }
+                  ],
+                  "prose": "Update the supply chain risk assessment {{ insert: param, ra-03.01_odp.02 }} , when there are significant changes to the relevant supply chain, or when changes to the system, environments of operation, or other conditions may necessitate a change in the supply chain."
+                }
+              ]
+            },
+            {
+              "id": "ra-3.1_gdn",
+              "name": "guidance",
+              "prose": "Supply chain-related events include disruption, use of defective components, insertion of counterfeits, theft, malicious development practices, improper delivery practices, and insertion of malicious code. These events can have a significant impact on the confidentiality, integrity, or availability of a system and its information and, therefore, can also adversely impact organizational operations (including mission, functions, image, or reputation), organizational assets, individuals, other organizations, and the Nation. The supply chain-related events may be unintentional or malicious and can occur at any point during the system life cycle. An analysis of supply chain risk can help an organization identify systems or components for which additional supply chain risk mitigations are required."
+            },
+            {
+              "id": "ra-3.1_obj",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "RA-03(01)",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "ra-3.1_obj.a",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "EXAMINE",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-03(01)(a)",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "supply chain risks associated with {{ insert: param, ra-03.01_odp.01 }} are assessed;",
+                  "links": [
+                    {
+                      "href": "#ra-3.1_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-3.1_obj.b",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "TEST",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-03(01)(b)",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "the supply chain risk assessment is updated {{ insert: param, ra-03.01_odp.02 }} , when there are significant changes to the relevant supply chain, or when changes to the system, environments of operation, or other conditions may necessitate a change in the supply chain.",
+                  "links": [
+                    {
+                      "href": "#ra-3.1_smt.b",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#ra-3.1_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-3.1_asm-examine",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "EXAMINE"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-03(01)-Examine",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Supply chain risk management policy\n\ninventory of critical systems, system components, and system services\n\nrisk assessment policy\n\nsecurity planning policy and procedures\n\nprocedures addressing organizational assessments of supply chain risk\n\nrisk assessment\n\nrisk assessment results\n\nrisk assessment reviews\n\nrisk assessment updates\n\nacquisition policy\n\nsystem security plan\n\nsupply chain risk management plan\n\nother relevant documents or records"
+                }
+              ]
+            },
+            {
+              "id": "ra-3.1_asm-interview",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "INTERVIEW"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-03(01)-Interview",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational personnel with risk assessment responsibilities\n\norganizational personnel with security responsibilities\n\norganizational personnel with supply chain risk management responsibilities"
+                }
+              ]
+            },
+            {
+              "id": "ra-3.1_asm-test",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "TEST"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-03(01)-Test",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational processes for risk assessment\n\nmechanisms supporting and/or conducting, documenting, reviewing, disseminating, and updating the supply chain risk assessment"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ra-5",
+      "class": "SP800-53",
+      "title": "Vulnerability Monitoring and Scanning",
+      "params": [
+        {
+          "id": "ra-5_prm_1",
+          "label": "organization-defined frequency and/or randomly in accordance with organization-defined process",
+          "constraints": [
+            {
+              "description": "monthly operating system/infrastructure; monthly web applications (including APIs) and databases"
+            }
+          ]
+        },
+        {
+          "id": "ra-05_odp.01",
+          "label": "frequency and/or randomly in accordance with organization-defined process",
+          "guidelines": [
+            {
+              "prose": "frequency for monitoring systems and hosted applications for vulnerabilities is defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-05_odp.02",
+          "label": "frequency and/or randomly in accordance with organization-defined process",
+          "guidelines": [
+            {
+              "prose": "frequency for scanning systems and hosted applications for vulnerabilities is defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-05_odp.03",
+          "label": "response times",
+          "constraints": [
+            {
+              "description": "high-risk vulnerabilities mitigated within thirty (30) days from date of discovery; moderate-risk vulnerabilities mitigated within ninety (90) days from date of discovery; low risk vulnerabilities mitigated within one hundred and eighty (180) days from date of discovery"
+            }
+          ],
+          "guidelines": [
+            {
+              "prose": "response times to remediate legitimate vulnerabilities in accordance with an organizational assessment of risk are defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-05_odp.04",
+          "label": "personnel or roles",
+          "guidelines": [
+            {
+              "prose": "personnel or roles with whom information obtained from the vulnerability scanning process and control assessments is to be shared;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "CORE",
+          "ns": "https://fedramp.gov/ns/oscal",
+          "value": "true"
+        },
+        {
+          "name": "label",
+          "value": "RA-5"
+        },
+        {
+          "name": "label",
+          "value": "RA-05",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "ra-05"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        },
+        {
+          "name": "contributes-to-assurance",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "true"
+        }
+      ],
+      "links": [
+        {
+          "href": "#8df72805-2e5c-4731-a73e-81db0f0318d0",
+          "rel": "reference"
+        },
+        {
+          "href": "#155f941a-cba9-4afd-9ca6-5d040d697ba9",
+          "rel": "reference"
+        },
+        {
+          "href": "#a21aef46-7330-48a0-b2e1-c5bb8b2dd11d",
+          "rel": "reference"
+        },
+        {
+          "href": "#4895b4cd-34c5-4667-bf8a-27d443c12047",
+          "rel": "reference"
+        },
+        {
+          "href": "#122177fa-c4ed-485d-8345-3082c0fb9a06",
+          "rel": "reference"
+        },
+        {
+          "href": "#8016d2ed-d30f-4416-9c45-0f42c7aa3232",
+          "rel": "reference"
+        },
+        {
+          "href": "#aa5d04e0-6090-4e17-84d4-b9963d55fc2c",
+          "rel": "reference"
+        },
+        {
+          "href": "#d2ebec9b-f868-4ee1-a2bd-0b2282aed248",
+          "rel": "reference"
+        },
+        {
+          "href": "#4c501da5-9d79-4cb6-ba80-97260e1ce327",
+          "rel": "reference"
+        },
+        {
+          "href": "#ca-2",
+          "rel": "related"
+        },
+        {
+          "href": "#ca-7",
+          "rel": "related"
+        },
+        {
+          "href": "#ca-8",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-2",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-4",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-6",
+          "rel": "related"
+        },
+        {
+          "href": "#cm-8",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-2",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-3",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-11",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-15",
+          "rel": "related"
+        },
+        {
+          "href": "#sc-38",
+          "rel": "related"
+        },
+        {
+          "href": "#si-2",
+          "rel": "related"
+        },
+        {
+          "href": "#si-3",
+          "rel": "related"
+        },
+        {
+          "href": "#si-4",
+          "rel": "related"
+        },
+        {
+          "href": "#si-7",
+          "rel": "related"
+        },
+        {
+          "href": "#sr-11",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "ra-5_smt",
+          "name": "statement",
+          "parts": [
+            {
+              "id": "ra-5_smt.a",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "a."
+                }
+              ],
+              "prose": "Monitor and scan for vulnerabilities in the system and hosted applications {{ insert: param, ra-5_prm_1 }} and when new vulnerabilities potentially affecting the system are identified and reported;"
+            },
+            {
+              "id": "ra-5_smt.b",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "b."
+                }
+              ],
+              "prose": "Employ vulnerability monitoring tools and techniques that facilitate interoperability among tools and automate parts of the vulnerability management process by using standards for:",
+              "parts": [
+                {
+                  "id": "ra-5_smt.b.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "1."
+                    }
+                  ],
+                  "prose": "Enumerating platforms, software flaws, and improper configurations;"
+                },
+                {
+                  "id": "ra-5_smt.b.2",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "2."
+                    }
+                  ],
+                  "prose": "Formatting checklists and test procedures; and"
+                },
+                {
+                  "id": "ra-5_smt.b.3",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "3."
+                    }
+                  ],
+                  "prose": "Measuring vulnerability impact;"
+                }
+              ]
+            },
+            {
+              "id": "ra-5_smt.c",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "c."
+                }
+              ],
+              "prose": "Analyze vulnerability scan reports and results from vulnerability monitoring;"
+            },
+            {
+              "id": "ra-5_smt.d",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "d."
+                }
+              ],
+              "prose": "Remediate legitimate vulnerabilities {{ insert: param, ra-05_odp.03 }} in accordance with an organizational assessment of risk;"
+            },
+            {
+              "id": "ra-5_smt.e",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "e."
+                }
+              ],
+              "prose": "Share information obtained from the vulnerability monitoring process and control assessments with {{ insert: param, ra-05_odp.04 }} to help eliminate similar vulnerabilities in other systems; and"
+            },
+            {
+              "id": "ra-5_smt.f",
+              "name": "item",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "label",
+                  "value": "f."
+                }
+              ],
+              "prose": "Employ vulnerability monitoring tools that include the capability to readily update the vulnerabilities to be scanned."
+            },
+            {
+              "id": "ra-5_fr",
+              "name": "item",
+              "title": "RA-5 Additional FedRAMP Requirements and Guidance",
+              "parts": [
+                {
+                  "id": "ra-5_fr_gdn.1",
+                  "name": "guidance",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Guidance:"
+                    }
+                  ],
+                  "prose": "See the FedRAMP Documents page> Vulnerability Scanning Requirements https://www.FedRAMP.gov/documents/"
+                },
+                {
+                  "id": "ra-5_fr_smt.1",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "(a) Requirement:"
+                    }
+                  ],
+                  "prose": "an accredited independent assessor scans operating systems/infrastructure, web applications, and databases once annually."
+                },
+                {
+                  "id": "ra-5_fr_smt.2",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "(d) Requirement:"
+                    }
+                  ],
+                  "prose": "If a vulnerability is listed among the CISA Known Exploited Vulnerability (KEV) Catalog (https://www.cisa.gov/known-exploited-vulnerabilities-catalog) the KEV remediation date supersedes the FedRAMP parameter requirement."
+                },
+                {
+                  "id": "ra-5_fr_smt.3",
+                  "name": "item",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "(e) Requirement:"
+                    }
+                  ],
+                  "prose": "to include all Authorizing Officials; for JAB authorizations to include FedRAMP"
+                },
+                {
+                  "id": "ra-5_fr_gdn.2",
+                  "name": "guidance",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "Guidance:"
+                    }
+                  ],
+                  "prose": "Informational findings from a scanner are detailed as a returned result that holds no vulnerability risk or severity and for FedRAMP does not require an entry onto the POA&M or entry onto the RET during any assessment phase.\n\nWarning findings, on the other hand, are given a risk rating (low, moderate, high or critical) by the scanning solution and should be treated like any other finding with a risk or severity rating for tracking purposes onto either the POA&M or RET depending on when the findings originated (during assessments or during monthly continuous monitoring). If a warning is received during scanning, but further validation turns up no actual issue then this item should be categorized as a false positive. If this situation presents itself during an assessment phase (initial assessment, annual assessment or any SCR), follow guidance on how to report false positives in the Security Assessment Report (SAR). If this situation happens during monthly continuous monitoring, a deviation request will need to be submitted per the FedRAMP Vulnerability Deviation Request Form.\n\nWarnings are commonly associated with scanning solutions that also perform compliance scans, and if the scanner reports a \\\"warning\\\" as part of the compliance scanning of a CSO, follow guidance surrounding the tracking of compliance findings during either the assessment phases (initial assessment, annual assessment or any SCR) or monthly continuous monitoring as it applies. Guidance on compliance scan findings can be found by searching on \\\"Tracking of Compliance Scans\\\" in FAQs."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ra-5_gdn",
+          "name": "guidance",
+          "prose": "Security categorization of information and systems guides the frequency and comprehensiveness of vulnerability monitoring (including scans). Organizations determine the required vulnerability monitoring for system components, ensuring that the potential sources of vulnerabilities—such as infrastructure components (e.g., switches, routers, guards, sensors), networked printers, scanners, and copiers—are not overlooked. The capability to readily update vulnerability monitoring tools as new vulnerabilities are discovered and announced and as new scanning methods are developed helps to ensure that new vulnerabilities are not missed by employed vulnerability monitoring tools. The vulnerability monitoring tool update process helps to ensure that potential vulnerabilities in the system are identified and addressed as quickly as possible. Vulnerability monitoring and analyses for custom software may require additional approaches, such as static analysis, dynamic analysis, binary analysis, or a hybrid of the three approaches. Organizations can use these analysis approaches in source code reviews and in a variety of tools, including web-based application scanners, static analysis tools, and binary analyzers.\n\nVulnerability monitoring includes scanning for patch levels; scanning for functions, ports, protocols, and services that should not be accessible to users or devices; and scanning for flow control mechanisms that are improperly configured or operating incorrectly. Vulnerability monitoring may also include continuous vulnerability monitoring tools that use instrumentation to continuously analyze components. Instrumentation-based tools may improve accuracy and may be run throughout an organization without scanning. Vulnerability monitoring tools that facilitate interoperability include tools that are Security Content Automated Protocol (SCAP)-validated. Thus, organizations consider using scanning tools that express vulnerabilities in the Common Vulnerabilities and Exposures (CVE) naming convention and that employ the Open Vulnerability Assessment Language (OVAL) to determine the presence of vulnerabilities. Sources for vulnerability information include the Common Weakness Enumeration (CWE) listing and the National Vulnerability Database (NVD). Control assessments, such as red team exercises, provide additional sources of potential vulnerabilities for which to scan. Organizations also consider using scanning tools that express vulnerability impact by the Common Vulnerability Scoring System (CVSS).\n\nVulnerability monitoring includes a channel and process for receiving reports of security vulnerabilities from the public at-large. Vulnerability disclosure programs can be as simple as publishing a monitored email address or web form that can receive reports, including notification authorizing good-faith research and disclosure of security vulnerabilities. Organizations generally expect that such research is happening with or without their authorization and can use public vulnerability disclosure channels to increase the likelihood that discovered vulnerabilities are reported directly to the organization for remediation.\n\nOrganizations may also employ the use of financial incentives (also known as \"bug bounties\" ) to further encourage external security researchers to report discovered vulnerabilities. Bug bounty programs can be tailored to the organization’s needs. Bounties can be operated indefinitely or over a defined period of time and can be offered to the general public or to a curated group. Organizations may run public and private bounties simultaneously and could choose to offer partially credentialed access to certain participants in order to evaluate security vulnerabilities from privileged vantage points."
+        },
+        {
+          "id": "ra-5_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "label",
+              "value": "RA-05",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "ra-5_obj.a",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05a.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "id": "ra-5_obj.a-1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "RA-05a.[01]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "systems and hosted applications are monitored for vulnerabilities {{ insert: param, ra-05_odp.01 }} and when new vulnerabilities potentially affecting the system are identified and reported;",
+                  "links": [
+                    {
+                      "href": "#ra-5_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-5_obj.a-2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "label",
+                      "value": "RA-05a.[02]",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "systems and hosted applications are scanned for vulnerabilities {{ insert: param, ra-05_odp.02 }} and when new vulnerabilities potentially affecting the system are identified and reported;",
+                  "links": [
+                    {
+                      "href": "#ra-5_smt.a",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#ra-5_smt.a",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-5_obj.b",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "EXAMINE",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05b.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "vulnerability monitoring tools and techniques are employed to facilitate interoperability among tools;",
+              "parts": [
+                {
+                  "id": "ra-5_obj.b.1",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "TEST",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-05b.01",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "vulnerability monitoring tools and techniques are employed to automate parts of the vulnerability management process by using standards for enumerating platforms, software flaws, and improper configurations;",
+                  "links": [
+                    {
+                      "href": "#ra-5_smt.b.1",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-5_obj.b.2",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "TEST",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-05b.02",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "vulnerability monitoring tools and techniques are employed to facilitate interoperability among tools and to automate parts of the vulnerability management process by using standards for formatting checklists and test procedures;",
+                  "links": [
+                    {
+                      "href": "#ra-5_smt.b.2",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                },
+                {
+                  "id": "ra-5_obj.b.3",
+                  "name": "assessment-objective",
+                  "props": [
+                    {
+                      "name": "response-point",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "You must fill in this response point."
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "method",
+                      "ns": "https://fedramp.gov/ns/oscal",
+                      "value": "TEST",
+                      "class": "fedramp"
+                    },
+                    {
+                      "name": "label",
+                      "value": "RA-05b.03",
+                      "class": "sp800-53a"
+                    }
+                  ],
+                  "prose": "vulnerability monitoring tools and techniques are employed to facilitate interoperability among tools and to automate parts of the vulnerability management process by using standards for measuring vulnerability impact;",
+                  "links": [
+                    {
+                      "href": "#ra-5_smt.b.3",
+                      "rel": "assessment-for"
+                    }
+                  ]
+                }
+              ],
+              "links": [
+                {
+                  "href": "#ra-5_smt.b",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-5_obj.c",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05c.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "vulnerability scan reports and results from vulnerability monitoring are analyzed;",
+              "links": [
+                {
+                  "href": "#ra-5_smt.c",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-5_obj.d",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05d.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "legitimate vulnerabilities are remediated {{ insert: param, ra-05_odp.03 }} in accordance with an organizational assessment of risk;",
+              "links": [
+                {
+                  "href": "#ra-5_smt.d",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-5_obj.e",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05e.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "information obtained from the vulnerability monitoring process and control assessments is shared with {{ insert: param, ra-05_odp.04 }} to help eliminate similar vulnerabilities in other systems;",
+              "links": [
+                {
+                  "href": "#ra-5_smt.e",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-5_obj.f",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05f.",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "vulnerability monitoring tools that include the capability to readily update the vulnerabilities to be scanned are employed.",
+              "links": [
+                {
+                  "href": "#ra-5_smt.f",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#ra-5_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "ra-5_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "RA-05-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Risk assessment policy\n\nprocedures addressing vulnerability scanning\n\nrisk assessment\n\nassessment report\n\nvulnerability scanning tools and associated configuration documentation\n\nvulnerability scanning results\n\npatch and vulnerability management records\n\nsystem security plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "ra-5_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "RA-05-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with risk assessment, control assessment, and vulnerability scanning responsibilities\n\norganizational personnel with vulnerability scan analysis responsibilities\n\norganizational personnel with vulnerability remediation responsibilities\n\norganizational personnel with security responsibilities\n\nsystem/network administrators"
+            }
+          ]
+        },
+        {
+          "id": "ra-5_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "RA-05-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for vulnerability scanning, analysis, remediation, and information sharing\n\nmechanisms supporting and/or implementing vulnerability scanning, analysis, remediation, and information sharing"
+            }
+          ]
+        }
+      ],
+      "controls": [
+        {
+          "id": "ra-5.2",
+          "class": "SP800-53-enhancement",
+          "title": "Update Vulnerabilities to Be Scanned",
+          "params": [
+            {
+              "id": "ra-05.02_odp.01",
+              "constraints": [
+                {
+                  "description": "within 24 hours prior to running scans"
+                }
+              ],
+              "select": {
+                "how-many": "one-or-more",
+                "choice": [
+                  " {{ insert: param, ra-05.02_odp.02 }} ",
+                  "prior to a new scan",
+                  "when new vulnerabilities are identified and reported"
+                ]
+              }
+            },
+            {
+              "id": "ra-05.02_odp.02",
+              "label": "frequency",
+              "guidelines": [
+                {
+                  "prose": "the frequency for updating the system vulnerabilities to be scanned is defined (if selected);"
+                }
+              ]
+            }
+          ],
+          "props": [
+            {
+              "name": "CORE",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "true"
+            },
+            {
+              "name": "label",
+              "value": "RA-5(2)"
+            },
+            {
+              "name": "label",
+              "value": "RA-05(02)",
+              "class": "sp800-53a"
+            },
+            {
+              "name": "sort-id",
+              "value": "ra-05.02"
+            },
+            {
+              "name": "implementation-level",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "organization"
+            },
+            {
+              "name": "contributes-to-assurance",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "true"
+            }
+          ],
+          "links": [
+            {
+              "href": "#ra-5",
+              "rel": "required"
+            },
+            {
+              "href": "#si-5",
+              "rel": "related"
+            }
+          ],
+          "parts": [
+            {
+              "id": "ra-5.2_smt",
+              "name": "statement",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                }
+              ],
+              "prose": "Update the system vulnerabilities to be scanned {{ insert: param, ra-05.02_odp.01 }}."
+            },
+            {
+              "id": "ra-5.2_gdn",
+              "name": "guidance",
+              "prose": "Due to the complexity of modern software, systems, and other factors, new vulnerabilities are discovered on a regular basis. It is important that newly discovered vulnerabilities are added to the list of vulnerabilities to be scanned to ensure that the organization can take steps to mitigate those vulnerabilities in a timely manner."
+            },
+            {
+              "id": "ra-5.2_obj",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(02)",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the system vulnerabilities to be scanned are updated {{ insert: param, ra-05.02_odp.01 }}.",
+              "links": [
+                {
+                  "href": "#ra-5.2_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.2_asm-examine",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "EXAMINE"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(02)-Examine",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Procedures addressing vulnerability scanning\n\nassessment report\n\nvulnerability scanning tools and associated configuration documentation\n\nvulnerability scanning results\n\npatch and vulnerability management records\n\nsystem security plan\n\nother relevant documents or records"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.2_asm-interview",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "INTERVIEW"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(02)-Interview",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational personnel with vulnerability scanning responsibilities\n\norganizational personnel with vulnerability scan analysis responsibilities\n\norganizational personnel with security responsibilities\n\nsystem/network administrators"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.2_asm-test",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "TEST"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(02)-Test",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational processes for vulnerability scanning\n\nmechanisms/tools supporting and/or implementing vulnerability scanning"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ra-5.3",
+          "class": "SP800-53-enhancement",
+          "title": "Breadth and Depth of Coverage",
+          "props": [
+            {
+              "name": "CORE",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "true"
+            },
+            {
+              "name": "label",
+              "value": "RA-5(3)"
+            },
+            {
+              "name": "label",
+              "value": "RA-05(03)",
+              "class": "sp800-53a"
+            },
+            {
+              "name": "sort-id",
+              "value": "ra-05.03"
+            },
+            {
+              "name": "implementation-level",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "organization"
+            },
+            {
+              "name": "contributes-to-assurance",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "true"
+            }
+          ],
+          "links": [
+            {
+              "href": "#ra-5",
+              "rel": "required"
+            }
+          ],
+          "parts": [
+            {
+              "id": "ra-5.3_smt",
+              "name": "statement",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                }
+              ],
+              "prose": "Define the breadth and depth of vulnerability scanning coverage."
+            },
+            {
+              "id": "ra-5.3_gdn",
+              "name": "guidance",
+              "prose": "The breadth of vulnerability scanning coverage can be expressed as a percentage of components within the system, by the particular types of systems, by the criticality of systems, or by the number of vulnerabilities to be checked. Conversely, the depth of vulnerability scanning coverage can be expressed as the level of the system design that the organization intends to monitor (e.g., component, module, subsystem, element). Organizations can determine the sufficiency of vulnerability scanning coverage with regard to its risk tolerance and other factors. Scanning tools and how the tools are configured may affect the depth and coverage. Multiple scanning tools may be needed to achieve the desired depth and coverage. [SP 800-53A](#a21aef46-7330-48a0-b2e1-c5bb8b2dd11d) provides additional information on the breadth and depth of coverage."
+            },
+            {
+              "id": "ra-5.3_obj",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(03)",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "the breadth and depth of vulnerability scanning coverage are defined.",
+              "links": [
+                {
+                  "href": "#ra-5.3_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.3_asm-examine",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "EXAMINE"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(03)-Examine",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Procedures addressing vulnerability scanning\n\nassessment report\n\nvulnerability scanning tools and associated configuration documentation\n\nvulnerability scanning results\n\npatch and vulnerability management records\n\nsystem security plan\n\nother relevant documents or records"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.3_asm-interview",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "INTERVIEW"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(03)-Interview",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational personnel with vulnerability scanning responsibilities\n\norganizational personnel with vulnerability scan analysis responsibilities\n\norganizational personnel with security responsibilities"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.3_asm-test",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "TEST"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(03)-Test",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational processes for vulnerability scanning\n\nmechanisms/tools supporting and/or implementing vulnerability scanning"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ra-5.5",
+          "class": "SP800-53-enhancement",
+          "title": "Privileged Access",
+          "params": [
+            {
+              "id": "ra-05.05_odp.01",
+              "label": "system components",
+              "constraints": [
+                {
+                  "description": "all components that support authentication"
+                }
+              ],
+              "guidelines": [
+                {
+                  "prose": "system components to which privileged access is authorized for selected vulnerability scanning activities are defined;"
+                }
+              ]
+            },
+            {
+              "id": "ra-05.05_odp.02",
+              "label": "vulnerability scanning activities",
+              "constraints": [
+                {
+                  "description": "all scans"
+                }
+              ],
+              "guidelines": [
+                {
+                  "prose": "vulnerability scanning activities selected for privileged access authorization to system components are defined;"
+                }
+              ]
+            }
+          ],
+          "props": [
+            {
+              "name": "label",
+              "value": "RA-5(5)"
+            },
+            {
+              "name": "label",
+              "value": "RA-05(05)",
+              "class": "sp800-53a"
+            },
+            {
+              "name": "sort-id",
+              "value": "ra-05.05"
+            },
+            {
+              "name": "implementation-level",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "organization"
+            },
+            {
+              "name": "contributes-to-assurance",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "true"
+            }
+          ],
+          "links": [
+            {
+              "href": "#ra-5",
+              "rel": "required"
+            }
+          ],
+          "parts": [
+            {
+              "id": "ra-5.5_smt",
+              "name": "statement",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                }
+              ],
+              "prose": "Implement privileged access authorization to {{ insert: param, ra-05.05_odp.01 }} for {{ insert: param, ra-05.05_odp.02 }}."
+            },
+            {
+              "id": "ra-5.5_gdn",
+              "name": "guidance",
+              "prose": "In certain situations, the nature of the vulnerability scanning may be more intrusive, or the system component that is the subject of the scanning may contain classified or controlled unclassified information, such as personally identifiable information. Privileged access authorization to selected system components facilitates more thorough vulnerability scanning and protects the sensitive nature of such scanning."
+            },
+            {
+              "id": "ra-5.5_obj",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(05)",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "privileged access authorization is implemented to {{ insert: param, ra-05.05_odp.01 }} for {{ insert: param, ra-05.05_odp.02 }}.",
+              "links": [
+                {
+                  "href": "#ra-5.5_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.5_asm-examine",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "EXAMINE"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(05)-Examine",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Risk assessment policy\n\nprocedures addressing vulnerability scanning\n\nsystem design documentation\n\nsystem configuration settings and associated documentation\n\nlist of system components for vulnerability scanning\n\npersonnel access authorization list\n\nauthorization credentials\n\naccess authorization records\n\nsystem security plan\n\nother relevant documents or records"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.5_asm-interview",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "INTERVIEW"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(05)-Interview",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational personnel with vulnerability scanning responsibilities\n\nsystem/network administrators\n\norganizational personnel responsible for access control to the system\n\norganizational personnel responsible for configuration management of the system\n\nsystem developers\n\norganizational personnel with security responsibilities"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.5_asm-test",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "TEST"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(05)-Test",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational processes for vulnerability scanning\n\norganizational processes for access control\n\nmechanisms supporting and/or implementing access control\n\nmechanisms/tools supporting and/or implementing vulnerability scanning"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ra-5.11",
+          "class": "SP800-53-enhancement",
+          "title": "Public Disclosure Program",
+          "props": [
+            {
+              "name": "label",
+              "value": "RA-5(11)"
+            },
+            {
+              "name": "label",
+              "value": "RA-05(11)",
+              "class": "sp800-53a"
+            },
+            {
+              "name": "sort-id",
+              "value": "ra-05.11"
+            },
+            {
+              "name": "implementation-level",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "organization"
+            },
+            {
+              "name": "contributes-to-assurance",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "true"
+            }
+          ],
+          "links": [
+            {
+              "href": "#ra-5",
+              "rel": "required"
+            }
+          ],
+          "parts": [
+            {
+              "id": "ra-5.11_smt",
+              "name": "statement",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                }
+              ],
+              "prose": "Establish a public reporting channel for receiving reports of vulnerabilities in organizational systems and system components."
+            },
+            {
+              "id": "ra-5.11_gdn",
+              "name": "guidance",
+              "prose": "The reporting channel is publicly discoverable and contains clear language authorizing good-faith research and the disclosure of vulnerabilities to the organization. The organization does not condition its authorization on an expectation of indefinite non-disclosure to the public by the reporting entity but may request a specific time period to properly remediate the vulnerability."
+            },
+            {
+              "id": "ra-5.11_obj",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "method",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "TEST",
+                  "class": "fedramp"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(11)",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "a public reporting channel is established for receiving reports of vulnerabilities in organizational systems and system components.",
+              "links": [
+                {
+                  "href": "#ra-5.11_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.11_asm-examine",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "EXAMINE"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(11)-Examine",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Risk assessment policy\n\nprocedures addressing vulnerability scanning\n\nrisk assessment\n\nvulnerability scanning tools and techniques documentation\n\nvulnerability scanning results\n\nvulnerability management records\n\naudit records\n\npublic reporting channel\n\nsystem security plan\n\nother relevant documents or records"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.11_asm-interview",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "INTERVIEW"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(11)-Interview",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational personnel with vulnerability scanning responsibilities\n\norganizational personnel with vulnerability scan analysis responsibilities\n\norganizational personnel with security responsibilities"
+                }
+              ]
+            },
+            {
+              "id": "ra-5.11_asm-test",
+              "name": "assessment-method",
+              "props": [
+                {
+                  "name": "method",
+                  "ns": "http://csrc.nist.gov/ns/rmf",
+                  "value": "TEST"
+                },
+                {
+                  "name": "label",
+                  "value": "RA-05(11)-Test",
+                  "class": "sp800-53a"
+                }
+              ],
+              "parts": [
+                {
+                  "name": "assessment-objects",
+                  "prose": "Organizational processes for vulnerability scanning\n\nmechanisms/tools supporting and/or implementing vulnerability scanning\n\nmechanisms implementing the public reporting of vulnerabilities"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ra-7",
+      "class": "SP800-53",
+      "title": "Risk Response",
+      "props": [
+        {
+          "name": "label",
+          "value": "RA-7"
+        },
+        {
+          "name": "label",
+          "value": "RA-07",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "ra-07"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        },
+        {
+          "name": "contributes-to-assurance",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "true"
+        }
+      ],
+      "links": [
+        {
+          "href": "#628d22a1-6a11-4784-bc59-5cd9497b5445",
+          "rel": "reference"
+        },
+        {
+          "href": "#599fb53d-5041-444e-a7fe-640d6d30ad05",
+          "rel": "reference"
+        },
+        {
+          "href": "#08b07465-dbdc-48d6-8a0b-37279602ac16",
+          "rel": "reference"
+        },
+        {
+          "href": "#482e4c99-9dc4-41ad-bba8-0f3f0032c1f8",
+          "rel": "reference"
+        },
+        {
+          "href": "#cec037f3-8aba-4c97-84b4-4082f9e515d2",
+          "rel": "reference"
+        },
+        {
+          "href": "#e3cc0520-a366-4fc9-abc2-5272db7e3564",
+          "rel": "reference"
+        },
+        {
+          "href": "#ca-5",
+          "rel": "related"
+        },
+        {
+          "href": "#ir-9",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-4",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-28",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-2",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-3",
+          "rel": "related"
+        },
+        {
+          "href": "#sr-2",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "ra-7_smt",
+          "name": "statement",
+          "props": [
+            {
+              "name": "response-point",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "You must fill in this response point."
+            }
+          ],
+          "prose": "Respond to findings from security and privacy assessments, monitoring, and audits in accordance with organizational risk tolerance."
+        },
+        {
+          "id": "ra-7_gdn",
+          "name": "guidance",
+          "prose": "Organizations have many options for responding to risk including mitigating risk by implementing new controls or strengthening existing controls, accepting risk with appropriate justification or rationale, sharing or transferring risk, or avoiding risk. The risk tolerance of the organization influences risk response decisions and actions. Risk response addresses the need to determine an appropriate response to risk before generating a plan of action and milestones entry. For example, the response may be to accept risk or reject risk, or it may be possible to mitigate the risk immediately so that a plan of action and milestones entry is not needed. However, if the risk response is to mitigate the risk, and the mitigation cannot be completed immediately, a plan of action and milestones entry is generated."
+        },
+        {
+          "id": "ra-7_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "response-point",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "You must fill in this response point."
+            },
+            {
+              "name": "method",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "INTERVIEW",
+              "class": "fedramp"
+            },
+            {
+              "name": "method",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "TEST",
+              "class": "fedramp"
+            },
+            {
+              "name": "label",
+              "value": "RA-07",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "id": "ra-7_obj-1",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "RA-07[01]",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "findings from security assessments are responded to in accordance with organizational risk tolerance;",
+              "links": [
+                {
+                  "href": "#ra-7_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-7_obj-2",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "RA-07[02]",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "findings from privacy assessments are responded to in accordance with organizational risk tolerance;",
+              "links": [
+                {
+                  "href": "#ra-7_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-7_obj-3",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "RA-07[03]",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "findings from monitoring are responded to in accordance with organizational risk tolerance;",
+              "links": [
+                {
+                  "href": "#ra-7_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            },
+            {
+              "id": "ra-7_obj-4",
+              "name": "assessment-objective",
+              "props": [
+                {
+                  "name": "label",
+                  "value": "RA-07[04]",
+                  "class": "sp800-53a"
+                }
+              ],
+              "prose": "findings from audits are responded to in accordance with organizational risk tolerance.",
+              "links": [
+                {
+                  "href": "#ra-7_smt",
+                  "rel": "assessment-for"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "href": "#ra-7_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "ra-7_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "RA-07-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Risk assessment policy\n\nassessment reports\n\naudit records/event logs\n\nsystem security plan\n\nprivacy plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "ra-7_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "RA-07-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with assessment and auditing responsibilities\n\nsystem/network administrators\n\norganizational personnel with security and privacy responsibilities"
+            }
+          ]
+        },
+        {
+          "id": "ra-7_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "RA-07-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for assessments and audits\n\nmechanisms/tools supporting and/or implementing assessments and auditing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ra-9",
+      "class": "SP800-53",
+      "title": "Criticality Analysis",
+      "params": [
+        {
+          "id": "ra-09_odp.01",
+          "label": "systems, system components, or system services",
+          "guidelines": [
+            {
+              "prose": "systems, system components, or system services to be analyzed for criticality are defined;"
+            }
+          ]
+        },
+        {
+          "id": "ra-09_odp.02",
+          "label": "decision points in the system development life cycle",
+          "guidelines": [
+            {
+              "prose": "decision points in the system development life cycle when a criticality analysis is to be performed are defined;"
+            }
+          ]
+        }
+      ],
+      "props": [
+        {
+          "name": "label",
+          "value": "RA-9"
+        },
+        {
+          "name": "label",
+          "value": "RA-09",
+          "class": "sp800-53a"
+        },
+        {
+          "name": "sort-id",
+          "value": "ra-09"
+        },
+        {
+          "name": "implementation-level",
+          "ns": "http://csrc.nist.gov/ns/rmf",
+          "value": "organization"
+        }
+      ],
+      "links": [
+        {
+          "href": "#d4296805-2dca-4c63-a95f-eeccaa826aec",
+          "rel": "reference"
+        },
+        {
+          "href": "#cp-2",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-2",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-8",
+          "rel": "related"
+        },
+        {
+          "href": "#pl-11",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-1",
+          "rel": "related"
+        },
+        {
+          "href": "#pm-11",
+          "rel": "related"
+        },
+        {
+          "href": "#ra-2",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-8",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-15",
+          "rel": "related"
+        },
+        {
+          "href": "#sa-20",
+          "rel": "related"
+        },
+        {
+          "href": "#sr-5",
+          "rel": "related"
+        }
+      ],
+      "parts": [
+        {
+          "id": "ra-9_smt",
+          "name": "statement",
+          "props": [
+            {
+              "name": "response-point",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "You must fill in this response point."
+            }
+          ],
+          "prose": "Identify critical system components and functions by performing a criticality analysis for {{ insert: param, ra-09_odp.01 }} at {{ insert: param, ra-09_odp.02 }}."
+        },
+        {
+          "id": "ra-9_gdn",
+          "name": "guidance",
+          "prose": "Not all system components, functions, or services necessarily require significant protections. For example, criticality analysis is a key tenet of supply chain risk management and informs the prioritization of protection activities. The identification of critical system components and functions considers applicable laws, executive orders, regulations, directives, policies, standards, system functionality requirements, system and component interfaces, and system and component dependencies. Systems engineers conduct a functional decomposition of a system to identify mission-critical functions and components. The functional decomposition includes the identification of organizational missions supported by the system, decomposition into the specific functions to perform those missions, and traceability to the hardware, software, and firmware components that implement those functions, including when the functions are shared by many components within and external to the system.\n\nThe operational environment of a system or a system component may impact the criticality, including the connections to and dependencies on cyber-physical systems, devices, system-of-systems, and outsourced IT services. System components that allow unmediated access to critical system components or functions are considered critical due to the inherent vulnerabilities that such components create. Component and function criticality are assessed in terms of the impact of a component or function failure on the organizational missions that are supported by the system that contains the components and functions.\n\nCriticality analysis is performed when an architecture or design is being developed, modified, or upgraded. If such analysis is performed early in the system development life cycle, organizations may be able to modify the system design to reduce the critical nature of these components and functions, such as by adding redundancy or alternate paths into the system design. Criticality analysis can also influence the protection measures required by development contractors. In addition to criticality analysis for systems, system components, and system services, criticality analysis of information is an important consideration. Such analysis is conducted as part of security categorization in [RA-2](#ra-2)."
+        },
+        {
+          "id": "ra-9_obj",
+          "name": "assessment-objective",
+          "props": [
+            {
+              "name": "response-point",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "You must fill in this response point."
+            },
+            {
+              "name": "method",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "EXAMINE",
+              "class": "fedramp"
+            },
+            {
+              "name": "method",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "INTERVIEW",
+              "class": "fedramp"
+            },
+            {
+              "name": "label",
+              "value": "RA-09",
+              "class": "sp800-53a"
+            }
+          ],
+          "prose": "critical system components and functions are identified by performing a criticality analysis for {{ insert: param, ra-09_odp.01 }} at {{ insert: param, ra-09_odp.02 }}.",
+          "links": [
+            {
+              "href": "#ra-9_smt",
+              "rel": "assessment-for"
+            }
+          ]
+        },
+        {
+          "id": "ra-9_asm-examine",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "EXAMINE"
+            },
+            {
+              "name": "label",
+              "value": "RA-09-Examine",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Risk assessment policy\n\nassessment reports\n\ncriticality analysis/finalized criticality for each component/subcomponent\n\naudit records/event logs\n\nanalysis reports\n\nsystem security plan\n\nother relevant documents or records"
+            }
+          ]
+        },
+        {
+          "id": "ra-9_asm-interview",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "INTERVIEW"
+            },
+            {
+              "name": "label",
+              "value": "RA-09-Interview",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational personnel with assessment and auditing responsibilities\n\norganizational personnel with criticality analysis responsibilities\n\nsystem/network administrators\n\norganizational personnel with security responsibilities"
+            }
+          ]
+        },
+        {
+          "id": "ra-9_asm-test",
+          "name": "assessment-method",
+          "props": [
+            {
+              "name": "method",
+              "ns": "http://csrc.nist.gov/ns/rmf",
+              "value": "TEST"
+            },
+            {
+              "name": "label",
+              "value": "RA-09-Test",
+              "class": "sp800-53a"
+            }
+          ],
+          "parts": [
+            {
+              "name": "assessment-objects",
+              "prose": "Organizational processes for assessments and audits\n\nmechanisms/tools supporting and/or implementing assessments and auditing"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

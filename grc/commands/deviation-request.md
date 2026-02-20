@@ -1,3 +1,7 @@
+---
+description: "Draft deviation requests, risk acceptances, or false positive justifications"
+---
+
 # /grc:deviation-request
 
 Draft deviation requests, risk acceptances, or false positive justifications.
