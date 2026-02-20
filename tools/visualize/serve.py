@@ -309,11 +309,14 @@ class Handler(SimpleHTTPRequestHandler):
             system += f"\n\n## Currently Selected Node\nThe user has selected node **{selected_node}** in the graph viewer. Use this context when relevant."
 
         # Stream from Claude via SSE
+        # Close connection after response — SSE is one-shot, keep-alive
+        # would cause BaseHTTPRequestHandler to loop and duplicate the response.
         self.send_response(200)
         self.send_header("Content-Type", "text/event-stream")
         self.send_header("Cache-Control", "no-cache")
-        self.send_header("Connection", "keep-alive")
+        self.send_header("Connection", "close")
         self.end_headers()
+        self.close_connection = True
 
         try:
             with client.messages.stream(
@@ -323,7 +326,6 @@ class Handler(SimpleHTTPRequestHandler):
                 messages=messages,
             ) as stream:
                 for text in stream.text_stream:
-                    # SSE format: data: <json>\n\n
                     chunk = json.dumps({"type": "delta", "text": text})
                     self.wfile.write(f"data: {chunk}\n\n".encode())
                     self.wfile.flush()
