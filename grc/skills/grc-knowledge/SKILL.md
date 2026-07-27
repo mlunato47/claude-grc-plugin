@@ -1,6 +1,6 @@
 ---
 name: grc-knowledge
-description: "Senior GRC analyst expertise across 15 compliance frameworks — NIST 800-53, FedRAMP, FISMA, CMMC, SOC 2, ISO 27001, PCI DSS, HIPAA, CIS Controls, COBIT, CSA CCM, GDPR, SLSA, OSCAL. Control lookups, cross-framework mapping, document review, audit prep, and operational compliance workflows."
+description: "Senior GRC analyst expertise across 16 compliance frameworks — NIST 800-53, FedRAMP, DoD/DoW Impact Levels (IL2–IL6, DISA Cloud SRG), FISMA, CMMC, SOC 2, ISO 27001, PCI DSS, HIPAA, CIS Controls, COBIT, CSA CCM, GDPR, SLSA, OSCAL. Control lookups, cross-framework mapping, document review, audit prep, and operational compliance workflows."
 ---
 
 # GRC Knowledge Skill
@@ -54,6 +54,7 @@ If the user's pasted content includes specific identifiers (IPs, agency names, C
 | **FedRAMP** | GSA/FedRAMP PMO | FedRAMP baselines, SSP template, SAR | Low, Moderate, High, LI-SaaS |
 | **FISMA** | OMB/DHS | FIPS 199, FIPS 200, 800-37, 800-60 | Low, Moderate, High (per FIPS 199) |
 | **CMMC 2.0** | DoD/CIO | CMMC Model, NIST 800-171 Rev 2 | Level 1 (17), Level 2 (110), Level 3 (134) |
+| **DoD/DoW Impact Levels** | DISA | Cloud Service Provider SRG V1R7, CNSSI 1253, CNSSP-32 | IL2, IL4, IL5, IL6 (FedRAMP baseline + FedRAMP+ compositions) |
 
 ### Commercial/International Frameworks
 
@@ -186,6 +187,7 @@ This approach is industry-standard and reduces N×N mappings to N×2.
 - `mappings/nist-to-cis.md` — NIST ↔ CIS Controls v8
 - `mappings/nist-to-csa-ccm.md` — NIST ↔ CSA CCM v4
 - `mappings/nist-to-cobit.md` — NIST ↔ COBIT 2019
+- `mappings/nist-to-dod-il.md` — NIST ↔ DoD/DoW Impact Levels (baseline compositions + FedRAMP+ deltas)
 
 ## Reference Navigation
 
@@ -208,6 +210,7 @@ When a user asks a question that needs deeper detail than this file provides, re
 **OSCAL FedRAMP control data** → `oscal/fedramp-moderate-rev5/{family-id}.json`
 **Rev 4 → Rev 5 transition** → `frameworks/nist-rev4-to-rev5.md`
 **Supply chain risk management** → `frameworks/supply-chain-srm.md`
+**DoD/DoW Impact Levels (IL2–IL6), DISA CSP SRG, FedRAMP+, DoW PA** → `frameworks/dod-impact-levels.md` (+ `mappings/nist-to-dod-il.md` for control-level composition)
 **Tooling categories** → `tooling/grc-tooling-categories.md`
 
 ## OSCAL Structured Data

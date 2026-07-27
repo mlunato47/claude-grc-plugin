@@ -4,7 +4,7 @@ This guide walks through everything the GRC plugin can do, organized by use case
 
 ## How the Plugin Works
 
-Once installed, the plugin gives Claude deep expertise in 15 compliance frameworks, cross-framework mapping, document review, and operational GRC workflows. It works two ways:
+Once installed, the plugin gives Claude deep expertise in 16 compliance frameworks, cross-framework mapping, document review, and operational GRC workflows. It works two ways:
 
 1. **Slash commands** (`/grc:command-name`) — Structured workflows with specific inputs and formatted outputs
 2. **Conversational GRC knowledge** — Ask any GRC question naturally and Claude responds with specific control IDs, baselines, and framework-native terminology
@@ -390,6 +390,7 @@ GRC artifacts often contain CUI, PII, and system architecture details. The plugi
 |-----------|---------|------|
 | NIST 800-53 | Rev 5 | Federal (anchor framework) |
 | FedRAMP | Rev 5 | Federal |
+| DoD/DoW Impact Levels | CSP SRG V1R7 (2026) | Federal (DoD/DoW) |
 | FISMA | Current | Federal |
 | CMMC | 2.0 | Federal (DoD) |
 | SOC 2 | Current | Commercial |

@@ -1,6 +1,6 @@
 # GRC Knowledge Plugin
 
-A plugin that turns your AI coding agent into a senior GRC (Governance, Risk, and Compliance) analyst. 72+ reference files covering 15 frameworks, 24 slash commands, and deep domain knowledge for federal and commercial compliance work.
+A plugin that turns your AI coding agent into a senior GRC (Governance, Risk, and Compliance) analyst. 74+ reference files covering 16 frameworks, 24 slash commands, and deep domain knowledge for federal and commercial compliance work.
 
 **Works with**: Claude Code, OpenCode
 
@@ -8,7 +8,7 @@ A plugin that turns your AI coding agent into a senior GRC (Governance, Risk, an
 
 Load this plugin and Claude gains expertise in:
 
-- **15 compliance frameworks** — NIST 800-53, FedRAMP, FISMA, CMMC, SOC 2, ISO 27001, PCI DSS, HIPAA, CIS Controls, COBIT, CSA CCM, GDPR, SLSA, OSCAL, and NIST Rev 4→5 transition
+- **16 compliance frameworks** — NIST 800-53, FedRAMP, DoD/DoW Impact Levels (IL2–IL6, DISA Cloud SRG), FISMA, CMMC, SOC 2, ISO 27001, PCI DSS, HIPAA, CIS Controls, COBIT, CSA CCM, GDPR, SLSA, OSCAL, and NIST Rev 4→5 transition
 - **Cross-framework mapping** — Map any control to any other framework through NIST 800-53 as the hub
 - **Document review** — Feed it SSP narratives, POA&Ms, policies, CRMs and get structural quality feedback with 0-5 maturity scoring
 - **Operational workflows** — Significant change analysis, inheritance modeling, SAR responses, compliance calendars, tabletop exercises
@@ -191,8 +191,8 @@ Reference-only commands (`evidence-checklist`, `compliance-calendar`, `tabletop-
 │           ├── SKILL.md         # Core skill definition (loaded into context)
 │           ├── audits/          # 14 reference files
 │           ├── conmon/          # 6 reference files
-│           ├── frameworks/      # 16 reference files
-│           ├── mappings/        # 9 reference files
+│           ├── frameworks/      # 17 reference files
+│           ├── mappings/        # 10 reference files
 │           └── tooling/         # 1 reference file
 ├── GUIDE.md                     # Usage guide
 ├── LICENSE                      # MIT
@@ -213,6 +213,7 @@ Reference-only commands (`evidence-checklist`, `compliance-calendar`, `tabletop-
 |-----------|---------|---------------|
 | NIST 800-53 | Rev 5 | `frameworks/nist-800-53.md` |
 | FedRAMP | Rev 5 | `frameworks/fedramp.md` |
+| DoD/DoW Impact Levels | CSP SRG V1R7 (2026) | `frameworks/dod-impact-levels.md` |
 | FISMA | Current | `frameworks/fisma.md` |
 | CMMC | 2.0 | `frameworks/cmmc.md` |
 | SOC 2 | Current | `frameworks/soc2.md` |

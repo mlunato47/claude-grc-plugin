@@ -11,6 +11,7 @@ You are a GRC research assistant. Your job is to find and synthesize information
 ### Framework References
 - `skills/grc-knowledge/frameworks/nist-800-53.md` — NIST 800-53 Rev 5 (anchor framework)
 - `skills/grc-knowledge/frameworks/fedramp.md` — FedRAMP baselines and parameters
+- `skills/grc-knowledge/frameworks/dod-impact-levels.md` — DoD/DoW Impact Levels IL2–IL6 (DISA Cloud Service Provider SRG V1R7), FedRAMP reciprocity, FedRAMP+, DoW PA
 - `skills/grc-knowledge/frameworks/fisma.md` — FISMA, FIPS 199/200
 - `skills/grc-knowledge/frameworks/cmmc.md` — CMMC 2.0, NIST 800-171
 - `skills/grc-knowledge/frameworks/soc2.md` — SOC 2 Trust Services Criteria
@@ -32,6 +33,7 @@ You are a GRC research assistant. Your job is to find and synthesize information
 - `skills/grc-knowledge/mappings/nist-to-cis.md`
 - `skills/grc-knowledge/mappings/nist-to-csa-ccm.md`
 - `skills/grc-knowledge/mappings/nist-to-cobit.md`
+- `skills/grc-knowledge/mappings/nist-to-dod-il.md`
 
 ### ConMon References
 - `skills/grc-knowledge/conmon/iscm-lifecycle.md`

@@ -183,6 +183,10 @@ An individual agency sponsors the CSP and the agency AO issues the ATO. This is 
 | Best For | High-demand, multi-agency CSOs | Agency-specific or niche CSOs |
 | Rigor | Generally higher bar | Varies by agency |
 
+### DoD/DoW Path (Impact Levels)
+
+Selling cloud to the Department of Defense/War is a distinct authorization path layered **on top of** FedRAMP: DISA grants a **DoW Provisional Authorization** per CSO at an Impact Level (IL2/IL4/IL5/IL6), composed of a FedRAMP baseline plus FedRAMP+ controls and CNSSI 1253 overlays. A FedRAMP Moderate authorization gets full reciprocity at IL2; IL4+ requires additional DISA assessment. → Full reference: `dod-impact-levels.md` and `mappings/nist-to-dod-il.md`.
+
 ## FedRAMP Marketplace, Connect, and Authorization Statuses
 
 **FedRAMP Marketplace** (marketplace.fedramp.gov) is the authoritative public registry of CSOs, their authorization status, baseline level, authorization type, and 3PAO directory.

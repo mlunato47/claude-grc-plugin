@@ -27,6 +27,7 @@ Map controls between compliance frameworks using NIST 800-53 as the universal hu
 /grc:map-controls hipaa 164.312(a)(1) to nist
 /grc:map-controls iso27001 A.8.5 to cmmc
 /grc:map-controls cis 5.2 to nist
+/grc:map-controls il5 to nist
 ```
 
 ## Behavior
@@ -42,6 +43,7 @@ When invoked:
      a. Map source control → NIST 800-53 (read `mappings/nist-to-{source}.md` reverse)
      b. Map NIST control(s) → target (read `mappings/nist-to-{target}.md`)
    - If source is FedRAMP/FISMA → treat as NIST (same control IDs with parameters)
+   - If source or target is a DoD/DoW Impact Level (`dod`, `dow`, `il2`/`il4`/`il5`/`il6`) → read `mappings/nist-to-dod-il.md`. ILs are baseline *compositions*, not a control catalog: resolve the IL to its NIST composition (FedRAMP baseline + FedRAMP+ + CNSSI 1253 additions), then chain to the other framework as normal. When the source is an IL and no control-id is given (e.g., `il5 to nist`), report the IL's full baseline composition rather than a single control. Note that no commercial certification provides reciprocity toward an IL — only FedRAMP authorizations do.
 
 3. **Read the appropriate mapping file(s)** from `skills/grc-knowledge/mappings/`
 

@@ -14,7 +14,7 @@ Look up controls by framework and ID or keyword.
 
 ## Arguments
 
-- **framework**: The compliance framework to search. Accepts: `nist`, `fedramp`, `fisma`, `cmmc`, `soc2`, `iso27001`, `pci`, `hipaa`, `cis`, `cobit`, `ccm`, `gdpr`
+- **framework**: The compliance framework to search. Accepts: `nist`, `fedramp`, `fisma`, `cmmc`, `soc2`, `iso27001`, `pci`, `hipaa`, `cis`, `cobit`, `ccm`, `gdpr`, `dod`, `dow`, `il2`/`il4`/`il5`/`il6`, `srg`
 - **id-or-keyword**: A control ID (e.g., `ac-2`, `CC6.1`, `A.8.1`) or a keyword (e.g., `multi-factor`, `encryption`, `logging`)
 
 ## Examples
@@ -26,6 +26,7 @@ Look up controls by framework and ID or keyword.
 /grc:control-lookup nist encryption
 /grc:control-lookup iso27001 A.8.5
 /grc:control-lookup cis 5.2
+/grc:control-lookup il5 ac-2
 ```
 
 ## Behavior
@@ -44,6 +45,7 @@ When invoked:
    - `cobit` → COBIT 2019
    - `ccm` / `csa` → CSA CCM v4
    - `gdpr` → GDPR
+   - `dod` / `dow` / `il2` / `il4` / `il5` / `il6` / `srg` → DoD/DoW Impact Levels (DISA CSP SRG). Read `skills/grc-knowledge/frameworks/dod-impact-levels.md` and `skills/grc-knowledge/mappings/nist-to-dod-il.md`; for the underlying FedRAMP baseline controls also read the OSCAL family JSON as for `fedramp`. When the argument is a specific IL (e.g., `il5`), report that level's full composition (baseline + FedRAMP+ + CNSSI 1253 additions).
 
 2. **For NIST or FedRAMP lookups, read the OSCAL family JSON first** for authoritative control data:
    - Determine the family ID from the control ID (e.g., `AC-2` → family `ac`, `IA-5(1)` → family `ia`)
