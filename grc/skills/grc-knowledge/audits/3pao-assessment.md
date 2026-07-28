@@ -1,5 +1,7 @@
 # 3PAO Assessment for FedRAMP
 
+> **CR26 note (June 2026):** this file describes the legacy Rev5 assessment model. Under the FedRAMP Consolidated Rules for 2026, "3PAO" became **Independent Assessor**, and assessors additionally need **FedRAMP Recognized** status (REC ruleset — layered on top of continuing A2LA accreditation, with biennial reassessment); industry analyses report the assessor role shifting away from ATO recommendations toward continuous verification/validation. This guidance remains valid for Rev5 engagements through the transition (Rev5 active until at least Dec 31, 2028). See `frameworks/fedramp-20x.md`.
+
 ## Overview
 
 A Third Party Assessment Organization (3PAO) performs independent security assessments of cloud service offerings (CSOs) seeking FedRAMP authorization. 3PAOs are accredited by the American Association for Laboratory Accreditation (A2LA) under ISO/IEC 17020:2012 and must meet FedRAMP-specific requirements for independence, competence, and quality management.
@@ -193,7 +195,7 @@ Risk is calculated as **Likelihood x Impact**:
 |----------|-------|----------|
 | CSP | Accuracy of findings, factual corrections | 2-4 weeks |
 | FedRAMP PMO | Completeness, quality, consistency | 2-6 weeks |
-| JAB (if JAB path) | Risk adjudication, authorization recommendation | 4-8 weeks | *(Note: JAB dissolved May 2024; replaced by FedRAMP Board)* |
+| JAB (if JAB path) | Risk adjudication, authorization recommendation *(JAB dissolved May 2024; replaced by FedRAMP Board)* | 4-8 weeks |
 | AO (if Agency path) | Risk acceptance determination | 2-4 weeks |
 
 ## Post-Assessment Activities

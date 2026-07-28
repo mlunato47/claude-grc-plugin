@@ -1,5 +1,7 @@
 # Significant Change Criteria
 
+> **CR26 note (June 2026):** the FedRAMP SCR pre-approval process described below is the legacy Rev5 model. Under CR26, the **SCN** (Significant Change Notification) ruleset uses notification — not advance approval — with adaptive/transformative/routine-recurring categories. Also note "SCR" now additionally names the CR26 Supply Chain Risk KSI theme. See `frameworks/fedramp-20x.md`.
+
 Criteria for determining whether a system change qualifies as "significant" under FedRAMP, FISMA, and NIST RMF — and what actions are triggered when it does.
 
 ## What Is a Significant Change?
@@ -102,7 +104,7 @@ FedRAMP defines the following categories of significant change (per FedRAMP Cont
 | Identify affected controls | ISSO | Affected controls list |
 | Update SSP draft with planned changes | ISSO | Updated SSP sections |
 | Notify AO of planned significant change | System Owner | Notification (email/ticket) |
-| FedRAMP PMO notification (if FedRAMP) | System Owner/ISSO | Significant Change Request (SCR) |
+| FedRAMP PMO notification (if FedRAMP) | System Owner/ISSO | Significant Change Request (SCR) — *legacy Rev5; under CR26 the SCN ruleset uses notification (not pre-approval), and note "SCR" now also names the CR26 Supply Chain Risk KSI theme. See `frameworks/fedramp-20x.md`* |
 
 ### After the Change
 

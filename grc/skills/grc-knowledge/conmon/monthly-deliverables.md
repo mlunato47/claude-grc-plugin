@@ -1,5 +1,7 @@
 # Monthly Continuous Monitoring Deliverables
 
+> **CR26 note (June 2026):** for FedRAMP, the monthly-deliverables model described here is being replaced — the **VDR/VER** vulnerability standards (required for both 20x and Rev5 providers by Dec 7, 2026) and **Ongoing Certification Reports** (CCM ruleset) supersede monthly-scan-plus-POA&M submissions as CR26 adoption completes (mandatory Jan 1, 2027). This guidance remains valid for Rev5 systems until the Rev5 CCM/VDR/VER rules take hold (VDR/VER required Dec 7, 2026; CCM mandatory to maintain certification Apr 2, 2027, grace to Oct 1, 2027), and for non-FedRAMP programs generally. See `frameworks/fedramp-20x.md`.
+
 ## Overview
 
 Monthly ConMon deliverables provide the Authorizing Official (AO) and stakeholders with evidence that security controls remain effective, vulnerabilities are being identified and addressed, and the system's risk posture is understood. For FedRAMP-authorized systems, these deliverables are submitted monthly to the FedRAMP PMO and the authorizing agency through the designated repository.

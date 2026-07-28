@@ -1,5 +1,7 @@
 # ISCM Lifecycle — Information Security Continuous Monitoring
 
+> **CR26 note (June 2026):** FedRAMP-specific monthly-cadence references below reflect the legacy Rev5 model; FedRAMP 20x replaces them with the VDR/VER standards and Ongoing Certification Reports — see `frameworks/fedramp-20x.md`. General ISCM/NIST 800-137 content is unaffected.
+
 ## Overview
 
 Information Security Continuous Monitoring (ISCM) is defined by NIST SP 800-137 as the ongoing awareness of information security, vulnerabilities, and threats to support organizational risk management decisions. ISCM operationalizes the monitoring phase of the Risk Management Framework (RMF Step 7) and transforms security from a point-in-time activity into a continuous, risk-informed process.

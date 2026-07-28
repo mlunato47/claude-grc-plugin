@@ -1,5 +1,7 @@
 # Annual Continuous Monitoring Deliverables
 
+> **CR26 note (June 2026):** FedRAMP-specific annual-assessment framing below is the legacy Rev5 model. Under FedRAMP 20x, independent assessment expectations live in the IVV ruleset with continuous automated validation between assessments — see `frameworks/fedramp-20x.md`.
+
 ## Overview
 
 Annual deliverables complement monthly ConMon activities by providing deeper assessments, comprehensive testing, and programmatic reviews that are impractical to perform monthly. These activities ensure that the full control set is evaluated over time, contingency and incident response capabilities are validated, and organizational policies remain current. For FedRAMP systems, many annual deliverables are mandatory for maintaining authorization.

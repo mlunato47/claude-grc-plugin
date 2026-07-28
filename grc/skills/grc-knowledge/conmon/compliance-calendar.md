@@ -1,5 +1,7 @@
 # Compliance Calendar
 
+> **CR26 note (June 2026):** FedRAMP rows below reflect the legacy Rev5 cadence (monthly scans/POA&M). Under FedRAMP 20x/CR26, vulnerability activities follow the VDR/VER standards (persistent, class-scaled) and reporting shifts to Ongoing Certification Reports with quarterly reviews — see `frameworks/fedramp-20x.md`.
+
 Consolidated recurring compliance activities by frequency and framework. Use this to build an organization-specific compliance calendar.
 
 ## FedRAMP Recurring Activities

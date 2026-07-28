@@ -1,5 +1,7 @@
 # Automated Tooling for Continuous Monitoring
 
+> **CR26 note (June 2026):** where this file cites FedRAMP monthly-scanning requirements, that is the legacy Rev5 cadence; FedRAMP 20x's VDR standard requires persistent, class-scaled detection instead (a stronger automation case, not a weaker one) — see `frameworks/fedramp-20x.md`.
+
 ## Overview
 
 Automated tooling forms the backbone of an effective Continuous Monitoring (ConMon) program. Automation enables consistent, repeatable, and scalable monitoring activities that would be impractical to perform manually. FedRAMP and NIST guidance strongly encourage automation wherever possible, and certain monitoring activities (such as monthly vulnerability scanning) explicitly require automated tools.

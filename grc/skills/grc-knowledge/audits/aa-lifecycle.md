@@ -1,5 +1,7 @@
 # Authorization and Assessment (A&A) Lifecycle
 
+> **CR26 note (June 2026):** FedRAMP-specific references below (3PAO, agency sponsorship, monthly deliverables) describe the legacy Rev5 path, which remains active until at least Dec 31, 2028. The FedRAMP 20x path replaces these with Independent Assessors, sponsor-less Program-path certification, and VDR/VER + Ongoing Certification Reports — see `frameworks/fedramp-20x.md`. Non-FedRAMP RMF content is unaffected.
+
 ## Overview
 
 The A&A lifecycle follows the NIST Risk Management Framework (RMF) defined in NIST SP 800-37 Rev 2. The RMF integrates security and risk management into the system development lifecycle through seven steps: Prepare, Categorize, Select, Implement, Assess, Authorize, and Monitor. It is mandatory for federal systems including FedRAMP cloud authorizations.

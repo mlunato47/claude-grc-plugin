@@ -1,6 +1,6 @@
 # OSCAL Reference
 
-OSCAL (Open Security Controls Assessment Language) is a set of standardized, machine-readable formats for security documentation. Developed by NIST, OSCAL is becoming mandatory for FedRAMP submissions.
+OSCAL (Open Security Controls Assessment Language) is a set of standardized, machine-readable formats for security documentation developed by NIST. **Note (CR26, June 2026):** FedRAMP's earlier trajectory toward mandatory OSCAL was a pre-CR26 Rev5-era plan that was dropped — under CR26 both paths use FedRAMP's own JSON schemas (github.com/FedRAMP/schemas), with OSCAL merely optional for Rev5 in some cases (NTC-0009). OSCAL remains widely used for NIST catalogs/baselines and other programs. See `frameworks/fedramp-20x.md`.
 
 ## What Is OSCAL?
 
@@ -172,9 +172,9 @@ set-parameters:
 
 ### Current Status
 - FedRAMP has published OSCAL versions of their baselines (Low, Moderate, High, LI-SaaS)
-- OSCAL SSP submissions are accepted and encouraged
-- FedRAMP is moving toward requiring OSCAL for new authorizations
-- FedRAMP provides OSCAL-based templates and validation tools
+- OSCAL SSP submissions were accepted and encouraged on the pre-CR26 Rev5 path
+- **CR26 update:** there are no OSCAL requirements under CR26 for either path — 20x and Rev5 packages both use FedRAMP's simplified JSON formats, with OSCAL merely optional in some cases (NTC-0009; the RFC-0024 OSCAL-mandate proposal was dropped, and comprehensive machine-readable data is required only for Rev5 Class D/High)
+- FedRAMP provides OSCAL-based templates and validation tools (Rev5-era)
 
 ### FedRAMP OSCAL Resources
 - FedRAMP Automation GitHub repository: OSCAL templates and examples

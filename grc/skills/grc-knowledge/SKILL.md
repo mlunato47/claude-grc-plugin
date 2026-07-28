@@ -1,6 +1,6 @@
 ---
 name: grc-knowledge
-description: "Senior GRC analyst expertise across 16 compliance frameworks — NIST 800-53, FedRAMP, DoD/DoW Impact Levels (IL2–IL6, DISA Cloud SRG), FISMA, CMMC, SOC 2, ISO 27001, PCI DSS, HIPAA, CIS Controls, COBIT, CSA CCM, GDPR, SLSA, OSCAL. Control lookups, cross-framework mapping, document review, audit prep, and operational compliance workflows."
+description: "Senior GRC analyst expertise across 17 compliance frameworks — NIST 800-53, FedRAMP (Rev5 + 20x/CR26, KSIs, VDR/VER, Certification Classes A–D), DoD/DoW Impact Levels (IL2–IL6, DISA Cloud SRG), FISMA, CMMC, SOC 2, ISO 27001, PCI DSS, HIPAA, CIS Controls, COBIT, CSA CCM, GDPR, SLSA, OSCAL. Control lookups, cross-framework mapping, document review, audit prep, and operational compliance workflows."
 ---
 
 # GRC Knowledge Skill
@@ -14,7 +14,7 @@ You are a senior GRC (Governance, Risk, and Compliance) analyst with deep expert
 3. **Framework-native terminology** — Use each framework's own terms: "controls" for NIST, "criteria" for SOC 2, "requirements" for PCI DSS, "clauses" for ISO 27001, "safeguards" for CIS, "practices" for CMMC.
 4. **Cloud-agnostic** — Provide framework knowledge without assuming a specific cloud provider. Implementation details belong in the separate GRC Engineering skill.
 5. **Evidence-oriented** — When discussing controls, mention what evidence/artifacts an auditor expects to see.
-6. **Current versions** — NIST 800-53 Rev 5, FedRAMP Rev 5, CMMC 2.0, PCI DSS v4.0.1, ISO 27001:2022, CIS Controls v8.1, CSA CCM v4, COBIT 2019.
+6. **Current versions** — NIST 800-53 Rev 5, FedRAMP Rev 5 (legacy; active until at least Dec 31, 2028) + FedRAMP 20x/CR26 (June 2026), DISA CSP SRG V1R7, CMMC 2.0, PCI DSS v4.0.1, ISO 27001:2022, CIS Controls v8.1, CSA CCM v4, COBIT 2019.
 
 ## Data Handling and Sensitivity Notice
 
@@ -51,7 +51,8 @@ If the user's pasted content includes specific identifiers (IPs, agency names, C
 | Framework | Authority | Key Documents | Baselines |
 |-----------|-----------|---------------|-----------|
 | **NIST 800-53 Rev 5** | NIST | SP 800-53, 800-53A, 800-53B | Low (~150), Moderate (~304), High (~392) |
-| **FedRAMP** | GSA/FedRAMP PMO | FedRAMP baselines, SSP template, SAR | Low, Moderate, High, LI-SaaS |
+| **FedRAMP** | GSA/FedRAMP PMO | FedRAMP baselines, SSP template, SAR | Low, Moderate, High, LI-SaaS (legacy Rev5) |
+| **FedRAMP 20x / CR26** | GSA/FedRAMP | Consolidated Rules for 2026, 46 KSIs, VDR/VER standards | Certification Classes A, B, C, D |
 | **FISMA** | OMB/DHS | FIPS 199, FIPS 200, 800-37, 800-60 | Low, Moderate, High (per FIPS 199) |
 | **CMMC 2.0** | DoD/CIO | CMMC Model, NIST 800-171 Rev 2 | Level 1 (17), Level 2 (110), Level 3 (134) |
 | **DoD/DoW Impact Levels** | DISA | Cloud Service Provider SRG V1R7, CNSSI 1253, CNSSP-32 | IL2, IL4, IL5, IL6 (FedRAMP baseline + FedRAMP+ compositions) |
@@ -98,6 +99,8 @@ If the user's pasted content includes specific identifiers (IPs, agency names, C
 ## Continuous Monitoring (ConMon) Overview
 
 ConMon (ISCM — Information Security Continuous Monitoring) ensures security posture is maintained post-authorization.
+
+> **FedRAMP note:** the deliverables below describe the legacy Rev5 model. Under FedRAMP 20x/CR26, vulnerability management follows the VDR/VER standards and reporting moves to Ongoing Certification Reports with quarterly reviews — see `frameworks/fedramp-20x.md`.
 
 **Monthly deliverables**: Vulnerability scans (OS, web app, database, container), POA&M updates, scan deviation requests
 **Quarterly**: Hardware/software inventory reconciliation, privileged user review
@@ -211,6 +214,7 @@ When a user asks a question that needs deeper detail than this file provides, re
 **Rev 4 → Rev 5 transition** → `frameworks/nist-rev4-to-rev5.md`
 **Supply chain risk management** → `frameworks/supply-chain-srm.md`
 **DoD/DoW Impact Levels (IL2–IL6), DISA CSP SRG, FedRAMP+, DoW PA** → `frameworks/dod-impact-levels.md` (+ `mappings/nist-to-dod-il.md` for control-level composition)
+**FedRAMP 20x, CR26, KSIs, VDR/VER, Certification Classes A–D, "FedRAMP Certified"** → `frameworks/fedramp-20x.md` (includes the public CR26 documentation index for live lookups)
 **Tooling categories** → `tooling/grc-tooling-categories.md`
 
 ## OSCAL Structured Data
@@ -309,6 +313,7 @@ OSCAL uses lowercase IDs with dots for enhancements: `AC-2` → `ac-2`, `AC-2(1)
 | CISO | Chief Information Security Officer |
 | CMP | Configuration Management Plan |
 | CONOPS | Concept of Operations |
+| CR26 | FedRAMP Consolidated Rules for 2026 |
 | CRM | Customer Responsibility Matrix |
 | CSO | Cloud Service Offering |
 | CSP | Cloud Service Provider |
@@ -323,8 +328,11 @@ OSCAL uses lowercase IDs with dots for enhancements: `AC-2` → `ac-2`, `AC-2(1)
 | ISSO | Information System Security Officer |
 | ISSM | Information System Security Manager |
 | JAB | Joint Authorization Board (dissolved May 2024; replaced by FedRAMP Board) |
+| KSI | Key Security Indicator (FedRAMP 20x) |
 | MFA | Multi-Factor Authentication |
+| OCR | Ongoing Certification Report (CR26; replaces OAR-style reporting) |
 | OSCAL | Open Security Controls Assessment Language |
+| PAIN | Potential Agency Impact N-rating, N1–N5 (CR26 VER standard) |
 | PIA | Privacy Impact Assessment |
 | P-ATO | Provisional Authorization to Operate |
 | POA&M | Plan of Action and Milestones |
@@ -332,6 +340,9 @@ OSCAL uses lowercase IDs with dots for enhancements: `AC-2` → `ac-2`, `AC-2(1)
 | SAP | Security Assessment Plan |
 | SAR | Security Assessment Report |
 | SCRM | Supply Chain Risk Management |
+| SDR | Security Decision Record (CR26; replaces the SSP on the 20x path) |
 | SLA | Service Level Agreement |
 | SSP | System Security Plan |
-| 3PAO | Third Party Assessment Organization |
+| VDR | Vulnerability Detection and Response (CR26 standard) |
+| VER | Vulnerability Evaluation and Reporting (CR26 standard) |
+| 3PAO | Third Party Assessment Organization (CR26: "Independent Assessor" with FedRAMP Recognized status atop A2LA accreditation) |

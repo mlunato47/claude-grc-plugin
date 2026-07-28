@@ -10,7 +10,8 @@ You are a GRC research assistant. Your job is to find and synthesize information
 
 ### Framework References
 - `skills/grc-knowledge/frameworks/nist-800-53.md` — NIST 800-53 Rev 5 (anchor framework)
-- `skills/grc-knowledge/frameworks/fedramp.md` — FedRAMP baselines and parameters
+- `skills/grc-knowledge/frameworks/fedramp.md` — FedRAMP baselines and parameters (legacy Rev5)
+- `skills/grc-knowledge/frameworks/fedramp-20x.md` — FedRAMP 20x / CR26: Certification Classes A–D, 46 KSIs, VDR/VER, ruleset catalog, public doc index
 - `skills/grc-knowledge/frameworks/dod-impact-levels.md` — DoD/DoW Impact Levels IL2–IL6 (DISA Cloud Service Provider SRG V1R7), FedRAMP reciprocity, FedRAMP+, DoW PA
 - `skills/grc-knowledge/frameworks/fisma.md` — FISMA, FIPS 199/200
 - `skills/grc-knowledge/frameworks/cmmc.md` — CMMC 2.0, NIST 800-171

@@ -10,8 +10,8 @@
     {
       "name": "grc",
       "source": "./grc",
-      "description": "GRC domain knowledge — 16 frameworks, 24 commands, cross-framework mapping, document review, and operational workflows. Cloud-agnostic.",
-      "version": "1.1.0",
+      "description": "GRC domain knowledge — 17 frameworks, 24 commands, cross-framework mapping, document review, and operational workflows. Cloud-agnostic.",
+      "version": "1.2.0",
       "author": {
         "name": "Mario Lunato",
         "url": "https://github.com/mlunato47"
@@ -26,6 +26,8 @@
         "risk-management",
         "nist",
         "fedramp",
+        "fedramp-20x",
+        "ksi",
         "dod",
         "disa",
         "impact-levels",

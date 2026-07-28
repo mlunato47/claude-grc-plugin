@@ -1,5 +1,7 @@
 # FedRAMP (Federal Risk and Authorization Management Program)
 
+> **This file covers the legacy Rev5 path.** As of the June 2026 Consolidated Rules (CR26), FedRAMP runs two non-interchangeable paths: legacy **Rev5** (active until at least December 31, 2028; last new certifications June 11, 2027) and **FedRAMP 20x** (KSI-based, generally available). CR26 also renamed "FedRAMP Authorized" → **"FedRAMP Certified"** and impact levels → **Certification Classes A–D**, and its VDR/VER vulnerability standards apply to Rev5 providers too (required December 7, 2026). For 20x, CR26, KSIs, VDR/VER, and the class system → `fedramp-20x.md`.
+
 ## Overview
 
 FedRAMP is a U.S. government-wide program that provides a standardized approach to security authorizations for Cloud Service Offerings (CSOs). Established in 2011 and codified by the FedRAMP Authorization Act (part of the FY2023 NDAA), FedRAMP ensures that cloud products and services used by federal agencies meet consistent security requirements based on NIST SP 800-53.

@@ -103,6 +103,8 @@ DoW uses a **two-step** model for commercial cloud: (1) DISA assesses the CSO an
 | FedRAMP High | Mandatory floor for **IL5** | IL5 FedRAMP+ + CNSSI 1253 Appendix D NSS controls + overlays → DoW PA |
 | — | **IL6** | Separate DoW authorization: FedRAMP High baseline + Classified Overlay; SIPRNet; classified facility |
 
+> **FedRAMP-side terminology note:** as of the June 2026 CR26 release, FedRAMP renamed "Authorized" → "Certified" and its baselines → Certification Classes A–D (see `fedramp-20x.md`). The SRG V1R7 still speaks in FedRAMP P-ATO/baseline terms; check current DISA guidance for how 20x certifications map to DoW PA reciprocity before advising on it.
+
 PA mechanics worth knowing:
 
 - **Granted per-CSO.** A SaaS built on an authorized IaaS/PaaS **inherits** the underlying CSO's compliance but still needs **its own** DoW PA (and usually its own FedRAMP P-ATO) — the application layer must be assessed itself.

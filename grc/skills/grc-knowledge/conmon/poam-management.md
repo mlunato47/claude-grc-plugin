@@ -15,7 +15,7 @@ The POA&M is a living document, updated monthly as part of Continuous Monitoring
 | **OMB Circular A-130** | Requires federal agencies to maintain POA&Ms for all information systems to document planned remediation actions for identified weaknesses |
 | **NIST SP 800-53 Rev. 5 CA-5** | Plan of Action and Milestones control — requires organizations to develop and update POA&Ms for the system documenting planned remedial actions to correct weaknesses or deficiencies |
 | **FISMA** | Mandates POA&M reporting as part of agency information security programs |
-| **FedRAMP** | Requires monthly POA&M updates submitted to the FedRAMP repository; defines specific required fields and severity-based remediation timelines |
+| **FedRAMP** | Requires monthly POA&M updates submitted to the FedRAMP repository; defines specific required fields and severity-based remediation timelines. *CR26 note: under FedRAMP 20x — and for Rev5 providers as VDR/VER take effect Dec 7, 2026 (the legacy monthly cadence ends as the Rev5 CCM rules take hold: mandatory Apr 2, 2027, grace to Oct 1, 2027) — the VDR/VER standards replace this cadence, and CR26 eliminates POA&Ms in favor of a list of **Accepted Weaknesses**; see `frameworks/fedramp-20x.md`* |
 
 The POA&M does not replace the need to remediate findings. It is a tracking and accountability mechanism, not a risk acceptance mechanism. Risk acceptance is a separate AO decision documented through deviation requests.
 
