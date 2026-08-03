@@ -1,7 +1,7 @@
 {
   "name": "grc",
   "description": "GRC (Governance, Risk, and Compliance) domain knowledge — frameworks, controls, audits, evidence, ConMon, cross-framework mappings, document review, and operational workflows. Cloud-agnostic.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": {
     "name": "Mario Lunato",
     "url": "https://github.com/mlunato47"
@@ -20,6 +20,8 @@
     "dod",
     "disa",
     "impact-levels",
+    "itar",
+    "export-control",
     "soc2",
     "iso27001",
     "pci-dss",

@@ -14,7 +14,7 @@ Look up controls by framework and ID or keyword.
 
 ## Arguments
 
-- **framework**: The compliance framework to search. Accepts: `nist`, `fedramp`, `fisma`, `cmmc`, `soc2`, `iso27001`, `pci`, `hipaa`, `cis`, `cobit`, `ccm`, `gdpr`, `dod`, `dow`, `il2`/`il4`/`il5`/`il6`, `srg`, `20x`, `cr26`, `ksi`
+- **framework**: The compliance framework to search. Accepts: `nist`, `fedramp`, `fisma`, `cmmc`, `soc2`, `iso27001`, `pci`, `hipaa`, `cis`, `cobit`, `ccm`, `gdpr`, `dod`, `dow`, `il2`/`il4`/`il5`/`il6`, `srg`, `20x`, `cr26`, `ksi`, `itar`, `usml`, `ddtc`
 - **id-or-keyword**: A control ID (e.g., `ac-2`, `CC6.1`, `A.8.1`) or a keyword (e.g., `multi-factor`, `encryption`, `logging`)
 
 ## Examples
@@ -28,6 +28,7 @@ Look up controls by framework and ID or keyword.
 /grc:control-lookup cis 5.2
 /grc:control-lookup il5 ac-2
 /grc:control-lookup ksi KSI-IAM-APM
+/grc:control-lookup itar 120.54
 ```
 
 ## Behavior
@@ -48,6 +49,7 @@ When invoked:
    - `gdpr` → GDPR
    - `dod` / `dow` / `il2` / `il4` / `il5` / `il6` / `srg` → DoD/DoW Impact Levels (DISA CSP SRG). Read `skills/grc-knowledge/frameworks/dod-impact-levels.md` and `skills/grc-knowledge/mappings/nist-to-dod-il.md`; for the underlying FedRAMP baseline controls also read the OSCAL family JSON as for `fedramp`. When the argument is a specific IL (e.g., `il5`), report that level's full composition (baseline + FedRAMP+ + CNSSI 1253 additions).
    - `20x` / `cr26` / `ksi` → FedRAMP 20x / Consolidated Rules for 2026. Read `skills/grc-knowledge/frameworks/fedramp-20x.md`. KSI IDs use the `KSI-THEME-KEY` scheme (e.g., `KSI-IAM-APM`); CR26 rule IDs use `SET-SUBSET-KEY` (e.g., `VDR-CSO-DET`). For exact current rule/KSI text, fetch the machine-readable sources listed in that file's documentation index rather than answering from the summary alone.
+   - `itar` / `usml` / `ddtc` → ITAR (22 CFR 120–130). Read `skills/grc-knowledge/frameworks/itar.md`. ITAR "IDs" are CFR sections (e.g., `120.54`, `126.1`) or USML categories (Roman numerals I–XXI) — note the 2022 reorganization renumbered most definitions, and that file's structure table maps old→new section numbers.
 
 2. **For NIST or FedRAMP lookups, read the OSCAL family JSON first** for authoritative control data:
    - Determine the family ID from the control ID (e.g., `AC-2` → family `ac`, `IA-5(1)` → family `ia`)

@@ -45,6 +45,7 @@ When invoked:
    - If source is FedRAMP/FISMA → treat as NIST (same control IDs with parameters)
    - If source or target is a DoD/DoW Impact Level (`dod`, `dow`, `il2`/`il4`/`il5`/`il6`) → read `mappings/nist-to-dod-il.md`. ILs are baseline *compositions*, not a control catalog: resolve the IL to its NIST composition (FedRAMP baseline + FedRAMP+ + CNSSI 1253 additions), then chain to the other framework as normal. When the source is an IL and no control-id is given (e.g., `il5 to nist`), report the IL's full baseline composition rather than a single control. Note that no commercial certification provides reciprocity toward an IL — only FedRAMP authorizations do.
    - If source or target is a FedRAMP 20x KSI (`ksi`, `20x`) → read `frameworks/fedramp-20x.md`. Each CR26 KSI carries an official NIST 800-53 control mapping (a `controls` array in FedRAMP's machine-readable rules); map KSI → NIST via that mapping (fetch the rules JSON from the doc index in that file for the authoritative list), then chain to other frameworks through NIST as normal.
+   - If source or target is ITAR (`itar`) → read `frameworks/itar.md`. ITAR is a conduct regulation, not a control catalog: there is no official DDTC↔NIST crosswalk. Use that file's "NIST 800-53 families" practitioner mapping (AC/PS/PE/AU/SC/MP/IR/SA-SR) and clearly label it as convention, not authority.
 
 3. **Read the appropriate mapping file(s)** from `skills/grc-knowledge/mappings/`
 

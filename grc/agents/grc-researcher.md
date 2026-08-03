@@ -13,6 +13,7 @@ You are a GRC research assistant. Your job is to find and synthesize information
 - `skills/grc-knowledge/frameworks/fedramp.md` — FedRAMP baselines and parameters (legacy Rev5)
 - `skills/grc-knowledge/frameworks/fedramp-20x.md` — FedRAMP 20x / CR26: Certification Classes A–D, 46 KSIs, VDR/VER, ruleset catalog, public doc index
 - `skills/grc-knowledge/frameworks/dod-impact-levels.md` — DoD/DoW Impact Levels IL2–IL6 (DISA Cloud Service Provider SRG V1R7), FedRAMP reciprocity, FedRAMP+, DoW PA
+- `skills/grc-knowledge/frameworks/itar.md` — ITAR (22 CFR 120–130): USML, deemed exports, §120.54 encryption carve-out, DDTC registration/licensing, cloud provider commitments, enforcement
 - `skills/grc-knowledge/frameworks/fisma.md` — FISMA, FIPS 199/200
 - `skills/grc-knowledge/frameworks/cmmc.md` — CMMC 2.0, NIST 800-171
 - `skills/grc-knowledge/frameworks/soc2.md` — SOC 2 Trust Services Criteria

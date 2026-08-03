@@ -4,7 +4,7 @@ This guide walks through everything the GRC plugin can do, organized by use case
 
 ## How the Plugin Works
 
-Once installed, the plugin gives Claude deep expertise in 17 compliance frameworks, cross-framework mapping, document review, and operational GRC workflows. It works two ways:
+Once installed, the plugin gives Claude deep expertise in 18 compliance frameworks, cross-framework mapping, document review, and operational GRC workflows. It works two ways:
 
 1. **Slash commands** (`/grc:command-name`) — Structured workflows with specific inputs and formatted outputs
 2. **Conversational GRC knowledge** — Ask any GRC question naturally and Claude responds with specific control IDs, baselines, and framework-native terminology
@@ -21,7 +21,7 @@ All 24 slash commands are listed when you type `/grc:` in your session.
 /grc:control-lookup <framework> <control-id-or-keyword>
 ```
 
-**Frameworks supported**: `nist`, `fedramp`, `fisma`, `cmmc`, `soc2`, `iso27001`, `pci`, `hipaa`, `cis`, `cobit`, `csa`, `gdpr`, `dod`/`dow`/`il2`/`il4`/`il5`/`il6`/`srg`, `20x`/`cr26`/`ksi`
+**Frameworks supported**: `nist`, `fedramp`, `fisma`, `cmmc`, `soc2`, `iso27001`, `pci`, `hipaa`, `cis`, `cobit`, `csa`, `gdpr`, `dod`/`dow`/`il2`/`il4`/`il5`/`il6`/`srg`, `20x`/`cr26`/`ksi`, `itar`/`usml`/`ddtc`
 
 **Examples**:
 ```
@@ -392,6 +392,7 @@ GRC artifacts often contain CUI, PII, and system architecture details. The plugi
 | FedRAMP | Rev 5 | Federal |
 | FedRAMP 20x | CR26 (June 2026) | Federal |
 | DoD/DoW Impact Levels | CSP SRG V1R7 (2026) | Federal (DoD/DoW) |
+| ITAR | 22 CFR 120–130 (2026) | Federal (export control) |
 | FISMA | Current | Federal |
 | CMMC | 2.0 | Federal (DoD) |
 | SOC 2 | Current | Commercial |

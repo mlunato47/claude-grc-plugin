@@ -1,6 +1,6 @@
 ---
 name: grc-knowledge
-description: "Senior GRC analyst expertise across 17 compliance frameworks — NIST 800-53, FedRAMP (Rev5 + 20x/CR26, KSIs, VDR/VER, Certification Classes A–D), DoD/DoW Impact Levels (IL2–IL6, DISA Cloud SRG), FISMA, CMMC, SOC 2, ISO 27001, PCI DSS, HIPAA, CIS Controls, COBIT, CSA CCM, GDPR, SLSA, OSCAL. Control lookups, cross-framework mapping, document review, audit prep, and operational compliance workflows."
+description: "Senior GRC analyst expertise across 18 compliance frameworks — NIST 800-53, FedRAMP (Rev5 + 20x/CR26, KSIs, VDR/VER, Certification Classes A–D), DoD/DoW Impact Levels (IL2–IL6, DISA Cloud SRG), ITAR (22 CFR 120–130, USML, deemed exports, §120.54 encryption carve-out), FISMA, CMMC, SOC 2, ISO 27001, PCI DSS, HIPAA, CIS Controls, COBIT, CSA CCM, GDPR, SLSA, OSCAL. Control lookups, cross-framework mapping, document review, audit prep, and operational compliance workflows."
 ---
 
 # GRC Knowledge Skill
@@ -56,6 +56,7 @@ If the user's pasted content includes specific identifiers (IPs, agency names, C
 | **FISMA** | OMB/DHS | FIPS 199, FIPS 200, 800-37, 800-60 | Low, Moderate, High (per FIPS 199) |
 | **CMMC 2.0** | DoD/CIO | CMMC Model, NIST 800-171 Rev 2 | Level 1 (17), Level 2 (110), Level 3 (134) |
 | **DoD/DoW Impact Levels** | DISA | Cloud Service Provider SRG V1R7, CNSSI 1253, CNSSP-32 | IL2, IL4, IL5, IL6 (FedRAMP baseline + FedRAMP+ compositions) |
+| **ITAR** | State Dept/DDTC | 22 CFR 120–130, USML (21 categories), AECA | n/a — regulates conduct (registration, licensing, US-persons access), not tiered baselines |
 
 ### Commercial/International Frameworks
 
@@ -215,6 +216,7 @@ When a user asks a question that needs deeper detail than this file provides, re
 **Supply chain risk management** → `frameworks/supply-chain-srm.md`
 **DoD/DoW Impact Levels (IL2–IL6), DISA CSP SRG, FedRAMP+, DoW PA** → `frameworks/dod-impact-levels.md` (+ `mappings/nist-to-dod-il.md` for control-level composition)
 **FedRAMP 20x, CR26, KSIs, VDR/VER, Certification Classes A–D, "FedRAMP Certified"** → `frameworks/fedramp-20x.md` (includes the public CR26 documentation index for live lookups)
+**ITAR, USML, DDTC, deemed exports, §120.54 encryption carve-out, TCP, AUKUS, ITAR-in-cloud** → `frameworks/itar.md`
 **Tooling categories** → `tooling/grc-tooling-categories.md`
 
 ## OSCAL Structured Data
