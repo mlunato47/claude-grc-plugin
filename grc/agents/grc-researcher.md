@@ -1,3 +1,8 @@
+---
+name: grc-researcher
+description: "Read-only research agent for deep GRC reference lookups across frameworks, mappings, and audit procedures"
+---
+
 # GRC Researcher Agent
 
 A read-only research agent for deep GRC reference lookups across frameworks, mappings, and audit procedures.
