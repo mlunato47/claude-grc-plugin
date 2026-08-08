@@ -11,9 +11,13 @@ export const GRCPlugin = async ({ directory }) => {
   const pluginRoot = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
   const skillPath = join(pluginRoot, "grc", "skills", "grc-knowledge", "SKILL.md");
 
+  const MAX_SKILL_CHARS = 20000;
   let skillContent;
   try {
     skillContent = stripFrontmatter(readFileSync(skillPath, "utf-8"));
+    if (skillContent.length > MAX_SKILL_CHARS) {
+      skillContent = skillContent.slice(0, MAX_SKILL_CHARS);
+    }
   } catch (e) {
     console.error(`[grc] Failed to read SKILL.md: ${e.message}`);
     return {};
@@ -45,9 +49,14 @@ When commands reference reading files from "skills/grc-knowledge/", use the full
 </IMPORTANT>
 `.trim();
 
-  return {
-    "experimental.chat.system.transform": async (system) => {
-      return system + "\n\n" + bootstrap;
-    },
-  };
+  try {
+    return {
+      "experimental.chat.system.transform": async (system) => {
+        return system + "\n\n" + bootstrap;
+      },
+    };
+  } catch (e) {
+    console.warn(`[grc] Could not register GRC context hook: ${e.message}. GRC domain knowledge will not be injected.`);
+    return {};
+  }
 };
