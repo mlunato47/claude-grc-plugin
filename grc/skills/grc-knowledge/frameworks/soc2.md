@@ -144,23 +144,24 @@ The CC-series criteria are mandatory in every SOC 2 engagement. They are organiz
 
 | Criteria | Description |
 |----------|-------------|
-| P1.1 | The entity provides notice to data subjects about its privacy practices to meet the entity's objectives related to privacy. |
-| P1.2 | The entity communicates choices available regarding the collection, use, retention, disclosure, and disposal of personal information to data subjects and obtains implicit or explicit consent. |
-| P2.1 | The entity collects personal information consistent with the entity's objectives related to privacy. |
-| P3.1 | The entity collects personal information only for the purposes identified in the notice. |
-| P3.2 | The entity's use of personal information is limited to activities consistent with the entity's objectives related to privacy. |
-| P4.1 | The entity discloses personal information to third parties with the explicit consent of data subjects, and such disclosure is consistent with the entity's objectives related to privacy. |
-| P4.2 | The entity's disclosures of personal information are limited to third parties who have agreements with the entity to protect personal information consistent with the entity's objectives. |
-| P4.3 | The entity obtains privacy commitments from vendors and other third parties who have access to personal information to meet the entity's objectives related to privacy. |
-| P5.1 | The entity grants identified and authenticated data subjects the ability to access their stored personal information for review and, upon request, provides such information to data subjects to meet the entity's objectives related to privacy. |
-| P5.2 | The entity corrects, amends, or appends personal information based on information provided by data subjects and communicates such corrections, amendments, or appendments to third parties to meet the entity's objectives related to privacy. |
-| P6.1 | The entity discloses personal information to third parties who are authorized and have agreed to the entity's privacy policies, only for the purposes identified in the notice. |
-| P6.2 | The entity creates, receives, and retains records of detected or reported unauthorized disclosures of personal information to meet the entity's objectives related to privacy. |
-| P6.3 | The entity obtains commitments from vendors and other third parties who handle personal information, that they will notify the entity of actual or suspected unauthorized disclosures of personal information. |
-| P6.4 | The entity obtains commitments from vendors and other third parties who handle personal information, that they will notify affected data subjects and relevant authorities of confirmed unauthorized disclosures. |
-| P6.5 | The entity provides a mechanism for data subjects to file complaints or inquiries regarding their personal information and responds to such complaints or inquiries in a timely manner. |
+| P1.1 | The entity provides notice to data subjects about its privacy practices to meet the entity's objectives related to privacy. The notice is updated and communicated to data subjects in a timely manner for changes to the entity's privacy practices, including changes in the use of personal information, to meet the entity's objectives related to privacy. |
+| P2.1 | The entity communicates choices available regarding the collection, use, retention, disclosure, and disposal of personal information to the data subjects and the consequences, if any, of each choice. |
+| P3.1 | Personal information is collected consistent with the entity's objectives related to privacy. |
+| P3.2 | For information requiring explicit consent, the entity communicates the need for such consent as well as the consequences of a failure to provide consent for the request for personal information and obtains the consent prior to the collection of the information to meet the entity's objectives related to privacy. |
+| P4.1 | The entity limits the use of personal information to the purposes identified in the entity's objectives related to privacy. |
+| P4.2 | The entity retains personal information consistent with the entity's objectives related to privacy. |
+| P4.3 | The entity securely disposes of personal information to meet the entity's objectives related to privacy. |
+| P5.1 | The entity grants identified and authenticated data subjects the ability to access their stored personal information for review and, upon request, provides physical or electronic copies of that information to data subjects to meet the entity's objectives related to privacy. |
+| P5.2 | The entity corrects, amends, or appends personal information based on information provided by data subjects and communicates such information to third parties, as committed or required, to meet the entity's objectives related to privacy. |
+| P6.1 | The entity discloses personal information to third parties with the explicit consent of data subjects and such consent is obtained prior to disclosure to meet the entity's objectives related to privacy. |
+| P6.2 | The entity creates and retains a complete, accurate, and timely record of authorized disclosures of personal information to meet the entity's objectives related to privacy. |
+| P6.3 | The entity creates and retains a complete, accurate, and timely record of detected or reported unauthorized disclosures (including breaches) of personal information to meet the entity's objectives related to privacy. |
+| P6.4 | The entity obtains privacy commitments from vendors and other third parties who have access to personal information to meet the entity's objectives related to privacy. The entity assesses those parties' compliance on a periodic and as-needed basis and takes corrective action, if necessary. |
+| P6.5 | The entity obtains commitments from vendors and other third parties with access to personal information to notify the entity in the event of actual or suspected unauthorized disclosures of personal information. Such notifications are reported to appropriate personnel and acted on in accordance with established incident-response procedures to meet the entity's objectives related to privacy. |
+| P6.6 | The entity provides notification of breaches and incidents to affected data subjects, regulators, and others to meet the entity's objectives related to privacy. |
+| P6.7 | The entity provides data subjects with an accounting of the personal information held and disclosure of the data subjects' personal information, upon the data subjects' request, to meet the entity's objectives related to privacy. |
 | P7.1 | The entity collects and maintains accurate, up-to-date, complete, and relevant personal information to meet the entity's objectives related to privacy. |
-| P8.1 | The entity retains personal information consistent with the entity's objectives related to privacy. |
+| P8.1 | The entity implements a process for receiving, addressing, resolving, and communicating the resolution of inquiries, complaints, and disputes from data subjects and others and periodically monitors compliance with the entity's objectives related to privacy. |
 
 ---
 
