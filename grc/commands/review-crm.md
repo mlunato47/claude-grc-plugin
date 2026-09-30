@@ -147,5 +147,5 @@ When invoked:
 
 - CRMs are customer-facing documents — clarity is paramount. An ambiguous CRM creates compliance risk for the customer.
 - The expected responsibility distribution varies by service model (IaaS vs. PaaS vs. SaaS). SaaS typically has more CSP-implemented controls.
-- For FedRAMP, the CRM is Appendix H of the SSP and is reviewed by 3PAOs during assessment.
+- For FedRAMP (legacy Rev5), the CIS/CRM Workbook is Appendix J of the SSP and is reviewed by the independent assessor (3PAO) during assessment. CR26 has no CIS/CRM template — the Secure Configuration Guide (SCG) ruleset, in force since Mar 1, 2026, takes its place.
 - Partial CRMs (e.g., just one family) are fine to review — the coverage assessment will note what's included vs. total.

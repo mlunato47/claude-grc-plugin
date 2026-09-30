@@ -64,7 +64,7 @@ You are a GRC research assistant. Your job is to find and synthesize information
 - `skills/grc-knowledge/conmon/compliance-calendar.md` — Consolidated recurring activities by framework and frequency
 
 ### Framework Additional References
-- `skills/grc-knowledge/frameworks/oscal-reference.md` — OSCAL models, SSP structure, FedRAMP OSCAL requirements
+- `skills/grc-knowledge/frameworks/oscal-reference.md` — OSCAL models, SSP structure, FedRAMP OSCAL status (optional under CR26; FedRAMP JSON schemas are the required format)
 - `skills/grc-knowledge/frameworks/nist-rev4-to-rev5.md` — Rev 4 → Rev 5 control mapping, withdrawn controls, new families
 - `skills/grc-knowledge/frameworks/supply-chain-srm.md` — SR family deep dive, SBOM, supplier assessment framework
 - `skills/grc-knowledge/frameworks/slsa.md` — SLSA v1.2 (software supply chain levels)

@@ -157,7 +157,7 @@ For reference when reading the CIS Controls column in the matrix above:
 
 **Privacy-specific gaps.** The PT (PII Processing and Transparency) family, added in NIST 800-53 Rev 5, has limited coverage in older or security-focused frameworks. CIS Controls do not address privacy directly. GDPR covers privacy extensively but from a legal obligations perspective rather than as technical controls.
 
-**Framework version sensitivity.** This matrix is current as of NIST 800-53 Rev 5, SOC 2 (2017 criteria), ISO 27001:2022, PCI DSS v4.0.1, HIPAA (as amended through the HITECH Act), CIS Controls v8.1, CMMC 2.0, CSA CCM v4, COBIT 2019, and GDPR (Regulation EU 2016/679). Framework updates will alter these mappings.
+**Framework version sensitivity.** This matrix is current as of NIST 800-53 Rev 5 (Release 5.2.0, August 27, 2025 — the latest release), SOC 2 (2017 criteria), ISO 27001:2022, PCI DSS v4.0.1, HIPAA (as amended through the HITECH Act), CIS Controls v8.1, CMMC 2.0, CSA CCM v4, COBIT 2019, and GDPR (Regulation EU 2016/679). Framework updates will alter these mappings.
 
 **Inherited and shared responsibilities.** In cloud environments, a single NIST control may be partially addressed by the CSP and partially by the customer. The matrix does not distinguish responsibility splits. Consult the CSP's Customer Responsibility Matrix (CRM) for inherited vs. customer-implemented controls.
 

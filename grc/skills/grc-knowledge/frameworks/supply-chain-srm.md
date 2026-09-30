@@ -225,7 +225,9 @@ An SBOM lists all components in a software product — direct dependencies, tran
 | CycloneDX | OWASP | Security-focused, lightweight |
 | SWID | ISO/IEC | Software identification tags |
 
-**SBOM requirements**:
+**Federal status (as of September 30, 2026)**: There is no government-wide SBOM or secure-software attestation mandate. EO 14028 originally required SBOMs and SSDF attestations for software sold to the federal government; EO 14306 (June 6, 2025) removed the attestation/CISA-validation provisions, and OMB M-26-05 (January 23, 2026) rescinded M-22-18 and M-23-16, so the common Secure Software Development Attestation Form is no longer required. Agencies may still require SBOMs or attestations on a risk basis. The CISA "2026 Minimum Elements for a SBOM" v2.1 (final July 29, 2026) updates and replaces the 2021 NTIA Minimum Elements. NIST SP 800-218 (SSDF v1.1) remains the current final SSDF; SP 800-218r1 (v1.2) is still an initial public draft. FedRAMP CR26 KSIs (KSI-SCR) contain no SBOM text.
+
+**SBOM requirements** (organizational practice):
 - Generate SBOM for every production release
 - Include direct and transitive dependencies
 - Include version numbers and package sources

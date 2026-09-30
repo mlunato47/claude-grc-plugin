@@ -19,7 +19,7 @@ This reference describes the major categories of tools used across GRC programs.
 | Policy Management | Author, review, approve, and distribute policies | PL-1, AT-2, Req 12 |
 | Backup and Recovery | Schedule, verify, and restore backups | CP-9, CP-10 |
 | Penetration Testing | Simulate adversarial attacks against systems | CA-8, Req 11.4 |
-| OSCAL Tooling | Machine-readable security documentation | FedRAMP OSCAL requirements |
+| OSCAL Tooling | Machine-readable security documentation | FedRAMP machine-readable submissions (JSON schemas required; OSCAL optional) |
 
 ## GRC Platform / Compliance Management
 
@@ -53,7 +53,7 @@ This reference describes the major categories of tools used across GRC programs.
 
 **Key outputs**: CVE identifiers, CVSS scores (Base, Temporal, Environmental), remediation guidance, exploitability indicators, affected asset lists, trending reports.
 
-**Compliance use**: RA-5, SI-2, PCI DSS Req 11.3, FedRAMP monthly scanning requirements.
+**Compliance use**: RA-5, SI-2, PCI DSS Req 11.3, FedRAMP scanning requirements (legacy Rev5: monthly; CR26 VDR: Rev5 at least monthly, Class C 14 days drift-prone / monthly stable, Class D 7 days / monthly).
 
 ## Configuration Compliance / SCAP
 
@@ -94,7 +94,7 @@ This reference describes the major categories of tools used across GRC programs.
 | Access Governance | Periodic access reviews, role mining, separation of duties |
 | Identity Lifecycle Management | Automated provisioning and de-provisioning tied to HR events |
 
-**Compliance use**: AC-2, AC-6, IA-2, IA-5, PCI DSS Req 7, Req 8. Quarterly access reviews satisfy AC-2(j) and SOC 2 CC6.1.
+**Compliance use**: AC-2, AC-6, IA-2, IA-5, PCI DSS Req 7, Req 8. Quarterly access reviews satisfy AC-2(j) (Legacy FedRAMP Rev5 value, in force until CR26 becomes mandatory Jan 1, 2027: quarterly privileged / annual non-privileged at Moderate, monthly / every 6 months at High; CR26: no FedRAMP-assigned value) and SOC 2 CC6.1.
 
 ## Endpoint Protection / EDR
 
@@ -150,7 +150,7 @@ This reference describes the major categories of tools used across GRC programs.
 
 **Key outputs**: Findings report with exploitation evidence, risk ratings, remediation recommendations, retest validation.
 
-**Compliance use**: CA-8, PCI DSS Req 11.4, Req 6.4. FedRAMP requires annual penetration testing.
+**Compliance use**: CA-8, PCI DSS Req 11.4, Req 6.4. FedRAMP requires annual penetration testing (legacy Rev5, Pen Test Guidance v3.0; CA-8 is in all baselines; under CR26 penetration testing is part of vulnerability detection and subject to VDR).
 
 ## OSCAL Tooling
 
@@ -158,7 +158,7 @@ This reference describes the major categories of tools used across GRC programs.
 
 **Key capabilities**: Author OSCAL documents (SSP, SAP, SAR, POA&M, Component Definition, Catalog, Profile) in JSON, XML, or YAML; schema validation; format conversion; automated SSP assembly from component definitions; control implementation mapping; version diff and change tracking.
 
-**FedRAMP OSCAL requirements**: FedRAMP requires machine-readable OSCAL SSPs for new authorizations, enabling automated validation and submission through review pipelines.
+**FedRAMP OSCAL status**: OSCAL is optional for FedRAMP — the mandate was dropped (NTC-0009). Under CR26 (FRC-CSO-JSN) providers submit machine-readable data as JSON valid against FedRAMP's own schemas (github.com/FedRAMP/schemas): Classes A–C semi-structured text, Class D comprehensive machine-readable. Agency tooling must ingest both OSCAL and JSON (AGU ruleset). The legacy github.com/GSA/fedramp-automation repository no longer exists; pre-CR26 material is at github.com/FedRAMP/docs-legacy.
 
 **Compliance use**: Enables data-centric compliance, automated control inheritance tracking, continuous authorization workflows, and interoperability between GRC platforms and federal assessment processes.
 
@@ -177,7 +177,7 @@ This reference describes the major categories of tools used across GRC programs.
 | Policy Mgmt | PL-1, AT-2 | Req 12 | PL-1 | Policies (164.316) | CC1.1 |
 | Backup / Recovery | CP-9, CP-10 | -- | CP-9, CP-10 | Contingency (164.308(a)(7)) | A1.2 |
 | Penetration Testing | CA-8 | Req 11.4 | CA-8 | Risk analysis support | CC4.1 |
-| OSCAL Tooling | N/A | N/A | OSCAL mandate | N/A | N/A |
+| OSCAL Tooling | N/A | N/A | Optional (FedRAMP JSON schemas required) | N/A | N/A |
 
 ## References
 

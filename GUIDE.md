@@ -67,7 +67,7 @@ These commands review GRC documents for structural completeness and quality. The
 Paste your control narrative after invoking the command. You get:
 - **Five W's assessment** — What, Who, How, When, Where coverage
 - **Maturity score** (0-5) with detailed rationale
-- **ODP completeness** — Are all FedRAMP parameter values filled in?
+- **ODP completeness** — Are all FedRAMP parameter values filled in? (Values are reported as legacy FedRAMP Rev5 values, in force until CR26 becomes mandatory Jan 1, 2027, with the CR26 status noted)
 - **Enhancement coverage** — Are required enhancements at your baseline addressed?
 - **Specific recommendations** with suggested replacement phrasing
 
@@ -87,7 +87,7 @@ Then paste your AC-2 narrative.
 
 Paste your SSP table of contents or section headers. The review checks for:
 - Missing required sections
-- Missing appendices (A through L for FedRAMP)
+- Missing appendices (A through Q for the legacy FedRAMP Rev5 SSP template — e.g., J = CIS/CRM Workbook, K = FIPS 199, M = Integrated Inventory Workbook, O = POA&M, P = SCRMP, Q = Cryptographic Modules Table; under CR26 the SSP is replaced by the FedRAMP Certification Package / Security Decision Record)
 - Missing diagram requirements (boundary, network, data flow)
 
 ### Review POA&M Entries
@@ -145,11 +145,11 @@ Two modes:
 ```
 
 Describe a planned system change and get:
-- **Classification**: Significant or not significant (per FedRAMP criteria)
+- **Classification**: Significant or not significant (per legacy FedRAMP SCR criteria; under CR26 the Significant Change Notification (SCN) ruleset classifies changes as routine recurring, adaptive, or transformative — notification, not pre-approval)
 - Affected control families
 - Before/after action checklists
 - SSP sections and diagrams that need updating
-- 3PAO assessment likelihood
+- 3PAO (CR26: FedRAMP Recognized independent assessor) assessment likelihood
 
 **Examples**:
 ```
@@ -285,7 +285,7 @@ Generate a structured assessment worksheet organized by control families or crit
 /grc:ssp-section <framework> <control-family>
 ```
 
-Draft SSP narrative language for an entire control family at the specified baseline. Output follows the standard What/Who/How/When/Where structure with FedRAMP parameter values.
+Draft SSP narrative language for an entire control family at the specified baseline. Output follows the standard What/Who/How/When/Where structure with FedRAMP parameter values (labeled as legacy FedRAMP Rev5 values, in force until CR26 becomes mandatory Jan 1, 2027, plus the CR26 status).
 
 **Example**:
 ```
@@ -312,7 +312,7 @@ Generate deviation/risk acceptance documentation with finding details, justifica
 /grc:poam-help <create|template|metrics>
 ```
 
-- **create**: Walk through required fields, severity determination, deadline calculation
+- **create**: Walk through required fields, severity determination (High/Moderate/Low — "Critical" is not a FedRAMP category), deadline calculation (legacy Rev5: 30/90/180 days; CR26 VDR/VER: PAIN x reachability, Accepted Vulnerability at 192 days)
 - **template**: Full POA&M entry template with all required fields
 - **metrics**: Key metrics (total open, overdue, average age, closure rate)
 
@@ -349,7 +349,7 @@ Get detailed guidance on continuous monitoring activities, deliverables, and fre
 /grc:oscal-guide <overview|ssp|readiness>
 ```
 
-- **overview**: OSCAL models, layers, current version, FedRAMP status
+- **overview**: OSCAL models, layers, current version, FedRAMP status (OSCAL is optional under CR26; FedRAMP JSON schemas are the required machine-readable format)
 - **ssp**: OSCAL SSP structure with key components
 - **readiness**: Readiness checklist and common conversion challenges
 
@@ -389,8 +389,8 @@ GRC artifacts often contain CUI, PII, and system architecture details. The plugi
 | Framework | Version | Type |
 |-----------|---------|------|
 | NIST 800-53 | Rev 5 | Federal (anchor framework) |
-| FedRAMP | Rev 5 | Federal |
-| FedRAMP 20x | CR26 (June 2026) | Federal |
+| FedRAMP | Rev 5 (legacy; valid through at least Dec 31, 2028) | Federal |
+| FedRAMP 20x | CR26 (June 2026; dataset 2026.09.13.02) | Federal |
 | DoD/DoW Impact Levels | CSP SRG V1R7 (2026) | Federal (DoD/DoW) |
 | ITAR | 22 CFR 120–130 (2026) | Federal (export control) |
 | FISMA | Current | Federal |

@@ -47,7 +47,7 @@ When invoked:
 ### For `create`:
 - Walk through each required field
 - Help determine severity based on finding source
-- Calculate remediation deadline based on severity (FedRAMP timelines)
+- Calculate remediation deadline based on severity (legacy FedRAMP Rev5 timelines: High 30 / Moderate 90 / Low 180 days from discovery — no "Critical" category; note the CR26 VDR/VER model and 192-day Accepted Vulnerability rule)
 - Suggest appropriate milestones
 - Show example entry
 

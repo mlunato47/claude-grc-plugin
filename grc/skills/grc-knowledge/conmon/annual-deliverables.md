@@ -1,6 +1,6 @@
 # Annual Continuous Monitoring Deliverables
 
-> **CR26 note (June 2026):** FedRAMP-specific annual-assessment framing below is the legacy Rev5 model. Under FedRAMP 20x, independent assessment expectations live in the IVV ruleset with continuous automated validation between assessments — see `frameworks/fedramp-20x.md`.
+> **CR26 note (updated Sept 30, 2026):** FedRAMP-specific annual-assessment framing below is the legacy Rev5 model. Under CR26, independent assessment expectations live in the IVV ruleset (required Jan 1, 2027): a fixed core set of ~80 Rev5 controls is assessed every year (IVV-CSF-AIA), every control at least every 3 years as a ceiling (IVV-CSF-MCA), all controls SHOULD be assessed annually (IVV-CSF-PCA), controls with negative findings are reassessed, and for 20x Class B/C/D all KSIs are assessed annually (IVV-CSX-AIA). CR26 also retires the term "3PAO" in favor of "FedRAMP Recognized independent assessor" (REC ruleset) — "3PAO" below is the legacy term. See `frameworks/fedramp-20x.md`.
 
 ## Overview
 
@@ -12,7 +12,7 @@ Annual deliverables complement monthly ConMon activities by providing deeper ass
 
 ### Purpose
 
-Each year, a subset of security controls is assessed to ensure they remain effective. Over a three-year authorization cycle, all controls should be assessed at least once, meaning approximately one-third of controls are assessed annually.
+Each year, a subset of security controls is assessed to ensure they remain effective. Under the legacy Rev5 model, over a three-year authorization cycle all controls should be assessed at least once, meaning approximately one-third of controls are assessed annually. **CR26 (IVV):** the three-year rotation is a ceiling, not a floor — a fixed core set of ~80 Rev5 controls is assessed every year (IVV-CSF-AIA), all controls at least every 3 years (IVV-CSF-MCA), and FedRAMP's preferred approach is all controls every year (IVV-CSF-PCA).
 
 ### Control Selection Methodology
 
@@ -26,7 +26,7 @@ Controls are selected for annual assessment based on:
 | **AO-directed** | The Authorizing Official may request assessment of specific controls based on threat intelligence or organizational concerns |
 | **Incident-driven** | Controls related to a recent security incident may be selected for reassessment |
 
-FedRAMP provides a core set of controls that must be assessed annually regardless of rotation. These typically include access control, audit, configuration management, incident response, and vulnerability management families.
+FedRAMP provides a core set of controls that must be assessed annually regardless of rotation (under CR26, the fixed IVV-CSF-AIA list of ~80 controls). These typically include access control, audit, configuration management, incident response, and vulnerability management families.
 
 ### Assessment Scope and Sampling
 
@@ -113,7 +113,7 @@ Training must cover:
 
 | Attribute | Requirement |
 |-----------|------------|
-| **Frequency** | Annually for FedRAMP Moderate and High; not required for FedRAMP Low (CA-8 is not in the Low baseline) |
+| **Frequency** | Annually (legacy Rev5; FedRAMP Penetration Test Guidance v3.0, June 30, 2022, is the last final version — v4.0 was only a March 2024 draft). CA-8 is in all FedRAMP baselines. CR26 CA-8 guidance: penetration testing is part of vulnerability detection and is subject to the VDR rules |
 | **Governing control** | CA-8 (Penetration Testing) |
 | **Scope** | External, internal, and (for High) social engineering |
 | **Deliverable** | Penetration Test Report, Remediation Plan |
@@ -142,7 +142,7 @@ The penetration test must be governed by a formal Rules of Engagement (ROE) docu
 ### Remediation of Findings
 
 - All penetration test findings must be added to the POA&M with appropriate severity ratings
-- Critical and high findings follow standard FedRAMP remediation timelines (30 days for both Critical and High)
+- High findings (including scanner-"Critical" — FedRAMP has no Critical category) follow the legacy FedRAMP Rev5 RA-5(d) timeline of 30 days from discovery (Moderate 90, Low 180); under CR26 the VDR/VER PAIN-and-reachability timeframes apply (12 hours to 192 days; Accepted Vulnerability at 192 days)
 - Re-testing of remediated findings is recommended to verify effectiveness
 - The penetration test report and remediation status must be submitted to the AO
 
@@ -189,7 +189,7 @@ The review must validate:
 
 | Attribute | Requirement |
 |-----------|------------|
-| **Frequency** | Annually |
+| **Frequency** | Annually (Legacy FedRAMP Rev5 value, in force until CR26 becomes mandatory Jan 1, 2027: policies reviewed every 3 years at Moderate / annually at High; procedures annually at both. CR26: no FedRAMP-assigned value) |
 | **Governing controls** | All "-1" controls (e.g., AC-1, AU-1, CM-1) — Policy and Procedures |
 | **Scope** | All security and privacy policies and procedures within the SSP |
 | **Deliverable** | Updated policies with revision history, or review memo confirming no changes |
@@ -256,12 +256,12 @@ At the end of each annual cycle, the SAR and POA&M must be fully reconciled:
 
 | Deliverable | Typical Due Date | Responsible Party |
 |------------|-----------------|-------------------|
-| Annual security assessment (1/3 controls) | Per assessment schedule (often Q4 or anniversary of ATO) | SCA / 3PAO |
+| Annual security assessment (legacy 1/3 rotation; CR26 IVV: core set annually, all controls within 3 years) | Per assessment schedule (often Q4 or anniversary of ATO) | SCA / 3PAO (CR26: FedRAMP Recognized independent assessor) |
 | Updated SAR | Within 30 days of assessment completion | SCA / 3PAO |
 | Contingency plan test | Annually (coordinate with system owner) | ISSO / System Owner |
 | Incident response plan test | Annually | ISSO / IR Team |
 | Security training completion | By anniversary date or fiscal year end | ISSO / Training Coordinator |
-| Penetration test | Annually for Moderate/High | 3PAO or authorized pen test team |
+| Penetration test | Annually (legacy Rev5; CA-8 is in all baselines; CR26: subject to VDR) | 3PAO (independent assessor) or authorized pen test team |
 | Privacy impact assessment review | Annually or upon PII-related changes | Privacy Officer / ISSO |
 | Access review and recertification | At least annually | ISSO / System Owner |
 | Policy and procedure reviews | Annually | ISSO / System Owner |
@@ -276,6 +276,6 @@ At the end of each annual cycle, the SAR and POA&M must be fully reconciled:
 - NIST SP 800-53 Rev. 5: CA-2, CA-5, CA-8, CP-4, IR-3, AT-2, AT-3, AC-2, CM-2, CM-6, SR-2
 - NIST SP 800-53A Rev. 5: Assessing Security and Privacy Controls
 - NIST SP 800-137: Information Security Continuous Monitoring
-- FedRAMP Annual Assessment Guidance
-- FedRAMP Penetration Test Guidance
+- FedRAMP Annual Assessment Guidance (legacy Rev5; CR26: IVV ruleset)
+- FedRAMP Penetration Test Guidance v3.0 (June 30, 2022 — last final version; v4.0 March 2024 draft only)
 - OMB Circular A-130

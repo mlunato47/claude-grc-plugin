@@ -118,7 +118,7 @@ When invoked:
 
 ## Notes
 
-- FedRAMP deviation requests have specific submission requirements through the PMO.
+- FedRAMP deviation requests have specific submission requirements through FedRAMP (legacy Rev5 process). Under CR26 VDR/VER there is no deviation-request path: items not remediated within 192 days become Accepted Vulnerabilities with written justification, listed in each quarterly Ongoing Certification Report.
 - False positive deviation requests require technical evidence (not just an assertion).
 - Operational requirement deviations should be rare and well-justified — auditors scrutinize these heavily.
 - All deviations should have an expiration date and be reviewed at least annually.

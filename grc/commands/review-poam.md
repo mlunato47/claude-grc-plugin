@@ -60,7 +60,7 @@ When invoked:
 
    **d. SLA Compliance**
    - Calculate days between detection date and scheduled completion
-   - Compare to severity-based SLA (Critical: 30, High: 30, Moderate: 90, Low: 180)
+   - Compare to severity-based SLA — Legacy FedRAMP Rev5 value (in force until CR26 becomes mandatory Jan 1, 2027): RA-5(d) High 30 / Moderate 90 / Low 180 days from discovery; "Critical" is not a FedRAMP category (treat scanner-Critical as High). Under CR26 VDR/VER (Rev5 required Dec 7, 2026), deadlines derive from PAIN and reachability (12 hours to 192 days) and anything unremediated at 192 days becomes an Accepted Vulnerability
    - Flag overdue items or items exceeding SLA without deviation request
 
    **e. Status Consistency**

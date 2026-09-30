@@ -40,11 +40,11 @@ Automated tooling forms the backbone of an effective Continuous Monitoring (ConM
 
 | Purpose | Example Tools | Evidence Produced |
 |---------|---------------|-------------------|
-| Aggregate, correlate, and analyze security event logs from all in-scope systems | Splunk, Microsoft Sentinel, Elastic SIEM, IBM QRadar, Chronicle | Alert reports, correlation rule triggers, log retention evidence, incident timelines, audit trail reports |
+| Aggregate, correlate, and analyze security event logs from all in-scope systems | Splunk, Microsoft Sentinel (formerly Azure Sentinel), Elastic SIEM, IBM QRadar, Google Security Operations (formerly Chronicle) | Alert reports, correlation rule triggers, log retention evidence, incident timelines, audit trail reports |
 
 **Key requirements:**
 - Must collect logs from all in-scope assets (servers, network devices, endpoints, applications, databases)
-- Log retention must meet organizational and regulatory requirements (typically 90 days hot, 1 year total for FedRAMP)
+- Log retention must meet organizational and regulatory requirements (Legacy FedRAMP Rev5 AU-11 value, in force until CR26 becomes mandatory Jan 1, 2027: at least 90 days online, with longer retention per OMB M-21-31 and NARA schedules — not a flat "1 year"; CR26: no FedRAMP-assigned value)
 - Correlation rules must be tuned to detect relevant security events while minimizing false positives
 - Must support AU-2, AU-6, SI-4 controls
 
@@ -89,7 +89,7 @@ Automated tooling forms the backbone of an effective Continuous Monitoring (ConM
 
 **Key requirements:**
 - Must track patch status across all in-scope assets
-- Critical patches must be applied within defined SLAs (typically 30 days for critical, 90 days for high)
+- Patches must be applied within defined SLAs (Legacy FedRAMP Rev5 values, in force until CR26 becomes mandatory Jan 1, 2027: SI-2(c) flat 30 days from release for security-relevant updates; RA-5(d) High 30 / Moderate 90 / Low 180 days from discovery — FedRAMP has no "Critical" category. CR26: VDR timeframes by PAIN and reachability, 12 hours to 192 days; KEVs per CISA due dates)
 - Supports SI-2 (Flaw Remediation) control
 
 ### GRC Platforms
@@ -101,7 +101,7 @@ Automated tooling forms the backbone of an effective Continuous Monitoring (ConM
 **Key requirements:**
 - Must serve as the system of record for authorization packages
 - Must integrate with scanning and monitoring tools to ingest findings automatically
-- Must produce FedRAMP-required deliverable formats
+- Must produce FedRAMP-required deliverable formats (legacy Rev5 templates; under CR26, JSON valid against FedRAMP's schemas at github.com/FedRAMP/schemas — OSCAL is optional)
 
 ### SOAR (Security Orchestration, Automation, and Response)
 
@@ -135,7 +135,7 @@ SCAP-validated tools can ingest SCAP content (such as DISA STIGs or CIS benchmar
 
 ## FedRAMP Scanner Requirements
 
-FedRAMP imposes specific requirements on scanning activities:
+**Legacy FedRAMP Rev5 requirements (in force until the Rev5 VDR rules take hold: required Dec 7, 2026, grace to Mar 7, 2027).** FedRAMP imposes specific requirements on scanning activities:
 
 - **Authenticated scans** — All vulnerability scans must use credentialed (authenticated) scanning to produce accurate results. Unauthenticated scans are not accepted as primary evidence.
 - **Monthly infrastructure scans** — OS-level vulnerability scans must be performed at least monthly on all in-scope assets.
@@ -145,6 +145,8 @@ FedRAMP imposes specific requirements on scanning activities:
 - **Full port range** — Scans must cover all 65,535 TCP ports and relevant UDP ports.
 - **100% asset coverage** — All assets in the authorization boundary must be scanned. Any gaps must be documented with justification.
 - **Unique vulnerability tracking** — CSPs must track and report unique vulnerability counts with month-over-month trending.
+
+**CR26 VDR detection cadences:** Rev5 providers MUST verify machine-based resources at least monthly; Class C SHOULD check drift-prone resources every 14 days, stable resources monthly, and sample every 3 days; Class D 7 days / monthly / daily; non-machine resources every 3 months. Reporting is monthly and human-readable (VER-TFR-MHR).
 
 ---
 
@@ -174,6 +176,6 @@ Effective ConMon programs integrate tool outputs into a unified workflow:
 - NIST SP 800-137: Information Security Continuous Monitoring
 - NIST SP 800-126 Rev. 3: The Technical Specification for SCAP
 - NIST SP 800-53 Rev. 5: CA-7, RA-5, CM-6, SI-2, SI-4, AU-2, AU-6
-- FedRAMP Continuous Monitoring Strategy Guide
-- FedRAMP Vulnerability Scanning Requirements
+- FedRAMP Continuous Monitoring Strategy Guide (legacy; consolidated into the ConMon Playbook v1.0, Nov 2025)
+- FedRAMP Vulnerability Scanning Requirements (legacy Rev5; superseded under CR26 by the VDR/VER rulesets)
 - CIS Benchmarks: https://www.cisecurity.org/cis-benchmarks

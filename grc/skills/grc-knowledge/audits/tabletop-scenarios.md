@@ -1,6 +1,6 @@
 # Tabletop Exercise Scenario Templates
 
-Templates for generating incident response (IR) and contingency plan (CP) tabletop exercises. FedRAMP requires annual testing of both the IRP (IR-3) and contingency plan (CP-4).
+Templates for generating incident response (IR) and contingency plan (CP) tabletop exercises. FedRAMP requires periodic testing of both the IRP (IR-3) and contingency plan (CP-4). IR-3 Legacy FedRAMP Rev5 value (in force until CR26 becomes mandatory Jan 1, 2027): functional exercises annually at Moderate; every 6 months, including functional exercises annually, at High. CR26: no FedRAMP-assigned value.
 
 ## Exercise Types
 
@@ -10,13 +10,13 @@ Templates for generating incident response (IR) and contingency plan (CP) tablet
 | **Functional** | Hands-on simulation with actual system interaction | 2-8 hours | Technical staff, IR team |
 | **Full-Scale** | End-to-end simulation including external parties | 4-16 hours | All stakeholders |
 
-FedRAMP typically requires at minimum a tabletop exercise annually. Functional or full-scale exercises are recommended but not strictly required.
+A tabletop alone does not satisfy the legacy FedRAMP Rev5 IR-3 value, which calls for functional exercises (annually at Moderate; every 6 months at High, including functional annually). Tabletops remain valuable as a complement and as the discussion-based component of a functional exercise. Scenario "Category" labels below use the legacy US-CERT CAT taxonomy, retired in 2017; under CR26 IEC, estimate the Potential Agency Impact N-rating (PAIN, N1-N5; default PAIN-5 if not estimated) instead, which sets the reporting timeframe.
 
 ## Incident Response Scenarios
 
 ### Scenario IR-1: Unauthorized Access — Compromised Credentials
 
-**Category**: CAT 1 — Unauthorized Access
+**Category**: Unauthorized Access (legacy US-CERT CAT 1, retired 2017)
 **Severity**: High
 **Controls Exercised**: IR-4, IR-5, IR-6, AC-2, AU-6, IA-5
 
@@ -34,13 +34,13 @@ FedRAMP typically requires at minimum a tabletop exercise annually. Functional o
 - What is your immediate containment action?
 - Who do you notify first — internally and externally?
 - How do you determine the scope of data accessed?
-- What are your CISA reporting obligations and timeline?
+- What are your reporting obligations and timeline? (Legacy Rev5: one hour to CISA, FedRAMP, and affected agencies. CR26 IEC: what PAIN rating do you assign, and what initial-report deadline does that set for your Certification Class — e.g., Class C PAIN-3/4/5 in 1 hour, Class D in 15 minutes — reporting to FedRAMP and agency customers, with agencies reporting to CISA?)
 - How do you handle the credential rotation for a privileged service account without causing an outage?
 - What evidence do you preserve and how?
 
 ### Scenario IR-2: Ransomware / Malware
 
-**Category**: CAT 3 — Malicious Code
+**Category**: Malicious Code (legacy US-CERT CAT 3, retired 2017)
 **Severity**: Critical
 **Controls Exercised**: IR-4, IR-5, IR-6, SI-3, CP-2, CP-9, CP-10
 
@@ -60,13 +60,13 @@ FedRAMP typically requires at minimum a tabletop exercise annually. Functional o
 - What is your recovery strategy — rebuild from backup or attempt decryption?
 - How do you verify backups are clean before restoring?
 - What is your communication plan for affected users/customers?
-- How does this affect your FedRAMP ConMon deliverables this month?
+- How does this affect your FedRAMP ConMon deliverables this month (legacy monthly package; under CR26, the monthly vulnerability report and the next quarterly Ongoing Certification Report)?
 
 ### Scenario IR-3: Data Exfiltration / Breach
 
-**Category**: CAT 1 — Unauthorized Access
+**Category**: Unauthorized Access / Data Exfiltration (legacy US-CERT CAT 1, retired 2017)
 **Severity**: Critical
-**Controls Exercised**: IR-4, IR-5, IR-6, IR-8, SC-7, AU-6, PT-1
+**Controls Exercised**: IR-4, IR-5, IR-6, IR-8, SC-7, AU-6, PT-1 (PT is not in any FedRAMP baseline)
 
 **Setup**:
 > Your DLP tool alerts on a large data transfer (500GB) from a production database to an external endpoint over the past 72 hours. The transfer used an authorized API credential but the destination is not a known integration partner. The data includes PII.
@@ -83,12 +83,12 @@ FedRAMP typically requires at minimum a tabletop exercise annually. Functional o
 - How do you handle the media inquiry?
 - What was the failure in the offboarding process?
 - How do you determine if the SSNs are at risk given they were encrypted?
-- What is the CISA reporting timeline for this incident?
-- What is the FedRAMP PMO notification process?
+- What is the reporting timeline for this incident? (Legacy Rev5: one hour to CISA, FedRAMP, and affected agencies. CR26 IEC: this affects confidentiality of federal customer data, so it is a FedRAMP Reportable Incident — assign a PAIN rating; a multi-agency PII breach likely rates N4/N5, meaning a 1-hour initial report at Class C or 15 minutes at Class D.)
+- What is the FedRAMP notification process (CR26: fedramp_security@fedramp.gov, agency customers, and trust-center publication)?
 
 ### Scenario IR-4: Supply Chain Compromise
 
-**Category**: CAT 1 — Unauthorized Access
+**Category**: Supply Chain Compromise (legacy US-CERT CAT 1, retired 2017)
 **Severity**: Critical
 **Controls Exercised**: IR-4, IR-6, SR-1, SR-3, SA-9, SI-7
 
@@ -98,7 +98,7 @@ FedRAMP typically requires at minimum a tabletop exercise annually. Functional o
 **Injects**:
 1. The malicious code opens a reverse shell on port 443, blending with normal HTTPS traffic
 2. Your SBOM analysis confirms the compromised version is in production
-3. Two other FedRAMP-authorized CSPs have already reported this to FedRAMP PMO
+3. Two other FedRAMP Certified CSPs have already reported this to FedRAMP
 4. The compromise affects a logging library — your audit trail for the past 3 days may be tampered with
 
 **Discussion Questions**:
@@ -110,9 +110,9 @@ FedRAMP typically requires at minimum a tabletop exercise annually. Functional o
 
 ### Scenario IR-5: Insider Threat
 
-**Category**: CAT 1 — Unauthorized Access
+**Category**: Insider Threat (legacy US-CERT CAT 1, retired 2017)
 **Severity**: High
-**Controls Exercised**: IR-4, IR-5, AC-2, AC-6, AU-6, PS-4
+**Controls Exercised**: IR-4, IR-5, AC-2, AC-6, AU-6, PS-4 (Legacy FedRAMP Rev5 PS-4 termination value: 4 hours Moderate / 1 hour High)
 
 **Setup**:
 > A system administrator who submitted their resignation last week is observed accessing production systems outside of business hours. Audit logs show the admin exported several configuration files and database schemas. The admin has legitimate access as they are still employed during their notice period.
@@ -191,7 +191,7 @@ FedRAMP typically requires at minimum a tabletop exercise annually. Functional o
 - What is your escalation path with your cloud provider?
 - How do you distinguish legitimate traffic from attack traffic?
 - What are your SLA obligations to federal customers?
-- Do you need to report this to CISA?
+- Do you need to report this? (Legacy Rev5: CISA/FedRAMP/agencies within one hour. CR26 IEC: a FedRAMP Reportable Incident is one affecting confidentiality or integrity of federal customer data — does an availability-only DDoS meet that test, and what do your agency contracts require?)
 
 ## Exercise Planning Checklist
 

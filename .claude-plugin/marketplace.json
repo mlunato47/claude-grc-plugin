@@ -11,7 +11,7 @@
       "name": "grc",
       "source": "./grc",
       "description": "GRC domain knowledge — 18 frameworks, 24 commands, cross-framework mapping, document review, and operational workflows. Cloud-agnostic.",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "author": {
         "name": "Mario Lunato",
         "url": "https://github.com/mlunato47"

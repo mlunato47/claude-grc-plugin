@@ -120,24 +120,29 @@ When invoked:
 | Network Architecture | ✅ / ❌ | |
 | Data Flow | ✅ / ❌ | |
 
-### Appendix Checklist (FedRAMP)
+### Appendix Checklist (FedRAMP — legacy Rev5 SSP template; under CR26 the SSP is replaced by the FedRAMP Certification Package, FRC-CSO-PKG/JSN)
 
 | Appendix | Content | Status |
 |----------|---------|--------|
-| A | Security Controls Matrix | ✅ / ❌ |
-| B | Related Documents | ✅ / ❌ |
-| C | Acronyms | ✅ / ❌ |
-| D | Rules of Behavior | ✅ / ❌ |
-| E | Contingency Plan | ✅ / ❌ |
-| F | Configuration Management Plan | ✅ / ❌ |
-| G | Incident Response Plan | ✅ / ❌ |
-| H | CIS/CRM | ✅ / ❌ |
-| I | FIPS 199 | ✅ / ❌ |
-| J | PTA/PIA | ✅ / ❌ |
-| K | Laws & Regulations | ✅ / ❌ |
-| L | Integrated Inventory | ✅ / ❌ |
+| A | FedRAMP Security Controls (control implementation statements) | ✅ / ❌ |
+| B | Related Acronyms | ✅ / ❌ |
+| C | Security Policies and Procedures | ✅ / ❌ |
+| D | User Guide | ✅ / ❌ |
+| E | Digital Identity Worksheet | ✅ / ❌ |
+| F | Rules of Behavior | ✅ / ❌ |
+| G | Information System Contingency Plan | ✅ / ❌ |
+| H | Configuration Management Plan | ✅ / ❌ |
+| I | Incident Response Plan | ✅ / ❌ |
+| J | CIS and CRM Workbook | ✅ / ❌ |
+| K | FIPS 199 Worksheet | ✅ / ❌ |
+| L | CSO-Specific Required Laws and Regulations | ✅ / ❌ |
+| M | Integrated Inventory Workbook | ✅ / ❌ |
+| N | Continuous Monitoring Plan | ✅ / ❌ |
+| O | POA&M | ✅ / ❌ |
+| P | Supply Chain Risk Management Plan | ✅ / ❌ |
+| Q | Cryptographic Modules Table | ✅ / ❌ |
 
-**Appendices present**: [X] / 12
+**Appendices present**: [X] / 17
 
 ### Control Family Coverage (if content reviewed)
 

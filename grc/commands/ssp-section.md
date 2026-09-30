@@ -37,7 +37,7 @@ When invoked:
    - For `nist`: read `skills/grc-knowledge/oscal/nist-800-53-rev5/{family}.json`
    - For `fedramp`: read `skills/grc-knowledge/oscal/fedramp-moderate-rev5/{family}.json`
    - Extract all controls, enhancements, parameters (ODPs), and statement parts from the OSCAL data
-   - Use parameter values from the OSCAL data to populate FedRAMP-specific ODP values in narratives
+   - Use parameter values from the OSCAL data to populate FedRAMP-specific ODP values in narratives (these are legacy FedRAMP Rev5 values, in force until CR26 becomes mandatory Jan 1, 2027; CR26 removed most FedRAMP-assigned values — label them as such)
    - Read `.parts[] | select(.name == "assessment-objective")` to ensure the narrative addresses every testable objective — each leaf objective's `.prose` describes what an assessor will verify, so the narrative must cover it
    - **ID normalization**: `AC-2` → `ac-2`, `AC-2(1)` → `ac-2.1`
 

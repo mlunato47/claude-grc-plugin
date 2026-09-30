@@ -1,6 +1,6 @@
 # OSCAL Reference
 
-OSCAL (Open Security Controls Assessment Language) is a set of standardized, machine-readable formats for security documentation developed by NIST. **Note (CR26, June 2026):** FedRAMP's earlier trajectory toward mandatory OSCAL was a pre-CR26 Rev5-era plan that was dropped — under CR26 both paths use FedRAMP's own JSON schemas (github.com/FedRAMP/schemas), with OSCAL merely optional for Rev5 in some cases (NTC-0009). OSCAL remains widely used for NIST catalogs/baselines and other programs. See `frameworks/fedramp-20x.md`.
+OSCAL (Open Security Controls Assessment Language) is a set of standardized, machine-readable formats for security documentation developed by NIST. **Note (CR26, June 2026):** FedRAMP's earlier trajectory toward mandatory OSCAL (RFC-0024) was dropped (NTC-0009) — under CR26 both paths use FedRAMP's own JSON schemas (github.com/FedRAMP/schemas) as the required format (FRC-CSO-JSN): Classes A–C submit semi-structured text, Class D comprehensive machine-readable data; OSCAL is optional. Agency tooling must be able to ingest both OSCAL and JSON (AGU ruleset). OSCAL remains widely used for NIST catalogs/baselines and other programs. See `frameworks/fedramp-20x.md`.
 
 ## What Is OSCAL?
 
@@ -170,20 +170,21 @@ set-parameters:
 
 ## FedRAMP OSCAL Requirements
 
-### Current Status
-- FedRAMP has published OSCAL versions of their baselines (Low, Moderate, High, LI-SaaS)
+### Current Status (as of September 30, 2026)
+- FedRAMP has published OSCAL versions of their legacy Rev5 baselines (Low, Moderate, High, LI-SaaS)
 - OSCAL SSP submissions were accepted and encouraged on the pre-CR26 Rev5 path
-- **CR26 update:** there are no OSCAL requirements under CR26 for either path — 20x and Rev5 packages both use FedRAMP's simplified JSON formats, with OSCAL merely optional in some cases (NTC-0009; the RFC-0024 OSCAL-mandate proposal was dropped, and comprehensive machine-readable data is required only for Rev5 Class D/High)
-- FedRAMP provides OSCAL-based templates and validation tools (Rev5-era)
+- **CR26 update:** OSCAL is optional under CR26 for either path — 20x and Rev5 packages both use FedRAMP's own JSON schemas (github.com/FedRAMP/schemas) as the required machine-readable format (FRC-CSO-JSN; NTC-0009 — the RFC-0024 OSCAL-mandate proposal was dropped). Classes A–C submit semi-structured text; Class D submits comprehensive machine-readable data. Agency tooling must ingest OSCAL and JSON (AGU).
+- FedRAMP's Rev5-era OSCAL templates and validation tools are now legacy (June 23, 2026 LEGACY NOTICE) and live at github.com/FedRAMP/docs-legacy; github.com/GSA/fedramp-automation no longer exists
 
 ### FedRAMP OSCAL Resources
-- FedRAMP Automation GitHub repository: OSCAL templates and examples
-- FedRAMP OSCAL Registry: FedRAMP-specific extensions and constraints
+- Legacy docs repository (github.com/FedRAMP/docs-legacy): OSCAL templates and examples (formerly the GSA/fedramp-automation repository, which no longer exists)
+- FedRAMP OSCAL Registry: FedRAMP-specific extensions and constraints (legacy)
+- CR26 submission schemas: github.com/FedRAMP/schemas (JSON — the required format)
 - GovReady, Trestle, and other tools support FedRAMP OSCAL generation
 
-### FedRAMP Extensions
+### FedRAMP Extensions (legacy Rev5)
 FedRAMP adds extensions (properties) to standard OSCAL:
-- `fedramp:authorization-type` — JAB or Agency
+- `fedramp:authorization-type` — JAB (dissolved May 2024; legacy P-ATOs remain listed) or Agency
 - `fedramp:authorization-date`
 - `fedramp:system-service-model` — IaaS, PaaS, SaaS
 - `fedramp:deployment-model` — Public, Private, Hybrid, Community
@@ -209,7 +210,7 @@ FedRAMP adds extensions (properties) to standard OSCAL:
 - FedRAMP extensions are present
 - Leveraged authorizations reference valid FedRAMP packages
 - Baseline profile matches the target authorization level
-- FedRAMP-required parameter values match expectations
+- FedRAMP-required parameter values match expectations (legacy Rev5 values, in force until CR26 becomes mandatory Jan 1, 2027; CR26 removed most FedRAMP-assigned values per NTC-0013)
 
 ## OSCAL Conversion Readiness
 
@@ -245,7 +246,7 @@ FedRAMP adds extensions (properties) to standard OSCAL:
 | Trestle / compliance-trestle (IBM) | Authoring/Automation | Author, manage, and CI/CD integrate OSCAL documents |
 | GovReady-Q | Assessment | GRC platform with OSCAL export |
 | OSCAL Deep Diff | Comparison | Compare two OSCAL documents |
-| FedRAMP Automation | Validation | FedRAMP-specific OSCAL validation rules |
+| FedRAMP Automation (legacy; now in github.com/FedRAMP/docs-legacy) | Validation | FedRAMP-specific OSCAL validation rules (Rev5-era) |
 | Lula | Assessment | Automated evidence collection to OSCAL |
 
 ## OSCAL Versions
@@ -258,4 +259,4 @@ FedRAMP adds extensions (properties) to standard OSCAL:
 | 1.1.3 | Released November 2024 | Bug fixes, stability improvements |
 | 1.2.0 | Released December 2025 | Latest stable |
 
-Always use the latest stable OSCAL version unless a specific version is required by the consuming organization (e.g., FedRAMP may specify a version).
+Always use the latest stable OSCAL version unless a specific version is required by the consuming organization (e.g., FedRAMP's legacy Rev5 OSCAL templates specify a version; under CR26 the required machine-readable format is FedRAMP's JSON schemas, not OSCAL).

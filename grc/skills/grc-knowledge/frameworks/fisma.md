@@ -36,7 +36,7 @@ FISMA establishes a multi-layered governance model for federal cybersecurity.
 
 - **OMB Circular A-130** — Managing Information as a Strategic Resource; establishes agency responsibilities for information security and privacy
 - **Annual OMB FISMA Guidance Memoranda** — E.g., M-22-09 (Zero Trust), M-23-03 (FY23 FISMA metrics); set yearly reporting requirements and strategic priorities
-- **DHS Binding Operational Directives (BODs)** — Compulsory directives to FCEB agencies (e.g., BOD 22-01 for Known Exploited Vulnerabilities)
+- **DHS/CISA Binding Operational Directives (BODs)** — Compulsory directives to FCEB agencies (e.g., BOD 22-01 for Known Exploited Vulnerabilities, whose KEV tracking is now under **BOD 26-04**; BOD 26-04 also drives FedRAMP's CR26 VDR/VER vulnerability standards per NTC-0014). US-CERT merged into CISA in 2023, and the US-CERT CAT 1–6 incident taxonomy was retired in 2017.
 
 ## FIPS 199 — Security Categorization
 
@@ -255,13 +255,13 @@ FISMA and FedRAMP are complementary but distinct. Understanding their relationsh
 | **Authority** | Statute (P.L. 113-283) | OMB policy (codified in FedRAMP Authorization Act, P.L. 117-263, Title LIX) |
 | **Applies to** | Federal agencies | Cloud Service Providers serving federal agencies |
 | **Categorization** | FIPS 199 | FIPS 199 (same methodology) |
-| **Control baselines** | NIST 800-53 (agency-selected) | NIST 800-53 + FedRAMP-specific parameters and additional controls |
-| **Assessment** | Agency or IG assessment | 3PAO assessment |
-| **Authorization** | Agency AO grants ATO | Agency ATO or FedRAMP P-ATO (via PMO review) |
-| **Continuous monitoring** | Agency-managed ConMon | FedRAMP ConMon program with monthly deliverables to PMO |
-| **Reciprocity** | Between agencies (limited) | "Do once, use many" — one authorization, multiple agencies |
+| **Control baselines** | NIST 800-53 (agency-selected) | NIST 800-53 + additional controls and (legacy Rev5) FedRAMP-specific parameters; under CR26 (NTC-0013) most FedRAMP-assigned parameters were removed |
+| **Assessment** | Agency or IG assessment | 3PAO assessment (legacy term; CR26: FedRAMP Recognized independent assessor) |
+| **Authorization** | Agency AO grants ATO | Legacy: Agency ATO or JAB P-ATO (JAB dissolved May 2024, replaced by the FedRAMP Board per M-24-15). CR26: **FedRAMP Certification** (Program or Agency path) plus the agency's own ATO/risk acceptance |
+| **Continuous monitoring** | Agency-managed ConMon | Legacy: FedRAMP ConMon with monthly deliverables to FedRAMP and the sponsoring agency; CR26: VDR/VER standards + Ongoing Certification Reports every 3 months with quarterly reviews |
+| **Reciprocity** | Between agencies (limited) | "Do once, use many" — one certification, multiple agencies |
 
-A FedRAMP-authorized CSO satisfies the FISMA requirements for the cloud portion of an agency's system boundary. The agency remains responsible for FISMA compliance for agency-managed components, interconnections, and inherited control responsibilities that fall to the agency (documented in the CRM).
+A FedRAMP Certified CSO (CR26 term; formerly "FedRAMP Authorized") satisfies the FISMA requirements for the cloud portion of an agency's system boundary. The agency remains responsible for FISMA compliance for agency-managed components, interconnections, and inherited control responsibilities that fall to the agency (documented in the legacy CRM / SSP Appendix J, or the CR26 Secure Configuration Guide). Agencies still keep their own POA&Ms under CR26 (VER-AGM-MAP).
 
 ## Key Compliance Considerations for Analysts
 
@@ -300,7 +300,7 @@ A FedRAMP-authorized CSO satisfies the FISMA requirements for the cloud portion 
 | FIPS 199 | February 2004 |
 | FIPS 200 | March 2006 |
 | NIST SP 800-37 Rev 2 | December 2018 |
-| NIST SP 800-53 Rev 5 | September 2020 (updated December 2020) |
+| NIST SP 800-53 Rev 5 | September 2020 (updated December 2020); Release 5.2.0, August 27, 2025, is the latest |
 | NIST SP 800-53A Rev 5 | January 2022 |
 | NIST SP 800-53B | October 2020 |
 | NIST SP 800-60 Vol 1 Rev 1 | August 2008 |

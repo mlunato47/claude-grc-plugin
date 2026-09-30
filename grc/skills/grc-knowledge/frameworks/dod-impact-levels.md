@@ -103,7 +103,7 @@ DoW uses a **two-step** model for commercial cloud: (1) DISA assesses the CSO an
 | FedRAMP High | Mandatory floor for **IL5** | IL5 FedRAMP+ + CNSSI 1253 Appendix D NSS controls + overlays → DoW PA |
 | — | **IL6** | Separate DoW authorization: FedRAMP High baseline + Classified Overlay; SIPRNet; classified facility |
 
-> **FedRAMP-side terminology note:** as of the June 2026 CR26 release, FedRAMP renamed "Authorized" → "Certified" and its baselines → Certification Classes A–D (see `fedramp-20x.md`). The SRG V1R7 still speaks in FedRAMP P-ATO/baseline terms; check current DISA guidance for how 20x certifications map to DoW PA reciprocity before advising on it.
+> **FedRAMP-side terminology note:** as of the June 2026 CR26 release, FedRAMP renamed "Authorized" → "Certified" and its baselines → Certification Classes A–D (Low = B, Moderate = C, High = D; see `fedramp-20x.md`). The JAB was dissolved in May 2024 (legacy P-ATOs remain valid), and "3PAO" is retired in favor of "FedRAMP Recognized independent assessor." The SRG V1R7 still speaks in FedRAMP P-ATO/baseline/3PAO terms; check current DISA guidance for how 20x certifications map to DoW PA reciprocity before advising on it.
 
 PA mechanics worth knowing:
 
@@ -112,7 +112,7 @@ PA mechanics worth knowing:
 - **Revocable.** Losing the FedRAMP PA, falling out of SRG compliance, or a leveraged CSO losing its PA can all revoke a DoW PA. The DISA AO approves and revokes.
 - **PAs are not granted to physical facilities** — data centers are assessed under the CSP's CSO PE controls.
 - **"FedRAMP Moderate equivalency"** (a DFARS 252.204-7012 construct per the 21 Dec 2023 DoD CIO memo) requires **3PAO-validated 100% compliance** with the FedRAMP Moderate baseline, with the contractor responsible for verifying and maintaining the CSP's status. It is **not** a FedRAMP authorization and has zero crossover value toward actual FedRAMP certification (no P-ATO, no Marketplace listing).
-- **SRG update transition (§4.4):** assessments already active when a new SRG releases finish under the old one; CSOs in ConMon must provide a POA&M for new-requirement gaps within 30 days and reach compliance no later than the next annual assessment. A PA based on the prior SRG remains in effect (unless revoked) **so long as those transition timelines are met**.
+- **SRG update transition (§4.4):** assessments starting within 30 days of a new release may use the prior requirements; assessments already active when a new SRG releases finish under the old one but transition at the next annual assessment; CSOs in ConMon must provide a POA&M for new-requirement gaps within 30 days and reach compliance no later than the next annual assessment. A PA based on the prior SRG remains in effect (unless revoked) **so long as those transition timelines are met**.
 
 ## FedRAMP+ Key Parameter Values (SRG Appendix D, Table D-1)
 
@@ -145,7 +145,7 @@ Anchoring control: **SC-4**. The SRG enables *logical* separation of unclassifie
 |----|------------------------|
 | IL2 | None beyond FedRAMP Moderate — DoW accepts that risk as adequately covered. |
 | IL4 | **Strong virtual separation** (encryption and/or access-control policy) + monitoring. Must support law-enforcement "search and seizure" of non-DoW data without exposing DoW data (and vice versa), and prevent cross-tenant access on shared hardware. Monitoring must detect unauthorized access. |
-| IL5 | Strong isolation via **either** (a) physical separation from all nonfederal tenant systems, **or** (b) **NSA-validated/approved cryptographic (virtual) separation** preventing cross-tenant access even on shared hardware. The Mission Owner/AO may still mandate physical separation from non-DoW/nonfederal tenants. PaaS/SaaS at IL5 must be built on an authorized IL5 environment. |
+| IL5 | Strong isolation via **either** (a) physical separation from all nonfederal tenant systems, **or** (b) **NSA-validated/approved cryptographic (virtual) separation** preventing cross-tenant access even on shared hardware. The SRG imposes no per-tenant-key or dedicated-VM requirement. The Mission Owner/AO may still mandate physical separation from non-DoW/nonfederal tenants. PaaS/SaaS at IL5 must be built on an authorized IL5 environment. |
 | IL6 | **Dedicated infrastructure** in a classified-rated facility; self-contained SECRET enclave. Virtual/logical separation is sufficient between DoW and federal tenants and (minimally) between missions; **physical separation required** from non-DoW/nonfederal tenants and from TS/SCI (ICD 705/503). CNSSAM TEMPEST/1-13 Level 1 RED/BLACK compliance. |
 
 > **Recent change to know (V1R6/V1R7):** IL5 previously read as "physical separation required" from nonfederal tenants — as of V1R5 (Sep 2025) that was still the text. The current SRG makes NSA-approved cryptographic separation an accepted **alternative**, codifying what DISA had already approved case-by-case for years (e.g., HSM-backed key-isolation architectures in existing IL5 PAs).
@@ -174,7 +174,7 @@ Screening under PS-3/PS-3(3); personnel accessing multiple systems meet the high
 - **Cloud Access Point (CAP)** — boundary protection between the DISN and CSOs, required in general to mitigate risk to the DISN (limited exceptions exist; SRG §5.9.1). IL4/5 traffic from NIPRNet-based components flows through DoW CIO-approved NIPRNet boundaries; IL6 connects via SIPRNet. Alternate connectivity requires DoW CIO approval.
 - **Network planes** — the SRG distinguishes user/data-plane and management-plane connectivity, each with its own requirements (SRG Tables 5-3/5-4).
 - **Data location** — IL4+ data stays in the U.S./U.S. jurisdiction (SA-9(5)); this protects against foreign seizure and non-U.S.-person access.
-- **Ongoing assessment** — continuous monitoring, change control (per the FedRAMP Significant Change Policies and Procedures Guide), and support for financial audits (SOC 1 Type II) are CSP obligations post-PA (SRG §5.3).
+- **Ongoing assessment** — continuous monitoring, change control (per the legacy FedRAMP Significant Change Policies and Procedures Guide; under CR26 FedRAMP's process is Significant Change Notification (SCN) — check DISA guidance for how it is applied to PAs), and support for financial audits (SOC 1 Type II) are CSP obligations post-PA (SRG §5.3).
 - **Incident response** — DoW-specific reporting categories, timelines, and mechanisms apply (SRG §6.2), plus support for law-enforcement investigations and the DoW insider-threat/UAM program.
 
 ## Common Pitfalls
@@ -198,6 +198,6 @@ Screening under PS-3/PS-3(3); personnel accessing multiple systems meet the high
 | DODI 8520.02 | PKI/PKE |
 | CNSSAM TEMPEST/1-13 | RED/BLACK (IL6) |
 | ICD 705 / ICD 503 | Classified facilities / IC accreditation |
-| JWCC memo | 31 July 2023 — JWCC vehicle for IL6/TS cloud (still operative; the JWCC follow-on "Unified Cloud Marketplace" was in solicitation as of mid-2026, awards expected 2027) |
+| JWCC memo | 31 July 2023 — JWCC vehicle for IL6/TS cloud (still operative and what the SRG cites; the follow-on "JWCC Next" / **JWCC Unified Cloud Marketplace Core** solicitation was released in September 2026 with bids due 6 October 2026) |
 | DISA Cyber Exchange | https://cyber.mil / https://public.cyber.mil (SRG/STIG distribution) |
 | DoW RMF Knowledge Service | https://rmfks.osd.mil (DSPAV parameter values) |

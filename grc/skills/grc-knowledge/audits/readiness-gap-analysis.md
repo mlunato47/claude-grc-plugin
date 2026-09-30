@@ -18,7 +18,7 @@ A readiness or gap analysis evaluates an organization's current security posture
 | Type | Target | Typical Timing |
 |------|--------|---------------|
 | Pre-certification | ISO 27001, ISO 27701 | 6-12 months before Stage 1 audit |
-| Pre-authorization | FedRAMP, StateRAMP | 6-18 months before 3PAO assessment |
+| Pre-authorization | FedRAMP, GovRAMP (formerly StateRAMP) | 6-18 months before the 3PAO (CR26: FedRAMP Recognized independent assessor) assessment; under CR26 the Initial Implementation Phase ("Implementing" listing, opened July 6, 2026) is a required precursor to any certification application |
 | Pre-audit | SOC 2, PCI DSS | 3-6 months before Type II period or QSA engagement |
 | Framework adoption | NIST CSF, CIS Controls | When adopting a new framework |
 | Regulation readiness | HIPAA, GDPR, CMMC | When subject to a new regulatory requirement |
@@ -185,7 +185,7 @@ A maturity assessment complements the binary gap analysis by evaluating how well
 | Framework | Common Gaps |
 |-----------|------------|
 | ISO 27001 | Missing risk assessment, incomplete SoA, no internal audit, objectives not measurable |
-| FedRAMP | Incomplete SSP narratives, missing FIPS 140 encryption, POA&M process immaturity |
+| FedRAMP | Incomplete SSP narratives (CR26: Security Decision Records), encryption not using FIPS 140-3 modules with active CMVP validation (140-2 certificates Historical since Sept 22, 2026), POA&M / vulnerability-response process immaturity (CR26 VDR/VER), MFA that is not phishing-resistant |
 | SOC 2 | No formal change management, access reviews not periodic, missing vendor assessments |
 | PCI DSS | Scope creep, missing network segmentation, insufficient logging, key management gaps |
 | NIST CSF | No formal risk management process, inconsistent asset inventory, weak detection capabilities |
@@ -197,7 +197,7 @@ A maturity assessment complements the binary gap analysis by evaluating how well
 | Attribute | Gap Analysis | Formal Assessment |
 |-----------|-------------|-------------------|
 | Purpose | Planning and readiness | Certification or attestation |
-| Authority | Internal or advisory | Accredited assessor (3PAO, CB, QSA, CPA) |
+| Authority | Internal or advisory | Accredited assessor (3PAO / CR26 FedRAMP Recognized independent assessor, CB, QSA, CPA) |
 | Output | Roadmap and recommendations | SAR, ROC, SOC report, certificate |
 | Regulatory value | None (internal planning tool) | Satisfies regulatory or contractual requirements |
 | Independence | Not required (but recommended) | Required |
@@ -211,4 +211,4 @@ A gap analysis is not a substitute for a formal assessment. It is a preparatory 
 - ISO/IEC 27001:2022
 - CMMI Institute — Capability Maturity Model
 - ISACA COBIT — Maturity Assessment
-- FedRAMP Authorization Boundary Guidance
+- FedRAMP Authorization Boundary Guidance (legacy Rev5; rescinded and replaced under CR26 by the Minimum Assessment Scope (MAS) ruleset)

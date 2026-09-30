@@ -1,5 +1,7 @@
 # Authorization Boundary Guidance
 
+> **CR26 note (as of Sept 30, 2026):** the FedRAMP Consolidated Rules for 2026 Minimum Assessment Scope (MAS) ruleset rescinds and replaces all previous FedRAMP boundary guidance (Rev5: optional July 4, 2026, required Jan 1, 2027). Scope is defined by federal customer data: providers MUST include all information resources likely to handle federal customer data or likely to impact its confidentiality, integrity, or availability (MAS-CSO-IIR); metadata is in scope only if that test applies (MAS-CSO-MDI); information flows must be documented for all in-scope resources (MAS-CSO-FLO). Third-party resources are in scope only if they handle or affect federal data, and are not prohibited — providers MUST document usage/configuration, justification, mitigations, and compensating controls (MAS-CSO-TPR); there is no FedRAMP approval step. CR26 has no explicit diagram requirement. The include/exclude lists below remain useful heuristics for deciding what is "likely to handle or impact" federal customer data.
+
 Guidance for defining, documenting, and defending system authorization boundaries. The boundary is arguably the most critical element of an SSP — everything else depends on it being right.
 
 ## What Is an Authorization Boundary?
@@ -30,11 +32,11 @@ Per NIST 800-37: "The authorization boundary identifies the information resource
 | Component | Boundary Treatment |
 |-----------|-------------------|
 | Underlying IaaS/PaaS provider | Outside — inherited controls, documented via CRM |
-| Corporate network | Outside — interconnection documented via ISA |
-| Third-party SaaS tools | Outside — documented as external services |
+| Corporate network | Outside — interconnection documented via a CA-3 agreement (ISA, MOU/MOA, SLA, etc.) |
+| Third-party SaaS tools | Outside — documented as external services (legacy Rev5 SSP Table 7.1; CR26 MAS-CSO-TPR: in scope only if they handle or affect federal data, with documented usage, justification, mitigations, and compensating controls) |
 | Client/user endpoints | Outside — documented as external users |
 | Internet | Outside — boundary protection at the edge (SC-7) |
-| Agency systems | Outside — interconnection via ISA/MOU |
+| Agency systems | Outside — interconnection via a CA-3 agreement (ISA/MOU) |
 
 ### Gray Areas That Need Decisions
 
@@ -108,6 +110,8 @@ Per NIST 800-37: "The authorization boundary identifies the information resource
 
 ## Boundary Diagram Requirements
 
+The legacy Rev5 SSP template (Section 8, "Illustrated Architecture and Narratives") calls for the three diagrams below. CR26 has no explicit diagram requirement — it requires documented information flows and security categories for all in-scope resources (MAS-CSO-FLO) — but these diagrams remain the standard way to satisfy that and what assessors expect.
+
 ### Authorization Boundary Diagram Must Show
 - [ ] Clear boundary line encompassing all in-scope components
 - [ ] All major system components within the boundary
@@ -158,7 +162,7 @@ Per NIST 800-37: "The authorization boundary identifies the information resource
 ### Boundary Unclear
 | Mistake | Consequence |
 |---------|-------------|
-| Diagram doesn't show clear boundary line | 3PAO will require redrawing before assessment |
+| Diagram doesn't show clear boundary line | 3PAO (CR26: FedRAMP Recognized independent assessor) will require redrawing before assessment |
 | Components listed but not shown in diagram | Mismatch between SSP text and diagrams |
 | Interconnections cross boundary without documentation | CA-3 findings |
 | Shared services not clearly designated | Unclear responsibility for controls |
@@ -180,14 +184,14 @@ When a 3PAO challenges your boundary, prepare for these questions:
 - Point to regular boundary reviews during SSP updates
 
 ### "How do you handle boundary changes?"
-- Reference significant change process (CM-3)
+- Reference significant change process (CM-3) — legacy Rev5 Significant Change Request with FedRAMP approval; under CR26 the SCN ruleset uses notification (adaptive: within 10 business days after completion; transformative: initial plans 30 business days before, final plans 10 business days before, notice 5 business days after completion and after verification)
 - Show that boundary additions trigger SIA and SSP updates
 - Demonstrate that new interconnections go through CA-3 process
 - Point to change management board review for boundary-affecting changes
 
 ## Interconnection Documentation (CA-3)
 
-Every connection crossing the authorization boundary requires:
+CA-3 accepts several agreement types (ISA, information exchange security agreement, MOU/MOA, SLA, user agreement, NDA). FedRAMP does not mandate the ISA form specifically, and the CR26 Rev5 control guidance assigns no FedRAMP-specific CA-3 parameter. Every connection crossing the authorization boundary requires:
 
 | Element | Description |
 |---------|-------------|
@@ -198,8 +202,8 @@ Every connection crossing the authorization boundary requires:
 | Ports/protocols | Specific ports and protocols used |
 | Data exchanged | What data crosses the boundary |
 | Security measures | Encryption, authentication, filtering |
-| ISA/MOU | Interconnection agreement reference |
-| Authorization | Is the remote system authorized? At what level? |
+| ISA/MOU | Interconnection agreement reference (any CA-3 agreement type) |
+| Authorization | Is the remote system authorized (CR26: FedRAMP Certified)? At what level? |
 | Owner | Who owns and manages the connection |
 
 ## Boundary Review Triggers

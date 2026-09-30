@@ -15,7 +15,7 @@ The POA&M is a living document, updated monthly as part of Continuous Monitoring
 | **OMB Circular A-130** | Requires federal agencies to maintain POA&Ms for all information systems to document planned remediation actions for identified weaknesses |
 | **NIST SP 800-53 Rev. 5 CA-5** | Plan of Action and Milestones control — requires organizations to develop and update POA&Ms for the system documenting planned remedial actions to correct weaknesses or deficiencies |
 | **FISMA** | Mandates POA&M reporting as part of agency information security programs |
-| **FedRAMP** | Requires monthly POA&M updates submitted to the FedRAMP repository; defines specific required fields and severity-based remediation timelines. *CR26 note: under FedRAMP 20x — and for Rev5 providers as VDR/VER take effect Dec 7, 2026 (the legacy monthly cadence ends as the Rev5 CCM rules take hold: mandatory Apr 2, 2027, grace to Oct 1, 2027) — the VDR/VER standards replace this cadence, and CR26 eliminates POA&Ms in favor of a list of **Accepted Weaknesses**; see `frameworks/fedramp-20x.md`* |
+| **FedRAMP** | Legacy Rev5: requires monthly POA&M updates submitted to the FedRAMP repository (official template = SSP Appendix O, which now carries a June 23, 2026 LEGACY NOTICE); defines specific required fields and severity-based remediation timelines. *CR26 note: under FedRAMP 20x — and for Rev5 providers as VDR/VER take effect Dec 7, 2026 (grace to Mar 7, 2027; the legacy monthly cadence ends as the Rev5 CCM rules take hold: mandatory Apr 2, 2027, grace to Oct 1, 2027) — the VDR/VER standards replace this cadence. The POA&M is not a CR26 construct on the CSP side: CR26 defines the **Accepted Vulnerability** (FRD-ACV — a vulnerability not remediated within the VDR maximum period, 192 days, or that the provider does not intend to fully remediate), listed in each quarterly Ongoing Certification Report (CCM-OCR-AVL). "Accepted Weakness" is not a CR26 term. Agencies still maintain their own POA&Ms (VER-AGM-MAP). See `frameworks/fedramp-20x.md`* |
 
 The POA&M does not replace the need to remediate findings. It is a tracking and accountability mechanism, not a risk acceptance mechanism. Risk acceptance is a separate AO decision documented through deviation requests.
 
@@ -33,7 +33,7 @@ The following fields are required for each POA&M entry. FedRAMP-specific fields 
 | **Weakness Description** | Clear description of the vulnerability or deficiency | Apache HTTP Server 2.4.51 vulnerable to CVE-2024-XXXXX (path traversal) |
 | **Point of Contact** | Person responsible for remediation | Jane Smith, System Administrator |
 | **Resources Required** | Estimated resources (labor hours, funding, tools) needed for remediation | 8 hours system admin time, maintenance window |
-| **Severity** (FedRAMP) | CVSS-based severity: Critical, High, Moderate, Low | High (CVSS 7.5) |
+| **Severity** (FedRAMP) | CVSS-based severity: High, Moderate, Low. FedRAMP does not define a separate "Critical" category — scanner findings labeled Critical (CVSS 9.0+) are treated as High for FedRAMP timelines | High (CVSS 7.5) |
 | **Risk Rating** | Adjusted risk considering compensating controls, exposure, and exploitability | Moderate (compensating WAF in place) |
 | **Original Detection Date** | Date the weakness was first identified | 2026-01-15 |
 | **Scheduled Completion Date** | Target date for completing remediation | 2026-04-15 |
@@ -121,16 +121,17 @@ Formalize the closure of the POA&M item:
 
 ## Severity-Based Remediation Timelines
 
-FedRAMP defines mandatory remediation timelines based on vulnerability severity:
+**Legacy FedRAMP Rev5 values (in force until CR26 becomes mandatory Jan 1, 2027; VDR/VER required for Rev5 providers Dec 7, 2026, grace to Mar 7, 2027).** FedRAMP defines mandatory remediation timelines based on vulnerability severity (RA-5(d), measured from discovery):
 
 | Severity | CVSS Score Range | Remediation Timeline | Escalation Trigger |
 |----------|-----------------|---------------------|-------------------|
-| **Critical** | 9.0 — 10.0 | 30 calendar days from detection | Day 15 if no progress |
-| **High** | 7.0 — 8.9 | 30 calendar days from detection | Day 15 if no progress |
-| **Moderate** | 4.0 — 6.9 | 90 calendar days from detection | Day 45 if no progress |
-| **Low** | 0.1 — 3.9 | 180 calendar days from detection | Day 90 if no progress |
+| **High** (incl. scanner "Critical", CVSS 9.0–10.0 — not a separate FedRAMP category) | 7.0 — 10.0 | 30 calendar days from discovery | Day 15 if no progress |
+| **Moderate** | 4.0 — 6.9 | 90 calendar days from discovery | Day 45 if no progress |
+| **Low** | 0.1 — 3.9 | 180 calendar days from discovery | Day 90 if no progress |
 
-These timelines represent maximums. Organizations should remediate as quickly as operationally feasible. Critical vulnerabilities with known active exploitation should be treated as emergencies with immediate remediation.
+Separately, SI-2(c) sets a flat 30-day window from release for installing security-relevant software and firmware updates at every baseline. These timelines represent maximums. Organizations should remediate as quickly as operationally feasible. Vulnerabilities on the CISA Known Exploited Vulnerabilities (KEV) catalog must be remediated by the CISA due date (BOD 22-01, now carried under BOD 26-04) and should be treated as emergencies.
+
+**CR26 model (VDR/VER — applies to 20x and Rev5 providers by Dec 7, 2026, grace to Mar 7, 2027; mandated by CISA BOD 26-04 per NTC-0014):** deadlines are no longer keyed to CVSS severity alone. Remediation timeframes derive from the Potential Agency Impact N-rating (PAIN) and reachability (VDR-TFR-PVR; e.g., Class D PAIN-5 internet-reachable = 12 hours, with ranges up to 192 days); KEVs follow CISA due dates (VDR-TFR-KEV). Anything not remediated within 192 days becomes an **Accepted Vulnerability** with written justification (VER-TFR-MAV) and must be listed in each quarterly OCR (CCM-OCR-AVL) with the VER-RPT-AVI fields (tracking ID, detection time/source, evaluation time, internet-reachable, likely-exploitable, PAIN rating, rationale). Vulnerability reporting is monthly and human-readable (VER-TFR-MHR). Detection cadences: Rev5 MUST verify machine-based resources at least monthly; Class C SHOULD scan drift-prone resources every 14 days / stable monthly / sample every 3 days; Class D 7 days / monthly / daily; non-machine resources every 3 months.
 
 ### Operational Requirements and Risk Adjustments
 
@@ -186,7 +187,7 @@ Each deviation request must include:
 
 - Deviation requests are submitted by the ISSO
 - Reviewed and approved or denied by the AO
-- For FedRAMP systems, the FedRAMP PMO may also review deviation requests
+- For FedRAMP systems, FedRAMP may also review deviation requests (legacy Rev5 process; under CR26 VDR/VER there is no deviation-request path — unremediated items become Accepted Vulnerabilities at 192 days with written justification)
 - Approved deviations must be documented in the POA&M with the approval date and conditions
 - Denied deviations require the original remediation timeline to be followed
 
@@ -217,7 +218,7 @@ Track and report the following metrics monthly:
 | Metric | Description | Target |
 |--------|-------------|--------|
 | **Total open items** | Count of all POA&M items in Open, In Progress, or Deferred status | Trending downward |
-| **By severity** | Breakdown of open items by Critical, High, Moderate, Low | Zero critical; minimal high |
+| **By severity** | Breakdown of open items by High, Moderate, Low (scanner "Critical" rolls into High for FedRAMP) | Minimal high |
 | **Overdue items** | Items past their scheduled completion date | Zero |
 | **Average age** | Mean number of days items have been open | Below severity-based SLA |
 | **Closure rate** | Items closed this month / Total items open at start of month | Trending upward |
@@ -239,7 +240,7 @@ The POA&M must be updated and submitted monthly with the following:
 6. Deviation request status changes
 7. Summary metrics (total open, new, closed, overdue)
 
-For FedRAMP, the POA&M is submitted in the FedRAMP POA&M template format to the designated repository.
+For FedRAMP (legacy Rev5), the POA&M is submitted in the FedRAMP POA&M template format (SSP Appendix O) to the designated repository. Under CR26, the monthly artifact is the human-readable vulnerability report (VER-TFR-MHR) and the quarterly Ongoing Certification Report (OCR) carries the Accepted Vulnerability list; a Quarterly Review is scheduled 3–10 business days after the OCR (MUST for Class C/D, SHOULD Class B, MAY Class A).
 
 ---
 
@@ -251,7 +252,7 @@ For FedRAMP, the POA&M is submitted in the FedRAMP POA&M template format to the 
 | Level 2 | Item reaches 75% of remediation timeline with insufficient progress | ISSO escalates to System Owner; remediation plan review | ISSO, System Owner |
 | Level 3 | Item is overdue (past scheduled completion date) | System Owner escalates to AO; deviation request or risk acceptance required | System Owner, AO |
 | Level 4 | Item is overdue by more than 30 days with no deviation request | AO may issue formal notice; potential impact to authorization status | AO |
-| Level 5 | Critical/High items overdue with no approved deviation | AO considers authorization revocation or operational restrictions | AO, CISO |
+| Level 5 | High items (including scanner-"Critical") overdue with no approved deviation | AO considers authorization revocation or operational restrictions | AO, CISO |
 
 ---
 
@@ -267,10 +268,10 @@ Below is a reference template with all required fields. Organizations should ada
 | Weakness Description | CVE-2025-XXXXX: OpenSSL 3.0.x buffer overflow vulnerability allowing remote code execution. Affects 12 production servers running Ubuntu 22.04. |
 | Point of Contact | John Doe, Infrastructure Lead |
 | Resources Required | 16 hours system admin time; scheduled maintenance window; testing in staging environment |
-| Severity | Critical (CVSS 9.8) |
+| Severity | High (CVSS 9.8; scanner label "Critical" — FedRAMP has no Critical category) |
 | Adjusted Risk Rating | High (servers behind WAF and not directly internet-exposed) |
 | Original Detection Date | 2026-01-15 |
-| Scheduled Completion Date | 2026-02-14 (30-day critical timeline) |
+| Scheduled Completion Date | 2026-02-14 (30-day High timeline, legacy Rev5 RA-5(d)) |
 | Milestone 1 | Test patched OpenSSL in staging — Target: 2026-01-22 — Status: Completed 2026-01-21 |
 | Milestone 2 | Deploy patch to production batch 1 (6 servers) — Target: 2026-01-29 — Status: Completed 2026-01-28 |
 | Milestone 3 | Deploy patch to production batch 2 (6 servers) — Target: 2026-02-05 — Status: In Progress |
@@ -321,5 +322,6 @@ Below is a reference template with all required fields. Organizations should ada
 - NIST SP 800-53 Rev. 5: CA-5 (Plan of Action and Milestones)
 - NIST SP 800-37 Rev. 2: Risk Management Framework — Monitor Step
 - NIST SP 800-137: Information Security Continuous Monitoring
-- FedRAMP POA&M Template and Guidance
-- FedRAMP Continuous Monitoring Strategy Guide
+- FedRAMP POA&M Template and Guidance (legacy Rev5; SSP Appendix O — LEGACY NOTICE June 23, 2026; archived at github.com/FedRAMP/docs-legacy)
+- FedRAMP Continuous Monitoring Strategy Guide (legacy; consolidated into the ConMon Playbook v1.0, Nov 2025, and superseded under CR26 by the VDR/VER and CCM rulesets)
+- FedRAMP CR26 rulesets: VDR, VER, CCM (fedramp.gov); CISA BOD 26-04

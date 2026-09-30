@@ -15,7 +15,7 @@ NIST 800-53 serves as the "universal hub" for cross-framework mapping. Because N
 | **Applicability** | Federal agencies, contractors, voluntary for private sector | Any entity that stores, processes, or transmits cardholder data |
 | **Structure** | 20 families, ~1,000+ controls and enhancements | 12 top-level requirements, ~250 sub-requirements |
 | **Baselines** | Low (~150), Moderate (~304), High (~392) | Single set of requirements; SAQ tiers reduce scope by merchant type |
-| **Assessment model** | 3PAO / agency assessor per RMF | QSA (Qualified Security Assessor) or ISA (Internal Security Assessor) |
+| **Assessment model** | 3PAO (CR26 term: FedRAMP Recognized independent assessor) / agency assessor per RMF | QSA (Qualified Security Assessor) or ISA (Internal Security Assessor) |
 | **Output** | SSP, SAR, POA&M, ATO decision | Report on Compliance (ROC) or Self-Assessment Questionnaire (SAQ) |
 | **Risk tailoring** | Explicitly supports tailoring and overlays | Customized approach allows alternative controls meeting stated objective |
 | **Compliance cadence** | Continuous monitoring (ConMon) post-ATO | Annual assessment + quarterly scans (ASV) |

@@ -288,13 +288,13 @@ The 17 Level 1 practices derive from FAR 52.204-21 "Basic Safeguarding of Covere
 
 ## Cross-Reference: Overlapping Compliance
 
-Organizations that achieve FedRAMP Moderate authorization substantially satisfy CMMC Level 2 requirements because both derive from the NIST 800-53 Moderate baseline. Key differences:
+Organizations that achieve FedRAMP Moderate authorization (legacy term; "FedRAMP Certified" under CR26) substantially satisfy CMMC Level 2 requirements because both derive from the NIST 800-53 Moderate baseline. Key differences:
 
 | Aspect | FedRAMP Moderate | CMMC Level 2 |
 |--------|-----------------|--------------|
 | **Control set** | Full 800-53 Moderate (~304 controls incl. enhancements) | 800-171 subset (110 requirements) |
 | **Scope** | Federal data in cloud systems | CUI in contractor systems |
-| **Assessment** | 3PAO assessment | C3PAO assessment |
+| **Assessment** | 3PAO assessment (CR26 term: FedRAMP Recognized independent assessor) | C3PAO assessment |
 | **Continuous monitoring** | Monthly/annual ConMon deliverables | Annual affirmation |
 | **Gap for CMMC from FedRAMP** | Minimal -- FedRAMP covers all 800-53 controls underlying 800-171 | Scoping and documentation differences |
 | **Gap for FedRAMP from CMMC** | Significant -- CMMC does not cover ~213 additional 800-53 Moderate controls | Full 800-53 implementation required |

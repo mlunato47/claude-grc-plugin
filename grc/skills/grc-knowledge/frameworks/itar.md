@@ -57,7 +57,7 @@ Sending, taking, or **storing** technical data is **not an export/reexport/retra
 
 1. **Unclassified**;
 2. **End-to-end encrypted** (§120.54(b)): never unencrypted between the originator's and recipient's in-country security boundaries, and **the means of decryption are not provided to any third party** (the intended recipient must be the originator, a U.S. person in the U.S., or an otherwise-authorized person);
-3. **FIPS 140-2-compliant modules (or successors)** with NIST-conformant implementation and key management, **or** other means of at least AES-128-comparable strength;
+3. **FIPS 140-2-compliant modules (or successors)** with NIST-conformant implementation and key management, **or** other means of at least AES-128-comparable strength; *(regulatory wording — practitioner note: FIPS 140-3 is the successor; on September 22, 2026 NIST moved every FIPS 140-2 certificate to the CMVP Historical List, so new deployments should use an actively validated FIPS 140-3 module, and Historical modules run only under documented risk acceptance)*
 4. **Not intentionally sent to a person in, or stored in, a §126.1 proscribed country** (internet transit through a country is not "storage" there — Note 1). *The former separate "or Russia" wording was removed from both conditions 4 and 5 as duplicative on July 7, 2025 — Russia is itself a §126.1 country; the prohibition is unchanged*;
 5. **Not sent from** a §126.1 country.
 

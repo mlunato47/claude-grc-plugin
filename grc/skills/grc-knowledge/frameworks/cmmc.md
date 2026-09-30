@@ -223,7 +223,7 @@ For organizations with both FedRAMP and CMMC obligations, achieving FedRAMP Mode
 | CMMC 1.0 published | January 2020 |
 | CMMC 2.0 announced | November 2021 |
 | 32 CFR Part 170 final rule | October 15, 2024 (effective December 16, 2024) |
-| 48 CFR CMMC rule (DFARS) | Phased rollout beginning 2025 |
+| 48 CFR CMMC rule (DFARS Case 2019-D041) | Final rule published September 10, 2025; effective November 10, 2025 (phased rollout keyed to this date) |
 | Phase 1 | CMMC Level 1 and Level 2 self-assessment in solicitations |
 | Phase 2 (+1 year) | CMMC Level 2 C3PAO assessment in solicitations |
 | Phase 3 (+1 year) | CMMC Level 3 in solicitations |
@@ -232,7 +232,7 @@ For organizations with both FedRAMP and CMMC obligations, achieving FedRAMP Mode
 ## Common Pitfalls
 
 1. **Scope creep** — Failing to properly define and minimize the CUI boundary increases cost and complexity
-2. **Encryption gaps** — FIPS 140-2/140-3 validated cryptography (3.13.11) is non-negotiable and cannot be placed on POA&M
+2. **Encryption gaps** — FIPS-validated cryptography (3.13.11) is non-negotiable and cannot be placed on POA&M. Use FIPS 140-3 modules with active CMVP validation: on September 22, 2026 NIST moved every FIPS 140-2 certificate to the CMVP Historical List (sunset September 21, 2026), with no extension or grandfathering. Historical modules may keep running in existing systems under documented risk acceptance but must not be cited for new procurements
 3. **SSP deficiency** — Many organizations lack a current, detailed System Security Plan; this is an assessable requirement (3.12.4)
 4. **MFA gaps** — Multi-factor authentication for local and network access (3.5.3) is a high-value control; often missed on legacy systems
 5. **Subcontractor flow-down** — Primes are responsible for ensuring subcontractor compliance; DFARS 7012/7021 must flow down

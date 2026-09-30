@@ -1,6 +1,6 @@
 # Authorization and Assessment (A&A) Lifecycle
 
-> **CR26 note (June 2026):** FedRAMP-specific references below (3PAO, agency sponsorship, monthly deliverables) describe the legacy Rev5 path, which remains active until at least Dec 31, 2028. The FedRAMP 20x path replaces these with Independent Assessors, sponsor-less Program-path certification, and VDR/VER + Ongoing Certification Reports — see `frameworks/fedramp-20x.md`. Non-FedRAMP RMF content is unaffected.
+> **CR26 note (updated Sept 30, 2026):** FedRAMP-specific references below (3PAO, agency sponsorship, monthly deliverables) describe the legacy Rev5 path, which remains active until at least Dec 31, 2028 (FedRAMP stops accepting new Rev5 certifications June 11, 2027). The FedRAMP Consolidated Rules for 2026 (CR26; effective July 4, 2026, enforced Jan 1, 2027) replace these with FedRAMP Recognized independent assessors (REC ruleset), sponsor-less Program-path certification, "FedRAMP Certified" in place of "FedRAMP Authorized", and VDR/VER + quarterly Ongoing Certification Reports (OCR) — see `frameworks/fedramp-20x.md`. Non-FedRAMP RMF content is unaffected.
 
 ## Overview
 
@@ -37,10 +37,12 @@ The system categorization uses: `SC = {(C, HWM-C), (I, HWM-I), (A, HWM-A)}`. The
 
 | Level | Description | Controls (Approx.) |
 |-------|-------------|-------------------|
-| Low | Publicly available data | ~158 |
-| Moderate | Controlled unclassified information, PII | ~322 |
-| High | Law enforcement, healthcare, financial data | ~410 |
+| Low | Publicly available data | ~156 |
+| Moderate | Controlled unclassified information, PII | 323 |
+| High | Law enforcement, healthcare, financial data | 410 |
 | LI-SaaS | Low Impact SaaS (limited functionality) | ~158 |
+
+*Rev5 baseline counts; CR26 Certification Classes map B = Low, C = Moderate, D = High (Class A = external frameworks such as SOC 2 Type II or GovRAMP).*
 
 **Output:** Security Categorization Document (system ID, information types, impact levels, adjustments with justification, AO approval).
 
@@ -68,7 +70,7 @@ Select the appropriate security control baseline and tailor it to the system's n
 | Supplementation | Add controls beyond the baseline based on risk assessment |
 
 ### FedRAMP Baseline Overlays
-FedRAMP publishes overlays augmenting NIST baselines with cloud-specific requirements (FIPS 140 encryption, US-based personnel). ODPs are pre-defined by FedRAMP where applicable.
+FedRAMP publishes overlays augmenting NIST baselines with cloud-specific requirements (FIPS 140-3 encryption with active CMVP validation — 140-2 certificates have been Historical since Sept 22, 2026 — and US-based personnel). Under the legacy Rev5 baseline, ODPs are pre-defined by FedRAMP where applicable (in force until CR26 becomes mandatory Jan 1, 2027); CR26 removed most FedRAMP-assigned parameter values.
 
 **Output:** SSP with selected baseline, tailoring decisions, ODP values, control applicability, and allocation (common, system-specific, hybrid).
 
@@ -107,7 +109,7 @@ Defines scope, methodology, schedule, team qualifications, rules of engagement, 
 
 | Context | Assessor |
 |---------|----------|
-| FedRAMP | 3PAO (A2LA accredited) |
+| FedRAMP | 3PAO (A2LA accredited) — legacy term; CR26: FedRAMP Recognized independent assessor (REC ruleset) |
 | DoD | DISA or authorized SCA |
 | Federal agency | Independent internal or contracted assessor |
 | Non-federal | Internal audit team or third-party assessor |
@@ -153,7 +155,7 @@ The AO reviews residual risk in the SAR, considers organizational risk tolerance
 | IATT | Limited authorization for testing only | Typically 90-180 days |
 
 ### Authorization Boundary
-Defines all authorized components (hardware, software, network, data, people). Must align with the SSP. Changes may require reassessment. FedRAMP requires detailed boundary diagrams with data flows.
+Defines all authorized components (hardware, software, network, data, people). Must align with the SSP. Changes may require reassessment. The legacy Rev5 SSP template (Section 8) requires detailed boundary, network, and data flow diagrams. Under CR26 the Minimum Assessment Scope (MAS) ruleset rescinds all prior boundary guidance: scope is every information resource likely to handle federal customer data or affect its confidentiality, integrity, or availability (MAS-CSO-IIR), with documented information flows (MAS-CSO-FLO) but no explicit diagram requirement.
 
 **Output:** Authorization Decision Letter (decision, system ID, scope, risk acceptance, conditions, termination date).
 
@@ -170,14 +172,14 @@ Defines: monitoring objectives, assessment frequency per control family, automat
 
 | Activity | Frequency |
 |----------|-----------|
-| Vulnerability scanning | Monthly (OS/infra, web app, database) |
-| Control assessment | Annual (rotating subset; 3PAO for FedRAMP) |
-| Penetration testing | Annual |
+| Vulnerability scanning | Monthly (OS/infra, web app incl. APIs, database) — legacy Rev5; CR26 VDR: Rev5 MUST verify machine-based resources at least monthly; Class C SHOULD drift-prone 14 days / Class D 7 days |
+| Control assessment | Annual (legacy Rev5: rotating subset, one-third per year, 3PAO for FedRAMP). CR26 IVV: fixed core of ~80 Rev5 controls every year (IVV-CSF-AIA); all controls at least every 3 years is a ceiling (IVV-CSF-MCA); all controls annually preferred (IVV-CSF-PCA) |
+| Penetration testing | Annual (legacy; Pen Test Guidance v3.0, June 30, 2022, is the last final version). CR26 CA-8: part of vulnerability detection, subject to VDR |
 | Configuration compliance | Continuous or monthly |
 | Contingency plan testing | Annual |
 
 ### Configuration and Change Management
-All changes require security impact analysis. Significant changes may trigger 3PAO reassessment (FedRAMP). Configuration baselines must be maintained with deviations tracked.
+All changes require security impact analysis. Significant changes may trigger 3PAO reassessment (legacy FedRAMP Rev5 Significant Change Request with FedRAMP approval). Under CR26 the SCN ruleset uses notification, not advance approval: adaptive changes notified within 10 business days after completion; transformative changes require initial plans 30 business days before, final plans 10 business days before, and notice 5 business days after completion and after verification. Configuration baselines must be maintained with deviations tracked.
 
 ### POA&M Management
 
@@ -193,12 +195,12 @@ All changes require security impact analysis. Significant changes may trigger 3P
 | Scheduled Completion | Target remediation date |
 | Status | Open, In Progress, Completed, Closed, Risk Accepted |
 
-**FedRAMP Remediation Timelines:** Critical = 30 days, High = 30 days, Moderate = 90 days, Low = 180 days.
+**FedRAMP Remediation Timelines (Legacy FedRAMP Rev5 value, in force until CR26 becomes mandatory Jan 1, 2027):** High = 30 days, Moderate = 90 days, Low = 180 days from discovery ("Critical" is not a distinct FedRAMP category; treat as High). **CR26 VDR/VER (required Dec 7, 2026; grace to Mar 7, 2027):** deadlines derive from PAIN rating and reachability; anything not remediated within 192 days becomes an Accepted Vulnerability with written justification; the POA&M is not a CR26 construct on the CSP side (agencies still keep POA&Ms).
 
 ### Reauthorization Triggers
 Authorization expiration, significant system change, major incident, mission change, risk tolerance change, new threats fundamentally altering risk. FedRAMP continuous authorization replaces periodic reauthorization when ConMon requirements are met.
 
-### FedRAMP Monthly/Annual Deliverables
+### FedRAMP Monthly/Annual Deliverables (legacy Rev5 model)
 
 | Deliverable | Frequency |
 |-------------|-----------|
@@ -206,9 +208,11 @@ Authorization expiration, significant system change, major incident, mission cha
 | POA&M updates | Monthly |
 | Inventory updates | Monthly |
 | ConMon summary report | Monthly |
-| Significant change requests | As needed |
+| Significant change requests | As needed (legacy; CR26 replaces with Significant Change Notifications) |
 | Annual 3PAO assessment | Annual |
-| Incident reports | As needed (per CISA reporting timelines — 1 hour for CAT 1-3) |
+| Incident reports | As needed (legacy Rev5: within one hour to CISA, formerly US-CERT, FedRAMP, and affected agencies; the US-CERT CAT 1-6 categories were retired in 2017) |
+
+**CR26 model:** monthly human-readable vulnerability reporting (VER-TFR-MHR); quarterly Ongoing Certification Report (OCR) with Quarterly Review 3-10 business days after (MUST for Class C/D); incident reporting under IEC scales with the Potential Agency Impact N-rating (PAIN, N1 minimal effect on 1+ agencies through N5 debilitating effect on more than one agency; default PAIN-5 if not estimated) — e.g., Class D PAIN-3/4/5 initial report in 15 minutes, Class C PAIN-3/4/5 in 1 hour, PAIN-2 in 24 hours, PAIN-1 in 1 business day; providers report to FedRAMP (fedramp_security@fedramp.gov) and agency customers, and agencies report to CISA.
 
 **Output:** Ongoing authorization evidence demonstrating continuous compliance, active POA&M management, timely vulnerability response, proper change handling, and regular AO reporting.
 
@@ -230,4 +234,4 @@ Authorization expiration, significant system change, major incident, mission cha
 - NIST SP 800-53B — Control Baselines
 - NIST SP 800-60 Vol 1/2 — Mapping Information Types to Security Categories
 - FIPS 199 — Standards for Security Categorization
-- FedRAMP Authorization Boundary and Continuous Monitoring Guidance
+- FedRAMP Authorization Boundary and Continuous Monitoring Guidance (legacy Rev5; superseded under CR26 by the MAS and CCM rulesets)

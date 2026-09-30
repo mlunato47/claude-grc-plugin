@@ -30,7 +30,7 @@ Privacy controls moved from Appendix J and expanded.
 | PT-7 | Specific Categories of PII | Privacy |
 | PT-8 | Computer Matching Requirements | Privacy |
 
-**Note**: PT controls are allocated to the **Privacy baseline** in SP 800-53B, not to the Low/Moderate/High security baselines. FedRAMP includes selected PT controls in its security baselines as additional requirements.
+**Note**: PT controls are allocated to the **Privacy baseline** in SP 800-53B, not to the Low/Moderate/High security baselines. **The PT family (like PM) is not in any FedRAMP baseline** (Low, Moderate, or High).
 
 **Impact**: Organizations must now explicitly address PII processing in their SSPs. Previously handled via privacy overlay or appendix.
 
@@ -56,7 +56,7 @@ Expanded from SA-12 into a full family.
 
 ## Withdrawn Controls
 
-Controls below were withdrawn and their requirements incorporated into other controls. Note: AC-13, AC-15, SC-14, and SC-33 were already withdrawn in Rev 4; they are included here for completeness since Rev 4 SSPs may still reference them. SA-18 through SA-21 were newly withdrawn in Rev 5.
+Controls below were withdrawn and their requirements incorporated into other controls. Note: AC-13, AC-15, SC-14, and SC-33 were already withdrawn in Rev 4; they are included here for completeness since Rev 4 SSPs may still reference them. SA-18 through SA-21 were newly withdrawn in Rev 5. Frequently missed enhancement withdrawals in Rev 5: **AU-8(1)** (moved to SC-45(1)), **PE-13(3)**, **PL-2(3)**, **SI-3(1)** (into PL-9), and **SI-3(2)** (into SI-3). Also note MA-4(1) and MP-5(3) remain active in the catalog but are not in any FedRAMP baseline.
 
 | Rev 4 Control | Title | Disposition | Withdrawn In |
 |---------------|-------|-------------|-------------|
@@ -181,7 +181,7 @@ These controls were NOT in Rev 4 Moderate but ARE in Rev 5 Moderate (in addition
 | SR-6 | Supplier Assessments | SR |
 | RA-9 | Criticality Analysis | RA |
 
-**Note**: PT-1 through PT-8 are allocated to the **Privacy baseline** in SP 800-53B, not to the Low/Moderate/High security baselines (see the PT family section above). FedRAMP may include selected PT controls in its security baselines as additional requirements.
+**Note**: PT-1 through PT-8 are allocated to the **Privacy baseline** in SP 800-53B, not to the Low/Moderate/High security baselines (see the PT family section above). The PT and PM families are not in any FedRAMP baseline. CA-8 (penetration testing) is in all FedRAMP baselines even though NIST places it only in High.
 
 ### Controls Removed from Moderate Baseline
 Some controls were removed from Moderate but remain available as tailoring options:
@@ -193,22 +193,23 @@ Some controls were removed from Moderate but remain available as tailoring optio
 ## FedRAMP Rev 5 Transition
 
 ### FedRAMP-Specific Considerations
-- FedRAMP baselines were updated to align with Rev 5
-- FedRAMP Rev 5 baselines include additional FedRAMP-specific parameters
-- Existing CSPs must transition to Rev 5 (timeline set by FedRAMP PMO)
-- New authorizations must use Rev 5
+- FedRAMP baselines were updated to align with Rev 5 (Low ~156, Moderate 323, High 410 controls)
+- FedRAMP Rev 5 baselines include additional FedRAMP-specific parameters — **Legacy FedRAMP Rev5 values (in force until CR26 becomes mandatory Jan 1, 2027)**; per NTC-0013, CR26 removed most FedRAMP-assigned parameters and nearly all FedRAMP-specific control guidance from the Rev5 baselines (now the CTL ruleset). Do not carry Rev 4 leftovers forward (e.g., AC-7 "3 attempts / 30 minutes", 12/15-character password minimums — AC-7 has no FedRAMP value and IA-5 follows SP 800-63B-4)
+- Existing CSPs had to transition to Rev 5 (timeline set by FedRAMP)
+- New authorizations must use Rev 5. **Rev5 itself is now the legacy path:** FedRAMP stops accepting new Rev5 certifications June 11, 2027, and Rev5 certifications remain valid through at least Dec 31, 2028; the modernized path is FedRAMP 20x/CR26 (see `fedramp-20x.md`)
 
 ### Transition Timeline
-- FedRAMP published Rev 5 baselines
-- Existing CSPs given transition period (typically 1 year from announcement)
+- FedRAMP published Rev 5 baselines (legacy templates now carry a June 23, 2026 LEGACY NOTICE and live at github.com/FedRAMP/docs-legacy)
+- Existing CSPs were given a transition period (typically 1 year from announcement)
 - Annual assessments during transition should note Rev 4 → Rev 5 mapping
-- All new SSPs must be authored to Rev 5
+- All new SSPs must be authored to Rev 5 (under CR26 the SSP is replaced by the FedRAMP Certification Package / Security Decision Record)
+- NIST SP 800-53 Release 5.2.0 (Aug 27, 2025) is the latest catalog release: added SA-15(13), SA-24, SI-2(7); revised SI-7(12); no baseline changes
 
 ### Transition Steps
 1. **Gap analysis**: Compare current Rev 4 SSP to Rev 5 requirements
 2. **Identify new controls**: PT and SR families, plus new controls in existing families
 3. **Map withdrawn controls**: Migrate narratives to incorporating controls
-4. **Update ODPs**: Rev 5 may have different parameter requirements
+4. **Update ODPs**: Rev 5 may have different parameter requirements (for FedRAMP, use the legacy Rev5 values from `oscal/fedramp-moderate-rev5/` and note the CR26 status)
 5. **Update SSP structure**: Align sections with Rev 5 template
 6. **Implement new controls**: SR and PT may require new processes
 7. **Update assessment procedures**: Align with 800-53A Rev 5
@@ -228,6 +229,8 @@ For controls that were renumbered, restructured, or moved:
 | AC-13 | AC-2, AU-6 | Incorporated |
 | AC-15 | MP-3 | Incorporated |
 | SC-14 | AC-2, AC-3, SC-7 | Distributed |
+| AU-8(1) | SC-45(1) | Moved (time-source synchronization) |
+| SI-3(1) / SI-3(2) | PL-9 / SI-3 | Incorporated |
 | Appendix J (privacy) | PT-1 through PT-8 | New family |
 
 **For all other controls**: The control ID remains the same between Rev 4 and Rev 5, but the control text, parameters, and enhancements may have changed. Always compare the specific control text.

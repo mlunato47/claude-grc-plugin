@@ -10,7 +10,7 @@ DoD/DoW Impact Levels are **not a parallel control catalog** — they are *compo
 The composition stack for every IL is:
 
 ```
-FedRAMP baseline (NIST 800-53 Rev 5 selection + FedRAMP parameters)
+FedRAMP baseline (NIST 800-53 Rev 5 selection + legacy Rev5 FedRAMP parameters*)
   + DoW FedRAMP+ controls & parameter adjustments   (IL4/5/6 only)
   + CNSSI 1253 baseline mapping & overlays          (MMx or HHx)
   + CNSSI 1253 Appendix D NSS controls              (IL5/6)
@@ -20,13 +20,15 @@ FedRAMP baseline (NIST 800-53 Rev 5 selection + FedRAMP parameters)
 
 Authority: DISA **Cloud Service Provider SRG V1R7** (30 June 2026), Table 3-1 and Appendix D Table D-1. Framework detail: `frameworks/dod-impact-levels.md`.
 
+\* FedRAMP parameter values in this stack are **Legacy FedRAMP Rev5 values (in force until CR26 becomes mandatory Jan 1, 2027)**; per NTC-0013, CR26 removed most FedRAMP-assigned parameters from the Rev5 baselines. The SRG still keys to FedRAMP baselines and P-ATOs; CR26 renamed "Authorized" → "Certified" and baselines → Classes B/C/D (see `frameworks/fedramp-20x.md`).
+
 ## Forward Mapping: Impact Level → NIST 800-53 Composition
 
 | Impact Level | NIST/FedRAMP baseline | CNSSI 1253 | Added control sets |
 |--------------|----------------------|------------|--------------------|
-| **IL2** | FedRAMP Moderate (≈322 controls) | n/a (reciprocity accepted) | None — FedRAMP Moderate PA accepted as-is |
+| **IL2** | FedRAMP Moderate (323 controls) | n/a (reciprocity accepted) | None — FedRAMP Moderate PA accepted as-is |
 | **IL4** (Moderate path) | FedRAMP Moderate | Table D-1, CIA MMx | FedRAMP+ (Table D-1 below) + data-driven overlays |
-| **IL4** (High path) | FedRAMP High (≈410 controls) | Table D-1, CIA HHx | FedRAMP+ + data-driven overlays |
+| **IL4** (High path) | FedRAMP High (410 controls) | Table D-1, CIA HHx | FedRAMP+ + data-driven overlays |
 | **IL5** | FedRAMP High | Table D-1 "+", CIA HHx | FedRAMP+ + **Appendix D NSS controls** + overlays |
 | **IL6** | FedRAMP High | Table D-1 "+" + Classified Overlay, CIA HHx | FedRAMP+ + NSS controls + **Classified Information Overlay** (precedence) |
 
@@ -78,7 +80,7 @@ Beyond Table D-1, the SRG's operational sections attach to specific NIST control
 
 Decision order:
 
-1. **Is it in the FedRAMP baseline for that IL's floor?** (Moderate for IL2/IL4-Moderate-path; High for IL4-High-path/IL5/IL6.) If yes → required, with FedRAMP parameters.
+1. **Is it in the FedRAMP baseline for that IL's floor?** (Moderate for IL2/IL4-Moderate-path; High for IL4-High-path/IL5/IL6.) If yes → required, with the legacy FedRAMP Rev5 parameters (label them as such; CR26 assigns no FedRAMP value for most). Remember PM and PT are in no FedRAMP baseline, and CA-8 is in all of them.
 2. **Is it in Table D-1 above?** If yes → required at the listed ILs with the DoW parameter (DSPAV or the stated adjustment), which **overrides** the FedRAMP value — unless the table notes the FedRAMP value is acceptable (AU-5(1), MA-6, PS-4).
 3. **IL5/6 only:** is it a CNSSI 1253 Appendix D NSS control or (IL6) Classified Overlay control? If yes → required even if absent from the FedRAMP baseline.
 4. Otherwise → not required by the IL composition (though a Mission Owner/AO may still add it via tailoring).
@@ -92,7 +94,7 @@ To relate an Impact Level to a non-NIST framework (SOC 2, ISO 27001, etc.), chai
 1. Resolve the IL to its NIST composition (this file).
 2. Map the relevant NIST controls to the target framework via `mappings/nist-to-<target>.md`.
 
-Note the reverse direction is weaker: no commercial framework certification (SOC 2, ISO 27001) provides any reciprocity toward a DoW PA — only FedRAMP authorizations enter the IL reciprocity chain.
+Note the reverse direction is weaker: no commercial framework certification (SOC 2, ISO 27001) provides any reciprocity toward a DoW PA — only FedRAMP authorizations/certifications enter the IL reciprocity chain (and a 20x Class A certification built on SOC 2 Type II or GovRAMP has no established DoW reciprocity; check current DISA guidance).
 
 ## Related References
 

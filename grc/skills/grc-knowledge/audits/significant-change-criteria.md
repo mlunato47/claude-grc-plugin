@@ -1,6 +1,6 @@
 # Significant Change Criteria
 
-> **CR26 note (June 2026):** the FedRAMP SCR pre-approval process described below is the legacy Rev5 model. Under CR26, the **SCN** (Significant Change Notification) ruleset uses notification — not advance approval — with adaptive/transformative/routine-recurring categories. Also note "SCR" now additionally names the CR26 Supply Chain Risk KSI theme. See `frameworks/fedramp-20x.md`.
+> **CR26 note (updated Sept 30, 2026):** the FedRAMP Significant Change Request (SCR) pre-approval process described below is the legacy Rev5 model (in force until CR26 becomes mandatory Jan 1, 2027; SCN Rev5 grace to June 1, 2027). Under CR26, the **SCN** (Significant Change Notification) ruleset uses notification — not advance approval — with three categories: **routine recurring** changes need no notification; **adaptive** changes are notified within 10 business days after completion; **transformative** changes require initial plans 30 business days before, final plans 10 business days before, notice within 5 business days after completion and 5 business days after verification, with service documentation updated within 30 business days. Providers keep a 12-month notification history in human-readable and JSON form; advance approval applies only under a Corrective Action Plan. Also note "SCR" now additionally names the CR26 Supply Chain Risk KSI theme. See `frameworks/fedramp-20x.md`.
 
 Criteria for determining whether a system change qualifies as "significant" under FedRAMP, FISMA, and NIST RMF — and what actions are triggered when it does.
 
@@ -10,7 +10,7 @@ A significant change is any modification to a system, its environment, or its op
 
 ## FedRAMP Significant Change Categories
 
-FedRAMP defines the following categories of significant change (per FedRAMP Continuous Monitoring Strategy Guide):
+FedRAMP defines the following categories of significant change (per the legacy Rev5 FedRAMP Continuous Monitoring Strategy Guide; under CR26 each change is instead classified as routine recurring, adaptive, or transformative for SCN purposes):
 
 ### Category 1 — Changes to the Authorization Boundary
 
@@ -51,7 +51,7 @@ FedRAMP defines the following categories of significant change (per FedRAMP Cont
 ### Category 5 — Personnel and Process Changes
 
 - Change of ISSO, ISSM, or System Owner
-- Change of 3PAO
+- Change of 3PAO (CR26: FedRAMP Recognized independent assessor)
 - Significant organizational restructuring affecting security roles
 - Changes to incident response or contingency planning procedures
 - Changes to the change management process itself
@@ -104,7 +104,7 @@ FedRAMP defines the following categories of significant change (per FedRAMP Cont
 | Identify affected controls | ISSO | Affected controls list |
 | Update SSP draft with planned changes | ISSO | Updated SSP sections |
 | Notify AO of planned significant change | System Owner | Notification (email/ticket) |
-| FedRAMP PMO notification (if FedRAMP) | System Owner/ISSO | Significant Change Request (SCR) — *legacy Rev5; under CR26 the SCN ruleset uses notification (not pre-approval), and note "SCR" now also names the CR26 Supply Chain Risk KSI theme. See `frameworks/fedramp-20x.md`* |
+| FedRAMP notification (if FedRAMP) | System Owner/ISSO | Significant Change Request (SCR) — *legacy Rev5; under CR26 the SCN ruleset uses notification (not pre-approval): transformative changes need initial plans 30 business days before and final plans 10 business days before; adaptive changes are notified only after completion. Note "SCR" now also names the CR26 Supply Chain Risk KSI theme. See `frameworks/fedramp-20x.md`* |
 
 ### After the Change
 
@@ -112,12 +112,12 @@ FedRAMP defines the following categories of significant change (per FedRAMP Cont
 |--------|-------------|-------------|
 | Update SSP with actual implementation | ISSO | Updated SSP |
 | Update diagrams (boundary, network, data flow) | Security team | Updated diagrams |
-| Assess affected controls | 3PAO or internal assessor | Assessment results |
-| Update POA&M if new findings | ISSO | Updated POA&M |
-| Update CRM/CIS if responsibility changes | ISSO | Updated CRM |
+| Assess affected controls | 3PAO (CR26: FedRAMP Recognized independent assessor) or internal assessor | Assessment results |
+| Update POA&M if new findings | ISSO | Updated POA&M (legacy Rev5; CR26 tracks Accepted Vulnerabilities in the quarterly OCR) |
+| Update CRM/CIS if responsibility changes | ISSO | Updated CRM (legacy Rev5 SSP Appendix J; no CR26 CIS/CRM template) |
 | Update inventory (hardware/software) | System Admin | Updated inventory |
 | Notify AO of completed change and assessment | System Owner | Status report |
-| Submit updated artifacts to FedRAMP PMO | ISSO | Package update |
+| Submit updated artifacts to FedRAMP | ISSO | Package update (legacy Rev5; CR26: adaptive notice within 10 business days after completion; transformative notice within 5 business days after completion and after verification, documentation updated within 30 business days) |
 
 ## Control Families Commonly Affected by Change Type
 
@@ -151,22 +151,36 @@ An SIA should address:
 9. **Documentation updates** — Which documents need updating
 10. **Timeline** — Implementation and assessment schedule
 
-## FedRAMP Significant Change Request (SCR) Process
+## FedRAMP Significant Change Request (SCR) Process — Legacy Rev5
+
+Legacy Rev5 model (in force until CR26 becomes mandatory Jan 1, 2027):
 
 1. CSP identifies significant change
 2. CSP completes Security Impact Analysis
-3. CSP submits SCR to FedRAMP PMO (and agency AOs)
-4. FedRAMP PMO reviews and determines assessment scope
+3. CSP submits SCR to FedRAMP (and agency AOs)
+4. FedRAMP reviews and determines assessment scope
 5. CSP implements change
 6. 3PAO assesses affected controls (may be subset assessment)
 7. CSP updates authorization package (SSP, POA&M, etc.)
 8. CSP submits updated package
 9. AO reviews and re-affirms or updates authorization decision
 
+## CR26 Significant Change Notification (SCN) Process
+
+Under CR26 (SCN ruleset; Rev5 grace to June 1, 2027) there is no default advance approval — only notification, with timing by category:
+
+| Category | Notification timing | Independent assessor |
+|----------|--------------------|----------------------|
+| Routine recurring | No notification required | Not required |
+| Adaptive | Within 10 business days after completion | Optional |
+| Transformative | Initial plans at least 30 business days before; final plans at least 10 business days before; notice within 5 business days after completion and within 5 business days after verification/assessment; service documentation updated within 30 business days | Should engage |
+
+Providers maintain 12 months of historical notifications in both human-readable and JSON formats. Advance approval applies only when the provider is operating under a Corrective Action Plan.
+
 ## Common Mistakes
 
 - **Not recognizing a significant change** — Adding "just one more service" without SIA
-- **Implementing before notifying** — Change goes live before AO/PMO is informed
+- **Implementing before notifying** — Change goes live before the AO/FedRAMP is informed (legacy SCR); under CR26, a transformative change implemented without the 30/10-business-day advance plan notices
 - **Incomplete SIA** — Missing affected controls or risk assessment
 - **Not updating the SSP** — Change is implemented but SSP still describes the old state
 - **Skipping assessment** — Assuming the change is low-risk without verification

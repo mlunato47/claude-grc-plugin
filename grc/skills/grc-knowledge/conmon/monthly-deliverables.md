@@ -4,7 +4,7 @@
 
 ## Overview
 
-Monthly ConMon deliverables provide the Authorizing Official (AO) and stakeholders with evidence that security controls remain effective, vulnerabilities are being identified and addressed, and the system's risk posture is understood. For FedRAMP-authorized systems, these deliverables are submitted monthly to the FedRAMP PMO and the authorizing agency through the designated repository.
+Monthly ConMon deliverables provide the Authorizing Official (AO) and stakeholders with evidence that security controls remain effective, vulnerabilities are being identified and addressed, and the system's risk posture is understood. For FedRAMP-authorized systems (legacy Rev5), these deliverables are submitted monthly to FedRAMP and the authorizing agency through the designated repository. Under CR26 the monthly artifact is the human-readable vulnerability report (VER-TFR-MHR); the Ongoing Certification Report (OCR) is produced every 3 months (CCM-OCR-AVL) and is followed by a Quarterly Review 3–10 business days later (MUST for Class C/D, SHOULD Class B, MAY Class A — CCM-QTR-MTG/SAR).
 
 ---
 
@@ -20,7 +20,7 @@ Monthly ConMon deliverables provide the Authorizing Official (AO) and stakeholde
   - 100% asset coverage within the authorization boundary
   - Scans must be completed within the reporting month
 - **Deliverable format:** Raw scanner output (XML/CSV) plus summary report (PDF or equivalent)
-- **Content must include:** Host IP/hostname, vulnerability title, CVE ID, CVSS score, severity (Critical/High/Moderate/Low), plugin/check ID, remediation guidance
+- **Content must include:** Host IP/hostname, vulnerability title, CVE ID, CVSS score, severity (High/Moderate/Low — FedRAMP has no separate "Critical" category; scanner-Critical is treated as High), plugin/check ID, remediation guidance
 
 ### Web Application Scans
 
@@ -109,7 +109,7 @@ Monthly reporting must include:
 | Metric | Description |
 |--------|-------------|
 | Total unique vulnerabilities | Count of distinct CVEs/findings across all scan types |
-| By severity | Breakdown by Critical, High, Moderate, Low |
+| By severity | Breakdown by High, Moderate, Low (scanner "Critical" rolls into High for FedRAMP) |
 | New this month | Vulnerabilities first identified in the current reporting period |
 | Remediated this month | Vulnerabilities confirmed closed through re-scanning |
 | Net change | Month-over-month change in total open vulnerabilities |
@@ -147,7 +147,7 @@ Any change that could affect the security posture of the system must be reported
 - Changes to key personnel (ISSO, System Owner)
 - Incidents that may affect authorization status
 
-Significant changes may trigger a reassessment of affected controls or a full reauthorization depending on severity. Refer to organizational significant change policy and FedRAMP Significant Change Request procedures.
+Significant changes may trigger a reassessment of affected controls or a full reauthorization depending on severity. Refer to organizational significant change policy and (legacy Rev5) FedRAMP Significant Change Request procedures. Under CR26 the SCN ruleset replaces the Significant Change Request: routine recurring changes need no notification; adaptive changes are notified within 10 business days after completion; transformative changes require initial plans 30 business days before, final plans 10 business days before, notice 5 business days after completion and 5 business days after verification, with documentation updated within 30 business days; a 12-month change history is kept in human-readable and JSON form; there is no default advance approval (only under a Corrective Action Plan).
 
 ---
 
@@ -182,7 +182,7 @@ Any coverage below 100% must be accompanied by a scan deviation request with jus
 
 ## FedRAMP Monthly Submission Requirements
 
-For FedRAMP-authorized systems, the following must be submitted monthly:
+**Legacy FedRAMP Rev5 model (in force until the Rev5 VDR/VER and CCM rules take hold — see the CR26 note above).** For FedRAMP-authorized systems, the following must be submitted monthly:
 
 | Deliverable | Format | Submission Method |
 |------------|--------|-------------------|
@@ -193,18 +193,29 @@ For FedRAMP-authorized systems, the following must be submitted monthly:
 | Updated POA&M | FedRAMP POA&M template (Excel) | FedRAMP repository |
 | Inventory workbook | FedRAMP inventory template | FedRAMP repository |
 | Unique vulnerability count/trending | Included in executive summary or standalone | FedRAMP repository |
-| Significant change requests (if any) | FedRAMP SCR template | FedRAMP repository |
+| Significant change requests (if any) | FedRAMP SCR template (legacy; CR26: Significant Change Notification per the SCN ruleset, JSON per FedRAMP schemas) | FedRAMP repository |
 | Monthly executive summary | PDF or document format | FedRAMP repository |
 
 **Submission deadline:** Deliverables are typically due by the end of the month following the reporting period (e.g., January deliverables due by end of February), though specific timelines may vary by agency.
+
+**CR26 reporting model (20x, and Rev5 as the rules take hold):**
+
+| Deliverable | Cadence | Rule |
+|------------|---------|------|
+| Human-readable vulnerability report | Monthly | VER-TFR-MHR |
+| Ongoing Certification Report (OCR) — includes the Accepted Vulnerability list, changes/planned changes, transformative changes, agencies using the service, reportable incidents | Every 3 months | CCM-OCR-AVL |
+| Quarterly Review (synchronous) | 3–10 business days after each OCR; MUST Class C/D, SHOULD Class B, MAY Class A | CCM-QTR-MTG, CCM-QTR-SAR |
+| Significant Change Notifications | Per change type (see above) | SCN ruleset |
+| Machine-readable data | JSON valid against FedRAMP schemas (github.com/FedRAMP/schemas); OSCAL optional | FRC-CSO-JSN |
 
 ---
 
 ## References
 
-- FedRAMP Continuous Monitoring Strategy Guide
-- FedRAMP Monthly ConMon Submission Guidance
-- FedRAMP POA&M Template
-- FedRAMP Inventory Workbook Template
+- FedRAMP Continuous Monitoring Strategy Guide (legacy; consolidated into the ConMon Playbook v1.0, Nov 2025)
+- FedRAMP Monthly ConMon Submission Guidance (legacy Rev5)
+- FedRAMP POA&M Template (legacy; SSP Appendix O, LEGACY NOTICE June 23, 2026 — archived at github.com/FedRAMP/docs-legacy)
+- FedRAMP Inventory Workbook Template (legacy; SSP Appendix M)
+- FedRAMP CR26 rulesets: VDR, VER, CCM, SCN (fedramp.gov)
 - NIST SP 800-137: Information Security Continuous Monitoring
 - NIST SP 800-53 Rev. 5: CA-7, RA-5

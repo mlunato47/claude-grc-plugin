@@ -103,7 +103,7 @@ When invoked:
 
 | Activity | [F1] Control | [F2] Control | [F3] Control | Strictest Frequency |
 |----------|-------------|-------------|-------------|-------------------|
-| Access reviews | AC-2 | CC6.1 | 8.6 | Monthly (FedRAMP) |
+| Access reviews | AC-2 | CC6.1 | 8.6 | Legacy FedRAMP Rev5: quarterly privileged / annual non-privileged at Moderate; monthly / every 6 months at High (CR26: no FedRAMP-assigned value) |
 | Vuln scanning | RA-5 | CC7.1 | 11.3 | Monthly (FedRAMP) |
 | Security training | AT-2 | CC1.4 | 12.6 | Annual |
 | ... | ... | ... | ... | ... |

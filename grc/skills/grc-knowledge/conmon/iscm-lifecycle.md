@@ -63,7 +63,7 @@ Key activities:
 - Correlate and analyze monitoring data across sources
 - Identify new vulnerabilities, misconfigurations, and anomalies
 - Assess risk impact of findings using CVSS scores and organizational context
-- Produce monthly ConMon deliverables (scan reports, POA&M updates, executive summaries)
+- Produce monthly ConMon deliverables (scan reports, POA&M updates, executive summaries — legacy Rev5; CR26: monthly human-readable vulnerability report plus quarterly Ongoing Certification Report)
 - Generate trending analysis (vulnerability counts, closure rates, mean time to remediate)
 - Report metrics against defined KPIs
 - Provide dashboards for real-time situational awareness
@@ -121,7 +121,7 @@ Each tier feeds information upward. Tier 3 monitoring data informs Tier 2 missio
 | **Chief Information Security Officer (CISO)** | Develops and oversees enterprise ISCM strategy; defines metrics and KPIs; ensures resource allocation; reports to executive leadership |
 | **Information System Security Officer (ISSO)** | Executes day-to-day monitoring activities; produces monthly deliverables; manages POA&Ms; coordinates remediation; serves as primary ConMon point of contact |
 | **System Owner** | Ensures system resources support monitoring activities; approves changes to system; accountable for system security posture |
-| **Security Control Assessor (SCA)** | Conducts annual assessments of control subsets; validates remediation; produces or updates the SAR |
+| **Security Control Assessor (SCA)** | Conducts annual assessments of control subsets (CR26 IVV: fixed core set annually, all controls within 3 years; FedRAMP Recognized independent assessor replaces the "3PAO" term); validates remediation; produces or updates the SAR |
 | **System Administrator** | Implements remediation actions (patches, configuration changes); supports scan execution; maintains system baselines |
 
 ---
@@ -130,7 +130,7 @@ Each tier feeds information upward. Tier 3 monitoring data informs Tier 2 missio
 
 | Control Category | Example Controls | Typical Frequency | Rationale |
 |-----------------|------------------|-------------------|-----------|
-| Vulnerability Management | RA-5 | Monthly (infrastructure); monthly or quarterly (web app); monthly (container) | Rapidly changing threat landscape; FedRAMP monthly requirement |
+| Vulnerability Management | RA-5 | Monthly (infrastructure); monthly or quarterly (web app); monthly (container) | Rapidly changing threat landscape; legacy FedRAMP Rev5 monthly requirement (CR26 VDR: Rev5 at least monthly; Class C 14 days drift-prone / monthly stable; Class D 7 days / monthly) |
 | Configuration Management | CM-6, CM-2 | Monthly (automated); quarterly (manual review) | Detect drift from approved baselines |
 | Access Control | AC-2, AC-6 | Quarterly (access reviews); continuous (privileged access logging) | Prevent unauthorized access accumulation |
 | Audit and Accountability | AU-2, AU-6 | Continuous (SIEM collection); weekly (log review); monthly (audit report) | Detect anomalies and security events in near-real-time |
@@ -222,4 +222,4 @@ The AO relies on ISCM deliverables to make ongoing authorization decisions. A we
 - NIST SP 800-37 Rev. 2: Risk Management Framework for Information Systems and Organizations (Step 7 — Monitor)
 - NIST SP 800-53 Rev. 5: Security and Privacy Controls — CA-7 (Continuous Monitoring)
 - OMB Circular A-130: Managing Information as a Strategic Resource
-- FedRAMP Continuous Monitoring Strategy Guide
+- FedRAMP Continuous Monitoring Strategy Guide (legacy; consolidated into the ConMon Playbook v1.0, Nov 2025; CR26: VDR/VER and CCM rulesets)

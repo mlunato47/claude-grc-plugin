@@ -48,7 +48,7 @@ When invoked:
 
 3. **For each topic**:
 
-   **`overview`**: Present OSCAL models, layer architecture, current status, and FedRAMP OSCAL requirements. Explain why OSCAL matters and how it changes the GRC workflow.
+   **`overview`**: Present OSCAL models, layer architecture, current status, and FedRAMP OSCAL status — OSCAL is optional for FedRAMP (the mandate was dropped per NTC-0009); FedRAMP's own JSON schemas (github.com/FedRAMP/schemas) are the required machine-readable format (FRC-CSO-JSN), and agency tooling must ingest both OSCAL and JSON. Explain why OSCAL still matters and how it changes the GRC workflow.
 
    **`ssp`**: Deep dive into the OSCAL SSP model — metadata, system characteristics, system implementation, control implementation, back matter. Show the structure with examples.
 
@@ -99,7 +99,7 @@ When invoked:
 
 ## Notes
 
-- OSCAL is evolving — always reference the current stable version (1.1.2 as of this writing).
-- FedRAMP OSCAL requirements are separate from NIST OSCAL — FedRAMP adds extensions and constraints.
+- OSCAL is evolving — always reference the current stable version (v1.2.3, released August 7, 2026, as of September 30, 2026).
+- FedRAMP OSCAL extensions are separate from NIST OSCAL — FedRAMP adds extensions and constraints, but OSCAL submission is optional under CR26; the legacy github.com/GSA/fedramp-automation repository no longer exists (pre-CR26 material is at github.com/FedRAMP/docs-legacy).
 - OSCAL conversion is a significant effort — recommend starting with new SSPs rather than converting existing ones when possible.
 - This command is informational and educational — it doesn't generate OSCAL output.

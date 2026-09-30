@@ -55,7 +55,7 @@ When invoked:
    - Detection and initial response
    - Escalation and communication
    - Containment/recovery decisions
-   - External reporting obligations (CISA, FedRAMP PMO, agencies)
+   - External reporting obligations (CISA, FedRAMP, agency customers — under CR26 IEC, providers report to FedRAMP and agency customers by PAIN-rated timeframes and agencies report to CISA; legacy Rev5: one hour)
    - Evidence preservation
    - Lessons learned
 

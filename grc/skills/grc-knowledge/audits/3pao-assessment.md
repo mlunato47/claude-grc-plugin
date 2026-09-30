@@ -1,6 +1,6 @@
 # 3PAO Assessment for FedRAMP
 
-> **CR26 note (June 2026):** this file describes the legacy Rev5 assessment model. Under the FedRAMP Consolidated Rules for 2026, "3PAO" became **Independent Assessor**, and assessors additionally need **FedRAMP Recognized** status (REC ruleset — layered on top of continuing A2LA accreditation, with biennial reassessment); industry analyses report the assessor role shifting away from ATO recommendations toward continuous verification/validation. This guidance remains valid for Rev5 engagements through the transition (Rev5 active until at least Dec 31, 2028). See `frameworks/fedramp-20x.md`.
+> **CR26 note (updated Sept 30, 2026):** this file describes the legacy Rev5 assessment model. Under the FedRAMP Consolidated Rules for 2026 (CR26; effective July 4, 2026, enforced Jan 1, 2027), "3PAO" is retired in favor of **FedRAMP Recognized independent assessor**, governed by the REC ruleset (in force July 4, 2026): A2LA accreditation (REC-IAS-ACC), a favorable full A2LA reassessment at least every 2 years (REC-IAS-RAS), at least 2 Class B/C/D assessments every 2 years (REC-IAS-ADA), and no restoration after two revocations (REC-FRP-DRD). Annual assessment moves to the IVV ruleset and significant changes to the SCN ruleset (see notes below). This guidance remains valid for Rev5 engagements through the transition (FedRAMP stops accepting new Rev5 certifications June 11, 2027; Rev5 certifications valid through at least Dec 31, 2028). See `frameworks/fedramp-20x.md`.
 
 ## Overview
 
@@ -19,7 +19,7 @@ A Third Party Assessment Organization (3PAO) performs independent security asses
 - Organizational independence from the CSP being assessed
 - No financial interest in the CSP beyond the assessment engagement
 - Cannot have implemented controls they are now assessing
-- Must disclose any conflicts of interest to the FedRAMP PMO
+- Must disclose any conflicts of interest to FedRAMP
 - Assessment team members must sign independence attestations
 
 ## Assessment Types
@@ -27,8 +27,8 @@ A Third Party Assessment Organization (3PAO) performs independent security asses
 | Type | Trigger | Scope | Frequency |
 |------|---------|-------|-----------|
 | Initial Assessment | New authorization | Full baseline | Once |
-| Annual Assessment | Ongoing authorization | Full baseline subset + all prior findings | Yearly |
-| Significant Change Assessment | Major system change | Changed components and affected controls | As needed |
+| Annual Assessment | Ongoing authorization | Full baseline subset + all prior findings (legacy Rev5; see CR26 IVV note below) | Yearly |
+| Significant Change Assessment | Major system change | Changed components and affected controls (legacy Rev5 SCR; CR26 SCN model below) | As needed |
 
 ### Initial Assessment
 - Covers the complete FedRAMP baseline (Low, Moderate, or High)
@@ -36,15 +36,17 @@ A Third Party Assessment Organization (3PAO) performs independent security asses
 - Results in the initial SAR submitted with the authorization package
 
 ### Annual Assessment
-- Tests a subset of controls per the FedRAMP annual assessment guidance
+- Tests a subset of controls per the FedRAMP annual assessment guidance (legacy Rev5: typically one-third of controls per year)
 - Must ensure full baseline coverage over the three-year authorization cycle
 - Includes validation of POA&M remediation
 - Reviews continuous monitoring artifacts from the past year
+- **CR26 (IVV ruleset):** a fixed core set of roughly 80 Rev5 controls is assessed every year (IVV-CSF-AIA); all applicable controls at least every 3 years is a ceiling, not a floor (IVV-CSF-MCA); FedRAMP's preferred approach is all controls annually (IVV-CSF-PCA); controls with negative findings are reassessed the next cycle. For 20x Class B/C/D, all KSIs are assessed annually (IVV-CSX-AIA).
 
 ### Significant Change Assessment
 - Triggered by changes to the authorization boundary, data flows, or architecture
 - Scope limited to affected controls and components
-- Must be completed before the change is implemented in production (or within a PMO-approved timeframe)
+- Legacy Rev5: must be completed before the change is implemented in production (or within a FedRAMP-approved timeframe under the Significant Change Request process)
+- **CR26 (SCN ruleset, Rev5 grace to June 1, 2027):** notification replaces advance approval. Routine recurring changes need no notification; adaptive changes are notified within 10 business days after completion; transformative changes require initial plans 30 business days before, final plans 10 business days before, notice 5 business days after completion and 5 business days after verification, with documentation updated within 30 business days. Advance approval applies only under a Corrective Action Plan.
 
 ## Assessment Phases
 
@@ -103,7 +105,7 @@ The SAP defines the assessment scope, methodology, and logistics:
 - Container image scanning (if applicable)
 
 #### Manual Testing
-- Penetration testing (network, web application, social engineering)
+- Penetration testing (network, web application, social engineering) — legacy Rev5: annual, per FedRAMP Penetration Test Guidance v3.0 (June 30, 2022, the last final version; v4.0 was only a March 2024 draft). CR26 CA-8 guidance: penetration testing is part of vulnerability detection and subject to the VDR rules
 - Access control verification
 - Audit log review
 - Encryption validation
@@ -141,6 +143,8 @@ The risk exposure table summarizes all findings with severity and risk ratings:
 | High | Exploitation would cause serious harm; limited compensating controls | May block ATO; requires remediation plan |
 | Moderate | Exploitation could cause moderate harm; some compensating controls exist | ATO possible with POA&M; 90-day remediation |
 | Low | Exploitation would cause limited harm; compensating controls in place | ATO possible with POA&M; 180-day remediation |
+
+*Remediation days above are legacy FedRAMP Rev5 values (in force until CR26 becomes mandatory Jan 1, 2027): High 30 / Moderate 90 / Low 180 days from discovery. "Critical" is not a distinct FedRAMP category (treated as High). Under CR26 VDR/VER (required Dec 7, 2026; grace to Mar 7, 2027), deadlines derive from PAIN rating and reachability rather than severity alone.*
 
 ## Risk Calculation Methodology
 
@@ -194,8 +198,8 @@ Risk is calculated as **Likelihood x Impact**:
 | Reviewer | Focus | Timeline |
 |----------|-------|----------|
 | CSP | Accuracy of findings, factual corrections | 2-4 weeks |
-| FedRAMP PMO | Completeness, quality, consistency | 2-6 weeks |
-| JAB (if JAB path) | Risk adjudication, authorization recommendation *(JAB dissolved May 2024; replaced by FedRAMP Board)* | 4-8 weeks |
+| FedRAMP | Completeness, quality, consistency | 2-6 weeks |
+| JAB (historical; JAB path no longer exists) | Risk adjudication, authorization recommendation *(JAB dissolved May 2024; replaced by FedRAMP Board per M-24-15)* | 4-8 weeks |
 | AO (if Agency path) | Risk acceptance determination | 2-4 weeks |
 
 ## Post-Assessment Activities
@@ -203,8 +207,8 @@ Risk is calculated as **Likelihood x Impact**:
 1. **CSP Response** — CSP reviews SAR, provides factual corrections and remediation plans
 2. **POA&M Creation** — All open findings entered into POA&M with milestones and target dates
 3. **Risk Adjudication** — AO (or formerly JAB, dissolved May 2024) reviews residual risk and makes authorization determination
-4. **Remediation Validation** — 3PAO validates closed findings (may require retesting)
-5. **Authorization Decision** — ATO, P-ATO, DATO, or IATT issued
+4. **Remediation Validation** — 3PAO (CR26: FedRAMP Recognized independent assessor) validates closed findings (may require retesting)
+5. **Authorization Decision** — ATO, DATO, or IATT issued (P-ATO was the JAB decision; historical). Under CR26 the outcome is "FedRAMP Certified" rather than "FedRAMP Authorized"
 
 ## Remediation and POA&M Entry
 
@@ -220,12 +224,14 @@ Each SAR finding must be tracked in the POA&M with:
 
 ### Remediation Timelines
 
-| Risk Level | FedRAMP Remediation Requirement |
+| Risk Level | FedRAMP Remediation Requirement (Legacy FedRAMP Rev5 value, in force until CR26 becomes mandatory Jan 1, 2027) |
 |------------|--------------------------------|
-| Critical | 30 days (or immediate mitigation) |
+| Critical | 30 days (or immediate mitigation) — not a distinct FedRAMP category; treated as High |
 | High | 30 days |
 | Moderate | 90 days |
 | Low | 180 days |
+
+**CR26 (VDR/VER rulesets, required Dec 7, 2026; grace to Mar 7, 2027):** remediation timeframes are set by PAIN rating and reachability (VDR-TFR-PVR; e.g., Class D PAIN-5 internet-reachable 12 hours, ranges up to 192 days), KEVs per CISA due dates (VDR-TFR-KEV). Anything not remediated within 192 days becomes an Accepted Vulnerability with written justification (VER-TFR-MAV) and is listed in each quarterly Ongoing Certification Report (OCR). The POA&M is not a CR26 construct on the CSP side.
 
 ## Assessment Timelines
 
@@ -254,7 +260,8 @@ Each SAR finding must be tracked in the POA&M with:
 
 ## Key References
 
-- FedRAMP 3PAO Obligations and Performance Guide
+- FedRAMP 3PAO Obligations and Performance Guide (legacy Rev5; CR26 REC ruleset governs assessor recognition)
+- FedRAMP Penetration Test Guidance v3.0 (June 30, 2022; last final version)
 - NIST SP 800-53A Rev 5 (Assessment Procedures)
 - NIST SP 800-37 Rev 2 (Risk Management Framework)
 - FedRAMP SAP Template

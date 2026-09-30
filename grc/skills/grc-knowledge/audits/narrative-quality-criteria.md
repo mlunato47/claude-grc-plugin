@@ -39,7 +39,7 @@ Every control narrative must answer these five questions. Missing any one reduce
 ### When — Frequency and Timing
 
 - [ ] States how often the control activity occurs
-- [ ] Matches framework-required frequencies (e.g., FedRAMP parameters)
+- [ ] Matches framework-required frequencies (e.g., legacy FedRAMP Rev5 parameters, in force until CR26 becomes mandatory Jan 1, 2027; CR26 removed most FedRAMP-assigned values)
 - [ ] Distinguishes between continuous, periodic, and event-driven activities
 - [ ] Specifies review/audit cycles
 - [ ] Addresses timeliness of response (for incident/event-based controls)
@@ -63,7 +63,7 @@ ODPs (also called "assignment" or "selection" operations in NIST 800-53) require
 ### Parameter Check Criteria
 
 - [ ] All required ODPs have explicit values (not blank or TBD)
-- [ ] Values match framework requirements (FedRAMP-defined values where mandated)
+- [ ] Values match framework requirements (FedRAMP-defined values where mandated — Legacy FedRAMP Rev5 values remain in force until CR26 becomes mandatory Jan 1, 2027; CR26 removed most FedRAMP-assigned values and points to rulesets instead)
 - [ ] Values are specific and measurable (e.g., "90 days" not "regularly")
 - [ ] Selection operations choose from allowed options
 - [ ] Assignment operations provide concrete values appropriate to the system
@@ -81,6 +81,16 @@ ODPs (also called "assignment" or "selection" operations in NIST 800-53) require
 | RA | Vulnerability scanning frequency, remediation timelines by severity |
 | SC | Cryptographic algorithms, key sizes, certificate validity periods |
 | SI | Flaw remediation timelines, monitoring alert thresholds, signature update frequency |
+
+**Legacy FedRAMP Rev5 values (in force until CR26 becomes mandatory Jan 1, 2027; CR26: no FedRAMP-assigned value unless noted):**
+- AC-2(3) inactivity: 90 days Moderate / 35 days High; AC-2(2) temporary accounts: 96 hours Moderate / 24 hours High
+- AC-7: no FedRAMP-assigned value (align with SP 800-63B); the "3 attempts / 30 minutes" figures are Rev 4 leftovers
+- AC-11 device lock: 15 minutes; AC-12: no FedRAMP value (30/15-minute figures come from IA-11 guidance, AAL2/AAL3); SC-10: 10 minutes privileged / 15 minutes user
+- AU-6 review: weekly at both baselines; AU-11: 90 days online plus retention per M-21-31 and NARA (not "1 year")
+- IA-5 passwords: per SP 800-63B-4 (final July 31, 2025); no 12/15-character FedRAMP minimums (legacy 14-character rule only for non-MFA/emergency accounts); phishing-resistant MFA required at all baselines (CR26 IA-2/(1)/(2); TOTP, push, and SMS do not qualify)
+- IR-3: annual functional (Moderate) / every 6 months incl. functional annually (High); CP-9: daily incremental + weekly full, backup testing annually Moderate / monthly High; PS-4 termination: 4 hours Moderate / 1 hour High
+- RA-5(d): High 30 / Moderate 90 / Low 180 days from discovery; SI-2(c): 30 days from release; CR26 VDR/VER sets deadlines by PAIN rating and reachability instead
+- SC-13: FIPS 140-3 modules with active CMVP validation (140-2 certificates Historical since Sept 22, 2026); CR26 guidance: "Follow the FedRAMP Cryptographic Module Use rules"
 
 ## Enhancement Coverage
 
@@ -195,7 +205,8 @@ For each control at the applicable baseline, all required enhancements must be a
 ### CA — Assessment, Authorization, and Monitoring
 - POA&M management described generically without lifecycle details
 - Interconnections (CA-3) missing partner system specifics
-- Assessment frequency not aligned with FedRAMP annual requirement
+- Assessment frequency not aligned with FedRAMP annual requirement (legacy Rev5 one-third rotation; CR26 IVV: fixed core of ~80 controls every year, all controls at least every 3 years as a ceiling, all annually preferred)
+- Interconnection agreements described as ISA-only (CA-3 accepts any agreement type; no FedRAMP-specific CA-3 parameter under CR26)
 
 ### CM — Configuration Management
 - Baseline configurations referenced but not described
@@ -210,16 +221,16 @@ For each control at the applicable baseline, all required enhancements must be a
 - Alternate site arrangements vague
 
 ### IA — Identification and Authentication
-- MFA described generically without specifying authenticator types
-- Password complexity stated but doesn't match FedRAMP parameters
+- MFA described generically without specifying authenticator types (phishing-resistant MFA is required at all FedRAMP baselines; TOTP, push, and SMS do not qualify)
+- Password rules stated but not aligned with NIST SP 800-63B-4 (there are no 12/15-character FedRAMP minimums; the legacy 14-character rule applies only to non-MFA/emergency accounts)
 - Service account/device authentication not addressed
 - Credential management lifecycle incomplete
 
 ### IR — Incident Response
-- Reporting timelines don't match CISA requirements
-- Incident categories and severity definitions missing
+- Reporting timelines don't match requirements (legacy Rev5: one hour to CISA, formerly US-CERT, FedRAMP, and agencies; CR26 IEC: PAIN-based timeframes, e.g., Class C PAIN-3/4/5 in 1 hour, Class D in 15 minutes)
+- Incident categories and severity definitions missing (the US-CERT CAT 1-6 taxonomy was retired in 2017; CR26 uses PAIN N1-N5)
 - Lessons learned process not described
-- External reporting requirements (FedRAMP PMO, agency) omitted
+- External reporting requirements (FedRAMP, agency customers, trust center) omitted
 
 ### PE — Physical and Environmental Protection
 - For cloud: inheritance claim without CSP reference
@@ -228,13 +239,13 @@ For each control at the applicable baseline, all required enhancements must be a
 - Physical access authorization list management not described
 
 ### SC — System and Communications Protection
-- Encryption described without algorithm/key size specifics
+- Encryption described without algorithm/key size specifics or CMVP certificate numbers (FIPS 140-3 with active validation; 140-2 certificates Historical since Sept 22, 2026)
 - Boundary protection doesn't reference network architecture
 - Session management controls vague on timeout values
 - DNS/DNSSEC, certificate management often missing
 
 ### SI — System and Information Integrity
-- Flaw remediation timelines not aligned with POA&M SLAs
+- Flaw remediation timelines not aligned with POA&M SLAs (legacy Rev5 SI-2: 30 days from release; RA-5: 30/90/180 days; CR26 VDR/VER: PAIN and reachability-based)
 - Monitoring tools named but alerting thresholds not described
 - Anti-malware update frequency not specified
 - Information handling/integrity checks not addressed

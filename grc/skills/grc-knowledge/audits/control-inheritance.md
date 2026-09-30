@@ -16,7 +16,7 @@ Every control in an SSP gets one of these designations:
 ### The Inheritance Trap
 
 **Common mistake**: Marking a control as "Inherited" and providing no narrative. Even inherited controls require the SSP to:
-1. Name the provider system and its authorization (e.g., "AWS GovCloud, FedRAMP High P-ATO")
+1. Name the provider system and its authorization (e.g., "AWS GovCloud (US), FedRAMP High" — legacy packages may cite a JAB P-ATO; the JAB was dissolved May 2024 and CR26 uses "FedRAMP Certified" rather than "FedRAMP Authorized")
 2. Describe what specifically is inherited (not just "PE controls inherited from CSP")
 3. State how the inheritance was verified (e.g., CRM review, SSP review)
 4. Note any residual responsibilities not covered by inheritance
@@ -56,6 +56,8 @@ The IaaS provider handles physical infrastructure and virtualization. The custom
 | PM | All PM controls | Program management |
 | SA | SA-2, SA-3, SA-4, SA-8 | Development and acquisition |
 | PT | All PT controls | Privacy for own data handling |
+
+*Note: the PM and PT families are not in any FedRAMP baseline (Low, Moderate, or High); the rows above apply to FISMA/agency systems and other NIST-based frameworks.*
 
 ### PaaS (Platform as a Service)
 
@@ -104,6 +106,8 @@ SaaS providers handle everything except user management, data, and organizationa
 | SI | Shared | SaaS provider patches; customer monitors for application-layer issues |
 | SR | Shared | Both manage own supply chains |
 
+*Note: PM and PT are not in any FedRAMP baseline; they apply to FISMA/agency and other NIST-based contexts only.*
+
 ### Multi-Layer Inheritance (Stacked Providers)
 
 Real-world stacks often have multiple layers:
@@ -143,7 +147,7 @@ Real-world stacks often have multiple layers:
 | Mistake | Problem | Fix |
 |---------|---------|-----|
 | "PE inherited from AWS" with no detail | Doesn't describe what's inherited or verify authorization | Name specific AWS authorization, describe PE controls inherited |
-| Inheriting from non-authorized provider | No FedRAMP authorization to inherit from | Verify provider is on FedRAMP Marketplace or implement controls yourself |
+| Inheriting from non-authorized provider | No FedRAMP certification to inherit from | Verify provider is on the FedRAMP Marketplace or implement controls yourself. Legacy Rev5: document non-authorized external services in SSP Table 7.1. CR26 (MAS-CSO-TPR): third-party resources are not prohibited, but the provider MUST document usage/configuration, justification, mitigations, and compensating controls |
 | Wrong baseline level | Inheriting High from a Moderate-authorized provider | Provider baseline must be ≥ consumer baseline |
 | Missing CRM review | Assuming inheritance without verifying CRM | Obtain and review provider CRM annually |
 | "Shared" without split | Says "shared" but only describes one party | Both parties' specific responsibilities must be documented |
@@ -152,12 +156,12 @@ Real-world stacks often have multiple layers:
 
 ## FedRAMP Leveraged Authorization
 
-FedRAMP allows CSPs to leverage another CSP's authorization:
+FedRAMP allows CSPs to leverage another CSP's authorization (legacy Rev5 SSP Section 6, "Leveraged FedRAMP-Authorized Services"; CR26 term: FedRAMP Certified):
 
-1. **Underlying CSP** has a FedRAMP P-ATO or ATO
+1. **Underlying CSP** has a FedRAMP authorization (agency ATO, or a legacy JAB P-ATO — JAB dissolved May 2024; CR26: FedRAMP Certification)
 2. **Leveraging CSP** builds on top of the underlying CSP
-3. **Leveraging CSP's SSP** documents which controls are inherited
-4. **3PAO assessment** verifies the inheritance claims
+3. **Leveraging CSP's SSP** documents which controls are inherited (legacy Rev5 CIS/CRM Workbook, SSP Appendix J; CR26 has no CIS/CRM template — the Secure Configuration Guide ruleset applies instead)
+4. **3PAO assessment** (CR26: FedRAMP Recognized independent assessor) verifies the inheritance claims
 5. **CRM from underlying CSP** must be current and reviewed
 
 ### Leveraging Requirements
@@ -165,7 +169,7 @@ FedRAMP allows CSPs to leverage another CSP's authorization:
 - The underlying CSP's authorization level must be ≥ the leveraging CSP's target level
 - The leveraging CSP must document in their SSP how they verified the inheritance
 - Any controls the underlying CSP marks as "Customer Responsibility" in their CRM become the leveraging CSP's responsibility
-- The leveraging CSP must monitor the underlying CSP's authorization status (e.g., through FedRAMP Marketplace, ConMon reporting)
+- The leveraging CSP must monitor the underlying CSP's authorization status (e.g., through FedRAMP Marketplace, ConMon reporting; under CR26, quarterly Ongoing Certification Reports and trust-center publications)
 
 ## Responsibility Matrix Template Structure
 

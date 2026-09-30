@@ -102,8 +102,8 @@ Restart OpenCode. Commands are available as `/grc-control-lookup`, `/grc-map-con
 | Command | Purpose |
 |---------|---------|
 | `/grc:review-narrative` | Review SSP control narratives — Five W's, ODPs, 0-5 maturity score |
-| `/grc:review-ssp` | Validate SSP structure against FedRAMP template |
-| `/grc:review-poam` | Check POA&M entries for field completeness and SLA compliance |
+| `/grc:review-ssp` | Validate SSP structure against the legacy FedRAMP Rev5 template (appendices A–Q) |
+| `/grc:review-poam` | Check POA&M entries for field completeness and SLA compliance (legacy Rev5 30/90/180-day values; CR26 VDR/VER noted) |
 | `/grc:review-policy` | Review policy structure, control coverage, and language quality |
 | `/grc:review-crm` | Review CRM coverage, responsibility clarity, and common gaps |
 | `/grc:score-maturity` | Score control implementation maturity 0-5 with next-level guidance |
@@ -212,8 +212,8 @@ Reference-only commands (`evidence-checklist`, `compliance-calendar`, `tabletop-
 | Framework | Version | Reference File |
 |-----------|---------|---------------|
 | NIST 800-53 | Rev 5 | `frameworks/nist-800-53.md` |
-| FedRAMP | Rev 5 | `frameworks/fedramp.md` |
-| FedRAMP 20x | CR26 (June 2026) | `frameworks/fedramp-20x.md` |
+| FedRAMP | Rev 5 (legacy; valid through at least Dec 31, 2028) | `frameworks/fedramp.md` |
+| FedRAMP 20x | CR26 (June 2026; dataset 2026.09.13.02) | `frameworks/fedramp-20x.md` |
 | DoD/DoW Impact Levels | CSP SRG V1R7 (2026) | `frameworks/dod-impact-levels.md` |
 | ITAR | 22 CFR 120–130 (current, 2026) | `frameworks/itar.md` |
 | FISMA | Current | `frameworks/fisma.md` |

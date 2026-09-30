@@ -1,6 +1,6 @@
 # SAR Finding Response Patterns
 
-Templates and guidance for responding to Security Assessment Report (SAR) findings from 3PAO assessments, internal audits, and other security evaluations.
+Templates and guidance for responding to Security Assessment Report (SAR) findings from 3PAO assessments (CR26 term: FedRAMP Recognized independent assessor), internal audits, and other security evaluations. Severity SLAs cited below are legacy FedRAMP Rev5 values (in force until CR26 becomes mandatory Jan 1, 2027); see the CR26 note under "Response Patterns by Risk Rating".
 
 ## SAR Finding Structure
 
@@ -100,14 +100,14 @@ When control implementation exists but SSP narrative, policy, or procedure docum
 ```
 
 ### Technical Finding
-When a control is not technically implemented as required (e.g., MFA not enforced, encryption not meeting FIPS requirements, configurations not matching baselines).
+When a control is not technically implemented as required (e.g., phishing-resistant MFA not enforced, encryption not using a FIPS 140-3 module with active CMVP validation — 140-2 certificates have been Historical since Sept 22, 2026 — configurations not matching baselines).
 
 ```
 **Response to [Finding ID]: [Control ID] — [Brief Title]**
 
 **Acknowledgment**: [CSP Name] acknowledges this technical deficiency.
 
-**Root Cause**: [Describe why the technical gap exists — e.g., "The session timeout was configured to 30 minutes, which exceeds the FedRAMP-required value of 15 minutes. The configuration was set during initial deployment and was not updated when FedRAMP parameter guidance changed."]
+**Root Cause**: [Describe why the technical gap exists — e.g., "The device lock (AC-11) inactivity timeout was configured to 30 minutes, which exceeds the legacy FedRAMP Rev5 value of 15 minutes (in force until CR26 becomes mandatory Jan 1, 2027; CR26 assigns no FedRAMP value). The configuration was set during initial deployment and was not updated when FedRAMP parameter guidance changed." Note: AC-12 session termination has no FedRAMP-assigned value in either the legacy baseline or CR26.]
 
 **Remediation Plan**:
 1. [Technical action] — [Role] — Target: [Date]
@@ -122,6 +122,8 @@ When a control is not technically implemented as required (e.g., MFA not enforce
 ```
 
 ## Response Patterns by Risk Rating
+
+SLAs below are the Legacy FedRAMP Rev5 values (in force until CR26 becomes mandatory Jan 1, 2027): High 30 / Moderate 90 / Low 180 days from discovery; "Critical" is not a distinct FedRAMP category and is treated as High. **CR26 (VDR/VER, required Dec 7, 2026; grace to Mar 7, 2027):** deadlines derive from PAIN rating and reachability (e.g., Class D PAIN-5 internet-reachable 12 hours, ranges up to 192 days), KEVs per CISA due dates; anything not remediated within 192 days becomes an Accepted Vulnerability with written justification, listed in each quarterly OCR.
 
 ### Critical Findings (30-day SLA)
 - Response must demonstrate urgency
@@ -179,6 +181,8 @@ When the CSP disagrees with a finding:
 
 **Requested Action**: Deviation request [DR-ID] submitted. POA&M entry [POA&M-ID] reflects accepted risk status pending AO approval.
 ```
+
+*Legacy Rev5 deviation-request model. Under CR26 the equivalent is an **Accepted Vulnerability** (FRD-ACV) with written justification, reported in each quarterly OCR with the VER-RPT-AVI fields (tracking ID, detection time/source, evaluation time, internet-reachable, likely-exploitable, PAIN rating, rationale); "Accepted Weakness" is not a CR26 term.*
 
 ## SAR Response Quality Checklist
 

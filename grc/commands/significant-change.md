@@ -104,7 +104,7 @@ When invoked:
 **Before Implementation**:
 1. [ ] [Action — e.g., Complete Security Impact Analysis]
 2. [ ] [Action — e.g., Notify AO of planned change]
-3. [ ] [Action — e.g., Submit SCR to FedRAMP PMO]
+3. [ ] [Action — e.g., Submit SCR to FedRAMP (legacy Rev5) or, under CR26, a Significant Change Notification per the SCN ruleset — transformative changes: initial plans 30 business days before, final plans 10 business days before]
 4. [ ] [Action — e.g., Draft SSP updates for affected sections]
 
 **After Implementation**:

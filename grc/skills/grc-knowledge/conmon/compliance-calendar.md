@@ -28,6 +28,8 @@ Consolidated recurring compliance activities by frequency and framework. Use thi
 
 ### Monthly
 
+*Legacy FedRAMP Rev5 cadence. CR26 overlay: monthly human-readable vulnerability report (VER-TFR-MHR); Ongoing Certification Report (OCR) every 3 months (CCM-OCR-AVL) followed by a Quarterly Review 3–10 business days later (MUST Class C/D, SHOULD B, MAY A).*
+
 | Activity | Control Reference | Responsible Role | Deliverable |
 |----------|------------------|-----------------|-------------|
 | Vulnerability scan — OS/infrastructure | RA-5 | Security Engineer | Scan report |
@@ -50,6 +52,7 @@ Consolidated recurring compliance activities by frequency and framework. Use thi
 | Third-party/vendor risk review | SA-9, SR-6 | ISSO | Vendor review report |
 | Security metric trend analysis | CA-7 | ISSO | Trend report |
 | Firewall rule review | SC-7 | Network Engineer | Rule review report |
+| Ongoing Certification Report + Quarterly Review (CR26) | CCM-OCR-AVL, CCM-QTR-MTG | ISSO / CISO | OCR (incl. Accepted Vulnerability list); review meeting 3–10 business days after OCR |
 
 ### Semi-Annual (Best Practices)
 
@@ -65,7 +68,7 @@ These are common best practices; FedRAMP mandates annual as the minimum for most
 
 | Activity | Control Reference | Responsible Role | Deliverable |
 |----------|------------------|-----------------|-------------|
-| Security assessment (3PAO) | CA-2 | 3PAO / ISSO | SAR |
+| Security assessment (3PAO; CR26 term: FedRAMP Recognized independent assessor — IVV: fixed core set annually, all controls within 3 years) | CA-2 | 3PAO / ISSO | SAR |
 | SSP comprehensive review and update | PL-2 | ISSO | Updated SSP |
 | Contingency plan test | CP-4 | ISSO / CP Director | Test results report |
 | Incident response plan test | IR-3 | ISSO / IR Lead | Test results report |
@@ -75,7 +78,7 @@ These are common best practices; FedRAMP mandates annual as the minimum for most
 | Risk assessment update | RA-3 | ISSO | Updated RAR |
 | Configuration baseline review | CM-2 | Security Engineer | Updated baselines |
 | Rules of behavior re-acknowledgment | PL-4 | ISSO | Signed RoB |
-| Policy review (all policies) | *-1 (all families) | Policy owners | Updated policies |
+| Policy review (all policies) — legacy FedRAMP Rev5: policies every 3 years Moderate / annually High, procedures annually; CR26: no FedRAMP-assigned value | *-1 (all families) | Policy owners | Updated policies |
 | Account comprehensive review | AC-2 | ISSO | Account review report |
 | Media sanitization review | MP-6 | ISSO | Sanitization log |
 | Supply chain risk review | SR-1, SR-6 | ISSO | SCRM update |
@@ -85,11 +88,11 @@ These are common best practices; FedRAMP mandates annual as the minimum for most
 | Trigger | Activities | Control Reference |
 |---------|-----------|------------------|
 | Security incident | IR procedures, reporting, lessons learned | IR-4, IR-5, IR-6, IR-8 |
-| Significant change | SIA, affected control assessment, SSP update | CM-3, CA-2, PL-2 |
+| Significant change (legacy SCR; CR26 SCN: adaptive changes notified within 10 business days after completion, transformative changes planned 30/10 business days before) | SIA, affected control assessment, SSP update | CM-3, CA-2, PL-2 |
 | New interconnection | ISA negotiation, CA-3 assessment | CA-3 |
 | Personnel departure | Account disabling, access revocation | AC-2, PS-4 |
 | Personnel role change | Access review and modification | AC-2, PS-5 |
-| New vulnerability (critical) | Emergency patch assessment, POA&M entry | SI-2, RA-5 |
+| New high-impact vulnerability or CISA KEV entry (BOD 26-04 due dates) | Emergency patch assessment, POA&M entry | SI-2, RA-5 |
 | ATO expiration approaching | Reauthorization preparation | CA-6 |
 
 ## SOC 2 Recurring Activities
@@ -195,8 +198,8 @@ Each completed activity should produce evidence (report, screenshot, sign-off) t
 | Apr | Scans, POA&M, ConMon report | Q2: Privileged access review, inventory | SSP annual update begins |
 | May | Scans, POA&M, ConMon report | | Contingency plan test |
 | Jun | Scans, POA&M, ConMon report | | Incident response test |
-| Jul | Scans, POA&M, ConMon report | Q3: Privileged access review, inventory | 3PAO annual assessment begins |
-| Aug | Scans, POA&M, ConMon report | | 3PAO assessment continues |
+| Jul | Scans, POA&M, ConMon report | Q3: Privileged access review, inventory | Independent (3PAO) annual assessment begins |
+| Aug | Scans, POA&M, ConMon report | | Independent assessment continues |
 | Sep | Scans, POA&M, ConMon report | | Policy reviews, RoB re-sign |
 | Oct | Scans, POA&M, ConMon report | Q4: Privileged access review, inventory | SAR finalized |
 | Nov | Scans, POA&M, ConMon report | | Configuration baseline review |

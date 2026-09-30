@@ -50,9 +50,9 @@ If the user's pasted content includes specific identifiers (IPs, agency names, C
 
 | Framework | Authority | Key Documents | Baselines |
 |-----------|-----------|---------------|-----------|
-| **NIST 800-53 Rev 5** | NIST | SP 800-53, 800-53A, 800-53B | Low (~150), Moderate (~304), High (~392) |
-| **FedRAMP** | GSA/FedRAMP PMO | FedRAMP baselines, SSP template, SAR | Low, Moderate, High, LI-SaaS (legacy Rev5) |
-| **FedRAMP 20x / CR26** | GSA/FedRAMP | Consolidated Rules for 2026, 46 KSIs, VDR/VER standards | Certification Classes A, B, C, D |
+| **NIST 800-53 Rev 5** | NIST | SP 800-53 (Release 5.2.0, Aug 27, 2025, is latest), 800-53A, 800-53B | Low (~150), Moderate (~304), High (~392) |
+| **FedRAMP** | GSA/FedRAMP (documents say "FedRAMP," not "FedRAMP PMO") | FedRAMP Rev5 baselines, SSP template, SAR (legacy templates carry a June 23, 2026 LEGACY NOTICE) | Low (~156), Moderate (323), High (410), LI-SaaS (legacy Rev5; last new Rev5 certifications June 11, 2027, valid through at least Dec 31, 2028) |
+| **FedRAMP 20x / CR26** | GSA/FedRAMP | Consolidated Rules for 2026 (246 rules, 17 rulesets, 46 KSIs, 80 definitions per dataset 2026.09.13.02), VDR/VER standards | Certification Classes A, B (Low), C (Moderate), D (High; 20x Class D is pilot only) — "FedRAMP Certified," not "Authorized" |
 | **FISMA** | OMB/DHS | FIPS 199, FIPS 200, 800-37, 800-60 | Low, Moderate, High (per FIPS 199) |
 | **CMMC 2.0** | DoD/CIO | CMMC Model, NIST 800-171 Rev 2 | Level 1 (17), Level 2 (110), Level 3 (134) |
 | **DoD/DoW Impact Levels** | DISA | Cloud Service Provider SRG V1R7, CNSSI 1253, CNSSP-32 | IL2, IL4, IL5, IL6 (FedRAMP baseline + FedRAMP+ compositions) |
@@ -101,11 +101,11 @@ If the user's pasted content includes specific identifiers (IPs, agency names, C
 
 ConMon (ISCM — Information Security Continuous Monitoring) ensures security posture is maintained post-authorization.
 
-> **FedRAMP note:** the deliverables below describe the legacy Rev5 model. Under FedRAMP 20x/CR26, vulnerability management follows the VDR/VER standards and reporting moves to Ongoing Certification Reports with quarterly reviews — see `frameworks/fedramp-20x.md`.
+> **FedRAMP note:** the deliverables below describe the legacy Rev5 model (in force until CR26 becomes mandatory Jan 1, 2027; VDR/VER required for Rev5 from Dec 7, 2026). Under FedRAMP 20x/CR26, vulnerability management follows the VDR/VER standards and reporting moves to Ongoing Certification Reports (OCR, every 3 months) with quarterly reviews — see `frameworks/fedramp-20x.md`.
 
-**Monthly deliverables**: Vulnerability scans (OS, web app, database, container), POA&M updates, scan deviation requests
+**Monthly deliverables**: Vulnerability scans (OS/infrastructure, web app incl. APIs, database, container), POA&M updates, scan deviation requests
 **Quarterly**: Hardware/software inventory reconciliation, privileged user review
-**Annual**: Security assessment (subset), contingency plan test, incident response test, security training, privacy impact reassessment
+**Annual**: Security assessment (legacy: core controls plus a rotating subset — the 3-year full-coverage cycle is a ceiling, not a floor; CR26 IVV: fixed ~80-control list every year, all controls at least every 3 years), contingency plan test, incident response test, security training, privacy impact reassessment
 **Ongoing**: Configuration drift monitoring, log review, threat intelligence feeds
 
 → Deep dive: `conmon/iscm-lifecycle.md`, `conmon/monthly-deliverables.md`, `conmon/annual-deliverables.md`
@@ -117,12 +117,12 @@ ConMon (ISCM — Information Security Continuous Monitoring) ensures security po
 2. **Categorize** — FIPS 199 impact levels (C, I, A) → system categorization
 3. **Select** — Choose baseline + tailor controls → document in SSP
 4. **Implement** — Deploy controls → update SSP with implementation details
-5. **Assess** — Independent assessment (3PAO for FedRAMP) → SAR
+5. **Assess** — Independent assessment (3PAO for legacy FedRAMP Rev5; CR26: FedRAMP Recognized independent assessor) → SAR
 6. **Authorize** — AO reviews package → ATO/P-ATO/DATO decision
 7. **Monitor** — Continuous monitoring → ongoing authorization
 
 ### Authorization Package Documents
-- **SSP** (System Security Plan) — Control implementations, system description, boundaries
+- **SSP** (System Security Plan) — Control implementations, system description, boundaries (legacy FedRAMP Rev5; under CR26 replaced by the FedRAMP Certification Package — Certification Package Overview + Security Decision Record — in FedRAMP JSON schemas)
 - **SAP** (Security Assessment Plan) — Assessment methodology, scope, schedule
 - **SAR** (Security Assessment Report) — Findings, risk ratings, recommendations
 - **POA&M** (Plan of Action & Milestones) — Open findings, remediation timelines
@@ -148,8 +148,8 @@ ConMon (ISCM — Information Security Continuous Monitoring) ensures security po
 
 | Audit Type | Assessor | Output | Duration | Details |
 |------------|----------|--------|----------|---------|
-| FedRAMP Initial | 3PAO | SAR, POA&M | 3-6 months | → `audits/3pao-assessment.md` |
-| FedRAMP Annual | 3PAO | SAR update | 1-2 months | → `audits/3pao-assessment.md` |
+| FedRAMP Initial | 3PAO (CR26: FedRAMP Recognized independent assessor) | SAR, POA&M | 3-6 months | → `audits/3pao-assessment.md` |
+| FedRAMP Annual | 3PAO (CR26: FedRAMP Recognized independent assessor; IVV ruleset) | SAR update | 1-2 months | → `audits/3pao-assessment.md` |
 | SOC 2 Type I | CPA firm | Report (point-in-time) | 1-2 months | → `audits/soc2-audit.md` |
 | SOC 2 Type II | CPA firm | Report (6-12 mo period) | Observation + 1 mo | → `audits/soc2-audit.md` |
 | ISO 27001 Stage 1 | CB auditor | Document review | 1-2 days | → `audits/iso-certification.md` |
@@ -161,13 +161,15 @@ ConMon (ISCM — Information Security Continuous Monitoring) ensures security po
 
 A POA&M (Plan of Action & Milestones) tracks security weaknesses and remediation plans.
 
-**Required fields**: Weakness ID, description, severity (Critical/High/Moderate/Low), source (scan/assessment/incident), status, scheduled completion date, milestones, responsible party, estimated cost
+**Required fields**: Weakness ID, description, severity (High/Moderate/Low — "Critical" is not a FedRAMP category), source (scan/assessment/incident), status, scheduled completion date, milestones, responsible party, estimated cost (legacy FedRAMP template = SSP Appendix O)
 
-**Severity-based timelines** (FedRAMP):
-- Critical: 30 days
+**Severity-based timelines** — Legacy FedRAMP Rev5 values (in force until CR26 becomes mandatory Jan 1, 2027), RA-5(d), from date of discovery:
 - High: 30 days
 - Moderate: 90 days
 - Low: 180 days
+- (SI-2 flaw remediation: flat 30 days from release of updates)
+
+**CR26:** the POA&M is not a CR26 construct on the CSP side (agencies still keep POA&Ms). Under VDR/VER (Rev5 required Dec 7, 2026; grace Mar 7, 2027) timeframes derive from PAIN rating x internet reachability; anything not remediated within 192 days becomes an **Accepted Vulnerability** with written justification (not "Accepted Weakness"), listed in each Ongoing Certification Report.
 
 **Statuses**: Open → In Progress → Completed → Closed (verified) | Deferred (with deviation request)
 
@@ -228,7 +230,7 @@ Per-family OSCAL JSON files provide **authoritative, machine-readable control da
 | Need | Source |
 |------|--------|
 | Exact control statement text, parameters, assessment objectives | OSCAL JSON (`oscal/nist-800-53-rev5/{family}.json`) |
-| FedRAMP-specific parameter values and Moderate baseline controls | OSCAL JSON (`oscal/fedramp-moderate-rev5/{family}.json`) |
+| Legacy FedRAMP Rev5 parameter values and Moderate baseline controls (label them "Legacy FedRAMP Rev5 value (in force until CR26 becomes mandatory Jan 1, 2027)"; CR26 removed most FedRAMP-assigned values per NTC-0013) | OSCAL JSON (`oscal/fedramp-moderate-rev5/{family}.json`) |
 | Cross-framework mapping, audit guidance, narrative context | Markdown files (`frameworks/`, `mappings/`, `audits/`) |
 
 ### OSCAL File Structure
@@ -285,7 +287,7 @@ OSCAL uses lowercase IDs with dots for enhancements: `AC-2` → `ac-2`, `AC-2(1)
 1. Identify the control family and baseline
 2. Write in the standard SSP narrative format
 3. Include: what (control objective), who (responsible roles), how (implementation), when (frequency), where (system boundary)
-4. Note any FedRAMP parameter values if applicable
+4. Note any FedRAMP parameter values if applicable — label them "Legacy FedRAMP Rev5 value (in force until CR26 becomes mandatory Jan 1, 2027)" and state the CR26 status (usually "no FedRAMP-assigned value"); never cite Rev 4 leftovers such as AC-7 "3 attempts / 30 minutes" or 12/15-character password minimums
 5. Flag inherited vs. system-specific vs. hybrid responsibility
 
 ### When reviewing a document (narrative, SSP, POA&M, policy, CRM):
@@ -322,22 +324,22 @@ OSCAL uses lowercase IDs with dots for enhancements: `AC-2` → `ac-2`, `AC-2(1)
 | DATO | Denial of Authorization to Operate |
 | DR | Deviation Request |
 | FedRAMP | Federal Risk and Authorization Management Program |
-| FIPS | Federal Information Processing Standards |
+| FIPS | Federal Information Processing Standards (FIPS 140-3 is the active CMVP standard; all FIPS 140-2 certificates moved to the CMVP Historical List Sept 22, 2026, no grandfathering) |
 | FISMA | Federal Information Security Modernization Act |
 | IA | Information Assurance |
 | IRP | Incident Response Plan |
 | ISCM | Information Security Continuous Monitoring |
 | ISSO | Information System Security Officer |
 | ISSM | Information System Security Manager |
-| JAB | Joint Authorization Board (dissolved May 2024; replaced by FedRAMP Board) |
+| JAB | Joint Authorization Board (dissolved May 2024; replaced by FedRAMP Board per OMB M-24-15; 53 legacy-JAB certifications remain listed) |
 | KSI | Key Security Indicator (FedRAMP 20x) |
 | MFA | Multi-Factor Authentication |
-| OCR | Ongoing Certification Report (CR26; replaces OAR-style reporting) |
+| OCR | Ongoing Certification Report (CR26; every 3 months per CCM-OCR-AVL, followed by a Quarterly Review 3–10 business days later; "OAR" is not a CR26 term) |
 | OSCAL | Open Security Controls Assessment Language |
 | PAIN | Potential Agency Impact N-rating, N1–N5 (CR26 VER standard) |
 | PIA | Privacy Impact Assessment |
 | P-ATO | Provisional Authorization to Operate |
-| POA&M | Plan of Action and Milestones |
+| POA&M | Plan of Action and Milestones (legacy Rev5 / agency construct; CR26 CSP-side equivalent is the Accepted Vulnerability list in each OCR) |
 | RMF | Risk Management Framework |
 | SAP | Security Assessment Plan |
 | SAR | Security Assessment Report |
@@ -347,4 +349,4 @@ OSCAL uses lowercase IDs with dots for enhancements: `AC-2` → `ac-2`, `AC-2(1)
 | SSP | System Security Plan |
 | VDR | Vulnerability Detection and Response (CR26 standard) |
 | VER | Vulnerability Evaluation and Reporting (CR26 standard) |
-| 3PAO | Third Party Assessment Organization (CR26: "Independent Assessor" with FedRAMP Recognized status atop A2LA accreditation) |
+| 3PAO | Third Party Assessment Organization (term retired in CR26 in favor of "FedRAMP Recognized independent assessor" — REC ruleset in force July 4, 2026: A2LA accreditation, full reassessment every 2 years, at least 2 Class B/C/D assessments every 2 years) |
