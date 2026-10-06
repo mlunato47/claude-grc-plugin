@@ -44,7 +44,7 @@ Automated tooling forms the backbone of an effective Continuous Monitoring (ConM
 
 **Key requirements:**
 - Must collect logs from all in-scope assets (servers, network devices, endpoints, applications, databases)
-- Log retention must meet organizational and regulatory requirements (Legacy FedRAMP Rev5 AU-11 value, in force until CR26 becomes mandatory Jan 1, 2027: at least 90 days online, with longer retention per OMB M-21-31 and NARA schedules — not a flat "1 year"; CR26: no FedRAMP-assigned value)
+- Log retention must meet organizational and regulatory requirements (Legacy FedRAMP Rev5 AU-11 value, in force until CR26 becomes mandatory Jan 1, 2027: at least 90 days online, with longer retention per NARA schedules and the agency's logging baseline — OMB M-26-14 (May 22, 2026) rescinded M-21-31; the new federal minimum is logs actively searchable for 6 months and retrievable for 12 months — not a flat "1 year"; CR26: no FedRAMP-assigned value)
 - Correlation rules must be tuned to detect relevant security events while minimizing false positives
 - Must support AU-2, AU-6, SI-4 controls
 

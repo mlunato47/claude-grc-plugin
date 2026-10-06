@@ -390,7 +390,7 @@ GRC artifacts often contain CUI, PII, and system architecture details. The plugi
 |-----------|---------|------|
 | NIST 800-53 | Rev 5 | Federal (anchor framework) |
 | FedRAMP | Rev 5 (legacy; valid through at least Dec 31, 2028) | Federal |
-| FedRAMP 20x | CR26 (June 2026; dataset 2026.09.13.02) | Federal |
+| FedRAMP 20x | CR26 (June 2026; dataset 2026.10.05.01) | Federal |
 | DoD/DoW Impact Levels | CSP SRG V1R7 (2026) | Federal (DoD/DoW) |
 | ITAR | 22 CFR 120–130 (2026) | Federal (export control) |
 | FISMA | Current | Federal |

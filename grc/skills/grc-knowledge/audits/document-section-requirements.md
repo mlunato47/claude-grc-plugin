@@ -387,7 +387,7 @@ The older US-CERT "CAT 1-6" incident categories were retired in 2017; CISA's cur
 
 **Legacy FedRAMP Rev5 value (IR-6, in force until CR26 becomes mandatory Jan 1, 2027):** report within one hour to CISA (formerly US-CERT), FedRAMP, and affected agencies per the legacy FedRAMP Incident Communications Procedures.
 
-**CR26 (IEC ruleset; Rev5 grace to June 1, 2027):** reporting timeframes scale with the estimated **Potential Agency Impact N-rating (PAIN)** — N1 minimal effect on one or more agencies through N5 debilitating effect on more than one agency; default PAIN-5 if not estimated. Providers report to FedRAMP (fedramp_security@fedramp.gov) and agency customers and publish to a trust center; agencies report to CISA.
+**CR26 (IEC ruleset; Rev5 grace to June 1, 2027):** reporting timeframes scale with the estimated **Potential Agency Impact N-rating (PAIN)** — N0 (exploitation extremely unlikely to have any adverse effects; added Oct 5, 2026) and N1 minimal effect on one or more agencies through N5 debilitating effect on more than one agency; default PAIN-5 if not estimated. Providers report to FedRAMP (fedramp_security@fedramp.gov) and agency customers and publish to a trust center; agencies report to CISA.
 
 | Class | PAIN-3/4/5 initial report | PAIN-2 initial report | PAIN-1 initial report |
 |-------|---------------------------|-----------------------|-----------------------|

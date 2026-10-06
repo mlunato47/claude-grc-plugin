@@ -12,9 +12,9 @@
 | Effective / optional early adoption | July 4, 2026 |
 | **Mandatory (enforced) for all stakeholders** | **January 1, 2027** (including existing Rev5 certification holders) |
 | Valid through | December 31, 2028 (stable planning window) |
-| Structure | 246 rules across 17 rulesets + 46 KSIs (10 themes) + 80 definitions (FRD) + rebuilt Rev5 control guidance (CTL) — counts per dataset **2026.09.13.02** (site changelog 2026.09.22.01) |
+| Structure | 246 rules across 17 rulesets + 46 KSIs (10 themes) + 80 definitions (FRD) + rebuilt Rev5 control guidance (CTL) — counts per dataset **2026.10.05.01 (Oct 5, 2026 release: PAIN N0 added; CMU-CSO-UVM note that new algorithms in update streams are outside validated scope; FRC-CSO-JSN web-compatibility clarification)** (site changelog 2026.09.22.01) |
 | Rule format | Plain-language RFC-2119 statements (MUST/SHOULD/MAY) with stable IDs `SET-SUBSET-KEY` (e.g., `VDR-CSO-DET`), published as machine-readable JSON |
-| Versioning | Date-based dataset releases (e.g., 2026.09.13.02); check the changelog — CR26 has been revised several times since launch |
+| Versioning | Date-based dataset releases (e.g., 2026.10.05.01 (Oct 5, 2026 release: PAIN N0 added; CMU-CSO-UVM note that new algorithms in update streams are outside validated scope; FRC-CSO-JSN web-compatibility clarification)); check the changelog — CR26 has been revised several times since launch |
 
 **Legal basis:** FedRAMP Authorization Act (44 USC 3607–3616, FY2023 NDAA) + OMB Memorandum M-24-15 ("Modernizing FedRAMP," July 2024). CR26's vulnerability standards also implement **CISA BOD 26-04**.
 
@@ -89,7 +89,7 @@ CR26 ruleset (18 rules; applies fully at classes B/C/D across both 20x and Rev5 
 Companion CR26 ruleset (23 rules; classes B/C/D) split out of VDR: it governs *evaluating federal-customer impact and reporting it*.
 
 - Evaluate exploitability and internet reachability; **assume exploits are automatable by default** (VER-EVA-AIA).
-- Rate every vulnerability's **Potential Agency Impact N-rating (PAIN): N1 (minimal) → N5 (debilitating effect on multiple agencies)** (VER-EVA-EPA). Internet-reachable, likely-exploitable N4/N5 findings are handled as security incidents.
+- Rate every vulnerability's **Potential Agency Impact N-rating (PAIN): N0 → N5** (VER-EVA-EPA; N0, added in dataset 2026.10.05.01 on Oct 5, 2026, means exploitation is extremely unlikely to have any adverse agency effect; N1 minimal; N5 debilitating effect on multiple agencies). Internet-reachable, likely-exploitable N4/N5 findings are handled as security incidents.
 - Persistent reporting to all necessary parties, monthly human-readable activity reports (VER-TFR-MHR), accepted-vulnerability marking (fields per VER-RPT-AVI: tracking ID, detection time/source, evaluation time, internet-reachable, likely-exploitable, PAIN rating, rationale), responsible public disclosure.
 - Same effective dates as VDR (required Dec 7, 2026; grace to Mar 7, 2027). Together VDR + VER replace the legacy monthly-scan-plus-POA&M ConMon model.
 
@@ -118,7 +118,7 @@ All at `https://www.fedramp.gov/2026/reference/<slug>/`. Legacy 25.x predecessor
 | VER | Vulnerability Evaluation and Reporting (`vulnerability-evaluation-and-reporting`) | See above |
 | KSI | Key Security Indicators (`key-security-indicators`) | See above |
 | CTL | Rev5 Control Guidance (`rev5-control-guidance`) | Rebuilt Rev5 guidance per NTC-0013 |
-| FRD | Definitions (`/2026/definitions/`) | 80 controlled terms as of dataset 2026.09.13.02 (PAIN, IRV, KEV, LEV, OCR, SDR, Accepted Vulnerability, Trust Center, …) |
+| FRD | Definitions (`/2026/definitions/`) | 80 controlled terms as of dataset 2026.10.05.01 (Oct 5, 2026 release: PAIN N0 added; CMU-CSO-UVM note that new algorithms in update streams are outside validated scope; FRC-CSO-JSN web-compatibility clarification) (PAIN, IRV, KEV, LEV, OCR, SDR, Accepted Vulnerability, Trust Center, …) |
 
 Class/type bundles: `reference/20x/{a,b,c}/` and `reference/rev5/{b,c,d}/`; full index at `reference/complete-rulesets/`. Note: there is no document named SSAD or CRS in CR26 (2025-era names people may still search for) — that content became CDS and CCM/OCR.
 

@@ -86,7 +86,7 @@ ODPs (also called "assignment" or "selection" operations in NIST 800-53) require
 - AC-2(3) inactivity: 90 days Moderate / 35 days High; AC-2(2) temporary accounts: 96 hours Moderate / 24 hours High
 - AC-7: no FedRAMP-assigned value (align with SP 800-63B); the "3 attempts / 30 minutes" figures are Rev 4 leftovers
 - AC-11 device lock: 15 minutes; AC-12: no FedRAMP value (30/15-minute figures come from IA-11 guidance, AAL2/AAL3); SC-10: 10 minutes privileged / 15 minutes user
-- AU-6 review: weekly at both baselines; AU-11: 90 days online plus retention per M-21-31 and NARA (not "1 year")
+- AU-6 review: weekly at both baselines; AU-11: 90 days online plus retention per NARA and the agency's logging baseline (OMB M-26-14 (May 22, 2026) rescinded M-21-31; the new federal minimum is logs actively searchable for 6 months and retrievable for 12 months; not "1 year")
 - IA-5 passwords: per SP 800-63B-4 (final July 31, 2025); no 12/15-character FedRAMP minimums (legacy 14-character rule only for non-MFA/emergency accounts); phishing-resistant MFA required at all baselines (CR26 IA-2/(1)/(2); TOTP, push, and SMS do not qualify)
 - IR-3: annual functional (Moderate) / every 6 months incl. functional annually (High); CP-9: daily incremental + weekly full, backup testing annually Moderate / monthly High; PS-4 termination: 4 hours Moderate / 1 hour High
 - RA-5(d): High 30 / Moderate 90 / Low 180 days from discovery; SI-2(c): 30 days from release; CR26 VDR/VER sets deadlines by PAIN rating and reachability instead
@@ -228,7 +228,7 @@ For each control at the applicable baseline, all required enhancements must be a
 
 ### IR — Incident Response
 - Reporting timelines don't match requirements (legacy Rev5: one hour to CISA, formerly US-CERT, FedRAMP, and agencies; CR26 IEC: PAIN-based timeframes, e.g., Class C PAIN-3/4/5 in 1 hour, Class D in 15 minutes)
-- Incident categories and severity definitions missing (the US-CERT CAT 1-6 taxonomy was retired in 2017; CR26 uses PAIN N1-N5)
+- Incident categories and severity definitions missing (the US-CERT CAT 1-6 taxonomy was retired in 2017; CR26 uses PAIN N0-N5)
 - Lessons learned process not described
 - External reporting requirements (FedRAMP, agency customers, trust center) omitted
 

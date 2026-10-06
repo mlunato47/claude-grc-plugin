@@ -10,7 +10,7 @@ Templates for generating incident response (IR) and contingency plan (CP) tablet
 | **Functional** | Hands-on simulation with actual system interaction | 2-8 hours | Technical staff, IR team |
 | **Full-Scale** | End-to-end simulation including external parties | 4-16 hours | All stakeholders |
 
-A tabletop alone does not satisfy the legacy FedRAMP Rev5 IR-3 value, which calls for functional exercises (annually at Moderate; every 6 months at High, including functional annually). Tabletops remain valuable as a complement and as the discussion-based component of a functional exercise. Scenario "Category" labels below use the legacy US-CERT CAT taxonomy, retired in 2017; under CR26 IEC, estimate the Potential Agency Impact N-rating (PAIN, N1-N5; default PAIN-5 if not estimated) instead, which sets the reporting timeframe.
+A tabletop alone does not satisfy the legacy FedRAMP Rev5 IR-3 value, which calls for functional exercises (annually at Moderate; every 6 months at High, including functional annually). Tabletops remain valuable as a complement and as the discussion-based component of a functional exercise. Scenario "Category" labels below use the legacy US-CERT CAT taxonomy, retired in 2017; under CR26 IEC, estimate the Potential Agency Impact N-rating (PAIN, N0-N5 as of Oct 5, 2026; default PAIN-5 if not estimated) instead, which sets the reporting timeframe.
 
 ## Incident Response Scenarios
 

@@ -52,7 +52,7 @@ If the user's pasted content includes specific identifiers (IPs, agency names, C
 |-----------|-----------|---------------|-----------|
 | **NIST 800-53 Rev 5** | NIST | SP 800-53 (Release 5.2.0, Aug 27, 2025, is latest), 800-53A, 800-53B | Low (~150), Moderate (~304), High (~392) |
 | **FedRAMP** | GSA/FedRAMP (documents say "FedRAMP," not "FedRAMP PMO") | FedRAMP Rev5 baselines, SSP template, SAR (legacy templates carry a June 23, 2026 LEGACY NOTICE) | Low (~156), Moderate (323), High (410), LI-SaaS (legacy Rev5; last new Rev5 certifications June 11, 2027, valid through at least Dec 31, 2028) |
-| **FedRAMP 20x / CR26** | GSA/FedRAMP | Consolidated Rules for 2026 (246 rules, 17 rulesets, 46 KSIs, 80 definitions per dataset 2026.09.13.02), VDR/VER standards | Certification Classes A, B (Low), C (Moderate), D (High; 20x Class D is pilot only) — "FedRAMP Certified," not "Authorized" |
+| **FedRAMP 20x / CR26** | GSA/FedRAMP | Consolidated Rules for 2026 (246 rules, 17 rulesets, 46 KSIs, 80 definitions per dataset 2026.10.05.01), VDR/VER standards | Certification Classes A, B (Low), C (Moderate), D (High; 20x Class D is pilot only) — "FedRAMP Certified," not "Authorized" |
 | **FISMA** | OMB/DHS | FIPS 199, FIPS 200, 800-37, 800-60 | Low, Moderate, High (per FIPS 199) |
 | **CMMC 2.0** | DoD/CIO | CMMC Model, NIST 800-171 Rev 2 | Level 1 (17), Level 2 (110), Level 3 (134) |
 | **DoD/DoW Impact Levels** | DISA | Cloud Service Provider SRG V1R7, CNSSI 1253, CNSSP-32 | IL2, IL4, IL5, IL6 (FedRAMP baseline + FedRAMP+ compositions) |
@@ -336,7 +336,7 @@ OSCAL uses lowercase IDs with dots for enhancements: `AC-2` → `ac-2`, `AC-2(1)
 | MFA | Multi-Factor Authentication |
 | OCR | Ongoing Certification Report (CR26; every 3 months per CCM-OCR-AVL, followed by a Quarterly Review 3–10 business days later; "OAR" is not a CR26 term) |
 | OSCAL | Open Security Controls Assessment Language |
-| PAIN | Potential Agency Impact N-rating, N1–N5 (CR26 VER standard) |
+| PAIN | Potential Agency Impact N-rating, N0–N5 (CR26 VER standard; N0 "exploitation extremely unlikely to have any adverse effects" added Oct 5, 2026) |
 | PIA | Privacy Impact Assessment |
 | P-ATO | Provisional Authorization to Operate |
 | POA&M | Plan of Action and Milestones (legacy Rev5 / agency construct; CR26 CSP-side equivalent is the Accepted Vulnerability list in each OCR) |
