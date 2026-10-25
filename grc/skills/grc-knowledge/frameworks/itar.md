@@ -93,7 +93,7 @@ Sending, taking, or **storing** technical data is **not an export/reexport/retra
 
 ## §126.1 Proscribed Countries
 
-- **Table 1 (policy of denial):** Belarus, Burma, China, Cuba, Iran, North Korea, Syria, Venezuela.
+- **Table 1 (policy of denial):** Belarus, Burma, China, Cuba, Iran, North Korea, Venezuela. (**Syria removed Oct 1, 2026.**)
 - **Table 2 (denial with carve-outs):** Afghanistan, CAR, Cyprus, DR Congo, Eritrea, Ethiopia, Haiti, Iraq, Lebanon, Libya, Nicaragua, **Russia**, Somalia, South Sudan, Sudan, Zimbabwe. (**Cambodia removed Nov 7, 2025.**)
 - Exemptions are generally unavailable for §126.1 destinations, and §126.1(e)(2) imposes an affirmative **duty to notify DDTC immediately** of any proposed or actual transfer involving one.
 
